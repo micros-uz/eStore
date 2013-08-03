@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Catalog</h2>
+
+@foreach (var item in @Model)
+{
+    <li>@Html.ActionLink(item, "Browse")</li>
+}
