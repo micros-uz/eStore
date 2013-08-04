@@ -312,7 +312,13 @@
   <ItemGroup>
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\Store\Index.cshtml" />
-    <Content Include="Views\Home\dd.cshtml" />
+    <Content Include="Views\Store\Browse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eStore.Models\eStore.Models.csproj">
+      <Project>{c05c6bd8-ca43-4122-96c6-5972ef972594}</Project>
+      <Name>eStore.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
