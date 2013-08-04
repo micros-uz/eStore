@@ -29,6 +29,14 @@ namespace eStore.Controllers
             {
                 res = ex.ToString();
             }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                    res = "CLOSED  " + res;
+                }
+            }
 
             return res;
         }

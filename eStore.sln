@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Web", "eStore.Web\eStore.Web.csproj", "{663634F9-13C7-4137-90AE-F43BEF5515BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{37D8F018-8DD4-4022-8D19-306CF8022F8F}"
