@@ -1,6 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Web.Mvc;
-using System;
 
 namespace eStore.Controllers
 {
@@ -13,7 +13,7 @@ namespace eStore.Controllers
             var connectionString = new SqlConnectionStringBuilder
             {
                 DataSource = "058e3204-8872-4364-b041-a20f00dbd586.sqlserver.sequelizer.com",
-                InitialCatalog = "eStore",
+                InitialCatalog = "master",
                 UserID = "uqdvuhwlzvfhhjgs",
                 Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw",
             }.ConnectionString;
