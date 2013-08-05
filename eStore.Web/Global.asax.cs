@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eStore.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,8 @@ namespace eStore.Web
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
     }
 }
