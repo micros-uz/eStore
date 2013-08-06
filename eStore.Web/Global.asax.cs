@@ -27,9 +27,9 @@ namespace eStore.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
-            IoC.Current.Register<IController, HomeController>("Home");
-            IoC.Current.Register<IController, StoreController>("Store");
-            IoC.Current.Register<IController, SqlController>("Sql");
+            IoC.Current.Register<IController, HomeController>("home");
+            IoC.Current.Register<IController, StoreController>("store");
+            IoC.Current.Register<IController, SqlController>("sql");
 
             ServicesBootstrap.Init(IoC.Current);
         }

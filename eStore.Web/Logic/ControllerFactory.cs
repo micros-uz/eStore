@@ -11,7 +11,7 @@ namespace eStore.Logic
 
         IController IControllerFactory.CreateController(RequestContext requestContext, string controllerName)
         {
-            return IoC.Current.Get<IController>(controllerName);
+            return IoC.Current.Get<IController>(controllerName.ToLowerInvariant());
         }
 
         SessionStateBehavior IControllerFactory.GetControllerSessionBehavior(RequestContext requestContext, string controllerName)
