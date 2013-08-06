@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Dynamic;
 using System.Web.Mvc;
 using WebMatrix.Data;
+using System.Configuration;
 
 namespace eStore.Web.Areas.Admin.Controllers
 {
@@ -21,48 +22,24 @@ namespace eStore.Web.Areas.Admin.Controllers
             //model.DataBase = "Orygin";
             //model.Query = "select * from PluginMapping";
 
+            var uriString = ConfigurationManager.AppSettings["SQLSERVER_URI"];
+            var uri = new Uri(uriString);
+            var connectionString = new SqlConnectionStringBuilder
+            {
+                DataSource = uri.Host,
+                InitialCatalog = uri.AbsolutePath.Trim('/'),
+                UserID = uri.UserInfo.Split(':').First(),
+                Password = uri.UserInfo.Split(':').Last(),
+            }.ConnectionString;
+
             model.Server = "058e3204-8872-4364-b041-a20f00dbd586.sqlserver.sequelizer.com";
             model.DataBase = "db058e320488724364b041a20f00dbd586";
             model.User = "uqdvuhwlzvfhhjgs";
             model.Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw";
             model.Query = "";
+            model.Result = connectionString;
 
             return View(model);
-        }
-
-        public string CheckAppHarbor()
-        {
-            var res = "Res";
-
-            var connectionString = new SqlConnectionStringBuilder
-            {
-                DataSource = "058e3204-8872-4364-b041-a20f00dbd586.sqlserver.sequelizer.com",
-                InitialCatalog = "master",
-                UserID = "uqdvuhwlzvfhhjgs",
-                Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw",
-            }.ConnectionString;
-            //Server=058e3204-8872-4364-b041-a20f00dbd586.sqlserver.sequelizer.com;Database=db058e320488724364b041a20f00dbd586;User ID=uqdvuhwlzvfhhjgs;Password=8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw;
-            var conn = new SqlConnection(connectionString);
-
-            try
-            {
-                conn.Open();
-                res = conn.ToString();
-            }
-            catch (Exception ex)
-            {
-                res = ex.ToString();
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close();
-                    res = "CLOSED  " + res;
-                }
-            }
-
-            return res;
         }
 
         [HttpPost]
