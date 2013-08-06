@@ -14,31 +14,19 @@ namespace eStore.Web.Areas.Admin.Controllers
     {
         public ActionResult Index(ExecSqlModel model)
         {
-            //model.User = "sa";
-            //model.Password = "dev1234";
-            //model.Server = ".";
-            //model.DataBase = "Orygin";
-            //model.Query = "select * from PluginMapping";
+            var connStr = ConfigurationManager.ConnectionStrings["ESTORE_DB_SERVER"];
 
-            var uriString = ConfigurationManager.AppSettings["SQLSERVER_URI"];
-            var uri = new Uri(uriString);
-            var connectionString = new SqlConnectionStringBuilder
+            if (connStr != null)
             {
-                DataSource = uri.Host,
-                InitialCatalog = uri.AbsolutePath.Trim('/'),
-                UserID = uri.UserInfo.Split(':').First(),
-                Password = uri.UserInfo.Split(':').Last(),
-            }.ConnectionString;
+                var uriString = connStr.ConnectionString;
+                var uri = new Uri(uriString);
 
-            model.Server = "058e3204-8872-4364-b041-a20f00dbd586.sqlserver.sequelizer.com";
-            model.DataBase = "db058e320488724364b041a20f00dbd586";
-            model.User = "uqdvuhwlzvfhhjgs";
-            model.Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw";
-            model.Query = ConfigurationManager.ConnectionStrings.Count > 1
-                ? ConfigurationManager.ConnectionStrings[1].ConnectionString
-                : ConfigurationManager.ConnectionStrings[0].ConnectionString;
-
-            model.Result = connectionString + ConfigurationManager.ConnectionStrings["ESTORE_DB_SERVER"];
+                model.Server = uri.Host.Equals("local") ? "(local)" : uri.Host;
+                model.DataBase = uri.AbsolutePath.Trim('/');
+                model.User = uri.UserInfo.Split(':').First();
+                model.Password = uri.UserInfo.Split(':').Last();
+                model.Query = string.Empty;
+            }
 
             return View(model);
         }

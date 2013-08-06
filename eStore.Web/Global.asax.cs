@@ -7,6 +7,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using eStore.Interfaces.IoC;
+using eStore.Web.Controllers;
+using eStore.Web.Areas.Admin.Controllers;
+using eStore.Services;
 
 namespace eStore.Web
 {
@@ -23,6 +27,11 @@ namespace eStore.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
+            IoC.Current.Register<IController, HomeController>("Home");
+            IoC.Current.Register<IController, StoreController>("Store");
+            IoC.Current.Register<IController, SqlController>("Sql");
+
+            ServicesBootstrap.Init(IoC.Current);
         }
     }
 }
