@@ -1,0 +1,70 @@
+﻿@model eStore.Web.Areas.Admin.ViewModels.ExecSqlModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#Server').focus();
+    });
+</script>
+
+@using (@Html.BeginForm("Exec", "Sql", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>Exec SQL Query</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Server)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Server)
+                @Html.ValidationMessageFor(m => m.Server)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.DataBase)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.DataBase)
+                @Html.ValidationMessageFor(m => m.DataBase)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.User)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.User)
+                @Html.ValidationMessageFor(m => m.User)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Query)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Query, new { cols = 90, rows = 3 })
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Result)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Result, new { cols = 90, rows = 4 })
+            </div>
+
+            <p>
+                <input type="submit" value="Go" />
+            </p>
+        </fieldset>
+    </div>
+}

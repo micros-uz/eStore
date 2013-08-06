@@ -1,4 +1,5 @@
-﻿using eStore.Web.Controllers;
+﻿using eStore.Web.Areas.Admin.Controllers;
+using eStore.Web.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,10 @@ namespace eStore.Logic
                     break;
                 case "Store":
                     res = new StoreController();
-                    break;                    
+                    break;  
+                case "Sql":
+                    res = new SqlController();
+                    break;
             }
 
             return res;
