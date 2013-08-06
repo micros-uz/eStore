@@ -3,22 +3,22 @@
 @{
     ViewBag.Title = "Exec";
     WebGrid grid = new WebGrid();
-    grid.Bind(Model.Data);
-    var Columns = Model.Columns.Select(x => grid.Column(x));
-    Columns.ToList()[0].Header = Model.Headers.ToList()[0];
+    if (Model.Data != null)
+    {
+        grid.Bind(Model.Data);
+    }
 }
 
 <h2>Exec</h2>
 
-@grid.GetHtml(
-                fillEmptyRows: true,
-                alternatingRowStyle: "alternate-row",
-                headerStyle: "grid-header",
-                footerStyle: "grid-footer",
-                mode: WebGridPagerModes.All,
-                firstText: "<< First",
-                previousText: "< Prev",
-                nextText: "Next >",
-                lastText: "Last >>",
-                columns: Columns)
-}
+
+@grid.GetHtml(fillEmptyRows: true,
+            alternatingRowStyle: "alternate-row",
+            headerStyle: "grid-header",
+            footerStyle: "grid-footer",
+            mode: WebGridPagerModes.All,
+            firstText: "<< First",
+            previousText: "< Prev",
+            nextText: "Next >",
+            lastText: "Last >>")
+
