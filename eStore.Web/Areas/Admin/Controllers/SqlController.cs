@@ -38,7 +38,7 @@ namespace eStore.Web.Areas.Admin.Controllers
                 ? ConfigurationManager.ConnectionStrings[1]
                 : ConfigurationManager.ConnectionStrings[0];
 
-            model.Result = connectionString;
+            model.Result = connectionString + ConfigurationManager.ConnectionStrings["ESTORE_DB_SERVER"];
 
             return View(model);
         }
