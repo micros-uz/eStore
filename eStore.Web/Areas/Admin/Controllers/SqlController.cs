@@ -35,8 +35,8 @@ namespace eStore.Web.Areas.Admin.Controllers
             model.User = "uqdvuhwlzvfhhjgs";
             model.Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw";
             model.Query = ConfigurationManager.ConnectionStrings.Count > 1
-                ? ConfigurationManager.ConnectionStrings[1]
-                : ConfigurationManager.ConnectionStrings[0];
+                ? ConfigurationManager.ConnectionStrings[1].ConnectionString
+                : ConfigurationManager.ConnectionStrings[0].ConnectionString;
 
             model.Result = connectionString + ConfigurationManager.ConnectionStrings["ESTORE_DB_SERVER"];
 
