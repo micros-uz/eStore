@@ -1,14 +1,12 @@
-﻿using eStore.Web.Areas.Admin.ViewModels;
-using System;
-using System.Linq;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
+using System.Linq;
 using System.Web.Mvc;
-using WebMatrix.Data;
-using System.Configuration;
+using eStore.Web.Areas.Admin.ViewModels;
 
 namespace eStore.Web.Areas.Admin.Controllers
 {
@@ -36,7 +34,10 @@ namespace eStore.Web.Areas.Admin.Controllers
             model.DataBase = "db058e320488724364b041a20f00dbd586";
             model.User = "uqdvuhwlzvfhhjgs";
             model.Password = "8yqBAvd7s6kWPwGnjznFapt6NedrV4iZaf3WoDrBKjEZfgUEsahZiSRSesVwrUjw";
-            model.Query = "";
+            model.Query = ConfigurationManager.ConnectionStrings.Count > 1
+                ? ConfigurationManager.ConnectionStrings[1]
+                : ConfigurationManager.ConnectionStrings[0];
+
             model.Result = connectionString;
 
             return View(model);
@@ -92,7 +93,7 @@ namespace eStore.Web.Areas.Admin.Controllers
                     res.Data = new List<dynamic>() { obj };
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 model.Result = ex.Message;
                 return RedirectToAction("Index", model);
