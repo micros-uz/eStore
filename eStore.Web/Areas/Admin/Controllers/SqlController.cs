@@ -18,29 +18,13 @@ namespace eStore.Web.Areas.Admin.Controllers
 
             if (connStr != null)
             {
-                var uriString = connStr.ConnectionString;
+                var bld = new SqlConnectionStringBuilder(connStr.ConnectionString);
 
-
-                try
-                {
-                    var uri = new Uri(uriString);
-
-                    model.Server = uri.Host.Equals("local") ? "(local)" : uri.Host;
-                    model.DataBase = uri.AbsolutePath.Trim('/');
-                    model.User = uri.UserInfo.Split(':').First();
-                    model.Password = uri.UserInfo.Split(':').Last();
-                    model.Query = string.Empty;
-                }
-                catch (ArgumentNullException ex)
-                {
-                    model.Query = uriString;
-                    model.Result = ex.Message;
-                }
-                catch (UriFormatException ex)
-                {
-                    model.Query = uriString;
-                    model.Result = ex.Message;
-                }
+                model.Server = bld.DataSource;
+                model.DataBase = bld.InitialCatalog;
+                model.User = bld.UserID;
+                model.Password = bld.Password;
+                model.Query = string.Empty;
             }
 
             return View(model);
