@@ -278,6 +278,7 @@ namespace eStore.Web
                     action = "Index",
                     id = UrlParameter.Optional
                 }
+                //,namespaces: new[] { "eStore.Web.Controllers"}
             );
         }
     }

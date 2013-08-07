@@ -17,7 +17,12 @@ namespace eStore.Web.Areas.Admin
             context.MapRouteLowercase(
                 "Admin_default",
                 "admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new
+                {
+                    action = "Index",
+                    id = UrlParameter.Optional
+                }
+                //,new[] { "eStore.Web.Areas.Admin.Controllers" }
             );
         }
     }

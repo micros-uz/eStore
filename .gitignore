@@ -2,6 +2,7 @@
 /eStore.Models/obj
 /eStore.Web/bin
 /eStore.Web/obj
+/eStore.Web/*.user
 /eStore.Interfaces/bin
 /eStore.Interfaces/obj
 /eStore.Services/bin
@@ -47,7 +48,5 @@
 /packages/WebGrease.1.5.2
 /packages/repositories.config
 /*.suo
-/*.gitignore
-
 /packages/CommonServiceLocator.1.0
 /packages/Unity.2.1.505.2
