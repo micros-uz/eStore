@@ -72,7 +72,7 @@ namespace eStore.Web.Areas.Admin.Controllers
                         res.Data = result;
                     }
                 }
-                else if (reader.RecordsAffected > -1)
+                else //if (reader.RecordsAffected > -1)
                 {
                     var obj = (IDictionary<string, object>)new ExpandoObject();
                     obj.Add("Row(s) affected", reader.RecordsAffected);

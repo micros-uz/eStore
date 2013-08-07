@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace eStore.Interfaces.Repositories
 {
-    internal class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private IDbContext _Context;
 
-        internal GenericRepository(IDbContext context)
+        public GenericRepository(IDbContext context)
         {
             _Context = context;
         }
@@ -16,6 +19,11 @@ namespace eStore.Interfaces.Repositories
         public IEnumerable<T> GetAll()
         {
             return _Context.All<T>();
+        }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            return _Context.All<T>().Where(predicate);
         }
 
         #endregion

@@ -27,8 +27,10 @@ namespace eStore.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Browse(string title)
+        public ActionResult Browse(int genreId)
         {
+            _Service.GetBooksByGenre(genreId);
+
             return View();
         }
     }

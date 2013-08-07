@@ -11,14 +11,19 @@
 
 <h2>Exec</h2>
 
-
-@grid.GetHtml(fillEmptyRows: true,
-            alternatingRowStyle: "alternate-row",
-            headerStyle: "grid-header",
-            footerStyle: "grid-footer",
-            mode: WebGridPagerModes.All,
-            firstText: "<< First",
-            previousText: "< Prev",
-            nextText: "Next >",
-            lastText: "Last >>")
-
+@if (Model.Data != null)
+{
+    @grid.GetHtml(fillEmptyRows: true,
+                alternatingRowStyle: "alternate-row",
+                headerStyle: "grid-header",
+                footerStyle: "grid-footer",
+                mode: WebGridPagerModes.All,
+                firstText: "<< First",
+                previousText: "< Prev",
+                nextText: "Next >",
+                lastText: "Last >>")
+}
+else
+{
+    <text>Result is 0 and no exceptions</text>
+}

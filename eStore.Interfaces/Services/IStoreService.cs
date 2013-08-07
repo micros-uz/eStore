@@ -6,5 +6,7 @@ namespace eStore.Interfaces.Services
     public interface IStoreService
     {
         IEnumerable<Genre> GetGenres();
+
+        IEnumerable<Genre> GetBooksByGenre(int genreId);
     }
 }

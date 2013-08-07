@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
@@ -48,6 +49,8 @@
   <ItemGroup>
     <Compile Include="EStoreDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenreRepository.cs" />
+    <Compile Include="SimpleDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -57,6 +60,10 @@
     <ProjectReference Include="..\eStore.Interfaces\eStore.Interfaces.csproj">
       <Project>{C496E103-5413-4298-B4E5-D317EF6C2448}</Project>
       <Name>eStore.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eStore.Models\eStore.Models.csproj">
+      <Project>{C05C6BD8-CA43-4122-96C6-5972EF972594}</Project>
+      <Name>eStore.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
