@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="IoC\IIoC.cs" />
     <Compile Include="IoC\IoC.cs" />
+    <Compile Include="IoC\IoCException.cs" />
     <Compile Include="IoC\NinjectIoC.cs" />
     <Compile Include="IoC\UnityIoC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

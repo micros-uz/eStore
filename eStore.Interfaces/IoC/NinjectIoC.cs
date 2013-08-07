@@ -25,12 +25,26 @@ namespace eStore.Interfaces.IoC
 
         T IIoC.Get<T>()
         {
-            return _Kernel.Get<T>();
+            try
+            {
+                return _Kernel.Get<T>();
+            }
+            catch (ActivationException ex)
+            {
+                throw new IoCException(ex.Message);
+            }
         }
 
         T IIoC.Get<T>(string name)
         {
-            return _Kernel.Get<T>(name);
+            try
+            {
+                return _Kernel.Get<T>(name);
+            }
+            catch (ActivationException ex)
+            {
+                throw new IoCException(ex.Message);
+            }
         }
 
         #endregion
