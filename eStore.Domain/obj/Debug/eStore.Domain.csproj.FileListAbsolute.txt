@@ -2,3 +2,7 @@ g:\Projects\Git\eStore\eStore.Models\bin\Debug\eStore.Models.dll
 g:\Projects\Git\eStore\eStore.Models\bin\Debug\eStore.Models.pdb
 g:\Projects\Git\eStore\eStore.Models\obj\Debug\eStore.Models.dll
 g:\Projects\Git\eStore\eStore.Models\obj\Debug\eStore.Models.pdb
+G:\Projects\Git\eStore\eStore.Domain\bin\Debug\eStore.Domain.dll
+G:\Projects\Git\eStore\eStore.Domain\bin\Debug\eStore.Domain.pdb
+G:\Projects\Git\eStore\eStore.Domain\obj\Debug\eStore.Domain.dll
+G:\Projects\Git\eStore\eStore.Domain\obj\Debug\eStore.Domain.pdb

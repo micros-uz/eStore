@@ -334,9 +334,9 @@
       <Project>{c05c6bd8-ca43-4122-96c6-5972ef972594}</Project>
       <Name>eStore.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\eStore.Services\eStore.Services.csproj">
+    <ProjectReference Include="..\eStore.Services\eStore.Core.csproj">
       <Project>{70791ce4-c21a-4b06-ae6a-52b7e0aa2503}</Project>
-      <Name>eStore.Services</Name>
+      <Name>eStore.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

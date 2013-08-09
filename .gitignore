@@ -1,12 +1,12 @@
-/eStore.Models/bin
-/eStore.Models/obj
+/eStore.Domain/bin
+/eStore.Domain/obj
 /eStore.Web/bin
 /eStore.Web/obj
 /eStore.Web/*.user
 /eStore.Interfaces/bin
 /eStore.Interfaces/obj
-/eStore.Services/bin
-/eStore.Services/obj
+/eStore.Core/bin
+/eStore.Core/obj
 /eStore.DataAccess/bin
 /eStore.DataAccess/obj
 /packages/Ninject.3.0.1.10/

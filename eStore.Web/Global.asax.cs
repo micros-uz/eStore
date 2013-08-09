@@ -10,7 +10,7 @@ using System.Web.Routing;
 using eStore.Interfaces.IoC;
 using eStore.Web.Controllers;
 using eStore.Web.Areas.Admin.Controllers;
-using eStore.Services;
+using eStore.Core;
 
 namespace eStore.Web
 {

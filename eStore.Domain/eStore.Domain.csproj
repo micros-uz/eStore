@@ -7,8 +7,8 @@
     <ProjectGuid>{C05C6BD8-CA43-4122-96C6-5972EF972594}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eStore.Models</RootNamespace>
-    <AssemblyName>eStore.Models</AssemblyName>
+    <RootNamespace>eStore.Domain</RootNamespace>
+    <AssemblyName>eStore.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
