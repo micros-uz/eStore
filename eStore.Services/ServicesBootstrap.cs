@@ -1,4 +1,5 @@
-﻿using eStore.Interfaces.IoC;
+﻿using eStore.DataAccess;
+using eStore.Interfaces.IoC;
 using eStore.Interfaces.Services;
 
 namespace eStore.Services
@@ -7,6 +8,8 @@ namespace eStore.Services
     {
         public static void Init(IIoC ioc)
         {
+            DataAccessBootStrap.Init(ioc);
+
             ioc.Register<IStoreService, StoreService>();
         }
     }

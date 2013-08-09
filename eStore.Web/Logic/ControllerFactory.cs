@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using System.Web.SessionState;
 using eStore.Interfaces.IoC;
+using System.Web;
 
 namespace eStore.Logic
 {
@@ -19,7 +20,7 @@ namespace eStore.Logic
             }
             catch(IoCException)
             {
-                
+                throw new HttpException(404, "The resource could not be found");
             }
 
             return res;

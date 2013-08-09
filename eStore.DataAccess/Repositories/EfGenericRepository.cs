@@ -1,32 +1,32 @@
-﻿using System;
+﻿using eStore.Interfaces.Repositories;
+using eStore.Models;
+using System;
 using System.Linq;
 using System.Collections.Generic;
-using eStore.Interfaces.Repositories;
-using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
-using eStore.Models;
+using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace eStore.DataAccess.Repositories
 {
-    public class GenreRepository : GenericRepository<Genre>, IGenreRepository
+    public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
-        public GenreRepository(IDbContext context) : base(context)
-        {
+        private readonly IDbSet<T> _dbSet;
 
+        public EfGenericRepository(IDbSet<T> dbSet)
+        {
+            _dbSet = dbSet;
         }
 
-        public GenreRepository()
-            : base(new SimpleDbContext())
+        #region IGenericRepository<T>
+
+        public IEnumerable<T> GetAll()
         {
+            //return _dbSet;
 
-        }
-
-
-        #region IGenericRepository<eStore.Models.Genre>
-
-        public IEnumerable<Genre> GetAll()
-        {
             var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
             var conn = new SqlConnection(connStr.ConnectionString);
             DataTable t = null;
@@ -39,9 +39,9 @@ namespace eStore.DataAccess.Repositories
                 t = new DataTable();
                 t.Load(rd);
             }
-            catch(SqlException)
+            catch (SqlException)
             {
-            
+
             }
             finally
             {
@@ -52,11 +52,16 @@ namespace eStore.DataAccess.Repositories
             }
 
             return t.Select().Select(x => new Genre
-                {
-                    GenreId = x.Field<int>("GenreId"),
-                    Title = x.Field<string>("Title"),
-                    Description = x.Field<string>("Description")
-                });
+            {
+                GenreId = x.Field<int>("GenreId"),
+                Title = x.Field<string>("Title"),
+                Description = x.Field<string>("Description")
+            }).OfType<T>();
+        }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.Where(predicate);
         }
 
         #endregion

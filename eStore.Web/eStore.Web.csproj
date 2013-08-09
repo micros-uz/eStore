@@ -335,7 +335,7 @@
       <Name>eStore.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\eStore.Services\eStore.Services.csproj">
-      <Project>{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}</Project>
+      <Project>{70791ce4-c21a-4b06-ae6a-52b7e0aa2503}</Project>
       <Name>eStore.Services</Name>
     </ProjectReference>
   </ItemGroup>

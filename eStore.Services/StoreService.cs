@@ -8,6 +8,12 @@ namespace eStore.Services
 {
     public class StoreService : IStoreService
     {
+        private IUnitOfWork _uow;
+        public StoreService(IUnitOfWork uow)
+        {
+            _uow = uow;
+        }
+
         #region IStoreService
 
         IEnumerable<Genre> IStoreService.GetGenres()
@@ -19,18 +25,14 @@ namespace eStore.Services
                 new Genre(){Title = "Novells"}
             };
 
-            var rpstr = new GenreRepository();
-
-            list = rpstr.GetAll();
+            list = _uow.GenreRepository.GetAll();
 
             return list;
         }
 
         IEnumerable<Genre> IStoreService.GetBooksByGenre(int genreId)
         {
-            IGenreRepository rpstr = new GenreRepository();
-
-            return rpstr.Find(x => x.GenreId == genreId);
+            return null;//_genreRpstr.Find(x => x.GenreId == genreId);
         }
 
         #endregion
