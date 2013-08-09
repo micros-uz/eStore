@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Interfaces", "eStore
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.DataAccess", "eStore.DataAccess\eStore.DataAccess.csproj", "{FCA629D6-C866-4F8F-84F8-B238B25CC024}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Core", "eStore.Services\eStore.Core.csproj", "{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Core", "eStore.Core\eStore.Core.csproj", "{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using eStore.Interfaces.IoC;
 using eStore.Interfaces.Services;
 
-namespace eStore.Services
+namespace eStore.Core
 {
     public static class ServicesBootstrap
     {

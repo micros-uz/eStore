@@ -326,6 +326,10 @@
     <Content Include="Views\Store\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">
+      <Project>{70791ce4-c21a-4b06-ae6a-52b7e0aa2503}</Project>
+      <Name>eStore.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\eStore.Interfaces\eStore.Interfaces.csproj">
       <Project>{C496E103-5413-4298-B4E5-D317EF6C2448}</Project>
       <Name>eStore.Interfaces</Name>
@@ -333,10 +337,6 @@
     <ProjectReference Include="..\eStore.Domain\eStore.Domain.csproj">
       <Project>{c05c6bd8-ca43-4122-96c6-5972ef972594}</Project>
       <Name>eStore.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\eStore.Services\eStore.Core.csproj">
-      <Project>{70791ce4-c21a-4b06-ae6a-52b7e0aa2503}</Project>
-      <Name>eStore.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

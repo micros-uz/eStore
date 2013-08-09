@@ -4,7 +4,7 @@ using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
 using eStore.Domain;
 
-namespace eStore.Services
+namespace eStore.Core
 {
     public class StoreService : IStoreService
     {
