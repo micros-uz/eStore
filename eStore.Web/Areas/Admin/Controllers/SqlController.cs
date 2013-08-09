@@ -14,7 +14,7 @@ namespace eStore.Web.Areas.Admin.Controllers
     {
         public ActionResult Index(ExecSqlModel model)
         {
-            var connStr = ConfigurationManager.ConnectionStrings["ESTORE_DB_SERVER"];
+            var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
 
             if (connStr != null)
             {

@@ -1,5 +1,5 @@
 ﻿using eStore.Interfaces.Repositories;
-using eStore.Models;
+using eStore.Domain;
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace eStore.DataAccess.Repositories
+namespace eStore.DataAccess.Repositories.Ef
 {
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {

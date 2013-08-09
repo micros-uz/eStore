@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eStore.Models
+namespace eStore.Domain
 {
     public class Genre
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using eStore.Interfaces.Services;
-using eStore.Models;
+using eStore.Domain;
 
 namespace eStore.Web.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace eStore.Models
+﻿namespace eStore.Domain
 {
     public class Author
     {

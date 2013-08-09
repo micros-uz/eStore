@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Web", "eStore.Web\eStore.Web.csproj", "{663634F9-13C7-4137-90AE-F43BEF5515BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{37D8F018-8DD4-4022-8D19-306CF8022F8F}"
@@ -10,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{37D8F0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Models", "eStore.Models\eStore.Models.csproj", "{C05C6BD8-CA43-4122-96C6-5972EF972594}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Domain", "eStore.Domain\eStore.Domain.csproj", "{C05C6BD8-CA43-4122-96C6-5972EF972594}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Interfaces", "eStore.Interfaces\eStore.Interfaces.csproj", "{C496E103-5413-4298-B4E5-D317EF6C2448}"
 EndProject

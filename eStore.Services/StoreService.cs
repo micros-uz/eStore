@@ -2,7 +2,7 @@
 using eStore.DataAccess.Repositories;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
-using eStore.Models;
+using eStore.Domain;
 
 namespace eStore.Services
 {

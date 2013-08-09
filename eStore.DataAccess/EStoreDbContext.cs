@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using eStore.Interfaces.Repositories;
-using eStore.Models;
+using eStore.Domain;
 using System.Configuration;
 
 namespace eStore.DataAccess

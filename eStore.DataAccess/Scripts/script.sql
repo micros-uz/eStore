@@ -32,3 +32,26 @@ CREATE TABLE [dbo].[Books] (
     [Price] float NOT NULL
 );
 GO
+
+/* DATA */
+
+set IDENTITY_INSERT [dbo].[Genres] ON
+GO
+insert into [dbo].[Genres] ([GenreId], [Title]) values (1, 'Poetry')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (2, 'Arts & Design')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (3, 'History')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (4, 'Philosofy')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (5, 'Science & Technology')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (6, 'Kid''s reading')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (7, 'Fiction')
+go
+insert into [dbo].[Genres] ([GenreId], [Title]) values (8, 'Fantasy')
+go
+set IDENTITY_INSERT [dbo].[Genres] off
+GO

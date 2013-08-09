@@ -66,9 +66,9 @@
     <Compile Include="Services\IStoreService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eStore.Models\eStore.Models.csproj">
+    <ProjectReference Include="..\eStore.Domain\eStore.Domain.csproj">
       <Project>{C05C6BD8-CA43-4122-96C6-5972EF972594}</Project>
-      <Name>eStore.Models</Name>
+      <Name>eStore.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

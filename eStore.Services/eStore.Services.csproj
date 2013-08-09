@@ -52,9 +52,9 @@
       <Project>{C496E103-5413-4298-B4E5-D317EF6C2448}</Project>
       <Name>eStore.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\eStore.Models\eStore.Models.csproj">
+    <ProjectReference Include="..\eStore.Models\eStore.Domain.csproj">
       <Project>{C05C6BD8-CA43-4122-96C6-5972EF972594}</Project>
-      <Name>eStore.Models</Name>
+      <Name>eStore.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

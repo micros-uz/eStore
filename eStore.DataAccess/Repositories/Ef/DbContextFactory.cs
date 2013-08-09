@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 
-namespace eStore.DataAccess.Repositories
+namespace eStore.DataAccess.Repositories.Ef
 {
     internal class DbContextFactory : IDBContextFactory
     {

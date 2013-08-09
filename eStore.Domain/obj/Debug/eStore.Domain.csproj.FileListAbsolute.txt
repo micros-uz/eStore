@@ -1,0 +1,4 @@
+g:\Projects\Git\eStore\eStore.Models\bin\Debug\eStore.Models.dll
+g:\Projects\Git\eStore\eStore.Models\bin\Debug\eStore.Models.pdb
+g:\Projects\Git\eStore\eStore.Models\obj\Debug\eStore.Models.dll
+g:\Projects\Git\eStore\eStore.Models\obj\Debug\eStore.Models.pdb

@@ -1,11 +1,11 @@
 ﻿using eStore.Interfaces.Repositories;
-using eStore.Models;
+using eStore.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace eStore.DataAccess.Repositories
+namespace eStore.DataAccess.Repositories.Ef
 {
     internal class EfUnitOfWork : IUnitOfWork
     {

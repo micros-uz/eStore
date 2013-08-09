@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using eStore.Models;
+using eStore.Domain;
 
 namespace eStore.Interfaces.Services
 {
