@@ -49,8 +49,11 @@
   <ItemGroup>
     <Compile Include="DataAccessBootStrap.cs" />
     <Compile Include="EStoreDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
+    <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
     <Compile Include="Repositories\Ef\EfUnitOfWork.cs" />
     <Compile Include="Repositories\Ef\IDBContextFactory.cs" />

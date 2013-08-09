@@ -14,6 +14,8 @@ namespace eStore.DataAccess
         {
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
             ioc.Register<IDBContextFactory, DbContextFactory>();
+
+            OrmInitializer.Init();
         }
     }
 }

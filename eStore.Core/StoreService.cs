@@ -30,9 +30,9 @@ namespace eStore.Core
             return list;
         }
 
-        IEnumerable<Genre> IStoreService.GetBooksByGenre(int genreId)
+        IEnumerable<Book> IStoreService.GetBooksByGenre(int genreId)
         {
-            return null;//_genreRpstr.Find(x => x.GenreId == genreId);
+            return _uow.BooksRepository.Find(x => x.GenreId == genreId);
         }
 
         #endregion

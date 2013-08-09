@@ -31,5 +31,23 @@
             get;
             set;
         }
+
+        public short Year
+        {
+            get;
+            set;
+        }
+
+        public short Pages
+        {
+            get;
+            set;
+        }
+
+        public string ISBN
+        {
+            get;
+            set;
+        }
     }
 }

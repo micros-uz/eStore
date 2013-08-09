@@ -55,7 +55,7 @@ namespace eStore.DataAccess.Repositories.Ef
             {
                 GenreId = x.Field<int>("GenreId"),
                 Title = x.Field<string>("Title"),
-                Description = x.Field<string>("Description")
+                Description = x.Field<string>("Desc")
             }).OfType<T>();
         }
 
