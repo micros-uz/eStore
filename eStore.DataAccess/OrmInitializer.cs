@@ -7,7 +7,7 @@ namespace eStore.DataAccess
     {
         public static void Init()
         {
-            Database.SetInitializer<EStoreDbContext>(new EfDatabaseInitializer());
+            Database.SetInitializer(new EfDatabaseInitializer());
         }
     }
 }

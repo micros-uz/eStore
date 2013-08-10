@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using eStore.Interfaces.Services;
 using eStore.Domain;
+using AutoMapper;
+using eStore.Web.ViewModels;
 
 namespace eStore.Web.Controllers
 {
@@ -16,14 +18,11 @@ namespace eStore.Web.Controllers
 
         public ActionResult Index()
         {
-            //var list = new List<Genre>()
-            //{
-            //    new Genre(){Title = "Romans"},
-            //    new Genre(){Title = "Fixions"},
-            //    new Genre(){Title = "Novells"}
-            //};
+            var genres = _Service.GetGenres();
+            Mapper.CreateMap<Genre, GenreModel>();
+            var genreModels = Mapper.Map<IEnumerable<Genre>,IEnumerable<GenreModel>>(genres);
 
-            return View(_Service.GetGenres());
+            return View(genreModels);
         }
 
         [HttpGet]

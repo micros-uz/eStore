@@ -50,3 +50,5 @@
 /*.suo
 /packages/CommonServiceLocator.1.0
 /packages/Unity.2.1.505.2
+
+/packages/AutoMapper.2.2.1

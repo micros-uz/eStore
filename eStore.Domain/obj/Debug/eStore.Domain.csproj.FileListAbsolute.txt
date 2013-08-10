@@ -6,3 +6,4 @@ G:\Projects\Git\eStore\eStore.Domain\bin\Debug\eStore.Domain.dll
 G:\Projects\Git\eStore\eStore.Domain\bin\Debug\eStore.Domain.pdb
 G:\Projects\Git\eStore\eStore.Domain\obj\Debug\eStore.Domain.dll
 G:\Projects\Git\eStore\eStore.Domain\obj\Debug\eStore.Domain.pdb
+g:\Projects\Git\eStore\eStore.Domain\obj\Debug\eStore.Domain.csprojResolveAssemblyReference.cache

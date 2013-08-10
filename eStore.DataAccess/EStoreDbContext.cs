@@ -7,7 +7,7 @@ namespace eStore.DataAccess
     internal class EStoreDbContext : DbContext
     {
         public EStoreDbContext()
-            : base(ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"].ConnectionString)
+            : this(ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"].ConnectionString)
         {
 
         }
@@ -15,22 +15,22 @@ namespace eStore.DataAccess
         public EStoreDbContext(string connStr)
             : base(connStr)
         {
-
+           // Database.Initialize(false);
         }
 
-        internal DbSet<Genre> Genres
+        public DbSet<Genre> Genres
         {
             get;
             set;
         }
 
-        internal DbSet<Book> Books
+        public DbSet<Book> Books
         {
             get;
             set;
         }
 
-        internal DbSet<Author> Authors
+        public DbSet<Author> Authors
         {
             get;
             set;

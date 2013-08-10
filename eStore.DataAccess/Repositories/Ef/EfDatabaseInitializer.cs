@@ -8,12 +8,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
         void IDatabaseInitializer<EStoreDbContext>.InitializeDatabase(EStoreDbContext context)
         {
-            if (context.Database.Exists())
-            {
-                context.Database.Delete();
-            }
 
-            context.Database.Create();
         }
 
         #endregion
