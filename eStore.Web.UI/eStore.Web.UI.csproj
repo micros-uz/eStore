@@ -189,6 +189,9 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Account\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Account\ViewModels\LogOnModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
@@ -196,6 +199,7 @@
     <Compile Include="Areas\Store\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SqlController.cs" />
     <Compile Include="Areas\Store\Controllers\StoreController.cs" />
+    <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -303,8 +307,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Store\Views\Home\About.cshtml" />
-    <Content Include="Areas\Store\Views\Home\Contact.cshtml" />
     <Content Include="Areas\Store\Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config">
@@ -326,9 +328,14 @@
     <Content Include="Areas\Admin\Views\Sql\Exec.cshtml" />
     <Content Include="Areas\Store\Views\Web.config" />
     <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Store\Views\Store\Details.cshtml" />
+    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Areas\Store\Views\Store\Index.cshtml" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

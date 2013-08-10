@@ -269,17 +269,16 @@ namespace eStore.Web.UI
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRouteLowercase(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new
-                {
-                    controller = "Home",
-                    action = "Index",
-                    id = UrlParameter.Optional
-                }
-                //,namespaces: new[] { "eStore.Web.Controllers"}
-            );
+            //routes.MapRouteLowercase(
+            //    name: "Default",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new
+            //    {
+            //        controller = "Home",
+            //        action = "Index",
+            //        id = UrlParameter.Optional
+            //    }
+            //);
         }
     }
 }

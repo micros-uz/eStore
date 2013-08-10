@@ -8,5 +8,7 @@ namespace eStore.Interfaces.Services
         IEnumerable<Genre> GetGenres();
 
         IEnumerable<Book> GetBooksByGenre(int genreId);
+
+        Book GetBookById(int id);
     }
 }

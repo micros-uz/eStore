@@ -1,0 +1,22 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <text>
+        Hello, <strong>@User.Identity.Name</strong>!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+        @if (User.Identity.Name.ToLower() == "admin")
+        {
+            @Html.ActionLink("Users", "Index", "User")
+        }
+    </text>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Log On", "LogOn", "Account", new {area = "Account" }, null)</li>
+        <li>@Html.ActionLink("Register", "Register", "Account", new { area = "Account" }, null)</li>
+    </ul>
+}

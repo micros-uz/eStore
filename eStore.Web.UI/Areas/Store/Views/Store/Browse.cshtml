@@ -24,14 +24,13 @@
             @Html.DisplayFor(modelItem => item.Author)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.ActionLink(item.Title, "Details", new { id=item.BookId})
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BookId}) |
             @Html.ActionLink("Delete", "Delete", new { id=item.BookId})
         </td>
     </tr>

@@ -6,6 +6,7 @@ using eStore.Interfaces.IoC;
 using eStore.Logic;
 using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Web.UI.Areas.Store.Controllers;
+using eStore.Web.UI.Areas.Account.Controllers;
 
 namespace eStore.Web.UI
 {
@@ -25,6 +26,7 @@ namespace eStore.Web.UI
             IoC.Current.Register<IController, HomeController>("home");
             IoC.Current.Register<IController, StoreController>("store");
             IoC.Current.Register<IController, SqlController>("sql");
+            IoC.Current.Register<IController, AccountController>("account");
 
             ServicesBootstrap.Init(IoC.Current);
         }

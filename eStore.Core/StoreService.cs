@@ -3,6 +3,7 @@ using eStore.DataAccess.Repositories;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
 using eStore.Domain;
+using System.Linq;
 
 namespace eStore.Core
 {
@@ -33,6 +34,11 @@ namespace eStore.Core
         IEnumerable<Book> IStoreService.GetBooksByGenre(int genreId)
         {
             return _uow.BooksRepository.Find(x => x.GenreId == genreId);
+        }
+
+        Book IStoreService.GetBookById(int bookId)
+        {
+            return _uow.BooksRepository.Find(x => x.BookId == bookId).FirstOrDefault();
         }
 
         #endregion

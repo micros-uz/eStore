@@ -6,16 +6,9 @@ namespace eStore.DataAccess
 {
     internal class EStoreDbContext : DbContext
     {
-        public EStoreDbContext()
-            : this(ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"].ConnectionString)
-        {
-
-        }
-
         public EStoreDbContext(string connStr)
             : base(connStr)
         {
-           // Database.Initialize(false);
         }
 
         public DbSet<Genre> Genres
@@ -35,5 +28,7 @@ namespace eStore.DataAccess
             get;
             set;
         }
+
+        public DbSet<Series> Series { get; set; }
     }
 }

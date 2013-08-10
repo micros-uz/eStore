@@ -36,5 +36,15 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             return View(bookModels);
         }
+
+        public ActionResult Details(int id)
+        {
+            var book = _Service.GetBookById(id);
+
+            Mapper.CreateMap<Book, BookFullModel>().ForMember(x => x.Author, x => x.MapFrom(w => w.Author.Name));
+            var bookModel = Mapper.Map<Book, BookFullModel>(book);
+
+            return View(bookModel);
+        }
     }
 }
