@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eStore.Web.ViewModels.GenreModel>
+﻿@model IEnumerable<eStore.Web.UI.ViewModels.GenreModel>
 
 @{
     ViewBag.Title = "Index";
@@ -8,5 +8,5 @@
 
 @foreach (var item in @Model)
 {
-    <li>@Html.ActionLink(item.Title, "Browse", new {genreId = item.GenreId})</li>
+    <li>@Html.ActionLink(item.Title, "Browse", new {id = item.Id})</li>
 }

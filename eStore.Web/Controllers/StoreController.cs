@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using eStore.Interfaces.Services;
-using eStore.Domain;
 using AutoMapper;
-using eStore.Web.ViewModels;
+using eStore.Domain;
+using eStore.Interfaces.Services;
+using eStore.Web.UI.ViewModels;
 
-namespace eStore.Web.Controllers
+namespace eStore.Web.UI.Controllers
 {
     public class StoreController : Controller
     {
@@ -20,15 +20,15 @@ namespace eStore.Web.Controllers
         {
             var genres = _Service.GetGenres();
             Mapper.CreateMap<Genre, GenreModel>();
-            var genreModels = Mapper.Map<IEnumerable<Genre>,IEnumerable<GenreModel>>(genres);
+            var genreModels = Mapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
 
             return View(genreModels);
         }
 
         [HttpGet]
-        public ActionResult Browse(int genreId)
+        public ActionResult Browse(int id)
         {
-            _Service.GetBooksByGenre(genreId);
+            _Service.GetBooksByGenre(id);
 
             return View();
         }

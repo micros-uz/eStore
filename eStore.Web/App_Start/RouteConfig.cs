@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace eStore.Web
+namespace eStore.Web.UI
 {
     /// <summary>
     /// Contains extension methods to map routes in Areas to lowercase URLs.

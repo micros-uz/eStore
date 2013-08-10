@@ -6,9 +6,9 @@ using System.Data.SqlClient;
 using System.Dynamic;
 using System.Linq;
 using System.Web.Mvc;
-using eStore.Web.Areas.Admin.ViewModels;
+using eStore.Web.UI.Areas.Admin.ViewModels;
 
-namespace eStore.Web.Areas.Admin.Controllers
+namespace eStore.Web.UI.Areas.Admin.Controllers
 {
     public class SqlController : Controller
     {

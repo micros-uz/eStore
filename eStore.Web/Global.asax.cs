@@ -8,11 +8,11 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using eStore.Interfaces.IoC;
-using eStore.Web.Controllers;
-using eStore.Web.Areas.Admin.Controllers;
+using eStore.Web.UI.Controllers;
+using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Core;
 
-namespace eStore.Web
+namespace eStore.Web.UI
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
