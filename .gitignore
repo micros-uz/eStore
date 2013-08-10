@@ -1,8 +1,8 @@
 /eStore.Domain/bin
 /eStore.Domain/obj
-/eStore.Web/bin
-/eStore.Web/obj
-/eStore.Web/*.user
+/eStore.Web.UI/bin
+/eStore.Web.UI/obj
+/eStore.Web.UI/*.user
 /eStore.Interfaces/bin
 /eStore.Interfaces/obj
 /eStore.Core/bin
