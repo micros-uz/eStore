@@ -52,3 +52,6 @@
 /packages/Unity.2.1.505.2
 
 /packages/AutoMapper.2.2.1
+/eStore.Domain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/eStore.Domain/obj/Debug/eStore.Domain.csproj.FileListAbsolute.txt
+/packages/AutoMapper.3.0.0-ci1037

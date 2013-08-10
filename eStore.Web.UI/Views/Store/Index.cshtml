@@ -8,5 +8,5 @@
 
 @foreach (var item in @Model)
 {
-    <li>@Html.ActionLink(item.Title, "Browse", new {id = item.Id})</li>
+    <li>@Html.ActionLink(item.Title, "Browse", new {id = item.GenreId})</li>
 }
