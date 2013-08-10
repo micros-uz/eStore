@@ -192,16 +192,17 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
+    <Compile Include="Areas\Store\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SqlController.cs" />
-    <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Areas\Store\Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logic\ControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BookModel.cs" />
-    <Compile Include="ViewModels\GenreModel.cs" />
+    <Compile Include="Areas\Store\ViewModels\BookModel.cs" />
+    <Compile Include="Areas\Store\ViewModels\GenreModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -302,9 +303,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Home\About.cshtml" />
+    <Content Include="Areas\Store\Views\Home\Contact.cshtml" />
+    <Content Include="Areas\Store\Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -312,7 +313,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -323,13 +323,12 @@
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\Sql\Index.cshtml" />
     <Content Include="Areas\Admin\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Web.config">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Areas\Admin\Views\Sql\Exec.cshtml" />
+    <Content Include="Areas\Store\Views\Web.config" />
+    <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
-    <Content Include="Views\Store\Index.cshtml" />
-    <Content Include="Views\Store\Browse.cshtml" />
+    <Content Include="Areas\Store\Views\Store\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

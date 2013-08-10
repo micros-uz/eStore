@@ -1,16 +1,11 @@
-﻿using eStore.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using eStore.Interfaces.IoC;
-using eStore.Web.UI.Controllers;
-using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Core;
+using eStore.Interfaces.IoC;
+using eStore.Logic;
+using eStore.Web.UI.Areas.Admin.Controllers;
+using eStore.Web.UI.Areas.Store.Controllers;
 
 namespace eStore.Web.UI
 {

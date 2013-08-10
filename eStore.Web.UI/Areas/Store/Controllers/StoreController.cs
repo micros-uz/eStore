@@ -1,20 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
-using EmitMapper;
+using AutoMapper;
 using eStore.Domain;
 using eStore.Interfaces.Services;
-using eStore.Web.UI.ViewModels;
-using EmitMapper.MappingConfiguration;
-using System;
-using System.Reflection;
-using System.Linq.Expressions;
-using EmitMapper.MappingConfiguration.MappingOperations;
-using EmitMapper.Utils;
-using System.Diagnostics;
-using AutoMapper;
+using eStore.Web.UI.Areas.Store.ViewModels;
 
-namespace eStore.Web.UI.Controllers
+namespace eStore.Web.UI.Areas.Store.Controllers
 {
     public class StoreController : Controller
     {

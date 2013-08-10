@@ -1,7 +1,4 @@
-﻿using eStore.Interfaces.Repositories;
-using eStore.Domain;
-using System;
-using System.Linq;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -9,6 +6,8 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using eStore.Domain;
+using eStore.Interfaces.Repositories;
 
 namespace eStore.DataAccess.Repositories.Ef
 {

@@ -1,4 +1,4 @@
-﻿namespace eStore.Web.UI.ViewModels
+﻿namespace eStore.Web.UI.Areas.Store.ViewModels
 {
     public class BookModel
     {

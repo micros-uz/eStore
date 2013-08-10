@@ -1,24 +1,25 @@
 ﻿using System.Web.Mvc;
 
-namespace eStore.Web.UI.Areas.Admin
+namespace eStore.Web.UI.Areas.Store
 {
-    public class AdminAreaRegistration : AreaRegistration
+    public class StoreAreaRegistration : AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "Admin";
+                return "Store";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRouteLowercase(
-                "Admin_default",
-                "admin/{controller}/{action}/{id}",
+                "Store_default",
+                "{controller}/{action}/{id}",
                 new
                 {
+                    controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
                 }
