@@ -5,6 +5,9 @@ namespace eStore.DataAccess
 {
     internal static class OrmInitializer
     {
+        /// <summary>
+        /// Initializes ORM (EF or NHibernate)
+        /// </summary>
         public static void Init()
         {
             Database.SetInitializer(new EfDatabaseInitializer());
