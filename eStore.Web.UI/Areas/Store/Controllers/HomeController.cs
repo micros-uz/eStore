@@ -2,6 +2,7 @@
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()

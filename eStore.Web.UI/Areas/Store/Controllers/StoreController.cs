@@ -7,6 +7,7 @@ using eStore.Web.UI.Areas.Store.ViewModels;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
+    [Authorize]
     public class StoreController : Controller
     {
         private IStoreService _Service;
