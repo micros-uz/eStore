@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2010
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Web.UI", "eStore.Web.UI\eStore.Web.UI.csproj", "{663634F9-13C7-4137-90AE-F43BEF5515BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{37D8F018-8DD4-4022-8D19-306CF8022F8F}"
@@ -17,6 +19,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.DataAccess", "eStore.DataAccess\eStore.DataAccess.csproj", "{FCA629D6-C866-4F8F-84F8-B238B25CC024}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Core", "eStore.Core\eStore.Core.csproj", "{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Web.Infrastructure", "eStore.Web.Infrastructure\eStore.Web.Infrastructure.csproj", "{9116E915-7DDA-4F8B-A121-E43317EB8BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Tests", "eStore.Tests\eStore.Tests.csproj", "{683829DF-FA01-4467-B3EE-628CA05DA848}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,14 @@ Global
 		{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70791CE4-C21A-4B06-AE6A-52B7E0AA2503}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9116E915-7DDA-4F8B-A121-E43317EB8BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9116E915-7DDA-4F8B-A121-E43317EB8BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9116E915-7DDA-4F8B-A121-E43317EB8BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9116E915-7DDA-4F8B-A121-E43317EB8BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683829DF-FA01-4467-B3EE-628CA05DA848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683829DF-FA01-4467-B3EE-628CA05DA848}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683829DF-FA01-4467-B3EE-628CA05DA848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683829DF-FA01-4467-B3EE-628CA05DA848}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ namespace eStore.Interfaces.IoC
         {
             get
             {
-                return _Current ?? (_Current = new NinjectIoC());
+                return _Current ?? (_Current = new UnityIoC());
             }
 
         }

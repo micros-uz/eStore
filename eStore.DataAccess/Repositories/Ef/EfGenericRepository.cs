@@ -24,8 +24,8 @@ namespace eStore.DataAccess.Repositories.Ef
 
         public IEnumerable<T> GetAll()
         {
-            //return _dbSet;
-
+            return _dbSet;
+            /*
             var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
             var conn = new SqlConnection(connStr.ConnectionString);
             DataTable t = null;
@@ -56,11 +56,17 @@ namespace eStore.DataAccess.Repositories.Ef
                 Title = x.Field<string>("Title"),
                 Description = x.Field<string>("Desc")
             }).OfType<T>();
+             * */
         }
 
         public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         {
             return _dbSet.Where(predicate);
+        }
+
+        void IGenericRepository<T>.Add(T entity)
+        {
+            _dbSet.Add(entity);
         }
 
         #endregion

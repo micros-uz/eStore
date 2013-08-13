@@ -15,6 +15,14 @@ IF OBJECT_ID(N'[dbo].[Series]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Series];
 GO
 
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
+
+IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Roles];
+GO
+
 CREATE TABLE [dbo].[Genres] (
     [GenreId] int IDENTITY(1,1) primary key nonclustered,
     [Title] nvarchar(30) NOT NULL unique nonclustered,
@@ -48,6 +56,23 @@ CREATE TABLE [dbo].[Books] (
     [Desc] nvarchar(max) NULL
 );
 GO
+
+CREATE TABLE [dbo].[Roles] (
+    [RoleId] int IDENTITY(1,1) primary key nonclustered,
+    [Name] nvarchar(15) NOT NULL unique nonclustered,
+    [Desc] nvarchar(max) NOT NULL,
+);
+GO
+
+CREATE TABLE [dbo].[Users] (
+    [UserId] int IDENTITY(1,1) primary key nonclustered,
+    [Name] nvarchar(10) NOT NULL unique nonclustered,
+    [Password] nvarchar(12) NOT NULL,
+	[Email] nvarchar(20) NULL,
+	[RoleId] int NOT NULL references [dbo].[Roles](RoleId)
+);
+GO
+
 
 /* DATA */
 
@@ -132,6 +157,23 @@ insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId],[Title], 
 values (7, 7, 9, 1, N'Язык программирования C#', 1188, 2011, 784, '978-5-459-00283-6',
 N'Перед вами — четвертое издание главной книги по языку C#, написанной легендой программирования — Андерсом Хейлсбергом, архитектором C#, Delphi и Turbo Pascal, совместно с другими специалистами, входившими в группу разработчиков C# компании Microsoft. Издание является наиболее полным описанием языка и самым авторитетным источником информации по этой теме, построенным в формате сборника спецификаций, включающих в себя описание синтаксиса, сопутствующие материалы и примеры, а также образцы кода. Эта книга — своего рода «библия» разработчика, которая с легкостью может заменить как MSDN, так и остальные книги по C#. Четвертое издание содержит описание новых особенностей C# 4.0, включая динамическое связывание, именованные и необязательные параметры, а также ковариантные и контравариантные обобщенные типы. Цель этих новшеств — расширение возможностей C# для взаимодействия с объектами, не относящимися к платформе .NET. Отличительная особенность нового издания также состоит в том, что каждая глава книги содержит обширные комментарии, написанные известными «гуру» программирования, такими как Джон Скит, Джозеф Альбахари, Билл Вагнер, Кристиан Нейгел, Эрик Липперт и др.')
 go
-
 set IDENTITY_INSERT [dbo].[Books] off
+go
+
+set IDENTITY_INSERT [dbo].[Roles] on
+go
+insert into [dbo].[Roles] ([RoleId], [Name], [Desc]) values (1, 'Administrators', 'Have full access')
+go
+insert into [dbo].[Roles] ([RoleId], [Name], [Desc]) values (2, 'Managers', 'Have full access to the store')
+go
+set IDENTITY_INSERT [dbo].[Roles] off
+go
+
+set IDENTITY_INSERT [dbo].[Users] on
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (1, 'admin', '123', 1)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (2, 'manager', '111', 2)
+go
+set IDENTITY_INSERT [dbo].[Users] off
 go

@@ -11,6 +11,8 @@ namespace eStore.DataAccess.Repositories.Ef
     {
         private IGenericRepository<Genre> _genreRpstr;
         private IGenericRepository<Book> _bookRpstr;
+        private IGenericRepository<User> _userRpstr;
+        private IGenericRepository<Role> _roleRpstr;
         private EStoreDbContext _context;
         private IDBContextFactory _factory;
 
@@ -39,6 +41,22 @@ namespace eStore.DataAccess.Repositories.Ef
             get
             {
                 return _bookRpstr ?? (_bookRpstr = new EfGenericRepository<Book>(Context.Books));
+            }
+        }
+
+        IGenericRepository<User> IUnitOfWork.UserRepository
+        {
+            get
+            {
+                return _userRpstr ?? (_userRpstr = new EfGenericRepository<User>(Context.Users));
+            }
+        }
+
+        IGenericRepository<Role> IUnitOfWork.RoleRepository
+        {
+            get
+            {
+                return _roleRpstr ?? (_roleRpstr = new EfGenericRepository<Role>(Context.Roles));
             }
         }
 

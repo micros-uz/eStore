@@ -7,6 +7,9 @@ using eStore.Logic;
 using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Web.UI.Areas.Store.Controllers;
 using eStore.Web.UI.Areas.Account.Controllers;
+using eStore.Web.Infrastructure;
+using AutoMapper;
+using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI
 {
@@ -28,7 +31,10 @@ namespace eStore.Web.UI
             IoC.Current.Register<IController, SqlController>("sql");
             IoC.Current.Register<IController, AccountController>("account");
 
-            ServicesBootstrap.Init(IoC.Current);
+            ServicesBootstraper.Init(IoC.Current);
+            WebInfraBootstrapper.Init(IoC.Current);
+
+            MapperConfiguration.Configure();
         }
     }
 }

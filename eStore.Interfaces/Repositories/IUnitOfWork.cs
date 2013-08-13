@@ -14,6 +14,16 @@ namespace eStore.Interfaces.Repositories
             get;
         }
 
+        IGenericRepository<User> UserRepository
+        {
+            get;
+        }
+
+        IGenericRepository<Role> RoleRepository
+        {
+            get;
+        }
+
         void Save();
     }
 }

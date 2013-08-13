@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using eStore.DataAccess.Repositories;
+﻿using eStore.Domain;
+using System.Linq;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
-using eStore.Domain;
-using System.Linq;
+using System.Collections.Generic;
 
-namespace eStore.Core
+namespace eStore.Core.Services
 {
-    public class StoreService : IStoreService
+    internal class StoreService : IStoreService
     {
         private IUnitOfWork _uow;
         public StoreService(IUnitOfWork uow)

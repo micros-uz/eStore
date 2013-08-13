@@ -8,7 +8,7 @@ using System.Text;
 
 namespace eStore.DataAccess
 {
-    public static class DataAccessBootStrap
+    public static class DataAccessBootstrapper
     {
         public static void Init(Interfaces.IoC.IIoC ioc)
         {

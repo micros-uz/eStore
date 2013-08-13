@@ -191,7 +191,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Account\ViewModels\BaseUserModel.cs" />
     <Compile Include="Areas\Account\ViewModels\LogOnModel.cs" />
+    <Compile Include="Areas\Account\ViewModels\RegisterModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
@@ -203,7 +205,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\AccountViewModelProfile.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
+    <Compile Include="Logic\MapperConfiguration.cs" />
+    <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreModel.cs" />
@@ -332,6 +337,7 @@
     <Content Include="Areas\Account\Views\Web.config" />
     <Content Include="Areas\Account\Views\Account\LogOn.cshtml" />
     <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Account\Views\Account\Register.cshtml" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Areas\Store\Views\Store\Index.cshtml" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
@@ -349,6 +355,10 @@
     <ProjectReference Include="..\eStore.Domain\eStore.Domain.csproj">
       <Project>{c05c6bd8-ca43-4122-96c6-5972ef972594}</Project>
       <Name>eStore.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\eStore.Web.Infrastructure\eStore.Web.Infrastructure.csproj">
+      <Project>{9116e915-7dda-4f8b-a121-e43317eb8bfc}</Project>
+      <Name>eStore.Web.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

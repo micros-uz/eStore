@@ -1,3 +1,7 @@
+/eStore.Web.Infrastructure/bin
+/eStore.Web.Infrastructure/obj
+/eStore.Tests/obj
+/eStore.Tests/bin
 /eStore.Domain/bin
 /eStore.Domain/obj
 /eStore.Web.UI/bin
