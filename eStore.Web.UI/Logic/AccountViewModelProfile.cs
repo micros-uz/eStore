@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using eStore.Domain;
+using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Account.ViewModels;
 
 namespace eStore.Web.UI.Logic
@@ -16,7 +17,7 @@ namespace eStore.Web.UI.Logic
 
         protected override void Configure()
         {
-            Mapper.CreateMap<RegisterModel, User>();
+            ObjectMapperConfigurator.CreateMap<RegisterModel, User>();
         }
     }
 }

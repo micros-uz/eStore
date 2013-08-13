@@ -208,6 +208,7 @@
     <Compile Include="Logic\AccountViewModelProfile.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
     <Compile Include="Logic\MapperConfiguration.cs" />
+    <Compile Include="Logic\ObjectMapperInitializer.cs" />
     <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModel.cs" />

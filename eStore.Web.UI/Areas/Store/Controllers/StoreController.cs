@@ -1,28 +1,32 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using AutoMapper;
+
 using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Store.ViewModels;
+using eStore.Web.Infrastructure.ObjectMapper;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
     [Authorize]
     public class StoreController : Controller
     {
-        private IStoreService _Service;
+        private readonly IStoreService _service;
+        private readonly IObjectMapper _objMapper;
 
-        public StoreController(IStoreService service)
+        public StoreController(IStoreService service, IObjectMapper objMapper)
         {
-            _Service = service;
+            _service = service;
+            _objMapper = objMapper;
         }
 
         [AllowAnonymous]
         public ActionResult Index()
         {
-            var genres = _Service.GetGenres();
+            var genres = _service.GetGenres();
 
-            var genreModels = Mapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
+            //var genreModels = Mapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
+            var genreModels = _objMapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
 
             return View(genreModels);
         }
@@ -31,8 +35,8 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         [HttpGet]
         public ActionResult Browse(int id)
         {
-            var books = _Service.GetBooksByGenre(id);
-            var bookModels = Mapper.Map<IEnumerable<Book>, IEnumerable<BookModel>>(books);
+            var books = _service.GetBooksByGenre(id);
+            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookModel>>(books);
 
             return View(bookModels);
         }
@@ -40,9 +44,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         [AllowAnonymous]
         public ActionResult Details(int id)
         {
-            var book = _Service.GetBookById(id);
+            var book = _service.GetBookById(id);
 
-            var bookModel = Mapper.Map<Book, BookFullModel>(book);
+            var bookModel = _objMapper.Map<Book, BookFullModel>(book);
 
             return View(bookModel);
         }

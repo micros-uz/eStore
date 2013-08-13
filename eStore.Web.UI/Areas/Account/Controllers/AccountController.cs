@@ -5,7 +5,7 @@ using eStore.Interfaces.Services;
 using eStore.Domain;
 using System;
 using System.Linq;
-using AutoMapper;
+using eStore.Web.Infrastructure.ObjectMapper;
 
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
@@ -14,12 +14,14 @@ namespace eStore.Web.UI.Areas.Account.Controllers
     {
         private readonly IAuthenticationService _authService;
         private readonly IUserService _userService;
+        private readonly IObjectMapper _objMapper;
 
         public AccountController(IAuthenticationService authService,
-            IUserService userService)
+            IUserService userService, IObjectMapper objMapper)
         {
             _authService = authService;
             _userService = userService;
+            _objMapper = objMapper;
         }
 
         [AllowAnonymous]
@@ -81,7 +83,7 @@ namespace eStore.Web.UI.Areas.Account.Controllers
             {
                 if (model.Password.Equals(model.PasswordConfirm))
                 {
-                    var user = Mapper.Map<RegisterModel, User>(model);
+                    var user = _objMapper.Map<RegisterModel, User>(model);
                     _userService.AddUser(user);
 
                     return RedirectToAction("LogOn");

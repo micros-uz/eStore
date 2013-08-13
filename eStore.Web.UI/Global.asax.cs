@@ -34,7 +34,8 @@ namespace eStore.Web.UI
             ServicesBootstraper.Init(IoC.Current);
             WebInfraBootstrapper.Init(IoC.Current);
 
-            MapperConfiguration.Configure();
+            //MapperConfiguration.Configure();
+            ObjectMapperInitializer.Init();
         }
     }
 }
