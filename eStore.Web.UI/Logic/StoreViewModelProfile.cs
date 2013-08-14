@@ -1,13 +1,14 @@
-﻿using AutoMapper;
-using eStore.Domain;
+﻿using eStore.Domain;
+using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Account.ViewModels;
 using eStore.Web.UI.Areas.Store.ViewModels;
+using System;
 
 namespace eStore.Web.UI.Logic
 {
-    public class StoreViewModelProfile : Profile
+    public class StoreViewModelProfile : IProfile
     {
-        public override string ProfileName
+        public string ProfileName
         {
             get
             {
@@ -15,11 +16,11 @@ namespace eStore.Web.UI.Logic
             }
         }
 
-        protected override void Configure()
+        public void Configure()
         {
-            Mapper.CreateMap<Genre, GenreModel>();
-            Mapper.CreateMap<Book, BookModel>().ForMember(x => x.Author, x => x.MapFrom(w => w.Author.Name));
-            Mapper.CreateMap<Book, BookFullModel>().ForMember(x => x.Author, x => x.MapFrom(w => w.Author.Name));
+            ObjectMapperConfigurator.CreateMap<Genre, GenreModel>();
+            ObjectMapperConfigurator.CreateMap<Book, BookModel, string>(x => x.Author, w => w.Author.Name);
+            ObjectMapperConfigurator.CreateMap<Book, BookFullModel, string>(x => x.Author, w => w.Author.Name);
         }
     }
 }

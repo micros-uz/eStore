@@ -1,13 +1,13 @@
-﻿using AutoMapper;
-using eStore.Domain;
+﻿using eStore.Domain;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Account.ViewModels;
+using System;
 
 namespace eStore.Web.UI.Logic
 {
-    public class AccountViewModelProfile : Profile
+    public class AccountViewModelProfile : IProfile
     {
-        public override string ProfileName
+        public string ProfileName
         {
             get
             {
@@ -15,7 +15,7 @@ namespace eStore.Web.UI.Logic
             }
         }
 
-        protected override void Configure()
+        public void Configure()
         {
             ObjectMapperConfigurator.CreateMap<RegisterModel, User>();
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eStore.Web.Infrastructure.ObjectMapper.Auto
+namespace eStore.Web.Infrastructure.ObjectMapper
 {
     public interface IProfile
     {
@@ -9,9 +9,6 @@ namespace eStore.Web.Infrastructure.ObjectMapper.Auto
             get;
         }
 
-        Action ConfigureAction
-        {
-            get;
-        }
+        void Configure();
     }
 }

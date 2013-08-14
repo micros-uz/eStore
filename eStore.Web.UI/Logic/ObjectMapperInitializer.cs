@@ -9,12 +9,7 @@ namespace eStore.Web.UI.Logic
     {
         public static void Init()
         {
-            ObjectMapperConfigurator.CreateMap<RegisterModel, User>();
-
-            ObjectMapperConfigurator.CreateMap<Genre, GenreModel>();
-            ObjectMapperConfigurator.CreateMap<Book, BookModel, string>(x => x.Author, w => w.Author.Name);
-            ObjectMapperConfigurator.CreateMap<Book, BookFullModel, string>(x => x.Author, w => w.Author.Name);
-
+            ObjectMapperConfigurator.Init(typeof(StoreViewModelProfile));
         }
     }
 }

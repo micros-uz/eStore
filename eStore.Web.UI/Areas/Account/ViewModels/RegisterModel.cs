@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using eStore.Domain;
+﻿using eStore.Domain;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
@@ -18,7 +17,6 @@ namespace eStore.Web.UI.Areas.Account.ViewModels
         [RegularExpression("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$", ErrorMessage = "Must be a valid email")]
         public string Email { get; set; }
 
-        [IgnoreMap]
         public IEnumerable<Role> Roles { get; set; }
         
     }

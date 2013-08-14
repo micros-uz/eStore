@@ -8,7 +8,6 @@ using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Web.UI.Areas.Store.Controllers;
 using eStore.Web.UI.Areas.Account.Controllers;
 using eStore.Web.Infrastructure;
-using AutoMapper;
 using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI

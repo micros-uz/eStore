@@ -46,12 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper">
-      <HintPath>..\packages\AutoMapper.3.0.0-ci1037\lib\net40\AutoMapper.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper.Net4">
-      <HintPath>..\packages\AutoMapper.3.0.0-ci1037\lib\net40\AutoMapper.Net4.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Mvc">
       <HintPath>..\packages\Mvc4Futures.4.0.20710.0\lib\net40\Microsoft.Web.Mvc.dll</HintPath>
@@ -207,7 +201,6 @@
     </Compile>
     <Compile Include="Logic\AccountViewModelProfile.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
-    <Compile Include="Logic\MapperConfiguration.cs" />
     <Compile Include="Logic\ObjectMapperInitializer.cs" />
     <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
