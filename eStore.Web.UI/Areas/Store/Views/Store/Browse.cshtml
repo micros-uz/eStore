@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eStore.Web.UI.Areas.Store.ViewModels.BookModel>
+﻿@model IEnumerable<eStore.Web.UI.Areas.Store.ViewModels.BookModelEx>
 @{
     ViewBag.Title = "Browse";
 }
@@ -30,8 +30,13 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BookId})
+            @if(Request.IsAuthenticated && User.Identity.Name == "admin")
+            {
+                <text>
+                @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.BookId, genreId = item.GenreId})
+                </text>
+            }
         </td>
     </tr>
 }

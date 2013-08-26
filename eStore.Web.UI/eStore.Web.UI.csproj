@@ -179,6 +179,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.30506.0\lib\net40\WebMatrix.WebData.dll</HintPath>
     </Reference>
+    <Reference Include="WrapIoC">
+      <HintPath>..\packages\WrapIoC.0.9.6.0\lib\WrapIoC.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -191,21 +194,27 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
+    <Compile Include="Areas\Store\Controllers\BookController.cs" />
+    <Compile Include="Areas\Store\Controllers\GenreController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Areas\Store\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SqlController.cs" />
     <Compile Include="Areas\Store\Controllers\StoreController.cs" />
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
+    <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Logic\AccountViewModelProfile.cs" />
+    <Compile Include="Logic\BaseDisposeController.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
     <Compile Include="Logic\ObjectMapperInitializer.cs" />
     <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreModel.cs" />
+    <Compile Include="Views\BaseView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -327,13 +336,18 @@
     <Content Include="Areas\Admin\Views\Sql\Exec.cshtml" />
     <Content Include="Areas\Store\Views\Web.config" />
     <Content Include="Areas\Store\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Store\Views\Store\Details.cshtml" />
+    <Content Include="Areas\Store\Views\Book\Details.cshtml" />
     <Content Include="Areas\Account\Views\Web.config" />
     <Content Include="Areas\Account\Views\Account\LogOn.cshtml" />
     <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Account\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Store\Views\Book\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\Genre\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Genre\Create.cshtml" />
+    <Content Include="Areas\Store\Views\Genre\Edit.cshtml" />
+    <Content Include="Areas\Store\Views\Book\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Book\Create.cshtml" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
-    <Content Include="Areas\Store\Views\Store\Index.cshtml" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
   </ItemGroup>

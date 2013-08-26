@@ -1,8 +1,9 @@
 ﻿using eStore.Domain;
+using System;
 
 namespace eStore.Interfaces.Repositories
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         IGenericRepository<Genre> GenreRepository
         {

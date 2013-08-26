@@ -6,22 +6,19 @@ using System.Collections.ObjectModel;
 
 namespace eStore.Core.Services
 {
-    internal class UserService : IUserService
+    internal class UserService : BaseUoWService, IUserService
     {
-        private IUnitOfWork _uow;
-
-        public UserService(IUnitOfWork uow)
+        public UserService(IUnitOfWork uow) : base(uow)
         {
-            _uow = uow;
         }
-
+        
         #region IUserService
 
         ReadOnlyCollection<User> IUserService.Users
         {
             get 
             {
-                return _uow.UserRepository.GetAll().ToList().AsReadOnly();
+                return UoW.UserRepository.GetAll().ToList().AsReadOnly();
             }
         }
 
@@ -29,14 +26,15 @@ namespace eStore.Core.Services
         {
             get
             {
-                return _uow.RoleRepository.GetAll().ToList().AsReadOnly();
+                return UoW.RoleRepository.GetAll().ToList().AsReadOnly();
             }
         }
 
         void IUserService.AddUser(User user)
         {
             // todo - handle unique and other exceptions
-            _uow.UserRepository.Add(user);
+            UoW.UserRepository.Add(user);
+            UoW.Save();
         }
 
         #endregion

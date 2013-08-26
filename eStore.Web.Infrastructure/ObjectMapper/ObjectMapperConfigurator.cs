@@ -11,15 +11,27 @@ namespace eStore.Web.Infrastructure.ObjectMapper
         {
             MapperConfiguration.Configure(type);
         }
-        public static void CreateMap<TSrc, TDest>()
+        public static void CreateMap<TSrc, TDest>(Expression<Func<TDest, object>> ignoreDestMember = null)
         {
-            Mapper.CreateMap<TSrc, TDest>();
+            var m = Mapper.CreateMap<TSrc, TDest>();
+
+            if (ignoreDestMember != null)
+            {
+                m.ForMember(ignoreDestMember, x => x.Ignore());
+            }
         }
 
-        public static void CreateMap<TSrc, TDest, TMember>(Expression<Func<TDest, object>> destMember, 
-            Expression<Func<TSrc, TMember>> srcMember)
+        public static void CreateMap<TSrc, TDest, TMember>(Expression<Func<TDest, object>> destMember,
+            Expression<Func<TSrc, TMember>> srcMember = null)
         {
-            Mapper.CreateMap<TSrc, TDest>().ForMember(destMember, x => x.MapFrom(srcMember));
+            if (srcMember != null)
+            {
+                Mapper.CreateMap<TSrc, TDest>().ForMember(destMember, x => x.MapFrom(srcMember));
+            }
+            else
+            {
+                Mapper.CreateMap<TSrc, TDest>().ForMember(destMember, x => x.Ignore());
+            }
         }
     }
 }

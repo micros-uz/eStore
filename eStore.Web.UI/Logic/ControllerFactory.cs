@@ -1,8 +1,9 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
-using eStore.Interfaces.IoC;
 using System.Web;
+using System;
+using WrapIoC;
 
 namespace eStore.Logic
 {
@@ -33,7 +34,11 @@ namespace eStore.Logic
 
         void IControllerFactory.ReleaseController(IController controller)
         {
-
+            IDisposable disposable = controller as IDisposable;
+            if (disposable != null)
+            {
+                disposable.Dispose();
+            }
         }
 
         #endregion

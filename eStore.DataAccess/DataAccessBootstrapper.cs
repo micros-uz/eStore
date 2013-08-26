@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WrapIoC;
 
 namespace eStore.DataAccess
 {
     public static class DataAccessBootstrapper
     {
-        public static void Init(Interfaces.IoC.IIoC ioc)
+        public static void Init(IIoC ioc)
         {
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
             ioc.Register<IDBContextFactory, DbContextFactory>();

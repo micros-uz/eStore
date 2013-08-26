@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
 using eStore.Domain;
+using System.Data.Entity.Migrations;
 using eStore.Interfaces.Repositories;
 
 namespace eStore.DataAccess.Repositories.Ef
@@ -67,6 +68,19 @@ namespace eStore.DataAccess.Repositories.Ef
         void IGenericRepository<T>.Add(T entity)
         {
             _dbSet.Add(entity);
+        }
+
+        void IGenericRepository<T>.Update(T entity)
+        {
+            _dbSet.AddOrUpdate(entity);
+            //_dbSet.Attach(entity);
+            //_dbSet.Entry(entity).State = EntityState.Modified;
+
+        }
+
+        void IGenericRepository<T>.Delete(T entity)
+        {
+            _dbSet.Remove(entity);
         }
 
         #endregion

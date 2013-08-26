@@ -15,10 +15,33 @@ namespace eStore.DataAccess.Repositories.Ef
         private IGenericRepository<Role> _roleRpstr;
         private EStoreDbContext _context;
         private IDBContextFactory _factory;
+        private bool _disposed = false;
 
         public EfUnitOfWork(IDBContextFactory factory)
         {
             _factory = factory;
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    if (_context != null)
+                    {
+                        _context.Dispose();
+                    }
+                }
+            }
+
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         private EStoreDbContext Context

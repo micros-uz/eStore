@@ -6,18 +6,20 @@ using eStore.Domain;
 using System;
 using System.Linq;
 using eStore.Web.Infrastructure.ObjectMapper;
+using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseDisposeController
     {
         private readonly IAuthenticationService _authService;
         private readonly IUserService _userService;
         private readonly IObjectMapper _objMapper;
 
         public AccountController(IAuthenticationService authService,
-            IUserService userService, IObjectMapper objMapper)
+            IUserService userService, IObjectMapper objMapper) :
+            base(userService)
         {
             _authService = authService;
             _userService = userService;

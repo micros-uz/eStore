@@ -1,6 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
+using WrapIoC;
 
-namespace eStore.Interfaces.IoC
+namespace eStore.Core.IoC
 {
     internal class UnityIoC : IIoC
     {
@@ -31,6 +32,19 @@ namespace eStore.Interfaces.IoC
         T IIoC.Get<T>(string name)
         {
             return _Container.Resolve<T>(name);
+        }
+
+        object IIoC.Get(System.Type type)
+        {
+            return _Container.Resolve(type);
+        }
+
+        bool IIoC.Release(object obj)
+        {
+            // is it correct?
+            _Container.Teardown(obj);
+
+            return true;
         }
 
         #endregion

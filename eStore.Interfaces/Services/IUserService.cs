@@ -1,10 +1,11 @@
 ﻿using eStore.Domain;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace eStore.Interfaces.Services
 {
-    public interface IUserService
+    public interface IUserService : IDisposable
     {
         ReadOnlyCollection<Role> Roles
         {

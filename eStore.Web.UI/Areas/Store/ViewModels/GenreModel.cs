@@ -10,4 +10,9 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
         public int GenreId { get; set; }
         public string Title { get; set; }
     }
+
+    public class GenreFullModel : GenreModel
+    {
+        public string Desc { get; set; }
+    }
 }

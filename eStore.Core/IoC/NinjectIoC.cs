@@ -1,6 +1,7 @@
 ﻿using Ninject;
+using WrapIoC;
 
-namespace eStore.Interfaces.IoC
+namespace eStore.Core.IoC
 {
     internal class NinjectIoC : IIoC
     {
@@ -45,6 +46,23 @@ namespace eStore.Interfaces.IoC
             {
                 throw new IoCException(ex.Message);
             }
+        }
+
+        object IIoC.Get(System.Type type)
+        {
+            try
+            {
+                return _Kernel.Get(type);
+            }
+            catch (ActivationException ex)
+            {
+                throw new IoCException(ex.Message);
+            }
+        }
+
+        bool IIoC.Release(object obj)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
