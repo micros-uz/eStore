@@ -54,6 +54,12 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.BookId }) |
-    @Html.ActionLink("Back to List", "Browse", new { id = Model.GenreId })
+@if (IsEditAllowed)
+{
+    <text>
+        @Html.ActionLink("Edit", "Edit", new { id=Model.BookId }) |
+    </text>
+}
+@Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
+
 </p>

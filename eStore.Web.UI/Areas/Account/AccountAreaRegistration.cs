@@ -17,7 +17,12 @@ namespace eStore.Web.UI.Areas.Account
             context.MapRouteLowercase(
                 "Account_default",
                 "account/{controller}/{action}/{id}",
-                new {  id = UrlParameter.Optional }
+                new
+                {
+                    controller = "Account",
+                    id = UrlParameter.Optional
+                },
+                new string[] { "eStore.Web.UI.Areas.Account.Controllers" }
             );
         }
     }

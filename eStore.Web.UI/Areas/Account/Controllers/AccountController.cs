@@ -10,7 +10,7 @@ using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : BaseDisposeController
     {
         private readonly IAuthenticationService _authService;

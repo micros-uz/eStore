@@ -14,16 +14,22 @@ namespace eStore.Web.UI.Areas.Store
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
+            //context.MapRoute(
+            //    "Default", string.Empty);
+
             context.MapRouteLowercase(
                 "Store_default",
-                "{controller}/{action}/{id}",
+                "store/{controller}/{action}/{id}",
                 new
                 {
                     controller = "Home",
                     action = "Index",
                     id = UrlParameter.Optional
-                }
+                },
+                new string[] { "eStore.Web.UI.Areas.Store.Controllers" }
             );
+
+            context.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
         }
     }
 }
