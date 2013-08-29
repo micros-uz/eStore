@@ -6,45 +6,41 @@
 
 <h2>Register</h2>
 
-@using (Html.BeginForm("Register", "Account", new {area = "account"}, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Register", "Account", new { area = "account" }, FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <fieldset>
-        <legend>Register Form</legend>
-        <ol>
-            <li>
-                @Html.Label("Role")
-                @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.RoleList, "--select--")
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.PasswordConfirm)
-                @Html.PasswordFor(m => m.PasswordConfirm)
-            </li>
-            <li>
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
-            </li>
-            @*<li>
-                <div class="editor-label">
-                    <label for="image">FileName:</label>
-                </div>
-                <div class="editor-field">
-                    <input name="image" id="image" type="file" />
-                </div>
-            </li>*@
-        </ol>
-        <input type="submit" value="Register" />
-    </fieldset>
+    <div class="form-group">
+        @Html.LabelFor(x => x.RoleId, "Role")
+        @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.RoleList, "--select--", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PasswordConfirm)
+        @Html.PasswordFor(m => m.PasswordConfirm, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+    </div>
+    @*<li>
+            <div class="editor-label">
+                <label for="image">FileName:</label>
+            </div>
+            <div class="editor-field">
+                <input name="image" id="image" type="file" />
+            </div>
+        </li>*@
+        
+    <input type="submit" class="btn btn-default" value="Register" />
 }
 
 @section Scripts
