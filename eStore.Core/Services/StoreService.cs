@@ -31,7 +31,7 @@ namespace eStore.Core.Services
 
         IEnumerable<Book> IStoreService.GetBooksByGenre(int genreId)
         {
-            return UoW.BooksRepository.Find(x => x.GenreId == genreId);
+            return UoW.BooksRepository.Find(x => x.GenreId == genreId).OrderBy(x => x.Title);
         }
 
         Book IStoreService.GetBookById(int bookId)
