@@ -60,8 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreBootstraper.cs" />
+    <Compile Include="CoreServiceException.cs" />
     <Compile Include="IoC\NinjectIoC.cs" />
     <Compile Include="IoC\UnityIoC.cs" />
+    <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseUoWService.cs" />
     <Compile Include="Services\StoreService.cs" />

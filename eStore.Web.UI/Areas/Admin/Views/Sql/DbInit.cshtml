@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "DbInit";
+}
+
+<h2>DbInit</h2>
+
+@using (Html.BeginForm("DbInit", "Sql", FormMethod.Post, new { role = "form" }))
+{
+    <div class="form-group">
+        @Html.Label("Param")
+        @Html.TextBox("Param","", new { @class = "form-control" })
+    </div>
+
+    <input type="submit" class="btn btn-default" value="Go!" />
+}
+
+<div>
+    <label>Init Result:</label>
+    <label>@ViewBag.InitResult</label>
+</div>
+<div>
+    <label>Init Error:</label>
+    <label>@ViewBag.InitError</label>
+</div>

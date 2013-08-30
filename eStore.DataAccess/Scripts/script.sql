@@ -68,8 +68,8 @@ CREATE TABLE [dbo].[Users] (
     [UserId] int IDENTITY(1,1) primary key nonclustered,
     [Name] nvarchar(10) NOT NULL unique nonclustered,
     [Password] nvarchar(12) NOT NULL,
-	[Email] nvarchar(20) NULL,
-	[RoleId] int NOT NULL references [dbo].[Roles](RoleId)
+    [Email] nvarchar(20) NULL,
+    [RoleId] int NOT NULL references [dbo].[Roles](RoleId)
 );
 GO
 

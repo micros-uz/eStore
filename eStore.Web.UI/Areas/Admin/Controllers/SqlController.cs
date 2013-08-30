@@ -4,14 +4,23 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Dynamic;
-using System.Linq;
 using System.Web.Mvc;
+using eStore.Core;
+using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Admin.ViewModels;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {
+    //[Authorize]
     public class SqlController : Controller
     {
+        private readonly IAdminService _service;
+
+        public SqlController(IAdminService service)
+        {
+            _service = service;
+        }
+
         public ActionResult Index(ExecSqlModel model)
         {
             var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
@@ -94,6 +103,29 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
             }
 
             return View(res);
+        }
+
+        public ActionResult DbInit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DbInit(string st)
+        {
+            var errMsg = string.Empty;
+
+            try
+            {
+                ViewBag.InitResult = _service.DbInit();
+
+            }
+            catch (CoreServiceException ex)
+            {
+                ViewBag.InitError = ex.Message;
+            }
+
+            return View();
         }
     }
 }

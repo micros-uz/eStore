@@ -14,7 +14,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
         EStoreDbContext IDBContextFactory.Get()
         {
-            return _context ?? (_context = new EStoreDbContext(ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"].ConnectionString));
+            return _context ?? (_context = new EStoreDbContext(ConnectionStringFactory.ConnectionString));
         }
 
         #endregion

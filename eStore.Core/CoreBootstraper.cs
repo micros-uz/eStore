@@ -12,6 +12,7 @@ namespace eStore.Core
             WrapIoC.IoC.Init(new eStore.Core.IoC.NinjectIoC());
             DataAccessBootstrapper.Init(WrapIoC.IoC.Current);
 
+            WrapIoC.IoC.Current.Register<IAdminService, AdminService>();
             WrapIoC.IoC.Current.Register<IStoreService, StoreService>();
             WrapIoC.IoC.Current.Register<IAuthenticationService, AuthenticationService>();
             WrapIoC.IoC.Current.Register<IUserService, UserService>();

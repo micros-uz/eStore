@@ -46,6 +46,7 @@
     <Compile Include="Repositories\IGenreRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Services\IAdminService.cs" />
     <Compile Include="Services\IAuthenticationProvider.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\IRepositoryService.cs" />
