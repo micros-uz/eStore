@@ -4,77 +4,61 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>BookFullModel</legend>
+        <legend>Edit Book</legend>
 
         @Html.HiddenFor(model => model.BookId)
         @Html.HiddenFor(model => model.GenreId)
         @Html.HiddenFor(model => model.AuthorId)
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Author)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Author)
+            @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Author)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Title)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Title)
+            @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Title)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Price)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Price)
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Price)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Year)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Year)
+            @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Year)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.ISBN)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ISBN)
+            @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.ISBN)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Pages)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Pages)
+            @Html.TextBoxFor(model => model.Pages, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Pages)
         </div>
 
-        <div class="editor-label">
+        <div class="form-group">
             @Html.LabelFor(model => model.Desc)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Desc, 4, 30, null)
+            @Html.TextAreaFor(model => model.Desc, 4, 30, new { @class = "form-control" })
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" class="btn btn-default" value="Save" />
         </p>
     </fieldset>
 }

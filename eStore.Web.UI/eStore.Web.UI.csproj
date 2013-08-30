@@ -225,8 +225,10 @@
     <Compile Include="Areas\Account\ViewModels\LogOnModel.cs" />
     <Compile Include="Areas\Account\ViewModels\RegisterModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
     <Compile Include="Areas\Store\Controllers\GenreController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
@@ -235,14 +237,17 @@
     <Compile Include="Areas\Store\Controllers\StoreController.cs" />
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
+    <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
     <Compile Include="Logic\AccountViewModelProfile.cs" />
+    <Compile Include="Logic\AdminViewModelProfile.cs" />
     <Compile Include="Logic\BaseDisposeController.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
+    <Compile Include="Logic\ControllerFactoryInitializer.cs" />
     <Compile Include="Logic\ObjectMapperInitializer.cs" />
     <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -387,6 +392,7 @@
     <Content Include="Areas\Store\Views\Book\Index.cshtml" />
     <Content Include="Areas\Store\Views\Book\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sql\DbInit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

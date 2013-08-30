@@ -2,6 +2,8 @@
 using eStore.Web.Infrastructure.ObjectMapper;
 using WrapIoC;
 
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Web.Infrastructure.WebInfraBootstrapper), "Init")]
+
 namespace eStore.Web.Infrastructure
 {
     public static class WebInfraBootstrapper

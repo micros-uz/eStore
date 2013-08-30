@@ -1,6 +1,6 @@
 using System.Web.Optimization;
 
-//[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Web.UI.BootstrapBundleConfig), "RegisterBundles")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Web.UI.BootstrapBundleConfig), "RegisterBundles")]
 
 namespace eStore.Web.UI
 {

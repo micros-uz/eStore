@@ -3,9 +3,11 @@ using eStore.DataAccess;
 using eStore.Interfaces.Services;
 using WrapIoC;
 
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Core.CoreBootstraper), "Init")]
+
 namespace eStore.Core
 {
-    public static class ServicesBootstraper
+    public static class CoreBootstraper
     {
         public static void Init()
         {

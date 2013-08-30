@@ -1,22 +1,33 @@
 ﻿@if (Request.IsAuthenticated)
 {
     <text>
-        Hello, <strong>@User.Identity.Name</strong>!
-        @using (Html.BeginForm("LogOff", "Account", new {area = "account"}, FormMethod.Post, new { id = "logoutForm" }))
-        {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        }
-        @if (User.Identity.Name.ToLower() == "admin")
-        {
-            @Html.ActionLink("Users", "Index", "User")
-        }
+        <div class="row">
+            <div class="user-name">
+                <label>hello <strong>@User.Identity.Name</strong>!</label>
+                @using (Html.BeginForm("LogOff", "Account", new { area = "account" }, FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                }
+            </div>
+
+            @*@using (Html.BeginForm("LogOff", "Account", new { area = "account" }, FormMethod.Post, new { id = "logoutForm", @class = "form-inline" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                }*@
+            @*@if (User.Identity.Name.ToLower() == "admin")
+                {
+                    @Html.ActionLink("Users", "Index", "User")
+                }*@
+        </div>
+
     </text>
 }
 else
 {
     <ul class="nav nav-pills pull-right">
-        <li>@Html.ActionLink("Log On", "LogOn", "Account", new {area = "account" }, null)</li>
+        <li>@Html.ActionLink("Log On", "LogOn", "Account", new { area = "account" }, null)</li>
         <li>@Html.ActionLink("Register", "Register", "Account", new { area = "account" }, null)</li>
     </ul>
 }

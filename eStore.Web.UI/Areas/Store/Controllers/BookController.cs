@@ -22,9 +22,13 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         public ActionResult Index(int id)
         {
             var books = _service.GetBooksByGenre(id);
-            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookModelEx>>(books);
+            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookModel>>(books);
 
-            return View(bookModels);
+            return View(new GenreBooksModel
+                {
+                    Books = bookModels,
+                    GenreId = id
+                });
         }
 
         [AllowAnonymous]
@@ -55,7 +59,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
                 _service.Update(book);
 
-                return RedirectToAction("Browse", new { id = model.GenreId });
+                return RedirectToAction("Index", new { id = model.GenreId });
             }
             else
             {
@@ -83,6 +87,19 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Create(BookFullModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var book = _objMapper.Map<BookFullModel, Book>(model);
+
+                _service.Add(book);
+            }
+
+            return RedirectToAction("Index", new { id = model.GenreId });
         }
     }
 }

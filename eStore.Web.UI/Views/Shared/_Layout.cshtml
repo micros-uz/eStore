@@ -17,6 +17,10 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">@Html.ActionLink("Home", "Index", "Home", new { area = "Store" }, null)</li>
                 <li class="dropdown">@Html.ActionLink("Catalog", "Index", "Genre", new { area = "Store" }, null)</li>
+                @if (IsEditAllowed)
+                {
+                    <li class="dropdown">@Html.ActionLink("Users", "Index", "User", new { area = "Admin" }, null)</li>    
+                }
             </ul>
             <div class="pull-right">@Html.Partial("_LogOnPartial")</div>
         </div>

@@ -22,21 +22,6 @@ namespace eStore.Web.UI
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            BootstrapBundleConfig.RegisterBundles();
-
-            ServicesBootstraper.Init();
-
-            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
-            IoC.Current.Register<IController, HomeController>("home");
-            IoC.Current.Register<IController, GenreController>("genre");
-            IoC.Current.Register<IController, BookController>("book");
-            IoC.Current.Register<IController, StoreController>("store");
-            IoC.Current.Register<IController, SqlController>("sql");
-            IoC.Current.Register<IController, AccountController>("account");
-
-            WebInfraBootstrapper.Init();
-
-            ObjectMapperInitializer.Init();
 
             ViewEngines.Engines.RemoveAt(0);    // WEB Form engine
         }

@@ -6,7 +6,7 @@ namespace eStore.Web.UI.Helpers
 {
     public static class HtmlHelperExtensions
     {
-        public static MvcHtmlString CreateNew<T>(this HtmlHelper<T> helper) where T : class
+        public static MvcHtmlString CreateNew<T>(this HtmlHelper<T> helper, object routeValues) where T : class
         {
             MvcHtmlString res = null;
 
@@ -16,7 +16,7 @@ namespace eStore.Web.UI.Helpers
             {
                 if (view.IsEditAllowed)
                 {
-                    res = helper.ActionLink("Create New", "Create");
+                    res = helper.ActionLink("Create New", "Create", routeValues);
                 }
             }
 

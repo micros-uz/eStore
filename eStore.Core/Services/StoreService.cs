@@ -57,6 +57,12 @@ namespace eStore.Core.Services
             UoW.Save();
         }
 
+        void IStoreService.Add(Book book)
+        {
+            UoW.BooksRepository.Add(book);
+            UoW.Save();
+        }
+
         Genre IStoreService.GetGenreById(int genreId)
         {
             return UoW.GenreRepository.Find(x => x.GenreId == genreId).FirstOrDefault();
