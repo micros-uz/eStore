@@ -1,7 +1,6 @@
-﻿using eStore.Domain;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
+using eStore.Domain;
 
 namespace eStore.Interfaces.Services
 {
@@ -17,5 +16,6 @@ namespace eStore.Interfaces.Services
         }
 
         void AddUser(User user);
+        void DeleteUser(int userId);
     }
 }

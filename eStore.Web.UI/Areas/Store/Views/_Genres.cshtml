@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GenreModel>
+
+@model IEnumerable<eStore.Web.UI.Areas.Store.ViewModels.GenreModel>
+
+@using eStore.Web.UI.Helpers;
+
+<p>
+    @Html.CreateNew()
+</p>
+
+@foreach (var item in @Model)
+{
+    <li>
+        @Html.ActionLink(item.Title, "Index", "Book", new { id = item.GenreId }, null)
+
+        @if (IsEditAllowed)
+        {
+            <text>
+                @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
+            </text>
+        }
+    </li>
+}
