@@ -86,6 +86,8 @@ namespace eStore.Web.UI.Areas.Store.Controllers
                 GenreId = id
             };
 
+            FillGenres();
+
             return View(model);
         }
 
@@ -100,6 +102,10 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             }
 
             return RedirectToAction("Index", new { id = model.GenreId });
+        }
+        private void FillGenres()
+        {
+            ViewBag.Genres = new SelectList(_service.GetGenres(), "GenreId", "Title");
         }
     }
 }

@@ -62,7 +62,7 @@ namespace eStore.Core.IoC
 
         bool IIoC.Release(object obj)
         {
-            throw new System.NotImplementedException();
+            return true;
         }
 
         #endregion

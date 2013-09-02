@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using WrapIoC;
 
@@ -25,6 +27,10 @@ namespace eStore.Web.UI.Logic
             IoC.Current.Register<IController, SqlController>("sql");
             IoC.Current.Register<IController, AccountController>("account");
             IoC.Current.Register<IController, UserController>("user");
+
+            GlobalConfiguration.Configuration.Services.Replace(
+                typeof(IHttpControllerActivator), new HttpControllerActivator(IoC.Current));
+
         }
     }
 }

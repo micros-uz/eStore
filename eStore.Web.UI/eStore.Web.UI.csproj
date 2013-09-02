@@ -46,15 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.AspNet">
-      <HintPath>..\packages\Glimpse.AspNet.1.3.1\lib\net40\Glimpse.AspNet.dll</HintPath>
-    </Reference>
-    <Reference Include="Glimpse.Core">
-      <HintPath>..\packages\Glimpse.1.6.0\lib\net40\Glimpse.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Glimpse.Mvc4">
-      <HintPath>..\packages\Glimpse.Mvc4.1.3.3\lib\net40\Glimpse.Mvc4.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -219,6 +210,7 @@
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\Account\ViewModels\BaseUserModel.cs" />
@@ -238,7 +230,7 @@
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
-    <Compile Include="GlimpseSecurityPolicy.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -248,6 +240,7 @@
     <Compile Include="Logic\BaseDisposeController.cs" />
     <Compile Include="Logic\ControllerFactory.cs" />
     <Compile Include="Logic\ControllerFactoryInitializer.cs" />
+    <Compile Include="Logic\HttpControllerActivator.cs" />
     <Compile Include="Logic\ObjectMapperInitializer.cs" />
     <Compile Include="Logic\StoreViewModelProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -329,7 +322,7 @@
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\chooseGenre.js" />
+    <Content Include="Scripts\eStore-chooseGenre.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -395,6 +388,7 @@
     <Content Include="Areas\Admin\Views\Sql\DbInit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Store\Views\_Genres.cshtml" />
+    <Content Include="Areas\Store\Views\Shared\_CreateGenre.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

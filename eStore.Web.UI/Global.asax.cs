@@ -10,6 +10,8 @@ using eStore.Web.UI.Areas.Admin.Controllers;
 using eStore.Web.UI.Areas.Store.Controllers;
 using eStore.Web.UI.Logic;
 using WrapIoC;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
 
 namespace eStore.Web.UI
 {
@@ -19,6 +21,7 @@ namespace eStore.Web.UI
         {
             AreaRegistration.RegisterAllAreas();
 
+            WebApiConfig.Register(GlobalConfiguration.Configuration);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);

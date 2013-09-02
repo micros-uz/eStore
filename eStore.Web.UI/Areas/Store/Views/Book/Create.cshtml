@@ -4,62 +4,97 @@
     ViewBag.Title = "Create new book";
 }
 
-
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { role = "form" }))
+@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title)
+                @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.AuthorId)
+                @Html.TextBoxFor(model => model.AuthorId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AuthorId)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Year)
+                @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Year)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Pages)
+                @Html.TextBoxFor(model => model.Pages, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Pages)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.ISBN)
+                @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ISBN)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                @Html.LabelFor(model => model.GenreId, "Genre")
+                @Html.DropDownListFor(model => model.GenreId, (SelectList)ViewBag.Genres, "--select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GenreId)
+            </div>
+        </div>
+        <div class="col-md-2" style="margin:25px 0px">
+            <a role="button" data-toggle="modal" href="#addGenre" class="btn btn-primary">Add New</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author)
+                @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Author)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Price)
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Desc)
+                @Html.TextAreaFor(model => model.Desc, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Desc)
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Title)
-        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Title)
-    </div>        
-    <div class="form-group">
-        @Html.LabelFor(model => model.AuthorId)
-        @Html.TextBoxFor(model => model.AuthorId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.AuthorId)
+            <p>
+                <input type="submit" class="btn btn-default" value="Create" />
+            </p>
+        </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Year)
-        @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Year)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Pages)
-        @Html.TextBoxFor(model => model.Pages, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Pages)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.ISBN)
-        @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.ISBN)
-    </div>
-    <div class="form-group">
-        @Html.Partial("_ChooseGenre")
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Author)
-        @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Author)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Price)
-        @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Price)
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Desc)
-        @Html.TextAreaFor(model => model.Desc, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.Desc)
-    </div>
-
-    <p>
-        <input type="submit" class="btn btn-default" value="Create" />
-    </p>
 }
+
+<div class="modal fade" id="addGenre" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">New Genre</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_CreateGenre", new eStore.Web.UI.Areas.Store.ViewModels.GenreFullModel())
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveBtn" onclick="save();">Save changes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
@@ -67,4 +102,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/custom")
 }
