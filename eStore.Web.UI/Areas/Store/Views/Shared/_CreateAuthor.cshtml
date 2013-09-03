@@ -1,0 +1,8 @@
+﻿@model AuthorModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", id="authorName" })
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+

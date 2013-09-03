@@ -1,4 +1,4 @@
-﻿@model eStore.Web.UI.Areas.Store.ViewModels.BookFullModel
+﻿@model BookFullModel
 
 @{
     ViewBag.Title = "Create new book";
@@ -58,6 +58,13 @@
                 @Html.TextBoxFor(model => model.Author, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Author)
             </div>
+        </div>
+        <div class="col-md-2" style="margin:25px 0px">
+            <a role="button" data-toggle="modal" href="#addAuthor" class="btn btn-primary">Add New</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
             <div class="form-group">
                 @Html.LabelFor(model => model.Price)
                 @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
@@ -84,17 +91,33 @@
                 <h4 class="modal-title">New Genre</h4>
             </div>
             <div class="modal-body">
-                @Html.Partial("_CreateGenre", new eStore.Web.UI.Areas.Store.ViewModels.GenreFullModel())
+                @Html.Partial("_CreateGenre", new GenreFullModel())
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="saveBtn" onclick="save();">Save changes</button>
+                <button type="button" class="btn btn-primary" id="saveBtn" onclick="saveNewGenre();">Save changes</button>
             </div>
         </div>
-
     </div>
 </div>
 
+@*<div class="modal fade" id="addAuthor" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">New Author</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_CreateAuthor", new AuthorModel())
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveBtn" onclick="saveNewAuthor();">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>*@
 
 <div>
     @Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
