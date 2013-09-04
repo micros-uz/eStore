@@ -1,4 +1,5 @@
-﻿namespace eStore.Domain
+﻿using System;
+namespace eStore.Domain
 {
     public class Book
     {
@@ -61,5 +62,12 @@
             get;
             set;
         }
+
+        public Guid ImageFilePath
+        {
+            get;
+            set;
+        }
+
     }
 }

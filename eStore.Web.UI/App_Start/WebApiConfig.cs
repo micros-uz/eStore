@@ -11,7 +11,7 @@ namespace eStore.Web.UI
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new
                 {
-                    action = "Index",
+                    action = "Get",
                     controller = "Genre",
                     id = RouteParameter.Optional
                 }

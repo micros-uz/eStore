@@ -231,6 +231,7 @@
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -323,7 +324,8 @@
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\eStore-chooseGenre.js" />
+    <Content Include="Scripts\eStore-custom-chooseGenre.js" />
+    <Content Include="Scripts\eStore-common.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -432,7 +434,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>17787</DevelopmentServerPort>
+          <DevelopmentServerPort>4083</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

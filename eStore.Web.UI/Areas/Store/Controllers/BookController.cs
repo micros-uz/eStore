@@ -1,10 +1,10 @@
-﻿using eStore.Domain;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 using eStore.Web.UI.Logic;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
@@ -59,7 +59,10 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
                 _service.Update(book);
 
-                return RedirectToAction("Index", new { id = model.GenreId });
+                return RedirectToAction("Index", new
+                {
+                    id = model.GenreId
+                });
             }
             else
             {
@@ -76,7 +79,10 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             _service.Delete(book);
 
-            return RedirectToAction("Index", new { id = genreId });
+            return RedirectToAction("Index", new
+            {
+                id = genreId
+            });
         }
 
         public ActionResult Create(int id)
@@ -98,14 +104,28 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             {
                 var book = _objMapper.Map<BookFullModel, Book>(model);
 
+                //byte[] imageData = null;
+
+                //if (model.Image != null && model.Image.ContentLength > 0 &&
+                //    model.Image.ContentType == "image/jpeg")
+                //{
+                //    imageData = new byte[model.Image.ContentLength];
+                //    model.Image.InputStream.Read(imageData, 0, model.Image.ContentLength);
+                //}
+
                 _service.Add(book);
             }
 
-            return RedirectToAction("Index", new { id = model.GenreId });
+            return RedirectToAction("Index", new
+            {
+                id = model.GenreId
+            });
         }
+
         private void FillGenres()
         {
             ViewBag.Genres = new SelectList(_service.GetGenres(), "GenreId", "Title");
+            ViewBag.Authors = new SelectList(_service.GetAuthors(), "AuthorId", "Name");
         }
     }
 }

@@ -21,8 +21,7 @@ namespace eStore.Web.UI.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
-        public IEnumerable<GenreModel> Index()
+        public IEnumerable<GenreModel> Get()
         {
             var genres = _service.GetGenres();
 

@@ -4,15 +4,16 @@ namespace eStore.DataAccess.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using eStore.DataAccess.Repositories.Ef;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<eStore.DataAccess.EStoreDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<EStoreDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(eStore.DataAccess.EStoreDbContext context)
+        protected override void Seed(EStoreDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

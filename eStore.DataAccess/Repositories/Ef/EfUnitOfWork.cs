@@ -10,6 +10,7 @@ namespace eStore.DataAccess.Repositories.Ef
     internal class EfUnitOfWork : IUnitOfWork
     {
         private IGenericRepository<Genre> _genreRpstr;
+        private IGenericRepository<Author> _authorRpstr;
         private IGenericRepository<Book> _bookRpstr;
         private IGenericRepository<User> _userRpstr;
         private IGenericRepository<Role> _roleRpstr;
@@ -57,6 +58,11 @@ namespace eStore.DataAccess.Repositories.Ef
         IGenericRepository<Genre> IUnitOfWork.GenreRepository
         {
             get { return _genreRpstr ?? (_genreRpstr = new EfGenericRepository<Genre>(Context.Genres)); }
+        }
+
+        IGenericRepository<Author> IUnitOfWork.AuthorRepository
+        {
+            get { return _authorRpstr ?? (_authorRpstr = new EfGenericRepository<Author>(Context.Authors)); }
         }
 
         IGenericRepository<Book> IUnitOfWork.BooksRepository

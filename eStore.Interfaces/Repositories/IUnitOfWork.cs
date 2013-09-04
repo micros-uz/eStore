@@ -1,11 +1,16 @@
-﻿using eStore.Domain;
-using System;
+﻿using System;
+using eStore.Domain;
 
 namespace eStore.Interfaces.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
         IGenericRepository<Genre> GenreRepository
+        {
+            get;
+        }
+
+        IGenericRepository<Author> AuthorRepository
         {
             get;
         }

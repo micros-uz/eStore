@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using eStore.Domain;
-using System;
 
 namespace eStore.Interfaces.Services
 {
@@ -24,5 +24,9 @@ namespace eStore.Interfaces.Services
         void Update(Genre genre);
 
         void DeleteGenreById(int id);
+
+        IEnumerable<Author> GetAuthors();
+
+        void Add(Author author);
     }
 }

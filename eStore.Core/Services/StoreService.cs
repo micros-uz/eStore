@@ -17,16 +17,12 @@ namespace eStore.Core.Services
 
         IEnumerable<Genre> IStoreService.GetGenres()
         {
-            IEnumerable<Genre> list = new List<Genre>()
-            {
-                new Genre(){Title = "Romans"},
-                new Genre(){Title = "Fixions"},
-                new Genre(){Title = "Novells"}
-            };
+            return UoW.GenreRepository.GetAll();
+        }
 
-            list = UoW.GenreRepository.GetAll();
-
-            return list;
+        IEnumerable<Author> IStoreService.GetAuthors()
+        {
+            return UoW.AuthorRepository.GetAll();
         }
 
         IEnumerable<Book> IStoreService.GetBooksByGenre(int genreId)
@@ -54,6 +50,12 @@ namespace eStore.Core.Services
         void IStoreService.Add(Genre genre)
         {
             UoW.GenreRepository.Add(genre);
+            UoW.Save();
+        }
+
+        void IStoreService.Add(Author author)
+        {
+            UoW.AuthorRepository.Add(author);
             UoW.Save();
         }
 
