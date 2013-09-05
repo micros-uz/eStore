@@ -326,6 +326,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\eStore-custom-chooseGenre.js" />
     <Content Include="Scripts\eStore-common.js" />
+    <Content Include="Scripts\eStore-filepick.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -390,9 +391,10 @@
     <Content Include="Areas\Store\Views\Book\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Sql\DbInit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
-    <Content Include="Areas\Store\Views\_Genres.cshtml" />
+    <Content Include="Areas\Store\Views\Shared\_Genres.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_CreateGenre.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_CreateAuthor.cshtml" />
+    <Content Include="Areas\Store\Views\Shared\_Search.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

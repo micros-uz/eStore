@@ -25,7 +25,7 @@ namespace eStore.Web.UI.Logic
             ObjectMapperConfigurator.CreateMap<Book, BookModel, string>(x => x.Author, w => w.Author.Name, null);
             ObjectMapperConfigurator.CreateMap<Book, BookModelEx, string>(x => x.Author, w => w.Author.Name);
             ObjectMapperConfigurator.CreateMap<Book, BookFullModel, string>(x => x.Author, w => w.Author.Name);
-            ObjectMapperConfigurator.CreateMap<BookFullModel, Book>(x => x.Author, x => x.ImageFilePath);
+            ObjectMapperConfigurator.CreateMap<BookFullModel, Book>(x => x.Author, x => x.ImageFile);
         }
     }
 }

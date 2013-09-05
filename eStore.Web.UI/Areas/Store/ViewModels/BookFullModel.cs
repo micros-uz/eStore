@@ -1,4 +1,5 @@
-﻿namespace eStore.Web.UI.Areas.Store.ViewModels
+﻿using System.Web;
+namespace eStore.Web.UI.Areas.Store.ViewModels
 {
     public class BookFullModel : BookModelEx
     {
@@ -32,7 +33,7 @@
             set;
         }
 
-        public string ImageFilename
+        public HttpPostedFileBase Image
         {
             get;
             set;

@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace eStore.Domain
 {
     public class Book
@@ -16,6 +17,12 @@ namespace eStore.Domain
         }
 
         public int AuthorId
+        {
+            get;
+            set;
+        }
+
+        public int? SeriesId
         {
             get;
             set;
@@ -63,7 +70,7 @@ namespace eStore.Domain
             set;
         }
 
-        public Guid ImageFilePath
+        public Guid? ImageFile
         {
             get;
             set;

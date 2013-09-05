@@ -7,6 +7,7 @@
     @*    <meta name="viewport" content="width=device-width" />*@
     @Styles.Render("~/Content/bootstrap/css")
     @Styles.Render("~/Content/css")
+
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -15,11 +16,20 @@
                 <a class="navbar-brand" href="@Url.Action("Index", "Home")">eStore</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="dropdown">@Html.ActionLink("Home", "Index", "Home", new { area = "Store" }, null)</li>
-                <li class="dropdown">@Html.ActionLink("Catalog", "Index", "Genre", new { area = "Store" }, null)</li>
+                <li class="dropdown">@Html.ActionLink("Home", "Index", "Home", new
+                                {
+                                    area = "Store"
+                                }, null)</li>
+                <li class="dropdown">@Html.ActionLink("Catalog", "Index", "Genre", new
+                                {
+                                    area = "Store"
+                                }, null)</li>
                 @if (IsEditAllowed)
                 {
-                    <li class="dropdown">@Html.ActionLink("Users", "Index", "User", new { area = "Admin" }, null)</li>    
+                    <li class="dropdown">@Html.ActionLink("Users", "Index", "User", new
+                                    {
+                                        area = "Admin"
+                                    }, null)</li>    
                 }
             </ul>
             <div class="pull-right">@Html.Partial("_LogOnPartial")</div>
@@ -44,13 +54,22 @@
                 @if (IsSectionDefined("featured"))
                 {
                     <div>
-                        <div class="hero-unit">
+                        <div class="jumbotron">
                             @RenderSection("featured", required: false)
                         </div>
                     </div>
                 }
-                <div>
-                    @RenderBody()
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-7 pull-right">
+                        @RenderSection("searchbar", false)
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        @RenderBody()
+                    </div>
                 </div>
             </div>
         </div>

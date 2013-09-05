@@ -1,10 +1,10 @@
-﻿using eStore.Domain;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 using eStore.Web.UI.Logic;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
@@ -12,6 +12,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
     {
         private readonly IStoreService _service;
         private readonly IObjectMapper _objMapper;
+
         public GenreController(IStoreService service, IObjectMapper objMapper)
             : base(service)
         {
@@ -21,12 +22,14 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Index()
         {
+            return View(GetGenreModels());
+        }
+
+        private IEnumerable<GenreModel> GetGenreModels()
+        {
             var genres = _service.GetGenres();
 
-            //var genreModels = Mapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
-            var genreModels = _objMapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
-
-            return View(genreModels);
+            return _objMapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
         }
 
         public ActionResult Create()
@@ -72,6 +75,12 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             _service.DeleteGenreById(id);
 
             return RedirectToAction("Index");
+        }
+
+        [ChildActionOnly]
+        public ActionResult Catalog()
+        {
+            return PartialView("_Genres", GetGenreModels());
         }
     }
 }

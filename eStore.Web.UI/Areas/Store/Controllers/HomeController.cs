@@ -9,5 +9,11 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult Search()
+        {
+            return PartialView("_Search");
+        }
     }
 }

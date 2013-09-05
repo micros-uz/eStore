@@ -2,11 +2,22 @@
     ViewBag.Title = "Home Page";
 }
 
-    <div id="promotion">
-    </div>
+<div class="row">
+    <h2>Best Sellers</h2>
+</div>
 
+<div class="row">
+    <h2>New books</h2>
+</div>
 
-@*@section popular
-{
-    <div id="popular">fefe</div>
-}*@
+@section featured{
+    <h2>EStore!!!</h2>
+}
+
+@section sidebar{
+    @Html.Action("Catalog", "Genre")
+}
+
+@section searchbar{
+    @Html.Action("Search", "Home")
+}

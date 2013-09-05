@@ -6,7 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { role = "form", @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -67,7 +67,15 @@
             </div>
             <div class="form-group">
                 @Html.LabelFor(m => m.Image)
-                @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                <div class="input-group">
+@*                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip; @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly="">*@
+                    <input name="image" id="image" type="file"/>
+                </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Desc)
@@ -122,6 +130,9 @@
 </div>
 
 @section Scripts {
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/custom")
+    @Scripts.Render("~/Scripts/eStore-filepick.js")
 }
+

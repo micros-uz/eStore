@@ -17,7 +17,7 @@ namespace eStore.Interfaces.Services
         void Delete(Book book);
 
         void Add(Genre genre);
-        void Add(Book book);
+        void Add(Book book, byte[] image, string path);
 
         Genre GetGenreById(int id);
 

@@ -104,16 +104,16 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             {
                 var book = _objMapper.Map<BookFullModel, Book>(model);
 
-                //byte[] imageData = null;
+                byte[] imageData = null;
 
-                //if (model.Image != null && model.Image.ContentLength > 0 &&
-                //    model.Image.ContentType == "image/jpeg")
-                //{
-                //    imageData = new byte[model.Image.ContentLength];
-                //    model.Image.InputStream.Read(imageData, 0, model.Image.ContentLength);
-                //}
+                if (model.Image != null && model.Image.ContentLength > 0 &&
+                    model.Image.ContentType == "image/jpeg")
+                {
+                    imageData = new byte[model.Image.ContentLength];
+                    model.Image.InputStream.Read(imageData, 0, model.Image.ContentLength);
+                }
 
-                _service.Add(book);
+                _service.Add(book, imageData, HttpContext.Request.PhysicalApplicationPath);
             }
 
             return RedirectToAction("Index", new
