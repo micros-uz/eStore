@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationProvider.cs" />
+    <Compile Include="IFileService.cs" />
     <Compile Include="ObjectMapper\Auto\ConfigProfile.cs" />
     <Compile Include="ObjectMapper\Auto\MapperConfiguration.cs" />
     <Compile Include="ObjectMapper\IProfile.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="ObjectMapper\ObjectMapper.cs" />
     <Compile Include="ObjectMapper\ObjectMapperConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FileService.cs" />
     <Compile Include="WebInfraBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -395,12 +395,15 @@
     <Content Include="Areas\Store\Views\Shared\_CreateGenre.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_CreateAuthor.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_Search.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

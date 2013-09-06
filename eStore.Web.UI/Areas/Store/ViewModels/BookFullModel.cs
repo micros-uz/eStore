@@ -38,5 +38,11 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
             get;
             set;
         }
+
+        public string ImageFile
+        {
+            get;
+            set;
+        }
     }
 }

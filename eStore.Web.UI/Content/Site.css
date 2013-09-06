@@ -29,3 +29,14 @@
     cursor: inherit;
     display: block;
 }
+
+.overview-hdr {
+    color: #2A8CBA;
+    font-size: 14px;
+}
+
+.hr-top {
+    background: url("http://images.booksamillion.com/images/layout/sep-bg.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    height: 10px;
+}

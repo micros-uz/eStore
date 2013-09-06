@@ -12,6 +12,7 @@ namespace eStore.Web.Infrastructure
         {
             IoC.Current.Register<IAuthenticationProvider, AuthenticationProvider>();
             IoC.Current.Register<IObjectMapper, eStore.Web.Infrastructure.ObjectMapper.ObjectMapper>();
+            IoC.Current.Register<IFileService, FileService>();
         }
     }
 }

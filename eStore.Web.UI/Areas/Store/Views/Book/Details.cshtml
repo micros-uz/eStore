@@ -1,63 +1,46 @@
-﻿@model eStore.Web.UI.Areas.Store.ViewModels.BookFullModel
+﻿@model BookFullModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<fieldset>
-    <legend>Book</legend>
+<div class="row">
+    <div class="col-md-4">
+        <img src= "@Url.Action("Image", new { fileName = Model.ImageFile})" alt="Image" />
+    </div>
+    <div class="col-md-5">
+        @Html.HiddenFor(model=>model.BookId)
+        <span><strong>@Model.Title</strong></span>
+        <br>
+        <span>@Model.Author</span>
+        <br><br>
+        <div>
+            <span class="overview-hdr">Overview - </span>
+            <span>@Model.Desc</span>
+            <a href="#overview">Read more...</a>
+        </div>
+        <br>
+        <div class="hr-top"> </div>
+        <span>Published Year: </span><b><span>@Model.Year</span></b><br />
+        <span>Pages: </span><b><span>@Model.Pages</span></b><br />
+        <span>ISBN: </span><b><span>@Model.ISBN</span></b><br />
+        @if (IsEditAllowed)
+        {
+            @Html.ActionLink("Edit", "Edit", new { id=Model.BookId })
+        }
 
-    @Html.HiddenFor(model=>model.BookId)
+    </div>
+</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Author)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Author)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Title)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Title)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Price)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Price)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Year)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Year)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Pages)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Pages)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(model => model.Desc)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Desc)
-    </div>
-</fieldset>
 <p>
-@if (IsEditAllowed)
-{
-    <text>
-        @Html.ActionLink("Edit", "Edit", new { id=Model.BookId }) |
-    </text>
-}
 @Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
 
 </p>
+
+@section sidebar{
+    @Html.Action("Catalog", "Genre")
+}
+
+@section searchbar{
+    @Html.Action("Search", "Home")
+}

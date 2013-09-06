@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using eStore.Domain;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
@@ -62,42 +59,10 @@ namespace eStore.Core.Services
             UoW.Save();
         }
 
-        void IStoreService.Add(Book book, byte[] image, string path)
+        void IStoreService.Add(Book book)
         {
-            if (image != null && image.Length > 0)
-            {
-                var fileName = SafeFile(image, path);
-            }
-
             UoW.BooksRepository.Add(book);
             UoW.Save();
-        }
-
-        private string SafeFile(byte[] image, string path)
-        {
-            string res = null;
-            var name = Guid.NewGuid().ToString();
-
-            try
-            {
-                var imagePath = Path.Combine(path, "~/App_Data/uploads", name);
-                File.WriteAllBytes(imagePath, image);
-                res = name;
-            }
-            catch (IOException)
-            {
-            }
-            catch (UnauthorizedAccessException)
-            {
-            }
-            catch (NotSupportedException)
-            {
-            }
-            catch (SecurityException)
-            {
-            }
-
-            return res;
         }
 
         Genre IStoreService.GetGenreById(int genreId)

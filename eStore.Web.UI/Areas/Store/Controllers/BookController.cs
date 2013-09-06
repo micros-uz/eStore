@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
+using eStore.Web.Infrastructure;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 using eStore.Web.UI.Logic;
@@ -12,11 +13,15 @@ namespace eStore.Web.UI.Areas.Store.Controllers
     {
         private readonly IStoreService _service;
         private readonly IObjectMapper _objMapper;
-        public BookController(IStoreService service, IObjectMapper objMapper)
+        private readonly IFileService _fileService;
+
+        public BookController(IStoreService service, IObjectMapper objMapper,
+            IFileService fileService)
             : base(service)
         {
             _service = service;
             _objMapper = objMapper;
+            _fileService = fileService;
         }
 
         public ActionResult Index(int id)
@@ -39,6 +44,13 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             var bookModel = _objMapper.Map<Book, BookFullModel>(book);
 
             return View(bookModel);
+        }
+
+        public ActionResult Image(string fileName)
+        {
+            var data = _fileService.GetImage(fileName);
+
+            return data != null ? File(data.Item1, data.Item2) : null;
         }
 
         public ActionResult Edit(int id)
@@ -92,7 +104,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
                 GenreId = id
             };
 
-            FillGenres();
+            FillDicts();
 
             return View(model);
         }
@@ -104,16 +116,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             {
                 var book = _objMapper.Map<BookFullModel, Book>(model);
 
-                byte[] imageData = null;
+                book.ImageFile = _fileService.SaveImage(model.Image);
 
-                if (model.Image != null && model.Image.ContentLength > 0 &&
-                    model.Image.ContentType == "image/jpeg")
-                {
-                    imageData = new byte[model.Image.ContentLength];
-                    model.Image.InputStream.Read(imageData, 0, model.Image.ContentLength);
-                }
-
-                _service.Add(book, imageData, HttpContext.Request.PhysicalApplicationPath);
+                _service.Add(book);
             }
 
             return RedirectToAction("Index", new
@@ -122,7 +127,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             });
         }
 
-        private void FillGenres()
+        private void FillDicts()
         {
             ViewBag.Genres = new SelectList(_service.GetGenres(), "GenreId", "Title");
             ViewBag.Authors = new SelectList(_service.GetAuthors(), "AuthorId", "Name");

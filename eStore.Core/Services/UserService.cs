@@ -15,6 +15,11 @@ namespace eStore.Core.Services
 
         #region IUserService
 
+        User IUserService.GetUserById(int id)
+        {
+            return UoW.UserRepository.Find(x => x.UserId == id).FirstOrDefault();
+        }
+
         ReadOnlyCollection<User> IUserService.Users
         {
             get

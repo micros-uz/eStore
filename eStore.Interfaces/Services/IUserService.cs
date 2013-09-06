@@ -17,5 +17,7 @@ namespace eStore.Interfaces.Services
 
         void AddUser(User user);
         void DeleteUser(int userId);
+
+        User GetUserById(int id);
     }
 }
