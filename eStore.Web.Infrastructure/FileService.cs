@@ -29,6 +29,18 @@ namespace eStore.Web.Infrastructure
             }
         }
 
+        private void DeleteFile(string oldFileName, string path)
+        {
+            WrapExceptions(() =>
+                {
+                    if (!string.IsNullOrEmpty(oldFileName))
+                    {
+                        var imagePath = Path.Combine(path, SERVER_Path, oldFileName);
+                        File.Delete(imagePath);
+                    }
+                });
+        }
+
         private Guid? SaveFile(byte[] fileData, string path)
         {
             Guid? res = null;
@@ -60,7 +72,7 @@ namespace eStore.Web.Infrastructure
 
         #region IFileService
 
-        public Guid? SaveImage(System.Web.HttpPostedFileBase file)
+        public Guid? SaveImage(System.Web.HttpPostedFileBase file, string oldFileName, bool isImageChanged)
         {
             Guid? res = null;
 
@@ -69,8 +81,13 @@ namespace eStore.Web.Infrastructure
             {
                 var data = new byte[file.ContentLength];
                 file.InputStream.Read(data, 0, file.ContentLength);
-
+                
+                DeleteFile(oldFileName, HttpContext.Current.Request.PhysicalApplicationPath);
                 res = SaveFile(data, HttpContext.Current.Request.PhysicalApplicationPath);
+            }
+            else if (!string.IsNullOrEmpty(oldFileName))
+            {
+                res = new Guid(oldFileName);
             }
 
             return res;

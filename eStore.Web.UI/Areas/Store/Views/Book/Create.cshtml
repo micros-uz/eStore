@@ -1,4 +1,4 @@
-﻿@model BookFullModel
+﻿@model AddEditBookModel
 
 @{
     ViewBag.Title = "Create new book";
@@ -6,40 +6,45 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm("Create", "Book", FormMethod.Post, new { role = "form", @class = "form-horizontal", enctype = "multipart/form-data" }))
+@using (Html.BeginForm(Model.Action, "Book", FormMethod.Post, new { role = "form", @class = "form-horizontal", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Book.BookId)
+    @Html.HiddenFor(model => model.Book.ImageFile)
+    @Html.HiddenFor(model => model.OldImageFile)
+    @Html.HiddenFor(model => model.IsImageChanged);
+
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="form-group">
-                @Html.LabelFor(model => model.Title)
-                @Html.TextBoxFor(model => model.Title, new { @class = "form-control", autofocus = "autofocus" })
-                @Html.ValidationMessageFor(model => model.Title)
+                @Html.LabelFor(model => model.Book.Title)
+                @Html.TextBoxFor(model => model.Book.Title, new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(model => model.Book.Title)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Year)
-                @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Year)
+                @Html.LabelFor(model => model.Book.Year)
+                @Html.TextBoxFor(model => model.Book.Year, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Year)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Pages)
-                @Html.TextBoxFor(model => model.Pages, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Pages)
+                @Html.LabelFor(model => model.Book.Pages)
+                @Html.TextBoxFor(model => model.Book.Pages, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Pages)
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.ISBN)
-                @Html.TextBoxFor(model => model.ISBN, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ISBN)
+                @Html.LabelFor(model => model.Book.ISBN)
+                @Html.TextBoxFor(model => model.Book.ISBN, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.ISBN)
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="form-group">
-                @Html.LabelFor(model => model.GenreId, "Genre")
-                @Html.DropDownListFor(model => model.GenreId, (SelectList)ViewBag.Genres, "--select--", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.GenreId)
+                @Html.LabelFor(model => model.Book.GenreId, "Genre")
+                @Html.DropDownListFor(model => model.Book.GenreId, (SelectList)ViewBag.Genres, "--select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.GenreId)
             </div>
         </div>
         <div class="col-md-2" style="margin:25px 0px">
@@ -47,11 +52,11 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="form-group">
-                @Html.LabelFor(model => model.AuthorId, "Author")
-                @Html.DropDownListFor(model => model.AuthorId, (SelectList)ViewBag.Authors, "--select--", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.AuthorId)
+                @Html.LabelFor(model => model.Book.AuthorId, "Author")
+                @Html.DropDownListFor(model => model.Book.AuthorId, (SelectList)ViewBag.Authors, "--select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.AuthorId)
             </div>
         </div>
         <div class="col-md-2" style="margin:25px 0px">
@@ -59,31 +64,30 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-5">
             <div class="form-group">
-                @Html.LabelFor(model => model.Price)
-                @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Price)
+                @Html.LabelFor(model => model.Book.Price)
+                @Html.TextBoxFor(model => model.Book.Price, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Price)
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.Image)
+                @Html.LabelFor(model => model.Book.Image)
                 <div class="input-group">
-@*                    <span class="input-group-btn">
+                    <span class="input-group-btn">
                         <span class="btn btn-primary btn-file">
-                            Browse&hellip; @Html.TextBoxFor(m => m.Image, new { type = "file" })
+                            Browse&hellip; <input name="Book.Image" id="Book_Image" type="file">
                         </span>
-                    </span>
-                    <input type="text" class="form-control" readonly="">*@
-                    <input name="image" id="image" type="file"/>
+                        @Html.TextBox("ImagePath","", new { @class = "form-control" })
+                    </span>                
                 </div>
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Desc)
-                @Html.TextAreaFor(model => model.Desc, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Desc)
+                @Html.LabelFor(model => model.Book.Desc)
+                @Html.TextAreaFor(model => model.Book.Desc, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Desc)
             </div>
             <p>
-                <input type="submit" class="btn btn-default" value="Create" />
+                <input type="submit" class="btn btn-default" value="@Model.Action" />
             </p>
         </div>
     </div>
@@ -126,13 +130,11 @@
 </div>
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
+    @Html.ActionLink("Back to List", "Index", new { id = Model.Book.GenreId })
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/custom")
     @Scripts.Render("~/Scripts/eStore-filepick.js")
 }
-

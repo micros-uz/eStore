@@ -10,7 +10,6 @@
         margin: 30px;
     }
 }
-
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -28,6 +27,10 @@
     background: red;
     cursor: inherit;
     display: block;
+}
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
 }
 
 .overview-hdr {

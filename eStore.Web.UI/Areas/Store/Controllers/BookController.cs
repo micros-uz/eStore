@@ -59,28 +59,40 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             var model = _objMapper.Map<Book, BookFullModel>(book);
 
-            return View(model);
+            FillDicts();
+
+            return View("Create", new AddEditBookModel
+                {
+                    Action = "Edit",
+                    Book = model,
+                    OldImageFile = book.ImageFile.HasValue ?
+                        book.ImageFile.Value.ToString() : string.Empty
+                });
         }
 
         [HttpPost]
-        public ActionResult Edit(BookFullModel model)
+        public ActionResult Edit(AddEditBookModel model)
         {
             if (ModelState.IsValid)
             {
-                var book = _objMapper.Map<BookFullModel, Book>(model);
+                var book = _objMapper.Map<BookFullModel, Book>(model.Book);
+
+                book.ImageFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
 
                 _service.Update(book);
 
                 return RedirectToAction("Index", new
                 {
-                    id = model.GenreId
+                    id = model.Book.GenreId
                 });
             }
             else
             {
+                FillDicts();
+
                 ModelState.AddModelError("", "There Are errors");
 
-                return View(model);
+                return View("Create", model);
             }
         }
 
@@ -106,25 +118,35 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             FillDicts();
 
-            return View(model);
+            return View(new AddEditBookModel
+            {
+                Action = "Create",
+                Book = model
+            });
         }
 
         [HttpPost]
-        public ActionResult Create(BookFullModel model)
+        public ActionResult Create(AddEditBookModel model)
         {
             if (ModelState.IsValid)
             {
-                var book = _objMapper.Map<BookFullModel, Book>(model);
+                var book = _objMapper.Map<BookFullModel, Book>(model.Book);
 
-                book.ImageFile = _fileService.SaveImage(model.Image);
+                book.ImageFile = _fileService.SaveImage(model.Book.Image, null, model.IsImageChanged);
 
                 _service.Add(book);
-            }
 
-            return RedirectToAction("Index", new
+                return RedirectToAction("Index", new
+                {
+                    id = model.Book.GenreId
+                });
+            }
+            else
             {
-                id = model.GenreId
-            });
+                FillDicts();
+
+                return View(model);
+            }
         }
 
         private void FillDicts()

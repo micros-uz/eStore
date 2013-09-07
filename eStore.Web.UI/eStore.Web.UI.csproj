@@ -227,6 +227,7 @@
     <Compile Include="Areas\Store\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SqlController.cs" />
     <Compile Include="Areas\Store\Controllers\StoreController.cs" />
+    <Compile Include="Areas\Store\ViewModels\AddEditBookModel.cs" />
     <Compile Include="Areas\Store\ViewModels\AuthorModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
