@@ -1,8 +1,11 @@
 ﻿using System.Web;
+
 namespace eStore.Web.UI.Areas.Store.ViewModels
 {
     public class BookFullModel : BookModelEx
     {
+        private const int MAX_DESC_Length = 123;
+
         public int AuthorId
         {
             get;
@@ -25,6 +28,21 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
         {
             get;
             set;
+        }
+
+        public bool IsDescTooLong
+        {
+            get
+            {
+                return Desc.Length > MAX_DESC_Length;
+            }
+        }
+        public string ShortDesc
+        {
+            get
+            {
+                return IsDescTooLong ? Desc.Substring(0, MAX_DESC_Length) + "..." : Desc;
+            }
         }
 
         public string ISBN

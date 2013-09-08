@@ -384,12 +384,11 @@
     <Content Include="Areas\Account\Views\Account\LogOn.cshtml" />
     <Content Include="Areas\Account\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Account\Views\Account\Register.cshtml" />
-    <Content Include="Areas\Store\Views\Book\Edit.cshtml" />
     <Content Include="Areas\Store\Views\Genre\Index.cshtml" />
     <Content Include="Areas\Store\Views\Genre\Create.cshtml" />
     <Content Include="Areas\Store\Views\Genre\Edit.cshtml" />
     <Content Include="Areas\Store\Views\Book\Index.cshtml" />
-    <Content Include="Areas\Store\Views\Book\Create.cshtml" />
+    <Content Include="Areas\Store\Views\Book\CreateEdit.cshtml" />
     <Content Include="Areas\Admin\Views\Sql\DbInit.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_Genres.cshtml" />

@@ -74,21 +74,24 @@
                 @Html.LabelFor(model => model.Book.Image)
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <span class="btn btn-primary btn-file">
-                            Browse&hellip; <input name="Book.Image" id="Book_Image" type="file">
-                        </span>
-                        @Html.TextBox("ImagePath","", new { @class = "form-control" })
+                            <span class="btn btn-primary btn-file">
+                                Browse&hellip; <input name="Book.Image" id="Book_Image" type="file">
+                            </span>
+                            @Html.TextBox("ImagePath","", new { @class = "form-control", style="width: 78%;" })
                     </span>                
                 </div>
             </div>
             <div class="form-group">
                 @Html.LabelFor(model => model.Book.Desc)
-                @Html.TextAreaFor(model => model.Book.Desc, new { @class = "form-control" })
+                @Html.TextAreaFor(model => model.Book.Desc, new { @class = "form-control", rows = "5" })
                 @Html.ValidationMessageFor(model => model.Book.Desc)
             </div>
             <p>
                 <input type="submit" class="btn btn-default" value="@Model.Action" />
             </p>
+        </div>
+        <div class="col-md-5">
+            <img id="preview" src= "@Url.Action("Image", new { fileName = Model.Book.ImageFile})" alt="Image" width="248" height="358"/>
         </div>
     </div>
 }

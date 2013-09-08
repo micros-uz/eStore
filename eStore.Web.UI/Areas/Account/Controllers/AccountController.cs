@@ -29,7 +29,8 @@ namespace eStore.Web.UI.Areas.Account.Controllers
         [AllowAnonymous]
         public ActionResult LogOn(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = string.IsNullOrEmpty(returnUrl)
+                ? Request.UrlReferrer.AbsolutePath : returnUrl;
 
             return View(new LogOnModel());
         }

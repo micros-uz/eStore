@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
@@ -61,7 +62,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             FillDicts();
 
-            return View("Create", new AddEditBookModel
+            return View("CreateEdit", new AddEditBookModel
                 {
                     Action = "Edit",
                     Book = model,
@@ -77,7 +78,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             {
                 var book = _objMapper.Map<BookFullModel, Book>(model.Book);
 
-                book.ImageFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
+                var newFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
+
+                book.ImageFile = newFile.HasValue ? newFile : new Guid(model.Book.ImageFile);
 
                 _service.Update(book);
 
@@ -92,7 +95,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
                 ModelState.AddModelError("", "There Are errors");
 
-                return View("Create", model);
+                return View("CreateEdit", model);
             }
         }
 
@@ -118,7 +121,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             FillDicts();
 
-            return View(new AddEditBookModel
+            return View("CreateEdit", new AddEditBookModel
             {
                 Action = "Create",
                 Book = model
@@ -145,7 +148,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             {
                 FillDicts();
 
-                return View(model);
+                return View("CreateEdit", model);
             }
         }
 

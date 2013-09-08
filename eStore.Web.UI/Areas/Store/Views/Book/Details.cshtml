@@ -16,8 +16,11 @@
         <br><br>
         <div>
             <span class="overview-hdr">Overview - </span>
-            <span>@Model.Desc</span>
-            <a href="#overview">Read more...</a>
+            <span>@Model.ShortDesc</span>
+            @if (Model.IsDescTooLong)
+            {
+                <a href="#overview">Read more...</a>
+            }
         </div>
         <br>
         <div class="hr-top"> </div>

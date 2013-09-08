@@ -81,13 +81,9 @@ namespace eStore.Web.Infrastructure
             {
                 var data = new byte[file.ContentLength];
                 file.InputStream.Read(data, 0, file.ContentLength);
-                
+
                 DeleteFile(oldFileName, HttpContext.Current.Request.PhysicalApplicationPath);
                 res = SaveFile(data, HttpContext.Current.Request.PhysicalApplicationPath);
-            }
-            else if (!string.IsNullOrEmpty(oldFileName))
-            {
-                res = new Guid(oldFileName);
             }
 
             return res;
