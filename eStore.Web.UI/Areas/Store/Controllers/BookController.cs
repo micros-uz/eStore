@@ -80,7 +80,10 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
                 var newFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
 
-                book.ImageFile = newFile.HasValue ? newFile : new Guid(model.Book.ImageFile);
+                book.ImageFile = newFile.HasValue 
+                    ? newFile 
+                    : string.IsNullOrEmpty(model.Book.ImageFile)
+                        ? (Guid?)null : new Guid(model.Book.ImageFile);
 
                 _service.Update(book);
 
