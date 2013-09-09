@@ -7,7 +7,7 @@ namespace eStore.Web.Infrastructure
 {
     internal class FileService : IFileService
     {
-        private const string SERVER_Path = @"App_Data\uploads";
+        private const string SERVER_Path = @"uploads";
 
         private void WrapExceptions(Action action)
         {
@@ -48,8 +48,14 @@ namespace eStore.Web.Infrastructure
 
             WrapExceptions(() =>
                 {
-                    var imagePath = Path.Combine(path, SERVER_Path, name.ToString());
-                    File.WriteAllBytes(imagePath, fileData);
+                    var imageDirPath = Path.Combine(path, SERVER_Path);
+
+                    if (!Directory.Exists(imageDirPath))
+                    {
+                        Directory.CreateDirectory(imageDirPath);
+                    }
+
+                    File.WriteAllBytes(Path.Combine(imageDirPath, name.ToString()), fileData);
                     res = name;
                 });
 
