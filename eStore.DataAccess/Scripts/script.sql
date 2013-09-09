@@ -24,27 +24,27 @@ IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
 GO
 
 CREATE TABLE [dbo].[Genres] (
-    [GenreId] int IDENTITY(1,1) primary key nonclustered,
+    [GenreId] int IDENTITY(1,1) primary key clustered,
     [Title] nvarchar(30) NOT NULL unique nonclustered,
     [Desc] nvarchar(200) NULL
 );
 GO
 
 CREATE TABLE [dbo].[Authors] (
-    [AuthorId] int IDENTITY(1,1) primary key nonclustered,
+    [AuthorId] int IDENTITY(1,1) primary key clustered,
     [Name] nvarchar(200) NOT NULL unique nonclustered
 );
 GO
 
 CREATE TABLE [dbo].[Series] (
-    [SeriesId] int IDENTITY(1,1) primary key nonclustered,
+    [SeriesId] int IDENTITY(1,1) primary key clustered,
     [Title] nvarchar(30) NOT NULL unique nonclustered,
     [Desc] nvarchar(200) NULL
 );
 GO
 
 CREATE TABLE [dbo].[Books] (
-    [BookId] int IDENTITY(1,1) primary key nonclustered,
+    [BookId] int IDENTITY(1,1) primary key clustered,
     [AuthorId] int NOT NULL references [dbo].[Authors](AuthorId),
     [GenreId] int NOT NULL references [dbo].[Genres](GenreId),
     [SeriesId] int NULL references [dbo].[Series](SeriesId),
@@ -59,14 +59,14 @@ CREATE TABLE [dbo].[Books] (
 GO
 
 CREATE TABLE [dbo].[Roles] (
-    [RoleId] int IDENTITY(1,1) primary key nonclustered,
+    [RoleId] int IDENTITY(1,1) primary key clustered,
     [Name] nvarchar(15) NOT NULL unique nonclustered,
     [Desc] nvarchar(max) NOT NULL,
 );
 GO
 
 CREATE TABLE [dbo].[Users] (
-    [UserId] int IDENTITY(1,1) primary key nonclustered,
+    [UserId] int IDENTITY(1,1) primary key clustered,
     [Name] nvarchar(10) NOT NULL unique nonclustered,
     [Password] nvarchar(12) NOT NULL,
     [Email] nvarchar(20) NULL,
