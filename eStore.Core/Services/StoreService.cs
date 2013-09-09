@@ -87,6 +87,11 @@ namespace eStore.Core.Services
             }
         }
 
+        IEnumerable<Book> IStoreService.SearchBooks(string searchqry)
+        {
+            return UoW.BooksRepository.Find(x => x.Title.Contains(searchqry));
+        }
+
         #endregion
 
     }

@@ -1,4 +1,4 @@
-﻿@model eStore.Web.UI.Areas.Store.ViewModels.GenreBooksModel
+﻿@model GenreBooksModel
 @{
     ViewBag.Title = "Browse";
 }
@@ -9,6 +9,8 @@
     @Html.CreateNew(new { id = Model.GenreId })
 </p>
 
+@{Html.RenderPartial("_Books", Model.Books);}
+@*
 <table class="table table-striped table-hover">
 <thead>
     <tr>
@@ -50,7 +52,7 @@
     }
     </tbody>
 </table>
-
+*@
 @section searchbar{
-    @Html.Action("Search", "Home")
+    @Html.Action("Search", "Search")
 }

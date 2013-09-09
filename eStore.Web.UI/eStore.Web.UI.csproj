@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -223,10 +227,10 @@
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
     <Compile Include="Areas\Store\Controllers\GenreController.cs" />
+    <Compile Include="Areas\Store\Controllers\SearchController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
     <Compile Include="Areas\Store\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SqlController.cs" />
-    <Compile Include="Areas\Store\Controllers\StoreController.cs" />
     <Compile Include="Areas\Store\ViewModels\AddEditBookModel.cs" />
     <Compile Include="Areas\Store\ViewModels\AuthorModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
@@ -252,6 +256,7 @@
     <Compile Include="Views\BaseView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
@@ -397,6 +402,8 @@
     <Content Include="Areas\Store\Views\Shared\_Search.cshtml" />
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Store\Views\Search\Go.cshtml" />
+    <Content Include="Areas\Store\Views\Shared\_Books.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

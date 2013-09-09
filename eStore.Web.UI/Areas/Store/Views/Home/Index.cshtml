@@ -4,6 +4,14 @@
 
 <div class="row">
     <h2>Best Sellers</h2>
+    @for (int k = 0; k < 120; k++)
+    {
+        <div class="col-xs-2">
+            <img src="~/Images/logo.png" width="150" height="200" />
+            <div><p class="centred">Title</p></div>
+            <p>Author</p>
+        </div>
+    }
 </div>
 
 <div class="row">
@@ -19,5 +27,5 @@
 }
 
 @section searchbar{
-    @Html.Action("Search", "Home")
+    @Html.Action("Search", "Search")
 }

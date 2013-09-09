@@ -23,7 +23,7 @@ namespace eStore.Web.UI.Logic
             IoC.Current.Register<IController, HomeController>("home");
             IoC.Current.Register<IController, GenreController>("genre");
             IoC.Current.Register<IController, BookController>("book");
-            IoC.Current.Register<IController, StoreController>("store");
+            IoC.Current.Register<IController, SearchController>("search");
             IoC.Current.Register<IController, SqlController>("sql");
             IoC.Current.Register<IController, AccountController>("account");
             IoC.Current.Register<IController, UserController>("user");

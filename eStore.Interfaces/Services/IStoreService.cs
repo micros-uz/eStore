@@ -28,5 +28,7 @@ namespace eStore.Interfaces.Services
         IEnumerable<Author> GetAuthors();
 
         void Add(Author author);
+
+        IEnumerable<Book> SearchBooks(string searchQry);
     }
 }

@@ -43,3 +43,20 @@ input[readonly] {
     border: medium none;
     height: 10px;
 }
+
+.centred {
+    display: block;
+    margin-left: auto;
+    margin-right: auto  
+}
+
+.det-price {
+    text-align: center;
+    padding: 10px;
+}
+
+.bi-author {
+    text-align: center;
+    padding: 10px;
+    color: #0c8342
+}

@@ -28,7 +28,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         public ActionResult Index(int id)
         {
             var books = _service.GetBooksByGenre(id);
-            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookModel>>(books);
+            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
             return View(new GenreBooksModel
                 {

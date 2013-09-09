@@ -6,7 +6,9 @@
 
 <div class="row">
     <div class="col-md-4">
-        <img src= "@Url.Action("Image", new { fileName = Model.ImageFile})" alt="Image" width="248" height="358"/>
+        <img class="centred" src= "@Url.Action("Image", new { fileName = Model.ImageFile})" alt="Image" width="200"/>
+        <div><p class="det-price">@Model.Price</p></div>
+        <div><button class="btn btn-primary centred"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Add to Cart</button></div>
     </div>
     <div class="col-md-5">
         @Html.HiddenFor(model=>model.BookId)
@@ -37,7 +39,7 @@
 
     </div>
 </div>
-
+<br><br><br><br>
 <p>
 @Html.ActionLink("Back to List", "Index", new { id = Model.GenreId })
 
@@ -47,6 +49,3 @@
     @Html.Action("Catalog", "Genre")
 }
 
-@section searchbar{
-    @Html.Action("Search", "Home")
-}
