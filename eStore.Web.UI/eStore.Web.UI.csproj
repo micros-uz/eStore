@@ -226,6 +226,7 @@
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
+    <Compile Include="Areas\Store\Controllers\CartController.cs" />
     <Compile Include="Areas\Store\Controllers\GenreController.cs" />
     <Compile Include="Areas\Store\Controllers\SearchController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Areas\Store\ViewModels\AuthorModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookFullModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
+    <Compile Include="Areas\Store\ViewModels\CartItemModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
@@ -333,6 +335,7 @@
     <Content Include="Scripts\eStore-custom-chooseGenre.js" />
     <Content Include="Scripts\eStore-common.js" />
     <Content Include="Scripts\eStore-filepick.js" />
+    <Content Include="Scripts\eStore.startup.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -404,9 +407,11 @@
     <Content Include="Areas\Admin\Views\User\Details.cshtml" />
     <Content Include="Areas\Store\Views\Search\Go.cshtml" />
     <Content Include="Areas\Store\Views\Shared\_Books.cshtml" />
+    <Content Include="Areas\Store\Views\Cart\Index.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\eStore.dataservice.js" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />

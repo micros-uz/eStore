@@ -71,6 +71,14 @@ namespace eStore.Web.UI.Views
             }
         }
 
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return Request.IsAuthenticated;
+            }
+        }
+
         public override void Execute()
         {
 

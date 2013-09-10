@@ -22,12 +22,8 @@ namespace eStore.Web.UI
             bundles.Add(new ScriptBundle("~/bundles/modernizr")
                 .Include("~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/custom")
-                .Include("~/Scripts/eStore-custom-*"));
-
-            bundles.Add(new ScriptBundle("~/bundles/common")
-                .Include("~/Scripts/eStore-common*"));
-
+            bundles.Add(new ScriptBundle("~/bundles/eStore")
+                .Include("~/Scripts/eStore*"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/site.css"));

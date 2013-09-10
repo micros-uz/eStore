@@ -8,7 +8,7 @@
     <div class="col-md-4">
         <img class="centred" src= "@Url.Action("Image", new { fileName = Model.ImageFile})" alt="Image" width="200"/>
         <div><p class="det-price">@Model.Price</p></div>
-        <div><button class="btn btn-primary centred"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Add to Cart</button></div>
+        <div><button id="addToCart" class="btn btn-primary centred"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Add to Cart</button></div>
     </div>
     <div class="col-md-5">
         @Html.HiddenFor(model=>model.BookId)
@@ -49,3 +49,14 @@
     @Html.Action("Catalog", "Genre")
 }
 
+@section scripts{
+<script>
+    $(document).ready(function(){
+        $('#addToCart').on('click', function () {
+            dataservice.addToCart(function (json) {
+
+            });
+        });
+    });
+</script>
+}
