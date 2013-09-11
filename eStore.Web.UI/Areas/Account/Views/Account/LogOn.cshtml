@@ -4,35 +4,51 @@
     ViewBag.Title = "LogOn";
 }
 
-<section id="loginForm">
-    <h2>Use a local account to log in.</h2>
-    @using (Html.BeginForm("LogOn", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl, role = "form" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @Html.Hidden("ReturnUrl", (object)ViewBag.ReturnUrl);
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Name)
+<div>
+    <div class="row">
+        <div class="page-title">
+            <h1>Welcome, Please Sign In!</h1>
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Password)
+        <div class="col-md-5">
+            <h3>New Customer!</h3>
+            <p>By creating an account at eStore you will be able to shop faster, be up to date on an orders status, and keep track of the orders you have previously made.</p>
+            <br>
+            <div class="buttons">
+                @Html.ActionLink("Register", "Register", "Account", new { area = "account" }, new { @class = "btn btn-large btn-primary" })
+            </div>
         </div>
-        <div class="checkbox">
-            @Html.CheckBoxFor(m => m.RememberMe)
-            @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+        <div class="col-md-5">
+            <h3>Use a local account to log in.</h3>
+            @using (Html.BeginForm("LogOn", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl, role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @Html.Hidden("ReturnUrl", (object)ViewBag.ReturnUrl);
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                </div>
+
+                <input type="submit" class="btn btn-default" value="Log in" />
+            }
         </div>
+    </div>
+</div>
 
-        <input type="submit" class="btn btn-default" value="Log in" />
-
-    }
-</section>
-
-<script defer="defer" type="text/javascript">
-    $('#UserName').focus();
-</script>
+@section scripts{
+    <script type="text/javascript">
+        $('#Name').focus();
+    </script>
+}
 

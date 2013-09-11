@@ -2,21 +2,39 @@
 
 @using eStore.Web.UI.Helpers;
 
+
+<div class="block block-bordered block-category-navigation">
+    <div class="block-title">
+        Categories
+    </div>
+    <div class="block-body listbox">
+        <nav class="nav-category">
+            @CreateMenu(Model)
+        </nav>
+    </div>
+</div>
+
+@helper CreateMenu(IEnumerable<GenreModel> model)
+{
+    <ul>
+        @foreach (var item in @Model)
+        {
+            <li>
+                @Html.ActionLink(item.Title, "Index", "Book", new { id = item.GenreId }, null)
+
+                @if (IsEditAllowed)
+                {
+                    <text>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
+                    </text>
+                }
+            </li>
+        }
+    </ul>
+}
+
 <p>
     @Html.CreateNew(null)
 </p>
 
-@foreach (var item in @Model)
-{
-    <li>
-        @Html.ActionLink(item.Title, "Index", "Book", new { id = item.GenreId }, null)
-
-        @if (IsEditAllowed)
-        {
-            <text>
-                @Html.ActionLink("Edit", "Edit", new { id = item.GenreId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.GenreId })
-            </text>
-        }
-    </li>
-}

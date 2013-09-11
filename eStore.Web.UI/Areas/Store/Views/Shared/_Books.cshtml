@@ -1,15 +1,27 @@
 ﻿@model IEnumerable<BookFullModel>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <text>
-            <div class="col-xs-2" style="height: 260px;">
-                <img class="centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile})" alt="Image" width="100"/>
-                <p class="bi-author">@item.Author</p>
-                <div><p class="centred">@Html.ActionLink(item.Title, "Details", "Book",  new { id = item.BookId }, null)</p></div>
+<div class="books-pane">
+    <div class="row">
+        @foreach (var item in Model)
+        {            
+            <div class="col-md-3">
+                <div class="book-item">
+                    <div class="book-item-img">
+                        <img class="centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" width="100"/>
+                    </div>
+                    <div class="book-item-author">
+                        <p class="bi-author">@item.Author</p>
+                    </div>
+                    <div class="book-item-title" style="min-height:84px;">
+                        <p class="centred">@Html.ActionLink(item.Title, "Details", "Book", new { id = item.BookId }, null)</p>
+                    </div>
+                    <div class="book-item-price">
+                        <span class="centred">@item.Price</span>
+                    </div>
+                </div>
             </div>
-        </text>
-    }
+            
+        }
+    </div>
 </div>
 

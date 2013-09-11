@@ -1,11 +1,8 @@
 ﻿using System.Web.Mvc;
-using eStore.Web.UI.Areas.Account.ViewModels;
-using System.Web.Security;
-using eStore.Interfaces.Services;
 using eStore.Domain;
-using System;
-using System.Linq;
+using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
+using eStore.Web.UI.Areas.Account.ViewModels;
 using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Account.Controllers
@@ -30,7 +27,10 @@ namespace eStore.Web.UI.Areas.Account.Controllers
         public ActionResult LogOn(string returnUrl)
         {
             ViewBag.ReturnUrl = string.IsNullOrEmpty(returnUrl)
-                ? Request.UrlReferrer.AbsolutePath : returnUrl;
+                ? (Request.UrlReferrer != null
+                    ? Request.UrlReferrer.AbsolutePath
+                    : "/")
+                : returnUrl;
 
             return View(new LogOnModel());
         }
@@ -43,15 +43,15 @@ namespace eStore.Web.UI.Areas.Account.Controllers
             {
                 if (_authService.LogOn(model.Name, model.Password, model.RememberMe))
 
-                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                    && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                {
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home", new { area = "store" });
-                }
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "store" });
+                    }
             }
             else
             {
@@ -61,8 +61,8 @@ namespace eStore.Web.UI.Areas.Account.Controllers
             return View(model);
         }
 
-        [ValidateAntiForgeryToken]
-        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[HttpPost]
         public ActionResult LogOff()
         {
             _authService.LogOff();
@@ -103,6 +103,11 @@ namespace eStore.Web.UI.Areas.Account.Controllers
                 ModelState.AddModelError("", "Some fields are not filled properly");
                 return View(model);
             }
+        }
+
+        public ActionResult AccountSubMenu()
+        {
+            return PartialView();
         }
 
         /*

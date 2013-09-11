@@ -1,0 +1,27 @@
+﻿<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a href="@Url.Action("Index", "Cart", new { area = "Store" })">
+            <img src="~/Images/Cart.png" height="24" />
+            <span>0 items</span>
+        </a>
+    </li>
+    <li class="dropdown">
+        <a href="@(!IsAuthenticated ? Url.Action("LogOn", "Account", new { area = "account" }) : "#")"  class="dropdown-toggle login-a" @(IsAuthenticated ? "data-toggle=dropdown" : "")>
+            @if (IsAuthenticated)
+            { 
+                <span>@User.Identity.Name</span><br>
+                <span>My Account</span>
+                <b class="caret"></b>
+            }
+            else
+            { 
+                <span>Hello, Guest!</span><br>
+                <span>Log In</span>
+            }
+        </a>
+        @if (IsAuthenticated)
+        { 
+            @Html.Action("AccountSubMenu", "Account", new { area = "account" })
+        }
+    </li>
+</ul>
