@@ -1,22 +1,37 @@
-﻿@model IEnumerable<BookFullModel>
+﻿@model GenreBooksModel
+
+
 
 <div class="books-pane">
+
     <div class="row">
-        @foreach (var item in Model)
+        <div class="col-md-6">
+            <div class="book-items-header">
+                Good Books
+            </div>
+        </div>
+    </div>
+    
+    <p>
+        @Html.CreateNew(new { id = Model.GenreId })
+    </p>
+
+    <div class="row">
+        @foreach (var item in Model.Books)
         {            
             <div class="col-md-3">
                 <div class="book-item">
-                    <div class="book-item-img">
-                        <img class="centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" width="100"/>
+                    <div class="book-item-img-box">
+                        <img class="book-item-img centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" height="120"/>
                     </div>
                     <div class="book-item-author">
                         <p class="bi-author">@item.Author</p>
                     </div>
-                    <div class="book-item-title" style="min-height:84px;">
-                        <p class="centred">@Html.ActionLink(item.Title, "Details", "Book", new { id = item.BookId }, null)</p>
+                    <div class="book-item-title" style="min-height:70px;">
+                        <p class="centred">@Html.ActionLink(item.ShortTitle, "Details", "Book", new { id = item.BookId }, null)</p>
                     </div>
                     <div class="book-item-price">
-                        <span class="centred">@item.Price</span>
+                        <b>@item.Price</b>
                     </div>
                 </div>
             </div>

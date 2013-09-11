@@ -162,3 +162,32 @@ li {
     background: #b3d4fc;
     text-shadow: none;
 }
+
+.books-pane{
+    margin: 10px;
+}
+
+.book-item {
+    border: 1px solid #d6e0e6;
+    border-radius: 0 0 2px 0;
+    margin: 10px 0;
+}
+
+.book-item-title{
+    margin: 10px;
+    /*font-size: 11px;*/
+}
+
+.book-item-price{
+    color: Green;
+    font-size: 1.3em; 
+    text-align: center; 
+}
+
+.book-item-img-box{
+    padding:10px 0;
+}
+
+.col-md-3 {
+    width: 20%;
+}

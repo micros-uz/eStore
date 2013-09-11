@@ -5,6 +5,7 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
     public class BookFullModel : BookModelEx
     {
         private const int MAX_DESC_Length = 123;
+        private const int MAX_TITLE_Length = 40;
 
         public int AuthorId
         {
@@ -34,7 +35,7 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
         {
             get
             {
-                return Desc.Length > MAX_DESC_Length;
+                return Desc != null ? Desc.Length > MAX_DESC_Length : false;
             }
         }
         public string ShortDesc
@@ -61,6 +62,15 @@ namespace eStore.Web.UI.Areas.Store.ViewModels
         {
             get;
             set;
+        }
+
+        public string ShortTitle
+        {
+            get
+            {
+                return Title.Length <= MAX_TITLE_Length ? Title
+                    : Title.Substring(0, MAX_TITLE_Length) + "...";
+            }
         }
     }
 }
