@@ -1,9 +1,6 @@
 ﻿@model GenreBooksModel
 
-
-
 <div class="books-pane">
-
     <div class="row">
         <div class="col-md-6">
             <div class="book-items-header">
@@ -28,7 +25,7 @@
                         <p class="bi-author">@item.Author</p>
                     </div>
                     <div class="book-item-title" style="min-height:70px;">
-                        <p class="centred">@Html.ActionLink(item.ShortTitle, "Details", "Book", new { id = item.BookId }, null)</p>
+                        <p class="centred">@Html.ActionLink(item.ShortTitle.Substring(0, item.ShortTitle.Length >= 40 ? 40 : item.ShortTitle.Length) , "Details", "Book", new { id = item.BookId }, null)</p>
                     </div>
                     <div class="book-item-price">
                         <b>@item.Price</b>

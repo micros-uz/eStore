@@ -164,7 +164,13 @@ li {
 }
 
 .books-pane{
-    margin: 10px;
+    margin: 0 10px 0;
+}
+
+.book-items-header {
+    padding-bottom: 9px;
+    margin: 20px 0 20px;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .book-item {
@@ -188,6 +194,6 @@ li {
     padding:10px 0;
 }
 
-.col-md-3 {
+/*.col-md-3 {
     width: 20%;
-}
+}*/

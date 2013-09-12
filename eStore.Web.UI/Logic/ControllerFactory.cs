@@ -29,7 +29,7 @@ namespace eStore.Logic
 
         SessionStateBehavior IControllerFactory.GetControllerSessionBehavior(RequestContext requestContext, string controllerName)
         {
-            return SessionStateBehavior.Disabled;
+            return SessionStateBehavior.Required;
         }
 
         void IControllerFactory.ReleaseController(IController controller)

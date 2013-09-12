@@ -17,7 +17,7 @@ namespace eStore.Web.UI.Logic
 
         public void Configure()
         {
-            ObjectMapperConfigurator.CreateMap<RegisterModel, User>();
+            ObjectMapperConfigurator.Current.CreateMap<RegisterModel, User>();
         }
     }
 }

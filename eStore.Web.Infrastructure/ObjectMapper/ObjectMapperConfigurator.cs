@@ -5,14 +5,24 @@ using eStore.Web.Infrastructure.ObjectMapper.Auto;
 
 namespace eStore.Web.Infrastructure.ObjectMapper
 {
-    public static class ObjectMapperConfigurator
+    public class ObjectMapperConfigurator : IObjectMapperExpression
     {
+        private static IObjectMapperExpression _This;
+
+        public static IObjectMapperExpression Current
+        {
+            get
+            {
+                return _This ?? (_This = new ObjectMapperConfigurator());
+            }
+        }
+
         public static void Init(Type type)
         {
             MapperConfiguration.Configure(type);
         }
 
-        public static void CreateMap<TSrc, TDest>(params Expression<Func<TDest, object>>[] ignoreDestMembers)
+        public IObjectMapperExpression CreateMap<TSrc, TDest>(params Expression<Func<TDest, object>>[] ignoreDestMembers)
         {
             var m = Mapper.CreateMap<TSrc, TDest>();
 
@@ -20,9 +30,11 @@ namespace eStore.Web.Infrastructure.ObjectMapper
             {
                 m.ForMember(member, x => x.Ignore());
             }
+
+            return this;
         }
 
-        public static void CreateMap<TSrc, TDest, TMember>(Expression<Func<TDest, object>> destMember,
+        public IObjectMapperExpression CreateMap<TSrc, TDest, TMember>(Expression<Func<TDest, object>> destMember,
             Expression<Func<TSrc, TMember>> srcMember = null,
             Expression<Func<TDest, object>>[] ignoreDestMembers = null,
             params Expression<Func<TSrc, object>>[] ignoreSrcMembers)
@@ -50,6 +62,8 @@ namespace eStore.Web.Infrastructure.ObjectMapper
             {
                 m.ForSourceMember(member, x => x.Ignore());
             }
+
+            return this;
         }
     }
 }

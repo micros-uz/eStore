@@ -1,7 +1,6 @@
 ﻿using eStore.Core.Services;
 using eStore.DataAccess;
 using eStore.Interfaces.Services;
-using WrapIoC;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Core.CoreBootstraper), "Init")]
 
@@ -18,6 +17,7 @@ namespace eStore.Core
             WrapIoC.IoC.Current.Register<IStoreService, StoreService>();
             WrapIoC.IoC.Current.Register<IAuthenticationService, AuthenticationService>();
             WrapIoC.IoC.Current.Register<IUserService, UserService>();
+            WrapIoC.IoC.Current.Register<ICartService, CartService>();
         }
     }
 }

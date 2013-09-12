@@ -59,6 +59,7 @@
     <Compile Include="IFileService.cs" />
     <Compile Include="ObjectMapper\Auto\ConfigProfile.cs" />
     <Compile Include="ObjectMapper\Auto\MapperConfiguration.cs" />
+    <Compile Include="ObjectMapper\IObjectMapperExpression.cs" />
     <Compile Include="ObjectMapper\IProfile.cs" />
     <Compile Include="ObjectMapper\IObjectMapper.cs" />
     <Compile Include="ObjectMapper\ObjectMapper.cs" />
