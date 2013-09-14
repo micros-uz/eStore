@@ -34,6 +34,12 @@ namespace eStore.Domain
             set;
         }
 
+        public virtual Genre Genre
+        {
+            get;
+            set;
+        }
+
         public string Title
         {
             get;

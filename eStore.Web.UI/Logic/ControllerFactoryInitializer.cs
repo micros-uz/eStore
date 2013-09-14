@@ -22,6 +22,7 @@ namespace eStore.Web.UI.Logic
             ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
             IoC.Current.Register<IController, HomeController>("home");
             IoC.Current.Register<IController, GenreController>("genre");
+            IoC.Current.Register<IController, AuthorController>("author");
             IoC.Current.Register<IController, BookController>("book");
             IoC.Current.Register<IController, SearchController>("search");
             IoC.Current.Register<IController, SqlController>("sql");

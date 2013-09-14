@@ -1,4 +1,6 @@
-﻿namespace eStore.Domain
+﻿using System.Collections.Generic;
+
+namespace eStore.Domain
 {
     public class Author
     {
@@ -9,6 +11,12 @@
         }
 
         public string Name
+        {
+            get;
+            set;
+        }
+
+        public virtual ICollection<Book> Books
         {
             get;
             set;

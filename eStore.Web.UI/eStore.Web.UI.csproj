@@ -233,6 +233,8 @@
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
+    <Compile Include="Areas\Store\Controllers\AuthorController.cs" />
+    <Compile Include="Areas\Store\Controllers\BaseStoreController.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
     <Compile Include="Areas\Store\Controllers\CartController.cs" />
     <Compile Include="Areas\Store\Controllers\GenreController.cs" />
@@ -428,6 +430,8 @@
     <Content Include="Areas\Store\Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\_RightNavbarPane.cshtml" />
     <Content Include="Areas\Account\Views\Account\AccountSubMenu.cshtml" />
+    <Content Include="Areas\Store\Views\Author\Index.cshtml" />
+    <Content Include="Areas\Store\Views\Author\Top.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

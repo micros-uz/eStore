@@ -8,16 +8,12 @@ using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
-    public class GenreController : BaseDisposeController
+    public class GenreController : BaseStoreController
     {
-        private readonly IStoreService _service;
-        private readonly IObjectMapper _objMapper;
 
         public GenreController(IStoreService service, IObjectMapper objMapper)
-            : base(service)
+            : base(service, objMapper)
         {
-            _service = service;
-            _objMapper = objMapper;
         }
 
         public ActionResult Index()
@@ -27,9 +23,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         private IEnumerable<GenreModel> GetGenreModels()
         {
-            var genres = _service.GetGenres();
+            var genres = Service.GetGenres();
 
-            return _objMapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
+            return Mapper.Map<IEnumerable<Genre>, IEnumerable<GenreModel>>(genres);
         }
 
         public ActionResult Create()
@@ -40,9 +36,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         [HttpPost]
         public ActionResult Create(GenreFullModel model)
         {
-            var genre = _objMapper.Map<GenreFullModel, Genre>(model);
+            var genre = Mapper.Map<GenreFullModel, Genre>(model);
 
-            _service.Add(genre);
+            Service.Add(genre);
 
             //  Post/Redirect/Get pattern
             return RedirectToAction("Index");
@@ -50,9 +46,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Edit(int id)
         {
-            var genre = _service.GetGenreById(id);
+            var genre = Service.GetGenreById(id);
 
-            var model = _objMapper.Map<Genre, GenreFullModel>(genre);
+            var model = Mapper.Map<Genre, GenreFullModel>(genre);
 
             return View(model);
         }
@@ -62,9 +58,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             if (ModelState.IsValid)
             {
-                var genre = _objMapper.Map<GenreFullModel, Genre>(model);
+                var genre = Mapper.Map<GenreFullModel, Genre>(model);
 
-                _service.Update(genre);
+                Service.Update(genre);
             }
 
             return RedirectToAction("Index");
@@ -72,7 +68,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Delete(int id)
         {
-            _service.DeleteGenreById(id);
+            Service.DeleteGenreById(id);
 
             return RedirectToAction("Index");
         }

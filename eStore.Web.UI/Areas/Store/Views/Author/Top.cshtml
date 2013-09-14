@@ -1,0 +1,22 @@
+﻿@model IEnumerable<AuthorModel>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Top Authors</h3>
+    </div>
+    @*<div class="panel-body"></div>*@
+    <div class="list-group">
+        @foreach (var item in @Model)
+        {
+            @Html.ActionLink(item.Name, "Books", "Author", new { id = item.AuthorId}, new { @class = "list-group-item" })
+            if (IsEditAllowed)
+            {
+                <text>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AuthorId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AuthorId })
+                </text>
+            }
+        }
+    </div>
+
+</div>

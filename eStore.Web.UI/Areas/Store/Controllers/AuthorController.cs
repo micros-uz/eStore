@@ -1,48 +1,42 @@
-﻿using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using eStore.Core;
+﻿using System.Linq;
 using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
+using eStore.Web.UI.Logic;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
-namespace eStore.Web.UI.Controllers
+namespace eStore.Web.UI.Areas.Store.Controllers
 {
-    public class AuthorController : ApiController
+    public class AuthorController : BaseStoreController
     {
-        private readonly IStoreService _service;
-        private readonly IObjectMapper _mapper;
-
         public AuthorController(IStoreService service, IObjectMapper mapper)
+            :base(service, mapper)
         {
-            _service = service;
-            _mapper = mapper;
         }
 
-        public IEnumerable<AuthorModel> Get()
+        public ActionResult Index()
         {
-            var authors = _service.GetAuthors();
+            var authors = Service.GetAuthors();
 
-            return _mapper.Map<IEnumerable<Author>, IEnumerable<AuthorModel>>(authors);
+            var models = Mapper.Map<IEnumerable<Author>, IEnumerable<AuthorModel>>(authors);
+
+            return View(models);
         }
 
-        [HttpPost]
-        public HttpResponseMessage Add(AuthorModel model)
+        public ActionResult Books(int id)
         {
-            var author = _mapper.Map<AuthorModel, Author>(model);
+            return View();
+        }
 
-            try
-            {
-                _service.Add(author);
-            }
-            catch (CoreServiceException ex)
-            {
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
-            }
+        public ActionResult Top()
+        {
+            var authors = Service.GetAuthors().Take(5);
 
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            var models = Mapper.Map<IEnumerable<Author>, IEnumerable<AuthorModel>>(authors);
+
+            return PartialView(models);
         }
     }
 }

@@ -10,25 +10,21 @@ using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
-    public class BookController : BaseDisposeController
+    public class BookController : BaseStoreController
     {
-        private readonly IStoreService _service;
-        private readonly IObjectMapper _objMapper;
         private readonly IFileService _fileService;
 
         public BookController(IStoreService service, IObjectMapper objMapper,
             IFileService fileService)
-            : base(service)
+            : base(service, objMapper)
         {
-            _service = service;
-            _objMapper = objMapper;
             _fileService = fileService;
         }
 
         public ActionResult Index(int id)
         {
-            var books = _service.GetBooksByGenre(id);
-            var bookModels = _objMapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
+            var books = Service.GetBooksByGenre(id);
+            var bookModels = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
             return View(new GenreBooksModel
                 {
@@ -40,9 +36,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         [AllowAnonymous]
         public ActionResult Details(int id)
         {
-            var book = _service.GetBookById(id);
+            var book = Service.GetBookById(id);
 
-            var bookModel = _objMapper.Map<Book, BookFullModel>(book);
+            var bookModel = Mapper.Map<Book, BookFullModel>(book);
 
             return View(bookModel);
         }
@@ -56,9 +52,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Edit(int id)
         {
-            var book = _service.GetBookById(id);
+            var book = Service.GetBookById(id);
 
-            var model = _objMapper.Map<Book, BookFullModel>(book);
+            var model = Mapper.Map<Book, BookFullModel>(book);
 
             FillDicts();
 
@@ -76,7 +72,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             if (ModelState.IsValid)
             {
-                var book = _objMapper.Map<BookFullModel, Book>(model.Book);
+                var book = Mapper.Map<BookFullModel, Book>(model.Book);
 
                 var newFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
 
@@ -85,7 +81,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
                     : string.IsNullOrEmpty(model.Book.ImageFile)
                         ? (Guid?)null : new Guid(model.Book.ImageFile);
 
-                _service.Update(book);
+                Service.Update(book);
 
                 return RedirectToAction("Index", new
                 {
@@ -105,9 +101,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         //  bad idea - GET requests should not change data
         public ActionResult Delete(int id, int genreId)
         {
-            var book = _service.GetBookById(id);
+            var book = Service.GetBookById(id);
 
-            _service.Delete(book);
+            Service.Delete(book);
 
             return RedirectToAction("Index", new
             {
@@ -136,11 +132,11 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             if (ModelState.IsValid)
             {
-                var book = _objMapper.Map<BookFullModel, Book>(model.Book);
+                var book = Mapper.Map<BookFullModel, Book>(model.Book);
 
                 book.ImageFile = _fileService.SaveImage(model.Book.Image, null, model.IsImageChanged);
 
-                _service.Add(book);
+                Service.Add(book);
 
                 return RedirectToAction("Index", new
                 {
@@ -157,8 +153,8 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         private void FillDicts()
         {
-            ViewBag.Genres = new SelectList(_service.GetGenres(), "GenreId", "Title");
-            ViewBag.Authors = new SelectList(_service.GetAuthors(), "AuthorId", "Name");
+            ViewBag.Genres = new SelectList(Service.GetGenres(), "GenreId", "Title");
+            ViewBag.Authors = new SelectList(Service.GetAuthors(), "AuthorId", "Name");
         }
     }
 }

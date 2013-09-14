@@ -7,15 +7,12 @@ using eStore.Web.UI.Areas.Store.ViewModels;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController : BaseStoreController
     {
-        private readonly IStoreService _service;
-        private readonly IObjectMapper _mapper;
 
         public SearchController(IStoreService service, IObjectMapper mapper)
+            :base(service, mapper)
         {
-            _service = service;
-            _mapper = mapper;
         }
 
         [ChildActionOnly]
@@ -26,9 +23,9 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Go(string searchqry)
         {
-            var books = _service.SearchBooks(searchqry);
+            var books = Service.SearchBooks(searchqry);
 
-            var models = _mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
+            var models = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
             return View(models);
         }
