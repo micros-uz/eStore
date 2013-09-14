@@ -19,7 +19,7 @@
             <div class="col-md-3">
                 <div class="book-item">
                     <div class="book-item-img-box">
-                        <img class="img-thumbnail book-item-img centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" height="120"/>
+                        <img class="book-item-img centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" style="height: 150px;border-radius: 4px;border: 1px solid #dcd5d5"/>
                     </div>
                     <div class="book-item-author">
                         <p class="bi-author">@item.Author</p>
