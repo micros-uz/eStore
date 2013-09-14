@@ -337,6 +337,14 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Marketing\Carousel\01.jpg" />
+    <Content Include="Images\Marketing\Carousel\02.jpg" />
+    <Content Include="Images\Marketing\Carousel\03.jpg" />
+    <Content Include="Images\Marketing\Carousel\04.jpg" />
+    <Content Include="Images\Marketing\Carousel\05.jpg" />
+    <Content Include="Images\Marketing\Carousel\06.jpg" />
+    <Content Include="Images\Marketing\Carousel\07.jpg" />
+    <Content Include="Images\Marketing\Carousel\08.jpg" />
     <Content Include="Images\Cart.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
@@ -427,6 +435,14 @@
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Uploads\1d14544d-c0da-4ae3-af05-01b5761c6e98" />
+    <Content Include="Uploads\3b39b25c-6f4a-45e3-8ce5-f761aba79c00" />
+    <Content Include="Uploads\6fb151fe-9ba2-470e-b846-558a0aaa5d46" />
+    <Content Include="Uploads\ab91e937-9c01-4c74-b9fb-add1d2645899" />
+    <Content Include="Uploads\cb912ae0-49f8-4b44-812d-fa3844bbc5ff" />
+    <Content Include="Uploads\d3a38e79-28a2-4d93-af56-2bd85a416b6f" />
+    <Content Include="Uploads\db2d1f8e-555e-45b0-8d86-787e5cb3a1ee" />
+    <Content Include="Uploads\e91cf33e-609d-428a-9f16-49428959913d" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

@@ -65,104 +65,6 @@ input[readonly] {
     padding:0;
 }
 
-/*  from SmartStore.NET */
-.block {
-    margin: 12px 0 24px 0;
-}
-
-.block.block-bordered {
-    background: #fff;
-    border: 1px solid #d6e0e6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    margin: 0 0 10px 0;
-}
-
-#content-left .block.block-bordered {
-    /*border-left: none;*/
-    -webkit-border-radius: 0 3px 3px 0;
-    -moz-border-radius: 0 3px 3px 0;
-    border-radius: 0 3px 3px 0;
-}
-
-.block.block-bordered .block-title {
-    border-bottom: 1px solid #d6e0e6;
-    margin: 0;
-    padding: 6px 10px;
-    font-family: inherit;
-    color: #555;
-    font-weight: bold;
-    line-height: 17px !important;
-    line-height: 17px;
-    font-size: 12px;
-    text-transform: uppercase;
-    -webkit-border-radius: 3px 3px 0 0;
-    -moz-border-radius: 3px 3px 0 0;
-    border-radius: 3px 3px 0 0;
-    background-color: #eff3f7;
-    background-image: -moz-linear-gradient(top,#f9fafc,#e1e9f0);
-    background-image: -webkit-gradient(linear,0 0,0 100%,from(#f9fafc),to(#e1e9f0));
-    background-image: -webkit-linear-gradient(top,#f9fafc,#e1e9f0);
-    background-image: -o-linear-gradient(top,#f9fafc,#e1e9f0);
-    background-image: linear-gradient(to bottom,#f9fafc,#e1e9f0);
-    background-repeat: repeat-x;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff9fafc',endColorstr='#ffe1e9f0',GradientType=0);
-}
-
-#content-left .block.block-bordered .block-body {
-    -webkit-border-radius: 0 0 2px 0;
-    -moz-border-radius: 0 0 2px 0;
-    border-radius: 0 0 2px 0;
-}
-
-.block.block-bordered .listbox {
-    padding: 10px;
-}
-
-.block.block-bordered ul {
-    margin: 0;
-}
-
-.block-category-navigation ul, .block-account-navigation ul {
-    line-height: 18px;
-    font-size: 13px;
-    margin: 0 0 0 0.4em;
-}
-
-nav ul, nav li {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.block.block-bordered li {
-    list-style: none;
-}
-
-.nav-category>ul>li, .block-account-navigation .listbox>ul>li {
-    border-bottom: 1px solid #ddd;
-    padding: .3em 0;
-}
-
-.block.block-bordered a {
-    text-decoration: none;
-    color: #888;
-    -webkit-transition: color 0.1s linear;
-    -moz-transition: color 0.1s linear;
-    -o-transition: color 0.1s linear;
-    transition: color 0.1s linear;
-}
-
-li {
-    line-height: 20px;
-}
-
-::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-}
-
 .books-pane{
     margin: 0 10px 0;
 }
@@ -194,6 +96,6 @@ li {
     padding:10px 0;
 }
 
-/*.col-md-3 {
-    width: 20%;
-}*/
+.carouselbox{
+    margin-top: 20px;
+}
