@@ -127,7 +127,7 @@ insert into [dbo].[Series] ([SeriesId], [Title]) values (1, N'Классика c
 go
 insert into [dbo].[Series] ([SeriesId], [Title]) values (2, N'Мастер-класс') 
 go
-insert into [dbo].[Series] ([SeriesId], [Title]) values (2, N'Бестселлеры O''Reilly') 
+insert into [dbo].[Series] ([SeriesId], [Title]) values (3, N'Бестселлеры O''Reilly') 
 go
 set IDENTITY_INSERT [dbo].[Series] off
 go
