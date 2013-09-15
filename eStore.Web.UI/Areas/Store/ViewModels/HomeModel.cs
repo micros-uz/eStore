@@ -1,15 +1,16 @@
-﻿
+﻿using System.Collections.Generic;
+
 namespace eStore.Web.UI.Areas.Store.ViewModels
 {
     public class HomeModel
     {
-        public GenreBooksModel BestSellers
+        public IEnumerable<BookFullModel> BestSellers
         {
             get;
             set;
         }
 
-        public GenreBooksModel NewBooks
+        public IEnumerable<BookFullModel> NewBooks
         {
             get;
             set;

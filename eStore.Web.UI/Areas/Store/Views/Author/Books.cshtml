@@ -1,0 +1,24 @@
+﻿@model AuthorBooksModel
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<div class="author-books">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row">
+            <div class="well">
+                <h3>@Model.Author.Name</h3>
+            </div>
+                </div>
+            <div class="row">    
+                @Html.Partial("_Books", new BookListModel
+                {
+                    Books = Model.Books,
+                    AuthorId = Model.Author.AuthorId
+                })
+            </div>
+        </div>
+    </div>
+</div>

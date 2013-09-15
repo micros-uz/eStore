@@ -30,6 +30,11 @@ namespace eStore.Core.Services
             return UoW.BooksRepository.Find(x => x.GenreId == genreId).OrderBy(x => x.Title);
         }
 
+        IEnumerable<Book> IStoreService.GetBooksByAuthor(int authorId)
+        {
+            return UoW.BooksRepository.Find(x => x.AuthorId == authorId).OrderBy(x => x.Title);
+        }
+
         Book IStoreService.GetBookById(int bookId)
         {
             return UoW.BooksRepository.Find(x => x.BookId == bookId).FirstOrDefault();
@@ -68,6 +73,11 @@ namespace eStore.Core.Services
         Genre IStoreService.GetGenreById(int genreId)
         {
             return UoW.GenreRepository.Find(x => x.GenreId == genreId).FirstOrDefault();
+        }
+
+        Author IStoreService.GetAuthorById(int authorId)
+        {
+            return UoW.AuthorRepository.Find(x => x.AuthorId == authorId).FirstOrDefault();
         }
 
         void IStoreService.Update(Genre genre)

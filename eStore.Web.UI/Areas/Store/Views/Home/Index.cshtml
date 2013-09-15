@@ -57,12 +57,12 @@
 
 <div class="row">
     <h2>Best Sellers</h2>
-    @{Html.RenderPartial("_Books", Model.BestSellers);}
+    @{Html.RenderPartial("_Books", new BookListModel { Books = Model.BestSellers });}
 </div>
 
 <div class="row">
     <h2>New books</h2>
-    @{Html.RenderPartial("_Books", Model.NewBooks);}
+    @{Html.RenderPartial("_Books", new BookListModel { Books = Model.NewBooks });}
 </div>
 
 

@@ -1,18 +1,17 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
-using eStore.Web.UI.Logic;
-using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
     public class AuthorController : BaseStoreController
     {
         public AuthorController(IStoreService service, IObjectMapper mapper)
-            :base(service, mapper)
+            : base(service, mapper)
         {
         }
 
@@ -27,7 +26,13 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
         public ActionResult Books(int id)
         {
-            return View();
+            var author = Service.GetAuthorById(id);
+
+            return View(new AuthorBooksModel
+                {
+                    Author = Mapper.Map<Author, AuthorModel>(author),
+                    Books = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(author.Books)
+                });
         }
 
         public ActionResult Top()
