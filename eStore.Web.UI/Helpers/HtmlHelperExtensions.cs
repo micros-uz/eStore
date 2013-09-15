@@ -1,6 +1,7 @@
 ﻿using eStore.Web.UI.Views;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using System.Web.Script.Serialization;
 
 namespace eStore.Web.UI.Helpers
 {
@@ -21,6 +22,12 @@ namespace eStore.Web.UI.Helpers
             }
 
             return res;
+        }
+
+        public static MvcHtmlString ToJSON(this HtmlHelper htmlHelper, object data)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            return new MvcHtmlString(serializer.Serialize(data));
         }
     }
 }

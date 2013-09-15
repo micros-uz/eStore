@@ -4,6 +4,15 @@
     ViewBag.Title = "User list";
 }
 
+<script type="text/html" id="TableRow">
+    <tr>
+        <td data-bind="text: UserId"></td>
+        <td data-bind="text: Name"></td>
+        <td data-bind="text: Email"></td>
+        <td data-bind="text: RoleId"></td>
+    </tr>
+</script>
+
 <div class="btn-toolbar">
     @Html.ActionLink("New User", "Create", new { area = "admin" }, new { @class = "btn btn-primary" })
     <button class="btn">Import</button>
@@ -14,7 +23,8 @@
     <table class="table">
         <thead>
             <tr>
-                <th>#
+                <th>
+                    #
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
@@ -28,33 +38,37 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RoleId)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", new { id = item.UserId })"><span class="glyphicon glyphicon-pencil"></span></a>
-                        <a href="#myModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove"></span></a>
-                    </td>
-                    @*                    <td>
-                        @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
-                    </td>*@
-                </tr>
-            }
-        </tbody>
+        <tbody data-bind="template: {
+			name: 'TableRow',
+			foreach: rows
+		}"></tbody>
+        @*<tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoleId)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", new { id = item.UserId })"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#myModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                                            <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                        </td>
+                    </tr>
+                }
+            </tbody>*@
 
     </table>
 </div>
@@ -87,3 +101,51 @@
         </div>
     </div>
 </div>
+
+
+@section scripts{
+    <script type="text/javascript">
+        var AjaxGridViewModel = function(url, filterParams) {
+            this.rows= ko.observableArray();
+            this.filterParams = ko.mapping.fromJS(filterParams);
+            this.paging = {
+                PageNumber: ko.observable(1),
+                TotalPagesCount: ko.observable(0),
+                next: function () {
+                    var pn = this.PageNumber();
+                    if (pn < this.TotalPagesCount()) this.PageNumber(pn + 1);
+                },
+                back: function () {
+                    var pn = this.PageNumber();
+                    if (pn > 1) this.PageNumber(pn - 1);
+                }
+            };
+
+            ko.dependentObservable(function () {
+                var data = ko.toJS(this.filterParams);
+                data.pageNumber = this.paging.PageNumber();
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: data,
+                    context: this,
+                    success: function (data) {
+                        this.rows(data.Data);
+                        //this.paging.PageNumber(data.Paging.PageNumber);
+                        //this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
+                    }
+                });
+            }, this);
+
+            ko.dependentObservable(function () {
+                var data = ko.toJS(this.filterParams);
+                // Reset page number when any filtration parameters change
+                // However this solution will cause double-load problem. Consider using pause-notifications
+                this.paging.PageNumber(1);
+            }, this);
+        };
+
+        var ajaxGrid = new AjaxGridViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
+        ko.applyBindings(ajaxGrid);
+    </script>
+}
