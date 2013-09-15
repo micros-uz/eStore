@@ -9,6 +9,7 @@ namespace eStore.Interfaces.Services
         IEnumerable<Genre> GetGenres();
 
         IEnumerable<Book> GetBooksByGenre(int genreId);
+        IEnumerable<Book> GetBooksByAuthor(int authorId);
 
         Book GetBookById(int id);
 
@@ -30,5 +31,7 @@ namespace eStore.Interfaces.Services
         void Add(Author author);
 
         IEnumerable<Book> SearchBooks(string searchQry);
+
+        Author GetAuthorById(int id);
     }
 }

@@ -1,4 +1,4 @@
-﻿@model GenreBooksModel
+﻿@model BookListModel
 
 <div class="books-pane">
     <div class="row">
@@ -10,7 +10,7 @@
     </div>
     
     <p>
-        @Html.CreateNew(new { id = Model.GenreId })
+        @Html.CreateNew(new { genreId = Model.GenreId, authorId = Model.AuthorId })
     </p>
 
     <div class="row">
@@ -31,8 +31,7 @@
                         <b>@item.Price</b>
                     </div>
                 </div>
-            </div>
-            
+            </div>            
         }
     </div>
 </div>

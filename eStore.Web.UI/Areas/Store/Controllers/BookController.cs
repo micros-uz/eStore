@@ -6,7 +6,6 @@ using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
-using eStore.Web.UI.Logic;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
@@ -26,7 +25,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             var books = Service.GetBooksByGenre(id);
             var bookModels = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
-            return View(new GenreBooksModel
+            return View(new BookListModel
                 {
                     Books = bookModels,
                     GenreId = id
@@ -76,8 +75,8 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
                 var newFile = _fileService.SaveImage(model.Book.Image, model.OldImageFile, model.IsImageChanged);
 
-                book.ImageFile = newFile.HasValue 
-                    ? newFile 
+                book.ImageFile = newFile.HasValue
+                    ? newFile
                     : string.IsNullOrEmpty(model.Book.ImageFile)
                         ? (Guid?)null : new Guid(model.Book.ImageFile);
 
@@ -111,11 +110,12 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             });
         }
 
-        public ActionResult Create(int id)
+        public ActionResult Create(int? genreId, int? authorId)
         {
             var model = new BookFullModel
             {
-                GenreId = id
+                GenreId = genreId.HasValue ? genreId.Value : 0,
+                AuthorId = authorId.HasValue ? authorId.Value : 0,
             };
 
             FillDicts();

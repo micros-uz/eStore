@@ -29,16 +29,8 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             return View(new HomeModel
                 {
-                    BestSellers = new GenreBooksModel
-                    {
-                        Books = models,
-                        GenreId = 9
-                    },
-                    NewBooks = new GenreBooksModel
-                    {
-                        Books = models,
-                        GenreId = 9
-                    }
+                    BestSellers = models,
+                    NewBooks = models
                 });
         }
     }

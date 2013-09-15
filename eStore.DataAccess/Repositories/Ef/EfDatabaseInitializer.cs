@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class EfDatabaseInitializer : CreateDatabaseIfNotExists<EStoreDbContext>
+    internal class EfDatabaseInitializer : DropCreateDatabaseIfModelChanges<EStoreDbContext>
     {
         protected override void Seed(EStoreDbContext context)
         {
