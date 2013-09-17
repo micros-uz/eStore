@@ -2,7 +2,9 @@
 IF OBJECT_ID(N'[dbo].[Books]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Books];
 GO
-
+IF OBJECT_ID(N'[dbo].[Series]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Series];
+GO
 IF OBJECT_ID(N'[dbo].[Genres]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Genres];
 GO
@@ -11,9 +13,7 @@ IF OBJECT_ID(N'[dbo].[Authors]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Authors];
 GO
 
-IF OBJECT_ID(N'[dbo].[Series]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Series];
-GO
+
 
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];

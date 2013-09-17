@@ -9,7 +9,7 @@
         <td data-bind="text: Title"></td>
         <td data-bind="text: Price"></td>
         <td data-bind="text: Count"></td>
-        <td><a href="@Url.Action("Delete", new { id = item.CartItemId })"><span class="glyphicon glyphicon-remove"></span></a>
+        <td><a href="#" class="delItem" data-bind="click: $parent.delItem"><span class="glyphicon glyphicon-remove"></span></a>
         </td>
     </tr>
 </script>
@@ -18,6 +18,10 @@
     <h1>Cart <small>hah</small></h1>
 </div>
 
+<div class="button-group">
+    <button class="btn btn-primary" data-bind="click: reload">Reload</button>
+</div>
+<br>
 <div class="well">
     <table class="table table-condensed">
         <thead>
@@ -65,24 +69,37 @@
     <script>
         
         var CartViewModel = function (cartItems) {
-            this.rawItems = cartItems;
-            this.items = cartItems;
+            
+            this.items = ko.observableArray(cartItems);
 
-            //this.items = [{ Title: "fefe", Price: 43, Count:5 }  
-            //    , { Title: "fefe", Price: 43, Count: 67 }];
+            this.delItem = function (itemId, event) {
+                var data = ko.toJS(itemId);
+                var item = ko.dataFor(itemId);
+                console.log("ww", data);
+                $.ajax({
+                    url: '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Delete", id = "-ID"})'.replace('-ID', data.CartItemId),
+                    type: 'Delete',
+                    data: data,
+                    context: this,
+                    success: function (data) {
+                        if (data.success) {
+                            this.items.pop();
+                        }
+                    }
+                });
+            }.bind(this);
 
-            //ko.dependentObservable(function () {
-            //    var data = ko.toJS(this.rawItems);
-            //    $.ajax({
-            //        url: 'api/cartapi/',
-            //        type: 'POST',
-            //        data: data,
-            //        context: this,
-            //        success: function (data) {
-            //            this.items(data.Data);
-            //        }
-            //    });
-            //});
+            this.reload = function () {
+                $.ajax({
+                    url: '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Get"})',
+                    type: 'POST',
+                    context: this,
+                    success: function (data) {
+                        this.items(data);
+                    }
+                });
+            }.bind(this);
+
         };
 
         var vm = new CartViewModel(@Html.ToJSON(Model));
