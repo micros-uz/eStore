@@ -13,4 +13,12 @@
         });
     });
 
+    $(document).ready(function () {
+        $('.addToCart').on('click', function () {
+            dataservice.addToCart(function (json) {
+
+            });
+        });
+    });
+
 }();

@@ -4,12 +4,22 @@
     ViewBag.Title = "Index";
 }
 
+<script id="rowTmpl" type="text/html">
+    <tr>
+        <td data-bind="text: Title"></td>
+        <td data-bind="text: Price"></td>
+        <td data-bind="text: Count"></td>
+        <td><a href="@Url.Action("Delete", new { id = item.CartItemId })"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
+    </tr>
+</script>
+
 <div class="page-header">
-  <h1>Cart <small>hah</small></h1>
+    <h1>Cart <small>hah</small></h1>
 </div>
 
 <div class="well">
-    <table class="table">
+    <table class="table table-condensed">
         <thead>
             <tr>
                 <th>
@@ -24,8 +34,8 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var item in Model)
+        <tbody data-bind="template: { name: 'rowTmpl', foreach: items }">
+@*            @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -43,15 +53,44 @@
                         @Ajax.BS3ImageActionLink("remove", "Delete", "Cart", new { area = "store", id = item.CartItemId }, new AjaxOptions { UpdateTargetId = "admin-options", HttpMethod = "DELETE" })
                     </td>
                 </tr>
-            }
+            }*@
         </tbody>
     </table>
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/knockout")
+
+    <script>
+        
+        var CartViewModel = function (cartItems) {
+            this.rawItems = cartItems;
+            this.items = cartItems;
+
+            //this.items = [{ Title: "fefe", Price: 43, Count:5 }  
+            //    , { Title: "fefe", Price: 43, Count: 67 }];
+
+            //ko.dependentObservable(function () {
+            //    var data = ko.toJS(this.rawItems);
+            //    $.ajax({
+            //        url: 'api/cartapi/',
+            //        type: 'POST',
+            //        data: data,
+            //        context: this,
+            //        success: function (data) {
+            //            this.items(data.Data);
+            //        }
+            //    });
+            //});
+        };
+
+        var vm = new CartViewModel(@Html.ToJSON(Model));
+        ko.setTemplateEngine(new ko.nativeTemplateEngine());
+        ko.applyBindings(vm);
+    </script>
 }
 
-<div id="admin-options">
-    fefe
+<div id="admin-options" data-bind="text: ko.toJSON($data)">
+    
 </div>

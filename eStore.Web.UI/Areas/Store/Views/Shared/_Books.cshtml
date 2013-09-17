@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    
+
     <p>
         @Html.CreateNew(new { genreId = Model.GenreId, authorId = Model.AuthorId })
     </p>
@@ -19,16 +19,21 @@
             <div class="col-md-3">
                 <div class="book-item">
                     <div class="book-item-img-box">
-                        <img class="book-item-img centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image" style="height: 150px;border-radius: 4px;border: 1px solid #dcd5d5"/>
+                        <img class="book-item-img centred" src= "@Url.Action("Image", "Book", new { fileName = item.ImageFile })" alt="Image"/>
                     </div>
                     <div class="book-item-author">
-                        <p class="bi-author">@item.Author</p>
+                        <p class="bi-author">@Html.ActionLink(item.Author, "Books", "Author", new { id = item.AuthorId }, null)</p>
                     </div>
-                    <div class="book-item-title" style="min-height:70px;">
-                        <p class="centred">@Html.ActionLink(item.ShortTitle.Substring(0, item.ShortTitle.Length >= 40 ? 40 : item.ShortTitle.Length) , "Details", "Book", new { id = item.BookId }, null)</p>
+                    <div class="book-item-title">
+                        <p class="centred">@Html.ActionLink(item.ShortTitle.Substring(0, item.ShortTitle.Length >= 40 ? 40 : item.ShortTitle.Length), "Details", "Book", new { id = item.BookId }, null)</p>
                     </div>
                     <div class="book-item-price">
                         <b>@item.Price</b>
+                    </div>
+                    <div class="btn-group" style="width:100%">
+                        <div class="pull-right book-item-buttons-pane">
+                            <a class="addToCart btn btn-default btn-xs"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </div>
                     </div>
                 </div>
             </div>            

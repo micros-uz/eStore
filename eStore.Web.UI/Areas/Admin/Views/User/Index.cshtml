@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eStore.Web.UI.Areas.Admin.ViewModels.UserModel>
+﻿@model FilterParams
 
 @{
     ViewBag.Title = "User list";
@@ -10,78 +10,64 @@
         <td data-bind="text: Name"></td>
         <td data-bind="text: Email"></td>
         <td data-bind="text: RoleId"></td>
+        <td>
+            <a data-bind="attr: { 'href': '@Url.Action("Edit")/' + UserId}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a href="#myModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove"></span></a>
+        </td>
     </tr>
 </script>
 
-<div class="btn-toolbar">
-    @Html.ActionLink("New User", "Create", new { area = "admin" }, new { @class = "btn btn-primary" })
-    <button class="btn">Import</button>
-    <button class="btn">Export</button>
-</div>
-<br>
-<div class="well">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    #
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Email)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RoleId)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody data-bind="template: {
-			name: 'TableRow',
-			foreach: rows
-		}"></tbody>
-        @*<tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UserId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RoleId)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Edit", new { id = item.UserId })"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href="#myModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove"></span></a>
-                        </td>
-                                            <td>
-                            @Html.ActionLink("Details", "Details", new { id = item.UserId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
-                        </td>
-                    </tr>
-                }
-            </tbody>*@
+<script type="text/html" id="PagingPanel">
+    <div class="pagination">
+        <ul class="pagination">
+            <li data-bind="css: { disabled: PageNumber() === 1 }"><a href="#" data-bind="click: back">Prev</a></li>
+            <!-- ko foreach: $root.allPages -->
+            <li data-bind="css: { active: $data.pageIdx === $root.paging.PageNumber()}"><a href="#" data-bind="text: $data.pageIdx, click: function() { $root.paging.page($data.pageIdx); }"></a></li>
+            <!-- /ko -->
+            <li data-bind="css: { disabled: PageNumber() === TotalPagesCount() }"><a href="#" data-bind="click: next">Next</a></li>
+        </ul>
+    </div>
+</script>
 
-    </table>
+<script type="text/html" id="FiltrationPanel">
+    <label>
+        <input type="checkbox" data-bind="checked: ShowAdmins" />Show Admins</label>
+    <br />
+    <label>
+        <input type="checkbox" data-bind="checked: ShowManagers" />Show Managers</label>
+</script>
+
+<div data-bind="template: {
+    name: 'FiltrationPanel',
+    data: filterParams
+}">
 </div>
 
-<div class="pagination">
-    <ul class="pagination">
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
+<div class="page">
+    <div class="btn-toolbar">
+        @Html.ActionLink("New User", "Create", new { area = "admin" }, new { @class = "btn btn-primary" })
+        <button class="btn">Import</button>
+        <button class="btn">Export</button>
+    </div>
+    <br>
+    <div class="well_">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody data-bind="template: { name: 'TableRow',foreach: rows}">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div data-bind="template: { name: 'PagingPanel', data: paging }">
 </div>
 
 <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -102,10 +88,12 @@
     </div>
 </div>
 
-
 @section scripts{
+    @Scripts.Render("~/bundles/knockout")
+
     <script type="text/javascript">
         var AjaxGridViewModel = function(url, filterParams) {
+            var self = this;
             this.rows= ko.observableArray();
             this.filterParams = ko.mapping.fromJS(filterParams);
             this.paging = {
@@ -118,8 +106,20 @@
                 back: function () {
                     var pn = this.PageNumber();
                     if (pn > 1) this.PageNumber(pn - 1);
+                },
+                page: function (index){
+                    if (index >0 && index <= this.TotalPagesCount())
+                        this.PageNumber(index)
                 }
             };
+
+            this.allPages = ko.dependentObservable(function () {
+                var pages = [];
+                for (i = 1; i <= self.paging.TotalPagesCount() ; i++) {
+                    pages.push({ pageIdx: (i) });
+                }
+                return pages;
+            });
 
             ko.dependentObservable(function () {
                 var data = ko.toJS(this.filterParams);
@@ -130,9 +130,10 @@
                     data: data,
                     context: this,
                     success: function (data) {
+                        console.log('post', data);
                         this.rows(data.Data);
-                        //this.paging.PageNumber(data.Paging.PageNumber);
-                        //this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
+                        this.paging.PageNumber(data.Paging.PageNumber);
+                        this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
                     }
                 });
             }, this);
@@ -146,6 +147,9 @@
         };
 
         var ajaxGrid = new AjaxGridViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
+
+        ko.setTemplateEngine(new ko.nativeTemplateEngine());
+
         ko.applyBindings(ajaxGrid);
     </script>
 }

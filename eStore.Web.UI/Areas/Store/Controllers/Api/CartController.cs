@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http;
 using eStore.Domain;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 
-namespace eStore.Web.UI.Areas.Store.Controllers
+namespace eStore.Web.UI.Areas.Store.Controllers.Api
 {
-    public class CartController : Controller
+    public class CartController : ApiController
     {
         private readonly ICartService _cartService;
         private readonly IObjectMapper _objMapper;
@@ -18,13 +18,31 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             _objMapper = objMapper;
         }
 
-        public ActionResult Index()
+        [HttpPost]
+        public object Get()
         {
             var cart = _cartService.GetCart();
 
             var model = _objMapper.Map<IEnumerable<CartItem>, IEnumerable<CartItemModel>>(cart.Items);
 
-            return View(model);
+            return model;
+        }
+
+        [HttpPost]
+        public object Add(int id)
+        {
+            //if (Session.SessionID != null)
+            //{
+
+            //}
+
+            return new { count = 3 };
+        }
+
+        [HttpDelete]
+        public object Delete(int id)
+        {
+            return new { success = true };
         }
     }
 }

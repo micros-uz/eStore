@@ -11,13 +11,13 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(x => x.RoleId, "Role")
         @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.RoleList, "--select--", new { @class = "form-control" })
-    </div>
+    </div>*@
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus="autofocus" })
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Password)

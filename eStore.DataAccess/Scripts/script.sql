@@ -38,6 +38,7 @@ GO
 
 CREATE TABLE [dbo].[Series] (
     [SeriesId] int IDENTITY(1,1) primary key clustered,
+    [GenreId] int NOT NULL references [dbo].[Genres](GenreId),
     [Title] nvarchar(30) NOT NULL unique nonclustered,
     [Desc] nvarchar(200) NULL
 );
@@ -118,16 +119,22 @@ insert into [dbo].[Authors] ([AuthorId], [Name]) values (7, N'Хейлсберг
 go
 insert into [dbo].[Authors] ([AuthorId], [Name]) values (8, N'Уайт Т.')
 go
+insert into [dbo].[Authors] ([AuthorId], [Name]) values (9, N'Стариков Н.В.')
+go
+insert into [dbo].[Authors] ([AuthorId], [Name]) values (10, N'Млечин Л.М.')
+go
+insert into [dbo].[Authors] ([AuthorId], [Name]) values (11, N'Корнеева Е.А.')
+go
 set IDENTITY_INSERT [dbo].[Authors] off
 go
 
 set IDENTITY_INSERT [dbo].[Series] on
 go
-insert into [dbo].[Series] ([SeriesId], [Title]) values (1, N'Классика computer science')
-go
-insert into [dbo].[Series] ([SeriesId], [Title]) values (2, N'Мастер-класс') 
-go
-insert into [dbo].[Series] ([SeriesId], [Title]) values (3, N'Бестселлеры O''Reilly') 
+insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (1, 9, N'Классика computer science')
+go										
+insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (2, 9, N'Мастер-класс') 
+go										
+insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (3, 9, N'Бестселлеры O''Reilly') 
 go
 set IDENTITY_INSERT [dbo].[Series] off
 go
@@ -147,7 +154,56 @@ insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (1, 'a
 go
 insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (2, 'manager', '111', 2)
 go
-
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (3, 'andrey', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (4, 'ruslan', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (5, 'ivan', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (6, 'kolya', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (7, 'Nick', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (8, 'Ann', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (9, 'James', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (10, 'Ibragim', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (11, 'Kim En Pak', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (12, 'Radoslav', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (13, 'Ali', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (14, 'Muhammed', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (15, 'Akbar', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (16, 'Alisher', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (17, 'Nikita', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (18, 'Arnold', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (19, 'Stiven', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (20, 'Bill', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (21, 'Bob', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (22, 'Martha', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (23, 'Angela', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (24, 'Selena', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (25, 'Rehsovoy', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (26, 'Alex', '111', 2)
+go
+insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (27, 'Caleb', '111', 2)
+go
 set IDENTITY_INSERT [dbo].[Users] off
 go
 
@@ -192,6 +248,26 @@ insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId], [Title],
 values (8, 8, 9, 3, N'Hadoop. Подробное руководство', 938, 2013, 672, '978-5-496-00662-0',
 N'Apache Hadoop — фреймворк с открытым исходным кодом, в котором реализована вычислительная парадигма, известная как MapReduce, позволившая Google построить свою империю. Эта книга покажет вам, как использовать всю мощь Hadoop, чтобы создавать надежные, масштабируемые, распределенные системы и обрабатывать гигантские наборы данных.', 
 'cb912ae0-49f8-4b44-812d-fa3844bbc5ff')
+go
+insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId], [Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])
+values (9, 9, 3, null, N'1917. Разгадка "русской" революции', 244, 2013, 416, '978-5-496-00464-0',
+N'Гибель Российской империи в 1917 году не была случайностью, как не случайно рассыпался и Советский Союз. В обоих случаях мощная внешняя сила инициировала распад России, используя подлецов и дураков, которые за деньги или красивые обещания в итоге разрушили свою собственную страну.', 
+'749449D4-1B23-4BB6-8958-DAEEED0B0009')
+go
+insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId], [Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])
+values (10, 10, 3, null, N'Брежнев. Разочарование России', 300, 2011, 432, '978-5-459-00881-4',
+N'Как бы ни ругали бузотера и реформатора Хрущева, статистика неопровержимо доказывает: десять лет, когда страной управлял Хрущев, были лучшими в советской истории. После его смещения у многих оставались еще надежды на лучшую жизнь, связанные с новым генсеком Леонидом Ильичем Брежневым. Однако политика Брежнева, постепенно устранившего от управления страной всех своих конкурентов, состояла в том, чтобы ничего не менять! Огражденный от реальной жизни партийным аппаратом, цензурой, системой госбезопасности Брежнев за восемнадцать лет своего правления окончательно загнал страну в тупик, безболезненно выбраться из которого было уже невозможно. Новая книга Леонида Млечина о том, как Брежнев шел к власти, как выстраивал систему управления, как расцветали при нем пышным цветом органы государственной безопасности, и о том, как вместе с первым человеком в государстве постепенно дряхлел и приближался к гибели Советский Союз.', 
+'623B75CB-63BC-424F-8A0F-70BAB7117013')
+go
+insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId], [Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])
+values (11, 11, 3, null, N'Царство Путина. Неосталинизм по просьбам народа', 194, 2010, 208, '978-5-4237-0033-1',
+N'Западные демократии переживают кризис, диктатуры пожирают себя изнутри, и только мы — народ, гордящийся своим правителем и безропотно верящий в скорое возрождение Великой России. Что побуждает человека полагаться на авторитет Вождя, подавлять слабых и нерешительных, чувствовать экстаз, сливаясь в единое целое с могучей толпой, обожествлять сильную власть и самому стремиться к ней? Чем уникален современный славянский авторитаризм и какую роль играет в нем анархичность «русской души»? Существует ли предел возможностям СМИ в промывании наших мозгов? Где грань между разумным правителем и царем-самодуром? На эти и другие вопросы отвечает Елена Корнеева — психолог, кандидат философских наук, исследователь в области авторитарной личности и кросскультурной психологии.', 
+'1B30A569-8AD0-4A2E-8048-1FDF9278825B')
+go
+insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId], [Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])
+values (12, 9, 3, null, N'Сталин. Вспоминаем вместе', 185, 2013, 416, '978-5-496-00223-3',
+N'В современной истории России нет более известного человека, чем Иосиф Сталин. Вокруг него не умолкают споры, а оценки его деятельности диаметрально противоположны. Книга Николая Старикова основанная на воспоминаниях современников и соратников Сталина, документах и исторических фактах, поможет вам найти ответы на наиболее острые вопросы:Чем были вызваны репрессии в предвоенный период? Почему современники считали Сталина очень остроумным человеком? За что Никита Хрущев так ненавидел Сталина? Почему в первые месяцы войны «союзники» присылали в СССР слова сочувствия, а не танки и самолеты? Эта книга поможет вам разобраться в сложной исторической эпохе и в не менее сложной личности И. В. Сталина.', 
+'66D0791F-055D-4D38-B832-DB1A0E673798')
 go
 set IDENTITY_INSERT [dbo].[Books] off
 go

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
@@ -7,8 +9,28 @@ using eStore.Web.UI.Areas.Admin.ViewModels;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {
+    public class Paging
+    {
+        public int PageNumber { get; set; }
+        public int TotalPagesCount { get; set; }
+    }
+
+    public class PagingData
+    {
+        public int PageNumber { get; set; }
+        public int TotalPagesCount { get; set; }
+    }
+
+    public class ListResult
+    {
+        public IEnumerable<UserModel> Data { get; set; }
+        public Paging Paging { get; set; }
+    }
+
     public class UserController : Controller
     {
+        private const int PageSize = 10;
+
         private readonly IUserService _service;
         private readonly IObjectMapper _objMapper;
         public UserController(IUserService service, IObjectMapper objMapper)
@@ -19,11 +41,39 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            return View(new FilterParams());
+        }
+
+        public ActionResult UserList(FilterParams filterParams, int pageNumber = 1)
+        {
             var users = _service.Users;
 
             var userModels = _objMapper.Map<IEnumerable<User>, IEnumerable<UserModel>>(users);
 
-            return View(userModels);
+            IEnumerable<UserModel> data = userModels;
+
+            if (filterParams.Role.HasValue)
+            {
+                data = data.Where(r => r.RoleId == filterParams.Role.Value);
+            }
+            var roles = new List<int>();
+            if (filterParams.ShowAdmins)
+            {
+                roles.Add(1);
+            }
+            if (filterParams.ShowManagers)
+            {
+                roles.Add(2);
+            }
+
+            data = data.Where(r => roles.Contains(r.RoleId));
+
+            var paging = new Paging();
+            paging.PageNumber = pageNumber;
+            paging.TotalPagesCount = (int)Math.Ceiling(1D * data.Count() / PageSize);
+
+            data = data.Skip((pageNumber - 1) * PageSize).Take(PageSize);
+            return Json(new ListResult { Data = data, Paging = paging });
         }
 
         public ActionResult Create()

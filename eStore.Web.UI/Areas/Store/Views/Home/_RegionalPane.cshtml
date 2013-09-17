@@ -1,0 +1,19 @@
+﻿@model CurrencySelectorModel
+
+@*<div class="btn-group btn-group-xs">
+  <button type="button" class="btn btn-default">Left</button>
+  <button type="button" class="btn btn-default">Middle</button>
+  <button type="button" class="btn btn-default">Right</button>
+</div>*@
+<div id="currency-selector" class="nav navbar-nav">
+    <ul class="currency-list">
+        @foreach (var currency in Model.Currencies)
+        {
+            <li>
+                <a class="currency regional-label" href="#" rel="tooltip" title="@currency.Name">
+                    <span class="currency">@currency.Symbol</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

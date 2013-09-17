@@ -231,8 +231,10 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\FilterParams.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
+    <Compile Include="Areas\Store\Controllers\Api\CartController.cs" />
     <Compile Include="Areas\Store\Controllers\AuthorController.cs" />
     <Compile Include="Areas\Store\Controllers\BaseStoreController.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
@@ -270,6 +272,7 @@
     <Compile Include="Areas\Store\ViewModels\BookModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreModel.cs" />
     <Compile Include="Views\BaseView.cs" />
+    <Compile Include="Areas\Store\ViewModels\CurrencySelectorModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
@@ -366,6 +369,8 @@
     <Content Include="Scripts\jquery-migrate-1.1.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jQuery.tmpl.js" />
+    <Content Include="Scripts\jQuery.tmpl.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
@@ -375,6 +380,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -396,6 +403,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -451,6 +459,7 @@
     <Content Include="Uploads\d3a38e79-28a2-4d93-af56-2bd85a416b6f" />
     <Content Include="Uploads\db2d1f8e-555e-45b0-8d86-787e5cb3a1ee" />
     <Content Include="Uploads\e91cf33e-609d-428a-9f16-49428959913d" />
+    <Content Include="Areas\Store\Views\Home\_RegionalPane.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

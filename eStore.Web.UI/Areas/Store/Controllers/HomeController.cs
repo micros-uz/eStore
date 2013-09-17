@@ -15,7 +15,7 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         private readonly IObjectMapper _mapper;
 
         public HomeController(IStoreService service, IObjectMapper mapper)
-            :base(service)
+            : base(service)
         {
             _service = service;
             _mapper = mapper;
@@ -32,6 +32,36 @@ namespace eStore.Web.UI.Areas.Store.Controllers
                     BestSellers = models,
                     NewBooks = models
                 });
+        }
+
+        public ActionResult CurrencySelector()
+        {
+            var model = new CurrencySelectorModel
+            {
+                Currencies = new List<CurrencyModel>
+                {
+                    new CurrencyModel
+                    {
+                        Name = "US Dollar",
+                        ISOCode = "USD",
+                        Symbol = "$"
+                    },
+                    new CurrencyModel
+                    {
+                        Name = "Сум",
+                        ISOCode = "UZS",
+                        Symbol = "S"
+                    },
+                    new CurrencyModel
+                    {
+                        Name = "Рубль",
+                        ISOCode = "RUB",
+                        Symbol = "P."
+                    }
+                }
+            };
+
+            return PartialView("_RegionalPane", model);
         }
     }
 }
