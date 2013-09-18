@@ -46,6 +46,7 @@
 <div class="page">
     <div class="btn-toolbar">
         @Html.ActionLink("New User", "Create", new { area = "admin" }, new { @class = "btn btn-primary" })
+        <a href="#" class="btn btn-primary" data-bind="click: reload">Reload</a>
         <button class="btn">Import</button>
         <button class="btn">Export</button>
     </div>
@@ -93,7 +94,7 @@
 
     <script type="text/javascript">
         var AjaxGridViewModel = function(url, filterParams) {
-            var self = this;
+
             this.rows= ko.observableArray();
             this.filterParams = ko.mapping.fromJS(filterParams);
             this.paging = {
@@ -115,13 +116,13 @@
 
             this.allPages = ko.dependentObservable(function () {
                 var pages = [];
-                for (i = 1; i <= self.paging.TotalPagesCount() ; i++) {
+                for (i = 1; i <= this.paging.TotalPagesCount() ; i++) {
                     pages.push({ pageIdx: (i) });
                 }
                 return pages;
-            });
+            }, this);
 
-            ko.dependentObservable(function () {
+            this.reload = function(){
                 var data = ko.toJS(this.filterParams);
                 data.pageNumber = this.paging.PageNumber();
                 $.ajax({
@@ -136,6 +137,24 @@
                         this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
                     }
                 });
+            }.bind(this);
+
+            ko.dependentObservable(function () {
+                //var data = ko.toJS(this.filterParams);
+                //data.pageNumber = this.paging.PageNumber();
+                //$.ajax({
+                //    url: url,
+                //    type: 'POST',
+                //    data: data,
+                //    context: this,
+                //    success: function (data) {
+                //        console.log('post', data);
+                //        this.rows(data.Data);
+                //        this.paging.PageNumber(data.Paging.PageNumber);
+                //        this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
+                //    }
+                //});
+                this.reload();
             }, this);
 
             ko.dependentObservable(function () {

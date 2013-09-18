@@ -239,6 +239,7 @@
     <Compile Include="Areas\Store\Controllers\BaseStoreController.cs" />
     <Compile Include="Areas\Store\Controllers\BookController.cs" />
     <Compile Include="Areas\Store\Controllers\CartController.cs" />
+    <Compile Include="Areas\Store\Controllers\CheckoutController.cs" />
     <Compile Include="Areas\Store\Controllers\GenreController.cs" />
     <Compile Include="Areas\Store\Controllers\SearchController.cs" />
     <Compile Include="Areas\Store\StoreAreaRegistration.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Areas\Store\ViewModels\BookListModel.cs" />
     <Compile Include="Areas\Store\ViewModels\BookModelEx.cs" />
     <Compile Include="Areas\Store\ViewModels\CartItemModel.cs" />
+    <Compile Include="Areas\Store\ViewModels\CartModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="Areas\Store\ViewModels\HomeModel.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
@@ -443,6 +445,7 @@
     <Content Include="Areas\Store\Views\Author\Index.cshtml" />
     <Content Include="Areas\Store\Views\Author\Top.cshtml" />
     <Content Include="Areas\Store\Views\Author\Books.cshtml" />
+    <Content Include="Areas\Store\Views\Checkout\Index.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -22,9 +22,13 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             var cart = _cartService.GetCart();
 
-            var model = _objMapper.Map<IEnumerable<CartItem>, IEnumerable<CartItemModel>>(cart.Items);
+            var models = _objMapper.Map<IEnumerable<CartItem>, IEnumerable<CartItemModel>>(cart.Items);
 
-            return View(model);
+            return View(new CartModel
+                {
+                    ReturnUrl = HttpContext.Request.UrlReferrer.AbsoluteUri,
+                    Items = models
+                });
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<CartItemModel>
+﻿@model CartModel
 
 @{
     ViewBag.Title = "Index";
@@ -20,21 +20,17 @@
 
 <div class="button-group">
     <button class="btn btn-primary" data-bind="click: reload">Reload</button>
+    <a class="btn btn-default" data-bind="attr: {href: returnUrl}" title="Continue shopping from the last visited place in our story">Continue</a>
+    @Html.ActionLink("Checkout", "Index", "Checkout", new {area = "store"}, new {@class = "btn btn-default"})
 </div>
 <br>
 <div class="well">
     <table class="table table-condensed">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Title)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Count)
-                </th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Count</th>
                 <th></th>
             </tr>
         </thead>
@@ -68,9 +64,10 @@
 
     <script>
         
-        var CartViewModel = function (cartItems) {
+        var CartViewModel = function (model) {
             
-            this.items = ko.observableArray(cartItems);
+            this.items = ko.observableArray(model.Items);
+            this.returnUrl = ko.observable(model.ReturnUrl);
 
             this.delItem = function (itemId, event) {
                 var data = ko.toJS(itemId);
