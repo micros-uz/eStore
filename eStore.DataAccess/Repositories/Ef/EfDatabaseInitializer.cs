@@ -5,7 +5,7 @@ using System.Text;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class EfDatabaseInitializer : CreateDatabaseIfNotExists<EStoreDbContext>
+    internal class EfDatabaseInitializer : DropCreateDatabaseIfModelChanges<EStoreDbContext>
     {
         protected override void Seed(EStoreDbContext context)
         {
@@ -21,7 +21,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
                     while ((st = reader.ReadLine()) != null)
                     {
-                        if (st.ToUpper().Equals("GO"))
+                        if (st.Replace("\t", " ").ToUpper().Equals("GO"))
                         {
                             st = ";";
                         }

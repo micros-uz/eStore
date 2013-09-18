@@ -29,6 +29,9 @@ namespace eStore.DataAccess
 
                 SqlConnection connection = new SqlConnection(connStr);
                 Server server = new Server(new ServerConnection(connection));
+
+                File.AppendAllText("dd.sql", script);
+
                 res = server.ConnectionContext.ExecuteNonQuery(script);
             }
             catch (ConnectionException ex)

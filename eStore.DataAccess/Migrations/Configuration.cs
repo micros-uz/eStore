@@ -1,16 +1,13 @@
+using System.Data.Entity.Migrations;
+using eStore.DataAccess.Repositories.Ef;
+
 namespace eStore.DataAccess.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-    using eStore.DataAccess.Repositories.Ef;
-
     internal sealed class Configuration : DbMigrationsConfiguration<EStoreDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(EStoreDbContext context)

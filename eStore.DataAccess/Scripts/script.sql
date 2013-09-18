@@ -131,9 +131,9 @@ go
 set IDENTITY_INSERT [dbo].[Series] on
 go
 insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (1, 9, N'Классика computer science')
-go										
+go
 insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (2, 9, N'Мастер-класс') 
-go										
+go
 insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (3, 9, N'Бестселлеры O''Reilly') 
 go
 set IDENTITY_INSERT [dbo].[Series] off
