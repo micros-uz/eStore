@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WrapIoC;
+using System.Data.Entity.Infrastructure;
 
 namespace eStore.DataAccess
 {
@@ -14,7 +15,7 @@ namespace eStore.DataAccess
         public static void Init(IIoC ioc)
         {
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
-            ioc.Register<IDBContextFactory, DbContextFactory>();
+            ioc.Register<IDbContextFactory<EStoreDbContext>, DbContextFactory>();
 
             OrmInitializer.Init();
         }

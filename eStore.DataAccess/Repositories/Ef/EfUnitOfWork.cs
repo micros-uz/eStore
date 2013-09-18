@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity.Infrastructure;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -15,10 +16,10 @@ namespace eStore.DataAccess.Repositories.Ef
         private IGenericRepository<User> _userRpstr;
         private IGenericRepository<Role> _roleRpstr;
         private EStoreDbContext _context;
-        private IDBContextFactory _factory;
+        private IDbContextFactory<EStoreDbContext> _factory;
         private bool _disposed = false;
 
-        public EfUnitOfWork(IDBContextFactory factory)
+        public EfUnitOfWork(IDbContextFactory<EStoreDbContext> factory)
         {
             _factory = factory;
         }
@@ -49,7 +50,7 @@ namespace eStore.DataAccess.Repositories.Ef
         {
             get
             {
-                return _context ?? (_context = _factory.Get());
+                return _context ?? (_context = _factory.Create());
             }
         }
 

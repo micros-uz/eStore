@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
+﻿using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class DbContextFactory : IDBContextFactory
+    internal class DbContextFactory : IDbContextFactory<EStoreDbContext>
     {
         private EStoreDbContext _context;
 
-        #region IDBContextFactory 
+        #region IDbContextFactory<EStoreDbContext> Members
 
-        EStoreDbContext IDBContextFactory.Get()
+        EStoreDbContext IDbContextFactory<EStoreDbContext>.Create()
         {
             return _context ?? (_context = new EStoreDbContext(ConnectionStringFactory.ConnectionString));
         }

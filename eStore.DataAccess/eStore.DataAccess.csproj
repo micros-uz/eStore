@@ -98,7 +98,6 @@
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
     <Compile Include="Repositories\Ef\EfUnitOfWork.cs" />
-    <Compile Include="Repositories\Ef\IDBContextFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
