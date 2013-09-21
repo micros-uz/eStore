@@ -27,7 +27,11 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             var models = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
-            return View(models);
+            return View(new BookListModel
+                {
+                    Books = models
+	            });
+            
         }
     }
 }
