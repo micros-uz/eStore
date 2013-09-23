@@ -37,7 +37,7 @@ namespace eStore.Core.Services
 
         Book IStoreService.GetBookById(int bookId)
         {
-            return UoW.BooksRepository.Find(x => x.BookId == bookId).FirstOrDefault();
+            return UoW.BooksRepository.GetById(bookId);
         }
 
         void IStoreService.Update(Book book)
@@ -72,12 +72,12 @@ namespace eStore.Core.Services
 
         Genre IStoreService.GetGenreById(int genreId)
         {
-            return UoW.GenreRepository.Find(x => x.GenreId == genreId).FirstOrDefault();
+            return UoW.GenreRepository.GetById(genreId);
         }
 
         Author IStoreService.GetAuthorById(int authorId)
         {
-            return UoW.AuthorRepository.Find(x => x.AuthorId == authorId).FirstOrDefault();
+            return UoW.AuthorRepository.GetById(authorId);
         }
 
         void IStoreService.Update(Genre genre)
@@ -88,7 +88,7 @@ namespace eStore.Core.Services
 
         void IStoreService.DeleteGenreById(int id)
         {
-            var genre = UoW.GenreRepository.Find(x => x.GenreId == id).FirstOrDefault();
+            var genre = UoW.GenreRepository.GetById(id);
 
             if (genre != null)
             {

@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
+using eStore.Web.Infrastructure.Filters;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Account.ViewModels;
 using eStore.Web.UI.Logic;
@@ -8,6 +9,7 @@ using eStore.Web.UI.Logic;
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
     //[Authorize]
+    [InitializeSimpleMembership]
     public class AccountController : BaseDisposeController
     {
         private readonly IAuthenticationService _authService;

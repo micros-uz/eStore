@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BookFullModel>
+﻿@model BookListModel
 
 @{
     ViewBag.Title = "Search";
@@ -6,4 +6,4 @@
 
 <h2>Search</h2>
 
-@{Html.RenderPartial("_Books");}
+@{Html.RenderPartial("_Books", Model);}

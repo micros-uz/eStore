@@ -12,7 +12,7 @@ namespace eStore.DataAccess.Repositories.Ef
             StringBuilder script = new StringBuilder();
             var asm = Assembly.GetExecutingAssembly();
 
-            using (var stream = asm.GetManifestResourceStream("eStore.DataAccess.Scripts.script.sql"))
+            using (var stream = asm.GetManifestResourceStream("eStore.DataAccess.Scripts.Data.sql"))
             {
                 if (stream != null)
                 {

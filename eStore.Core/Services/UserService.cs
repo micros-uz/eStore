@@ -17,7 +17,7 @@ namespace eStore.Core.Services
 
         User IUserService.GetUserById(int id)
         {
-            return UoW.UserRepository.Find(x => x.UserId == id).FirstOrDefault();
+            return UoW.UserRepository.GetById(id);
         }
 
         ReadOnlyCollection<User> IUserService.Users
@@ -45,7 +45,7 @@ namespace eStore.Core.Services
 
         void IUserService.DeleteUser(int userId)
         {
-            var user = UoW.UserRepository.Find(x => x.UserId == userId).FirstOrDefault();
+            var user = UoW.UserRepository.GetById(userId);
 
             if (user != null)
             {

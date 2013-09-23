@@ -34,27 +34,23 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody data-bind="template: { name: 'rowTmpl', foreach: items }">
-@*            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Title)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Count)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Delete", new { id = item.CartItemId })"><span class="glyphicon glyphicon-remove"></span></a>
-                        @Ajax.ActionLink("Delete", "Delete", "Cart", new { area = "store", id = item.CartItemId }, new AjaxOptions { UpdateTargetId = "admin-options", HttpMethod = "DELETE" })
-                        @Ajax.BS3ImageActionLink("remove", "Delete", "Cart", new { area = "store", id = item.CartItemId }, new AjaxOptions { UpdateTargetId = "admin-options", HttpMethod = "DELETE" })
-                    </td>
-                </tr>
-            }*@
+        <tbody>
+            <!-- ko foreach: items -->
+            <tr>
+                <td data-bind="text: Title"></td>
+                <td data-bind="text: Price"></td>
+                <td data-bind="text: Count"></td>
+                <td><a href="#" class="delItem" data-bind="click: $parent.delItem"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            </tr>
+            <!-- /ko -->
+            <tr>
+                <td>Total:</td>
+                <td></td>
+                <td data-bind="text: total"></td>
+            </tr>
         </tbody>
+
     </table>
 </div>
 
@@ -97,6 +93,13 @@
                 });
             }.bind(this);
 
+            this.total = ko.computed(function () {
+                var total = 0;
+                for (var k = 0; k < this.items().length; ++k) {
+                    total += this.items()[k].Count * this.items()[k].Price;
+                }
+                return total;
+            }, this);
         };
 
         var vm = new CartViewModel(@Html.ToJSON(Model));

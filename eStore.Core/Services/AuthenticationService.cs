@@ -17,7 +17,7 @@ namespace eStore.Core.Services
         {
             if (userName == "admin" && password == "123")
             {
-                _authProvider.SignIn(userName, rememberMe);
+                _authProvider.SignIn(userName, password, rememberMe);
                 return true;
             }
 

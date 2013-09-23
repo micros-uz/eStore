@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Migrations;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -12,6 +11,7 @@ namespace eStore.DataAccess.Repositories.Ef
         EStoreDbContext IDbContextFactory<EStoreDbContext>.Create()
         {
             return _context ?? (_context = new EStoreDbContext(ConnectionStringFactory.ConnectionString));
+            //return new EStoreDbContext(ConnectionStringFactory.ConnectionString);
         }
 
         #endregion

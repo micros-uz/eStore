@@ -2,7 +2,7 @@
 {
     public interface IAuthenticationProvider
     {
-        void SignIn(string userName, bool rememberMe);
+        void SignIn(string userName, string password, bool rememberMe);
         void SignOut();
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Data.Entity;
-using System.Data.SqlClient;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
-using eStore.Domain;
-using System.Data.Entity.Migrations;
 using eStore.Interfaces.Repositories;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
+    /// <summary>
+    /// IEnumerable vs IQueryable?
+    /// http://codetunnel.com/blog/post/should-you-return-iqueryablet-from-your-repositories
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class EfGenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly IDbSet<T> _dbSet;
@@ -25,7 +26,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
         public IEnumerable<T> GetAll()
         {
-            return _dbSet;
+            return _dbSet;//.ToList();
             /*
             var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
             var conn = new SqlConnection(connStr.ConnectionString);
@@ -60,9 +61,19 @@ namespace eStore.DataAccess.Repositories.Ef
              * */
         }
 
+        public T GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
+
         public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         {
-            return _dbSet.Where(predicate);
+            return _dbSet.Where(predicate);//.ToList();
+        }
+
+        public IEnumerable<T> GetByPage(int page, int itemsPerPage)
+        {
+            return _dbSet.Skip(itemsPerPage * (page - 1)).Take(itemsPerPage).ToList();
         }
 
         void IGenericRepository<T>.Add(T entity)
