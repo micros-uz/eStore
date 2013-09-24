@@ -82,9 +82,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionStringFactory.cs" />
+    <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Ef\EStoreDbContext.cs" />
     <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

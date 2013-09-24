@@ -69,6 +69,7 @@
     <Compile Include="CoreBootstraper.cs" />
     <Compile Include="CoreServiceException.cs" />
     <Compile Include="IoC\NinjectIoC.cs" />
+    <Compile Include="IoC\CustomNinjectSettings.cs" />
     <Compile Include="IoC\UnityIoC.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />

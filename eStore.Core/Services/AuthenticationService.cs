@@ -1,11 +1,11 @@
-﻿using eStore.Domain;
-using eStore.Interfaces.Services;
+﻿using eStore.Interfaces.Services;
 
 namespace eStore.Core.Services
 {
     internal class AuthenticationService : IAuthenticationService
     {
-        private IAuthenticationProvider _authProvider;
+        private readonly IAuthenticationProvider _authProvider;
+
         public AuthenticationService(IAuthenticationProvider authProvider)
         {
             _authProvider = authProvider;
@@ -15,13 +15,7 @@ namespace eStore.Core.Services
 
         bool IAuthenticationService.LogOn(string userName, string password, bool rememberMe)
         {
-            if (userName == "admin" && password == "123")
-            {
-                _authProvider.SignIn(userName, password, rememberMe);
-                return true;
-            }
-
-            return false;
+            return _authProvider.SignIn(userName, password, rememberMe);
         }
 
         void IAuthenticationService.LogOff()

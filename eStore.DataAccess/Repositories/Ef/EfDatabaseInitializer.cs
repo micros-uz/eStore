@@ -2,12 +2,13 @@
 using System.IO;
 using System.Reflection;
 using System.Text;
+using eStore.DataAccess.Migrations;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class EfDatabaseInitializer : DropCreateDatabaseIfModelChanges<EStoreDbContext>
+    internal class EfDatabaseInitializer : MigrateDatabaseToLatestVersion<EStoreDbContext, Configuration>
     {
-        protected override void Seed(EStoreDbContext context)
+        protected void Seed(EStoreDbContext context)
         {
             StringBuilder script = new StringBuilder();
             var asm = Assembly.GetExecutingAssembly();

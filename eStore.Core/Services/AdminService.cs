@@ -12,7 +12,7 @@ namespace eStore.Core.Services
         {
             try
             {
-                return DatabaseInitializer.Init().ToString();
+                return "COMMENTED";//DatabaseInitializer.Init().ToString();
             }
             catch (SqlException ex)
             {

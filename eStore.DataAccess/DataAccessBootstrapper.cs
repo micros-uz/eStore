@@ -1,12 +1,7 @@
-﻿using eStore.DataAccess.Repositories;
+﻿using System.Data.Entity.Infrastructure;
 using eStore.DataAccess.Repositories.Ef;
 using eStore.Interfaces.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using WrapIoC;
-using System.Data.Entity.Infrastructure;
 
 namespace eStore.DataAccess
 {
@@ -14,6 +9,7 @@ namespace eStore.DataAccess
     {
         public static void Init(IIoC ioc)
         {
+            ioc.Register<IConnectionStringProvider, ConnectionStringProvider>();
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
             ioc.Register<IDbContextFactory<EStoreDbContext>, DbContextFactory>();
 

@@ -9,7 +9,9 @@ namespace eStore.Core.IoC
 
         public NinjectIoC()
         {
-            _Kernel = new StandardKernel();
+            var settings = new CustomNinjectSettings(new NinjectSettings());
+
+            _Kernel = new StandardKernel(settings);
         }
 
         #region IIoC

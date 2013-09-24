@@ -8,10 +8,10 @@ namespace eStore.Web.Infrastructure
     {
         #region IAuthenticationProvider
 
-        void IAuthenticationProvider.SignIn(string userName, string password, bool rememberMe)
+        bool IAuthenticationProvider.SignIn(string userName, string password, bool rememberMe)
         {
             //FormsAuthentication.SetAuthCookie(userName, rememberMe);
-            WebSecurity.Login(userName, password, rememberMe);
+            return WebSecurity.Login(userName, password, rememberMe);
         }
 
         void IAuthenticationProvider.SignOut()

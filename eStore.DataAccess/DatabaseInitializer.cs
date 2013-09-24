@@ -9,36 +9,36 @@ namespace eStore.DataAccess
 {
     public static class DatabaseInitializer
     {
-        public static int Init()
-        {
-            var connStr = ConnectionStringFactory.ConnectionString;
-            var res = -1;
+        //public static int Init()
+        //{
+        //    var connStr = ConnectionStringProvider.ConnectionString;
+        //    var res = -1;
 
-            try
-            {
-                string script = string.Empty;
-                var asm = Assembly.GetExecutingAssembly();
+        //    try
+        //    {
+        //        string script = string.Empty;
+        //        var asm = Assembly.GetExecutingAssembly();
 
-                using (var stream = asm.GetManifestResourceStream("eStore.DataAccess.Scripts.script.sql"))
-                {
-                    if (stream != null)
-                    {
-                        script = new StreamReader(stream).ReadToEnd(); 
-                    }
-                }
+        //        using (var stream = asm.GetManifestResourceStream("eStore.DataAccess.Scripts.script.sql"))
+        //        {
+        //            if (stream != null)
+        //            {
+        //                script = new StreamReader(stream).ReadToEnd(); 
+        //            }
+        //        }
 
-                SqlConnection connection = new SqlConnection(connStr);
-                Server server = new Server(new ServerConnection(connection));
+        //        SqlConnection connection = new SqlConnection(connStr);
+        //        Server server = new Server(new ServerConnection(connection));
 
-                File.AppendAllText("dd.sql", script);
+        //        File.AppendAllText("dd.sql", script);
 
-                res = server.ConnectionContext.ExecuteNonQuery(script);
-            }
-            catch (ConnectionException ex)
-            {
-            }
+        //        res = server.ConnectionContext.ExecuteNonQuery(script);
+        //    }
+        //    catch (ConnectionException ex)
+        //    {
+        //    }
 
-            return res;
-        }
+        //    return res;
+        //}
     }
 }

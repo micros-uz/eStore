@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationProvider.cs" />
+    <Compile Include="DatabaseSeedActionManager.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="IFileService.cs" />
     <Compile Include="ObjectMapper\Auto\ConfigProfile.cs" />

@@ -5,6 +5,11 @@ namespace eStore.DataAccess.Repositories.Ef
 {
     internal class EStoreDbContext : DbContext
     {
+        public EStoreDbContext()
+            : base(new ConnectionStringProvider().ConnectionString)
+        {
+        }
+
         public EStoreDbContext(string connStr)
             : base(connStr)
         {
