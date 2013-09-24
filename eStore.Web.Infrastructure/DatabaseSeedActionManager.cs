@@ -17,25 +17,19 @@ namespace eStore.Web.Infrastructure
 
         private void Init()
         {
-            if (!WebSecurity.Initialized)
-            {
-                WebSecurity.InitializeDatabaseConnection(
-                    _connStrProvider.ConnectionStringName,
-                    "Users",
-                    "UserId",
-                    "Name", true);
+            WebSecurityInitializer.Instance.EnsureInitialize();
 
-                if (!Roles.RoleExists("Administrator"))
-                    Roles.CreateRole("Administrator");
+            if (!Roles.RoleExists("Administrator"))
+                Roles.CreateRole("Administrator");
 
-                if (!WebSecurity.UserExists("admin"))
-                    WebSecurity.CreateUserAndAccount(
-                        "admin",
-                        "123");
+            if (!WebSecurity.UserExists("admin"))
+                WebSecurity.CreateUserAndAccount(
+                    "admin",
+                    "123");
 
-                if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
-                    Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
-            }
+            if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
+                Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
+
         }
 
         #region ISeedActionProvider

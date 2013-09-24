@@ -62,70 +62,61 @@ go
 set IDENTITY_INSERT [dbo].[Series] off
 go
 
-set IDENTITY_INSERT [dbo].[Roles] on
-go
-insert into [dbo].[Roles] ([RoleId], [Name], [Desc]) values (1, 'Administrators', 'Have full access')
-go
-insert into [dbo].[Roles] ([RoleId], [Name], [Desc]) values (2, 'Managers', 'Have full access to the store')
-go
-set IDENTITY_INSERT [dbo].[Roles] off
-go
-
 set IDENTITY_INSERT [dbo].[Users] on
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (1, 'admin', '123', 1)
+insert into [dbo].[Users] ([UserId], [Name]) values (1, 'admin')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (2, 'manager', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (2, 'manager')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (3, 'andrey', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (3, 'andrey')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (4, 'ruslan', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (4, 'ruslan')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (5, 'ivan', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (5, 'ivan')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (6, 'kolya', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (6, 'kolya')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (7, 'Nick', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (7, 'Nick')
 go									  
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (8, 'Ann', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (8, 'Ann')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (9, 'James', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (9, 'James')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (10, 'Ibragim', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (10, 'Ibragim')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (11, 'Kim En Pak', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (11, 'Kim En Pak')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (12, 'Radoslav', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (12, 'Radoslav')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (13, 'Ali', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (13, 'Ali')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (14, 'Muhammed', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (14, 'Muhammed')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (15, 'Akbar', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (15, 'Akbar')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (16, 'Alisher', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (16, 'Alisher')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (17, 'Nikita', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (17, 'Nikita')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (18, 'Arnold', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (18, 'Arnold')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (19, 'Stiven', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (19, 'Stiven')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (20, 'Bill', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (20, 'Bill')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (21, 'Bob', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (21, 'Bob')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (22, 'Martha', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (22, 'Martha')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (23, 'Angela', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (23, 'Angela')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (24, 'Selena', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (24, 'Selena')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (25, 'Rehsovoy', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (25, 'Rehsovoy')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (26, 'Alex', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (26, 'Alex')
 go
-insert into [dbo].[Users] ([UserId], [Name], [Password], [RoleId]) values (27, 'Caleb', '111', 2)
+insert into [dbo].[Users] ([UserId], [Name]) values (27, 'Caleb')
 go
 set IDENTITY_INSERT [dbo].[Users] off
 go

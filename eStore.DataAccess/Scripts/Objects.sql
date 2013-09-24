@@ -16,10 +16,6 @@ IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
 GO
 
-IF OBJECT_ID(N'[dbo].[Roles]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Roles];
-GO
-
 CREATE TABLE [dbo].[Genres] (
     [GenreId] int IDENTITY(1,1) primary key clustered,
     [Title] nvarchar(30) NOT NULL unique nonclustered,
@@ -56,18 +52,9 @@ CREATE TABLE [dbo].[Books] (
 );
 GO
 
-CREATE TABLE [dbo].[Roles] (
-    [RoleId] int IDENTITY(1,1) primary key clustered,
-    [Name] nvarchar(15) NOT NULL unique nonclustered,
-    [Desc] nvarchar(max) NOT NULL,
-);
-GO
-
 CREATE TABLE [dbo].[Users] (
     [UserId] int IDENTITY(1,1) primary key clustered,
     [Name] nvarchar(10) NOT NULL unique nonclustered,
-    [Password] nvarchar(12) NOT NULL,
-    [Email] nvarchar(20) NULL,
-    [RoleId] int NOT NULL references [dbo].[Roles](RoleId)
+    [Email] nvarchar(20) NULL
 );
 GO
