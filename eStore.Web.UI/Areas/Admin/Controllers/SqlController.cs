@@ -1,17 +1,13 @@
-﻿using eStore.Core;
+﻿using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.Mvc;
+using eStore.Core;
 using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Admin.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using System.Dynamic;
-using System.Web.Mvc;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class SqlController : Controller
     {
         private readonly IAdminService _service;
@@ -44,62 +40,14 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
         {
             var res = new GridDataModel();
 
-            var connStr = new SqlConnectionStringBuilder()
-            {
-                DataSource = model.Server,
-                InitialCatalog = model.DataBase,
-                UserID = model.User,
-                Password = model.Password
-            };
-
-            var conn = new SqlConnection(connStr.ConnectionString);
-
             try
             {
-                conn.Open();
-                var cmd = new SqlCommand(model.Query, conn);
-                var reader = cmd.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    DataTable dt = new DataTable();
-                    dt.Load(reader);
-
-                    if (dt.Rows.Count > 0)
-                    {
-                        var result = new List<dynamic>();
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            var obj = (IDictionary<string, object>)new ExpandoObject();
-                            foreach (DataColumn col in dt.Columns)
-                            {
-                                obj.Add(col.ColumnName, row[col.ColumnName]);
-                            }
-                            result.Add(obj);
-                        }
-
-                        res.Data = result;
-                    }
-                }
-                else //if (reader.RecordsAffected > -1)
-                {
-                    var obj = (IDictionary<string, object>)new ExpandoObject();
-                    obj.Add("Row(s) affected", reader.RecordsAffected);
-
-                    res.Data = new List<dynamic>() { obj };
-                }
+                res.Data = _service.Exec(model.Query);
             }
-            catch (Exception ex)
+            catch (CoreServiceException ex)
             {
                 model.Result = ex.Message;
                 return RedirectToAction("Index", model);
-            }
-            finally
-            {
-                if (conn.State == ConnectionState.Open)
-                {
-                    conn.Close();
-                }
             }
 
             return View(res);
@@ -118,7 +66,6 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
             try
             {
                 ViewBag.InitResult = _service.DbInit();
-
             }
             catch (CoreServiceException ex)
             {

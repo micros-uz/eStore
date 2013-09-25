@@ -84,7 +84,11 @@
   <ItemGroup>
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
-    <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Migrations\201309251349137_Initial.cs" />
+    <Compile Include="Migrations\201309251349137_Initial.Designer.cs">
+      <DependentUpon>201309251349137_Initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Ef\EStoreDbContext.cs" />
     <Compile Include="OrmInitializer.cs" />
@@ -114,6 +118,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201309251349137_Initial.resx">
+      <DependentUpon>201309251349137_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>
   <ItemGroup>

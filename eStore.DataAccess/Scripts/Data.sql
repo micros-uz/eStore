@@ -1,4 +1,25 @@
-﻿
+﻿delete from [dbo].[Books]
+go
+DBCC CHECKIDENT ([Books], RESEED, 0)
+go
+
+delete from [dbo].[Series]
+go
+DBCC CHECKIDENT ([Series], RESEED, 0)
+go
+
+delete from [dbo].[Authors]
+go
+DBCC CHECKIDENT ([Authors], RESEED, 0)
+go
+
+delete from [dbo].[Genres]
+go
+DBCC CHECKIDENT ([Genres], RESEED, 0)
+go
+
+
+
 /* DATA */
 
 set IDENTITY_INSERT [dbo].[Genres] ON
@@ -61,11 +82,11 @@ insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (3, 9, N'Бе
 go
 set IDENTITY_INSERT [dbo].[Series] off
 go
-
+/*
 set IDENTITY_INSERT [dbo].[Users] on
 go
-insert into [dbo].[Users] ([UserId], [Name]) values (1, 'admin')
-go									  
+--insert into [dbo].[Users] ([UserId], [Name]) values (1, 'admin')
+--go									  
 insert into [dbo].[Users] ([UserId], [Name]) values (2, 'manager')
 go									  
 insert into [dbo].[Users] ([UserId], [Name]) values (3, 'andrey')
@@ -120,7 +141,7 @@ insert into [dbo].[Users] ([UserId], [Name]) values (27, 'Caleb')
 go
 set IDENTITY_INSERT [dbo].[Users] off
 go
-
+*/
 set IDENTITY_INSERT [dbo].[Books] on
 go
 insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId],[Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])

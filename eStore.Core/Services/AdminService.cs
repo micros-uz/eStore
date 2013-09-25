@@ -1,4 +1,6 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 using eStore.DataAccess;
 using eStore.Interfaces.Services;
 
@@ -12,7 +14,24 @@ namespace eStore.Core.Services
         {
             try
             {
-                return "COMMENTED";//DatabaseInitializer.Init().ToString();
+                return DatabaseHelper.Init().ToString();
+            }
+            catch (SqlException ex)
+            {
+                throw new CoreServiceException(ex.Message);
+            }
+        }
+
+        IEnumerable<dynamic> IAdminService.Exec(string query)
+        {
+            try
+            {
+                var lines = query.Split(new string[] { "GO" }, StringSplitOptions.None);
+
+                if (lines.Length > 1)
+                    return new List<dynamic>() { DatabaseHelper.Exec2(query) };
+                else
+                    return DatabaseHelper.Exec(query);
             }
             catch (SqlException ex)
             {
