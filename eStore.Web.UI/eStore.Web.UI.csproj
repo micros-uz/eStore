@@ -255,6 +255,8 @@
     <Compile Include="Areas\Store\ViewModels\CartModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="Areas\Store\ViewModels\HomeModel.cs" />
+    <Content Include="Content\font-awsome.min.css" />
+    <Content Include="Content\social-buttons.css" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Global.asax.cs">

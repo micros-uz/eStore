@@ -18,16 +18,17 @@
             </div>
         </div>
         <div class="col-md-5">
-            <h3>Use a local account to log in.</h3>
-            @using (Html.BeginForm("LogOn", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl, role = "form" }))
-            {
+            <div class="row">
+                <h3>Use a local account to log in.</h3>
+                @using (Html.BeginForm("LogOn", "Account", FormMethod.Post, new { ReturnUrl = ViewBag.ReturnUrl, role = "form" }))
+                {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
                 @Html.Hidden("ReturnUrl", (object)ViewBag.ReturnUrl);
 
                 <div class="form-group">
                     @Html.LabelFor(m => m.Name)
-                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus="autofocus" })
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", autofocus = "autofocus" })
                     @Html.ValidationMessageFor(m => m.Name)
                 </div>
                 <div class="form-group">
@@ -41,7 +42,28 @@
                 </div>
 
                 <input type="submit" class="btn btn-default" value="Log in" />
-            }
+                }
+            </div>
+            <div class="row">
+                <button class="btn btn-lg btn-facebook">
+                    <i class="icon-facebook"></i>
+                </button>
+                <button class="btn btn-lg btn-twitter">
+                    <i class="icon-twitter"></i>
+                </button>
+                <button class="btn btn-lg btn-google-plus">
+                    <i class="icon-google-plus"></i>
+                </button>
+                <button class="btn btn-lg btn-github" title="GitHub">
+                    <i class="icon-github"></i>
+                </button>
+                <button class="btn btn-lg btn-linkedin">
+                    <i class="icon-linkedin"></i>
+                </button>
+                <button class="btn btn-lg btn-skype ">
+                    <i class="icon-skype"></i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -52,3 +74,5 @@
     </script>
 }
 
+@Styles.Render("~/Content/social")
+@Styles.Render("//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css")

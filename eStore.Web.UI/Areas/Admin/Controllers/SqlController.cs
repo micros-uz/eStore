@@ -7,6 +7,8 @@ using eStore.Web.UI.Areas.Admin.ViewModels;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {
+    
+    
     [Authorize]
     public class SqlController : Controller
     {
