@@ -34,7 +34,7 @@ namespace eStore.Web.UI
 
             bundles.Add(new StyleBundle("~/Content/social")
                 .Include("~/Content/social-buttons.css",
-                         "~/Content/font-awsome.min.css"));
+                         "~/Content/font-awesome.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css")
                 .Include(

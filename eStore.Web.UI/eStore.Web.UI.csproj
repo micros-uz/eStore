@@ -219,6 +219,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\Account\ViewModels\BaseUserModel.cs" />
     <Compile Include="Areas\Account\ViewModels\LogOnModel.cs" />
+    <Compile Include="Areas\Account\ViewModels\RegisterExternalLoginModel.cs" />
     <Compile Include="Areas\Account\ViewModels\RegisterModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -255,7 +257,7 @@
     <Compile Include="Areas\Store\ViewModels\CartModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="Areas\Store\ViewModels\HomeModel.cs" />
-    <Content Include="Content\font-awsome.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\social-buttons.css" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
@@ -448,6 +450,9 @@
     <Content Include="Areas\Store\Views\Author\Top.cshtml" />
     <Content Include="Areas\Store\Views\Author\Books.cshtml" />
     <Content Include="Areas\Store\Views\Checkout\Index.cshtml" />
+    <Content Include="Areas\Account\Views\Account\_ExternalLogins.cshtml" />
+    <Content Include="Areas\Account\Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Areas\Account\Views\Account\ExternalLoginConfirmation.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
