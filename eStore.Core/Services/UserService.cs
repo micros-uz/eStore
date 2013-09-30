@@ -45,13 +45,8 @@ namespace eStore.Core.Services
 
         void IUserService.DeleteUser(int userId)
         {
-            var user = UoW.UserRepository.GetById(userId);
-
-            if (user != null)
-            {
-                UoW.UserRepository.Delete(user);
-                UoW.Save();
-            }
+            UoW.UserRepository.Delete(userId);
+            UoW.Save();
         }
 
         #endregion

@@ -12,6 +12,7 @@ namespace eStore.DataAccess
             ioc.Register<IConnectionStringProvider, ConnectionStringProvider>();
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
             ioc.Register<IDbContextFactory<EStoreDbContext>, DbContextFactory>();
+            ioc.Register<IRepositoryFactory, RepositoryFactory>();
 
             OrmInitializer.Init();
         }

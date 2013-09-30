@@ -7,27 +7,27 @@ namespace eStore.Web.UI
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery")
-                .Include("~/Scripts/jquery-{version}.js"));
+                .Include("~/Scripts/lib/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui")
-                .Include("~/Scripts/jquery-ui-{version}.js"));
+                .Include("~/Scripts/lib/jquery-ui-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval")
-                .Include("~/Scripts/jquery.unobtrusive*",
-                "~/Scripts/jquery.validate*"));
+                .Include("~/Scripts/lib/jquery.unobtrusive*",
+                "~/Scripts/lib/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/knockout")
-                .Include("~/Scripts/jQuery.tmpl.js",
-                "~/Scripts/knockout-{version}.debug.js",
-                "~/Scripts/knockout.mapping-latest.debug.js"));
+                .Include("~/Scripts/lib/jQuery.tmpl.js",
+                "~/Scripts/lib/knockout-{version}.debug.js",
+                "~/Scripts/lib/knockout.mapping-latest.debug.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr")
-                .Include("~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/lib/modernizr")
+                .Include("~/Scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/eStore")
-                .Include("~/Scripts/eStore*"));
+                .Include("~/Scripts/app/eStore*"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/site.css"));

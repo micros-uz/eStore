@@ -88,13 +88,8 @@ namespace eStore.Core.Services
 
         void IStoreService.DeleteGenreById(int id)
         {
-            var genre = UoW.GenreRepository.GetById(id);
-
-            if (genre != null)
-            {
-                UoW.GenreRepository.Delete(genre);
-                UoW.Save();
-            }
+            UoW.GenreRepository.Delete(id);
+            UoW.Save();
         }
 
         IEnumerable<Book> IStoreService.SearchBooks(string searchqry)

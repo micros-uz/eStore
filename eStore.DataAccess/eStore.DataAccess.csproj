@@ -82,6 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\AuthorConfiguration.cs" />
+    <Compile Include="Configurations\BookConfiguration.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseHelper.cs" />
@@ -102,6 +104,8 @@
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
     <Compile Include="Repositories\Ef\EfUnitOfWork.cs" />
+    <Compile Include="Repositories\Ef\IRepositoryFactory.cs" />
+    <Compile Include="Repositories\Ef\RepositoryFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

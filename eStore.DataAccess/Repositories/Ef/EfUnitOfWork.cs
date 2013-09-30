@@ -17,11 +17,13 @@ namespace eStore.DataAccess.Repositories.Ef
         private IGenericRepository<Role> _roleRpstr;
         private EStoreDbContext _context;
         private IDbContextFactory<EStoreDbContext> _factory;
+        private IRepositoryFactory _repoFactory;
         private bool _disposed = false;
 
-        public EfUnitOfWork(IDbContextFactory<EStoreDbContext> factory)
+        public EfUnitOfWork(IDbContextFactory<EStoreDbContext> factory, IRepositoryFactory repoFactory)
         {
             _factory = factory;
+            _repoFactory = repoFactory;
         }
 
         protected virtual void Dispose(bool disposing)
@@ -58,19 +60,19 @@ namespace eStore.DataAccess.Repositories.Ef
 
         IGenericRepository<Genre> IUnitOfWork.GenreRepository
         {
-            get { return _genreRpstr ?? (_genreRpstr = new EfGenericRepository<Genre>(Context.Genres)); }
+            get { return _genreRpstr ?? (_genreRpstr = _repoFactory.GetRepository<Genre>(Context)); }
         }
 
         IGenericRepository<Author> IUnitOfWork.AuthorRepository
         {
-            get { return _authorRpstr ?? (_authorRpstr = new EfGenericRepository<Author>(Context.Authors)); }
+            get { return _authorRpstr ?? (_authorRpstr = _repoFactory.GetRepository<Author>(Context)); }
         }
 
         IGenericRepository<Book> IUnitOfWork.BooksRepository
         {
             get
             {
-                return _bookRpstr ?? (_bookRpstr = new EfGenericRepository<Book>(Context.Books));
+                return _bookRpstr ?? (_bookRpstr = _repoFactory.GetRepository<Book>(Context));
             }
         }
 
@@ -78,7 +80,7 @@ namespace eStore.DataAccess.Repositories.Ef
         {
             get
             {
-                return _userRpstr ?? (_userRpstr = new EfGenericRepository<User>(Context.Users));
+                return _userRpstr ?? (_userRpstr = _repoFactory.GetRepository<User>(Context));
             }
         }
 
@@ -86,7 +88,7 @@ namespace eStore.DataAccess.Repositories.Ef
         {
             get
             {
-                return _roleRpstr ?? (_roleRpstr = new EfGenericRepository<Role>(Context.Roles));
+                return _roleRpstr ?? (_roleRpstr = _repoFactory.GetRepository<Role>(Context));
             }
         }
 

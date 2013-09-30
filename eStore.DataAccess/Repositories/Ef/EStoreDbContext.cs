@@ -50,5 +50,12 @@ namespace eStore.DataAccess.Repositories.Ef
             get;
             set;
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add<Author>()
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

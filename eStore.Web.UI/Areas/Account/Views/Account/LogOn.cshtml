@@ -49,34 +49,9 @@
                 <h2>Use another service to log in.</h2>
                 @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
             </section>
-            <div class="row">
-                <button class="btn btn-lg btn-facebook">
-                    <i class="icon-facebook"></i>
-                </button>
-                <button class="btn btn-lg btn-twitter">
-                    <i class="icon-twitter"></i>
-                </button>
-                <button class="btn btn-lg btn-google-plus">
-                    <i class="icon-google-plus"></i>
-                </button>
-                <button class="btn btn-lg btn-github" title="GitHub">
-                    <i class="icon-github"></i>
-                </button>
-                <button class="btn btn-lg btn-linkedin">
-                    <i class="icon-linkedin"></i>
-                </button>
-                <button class="btn btn-lg btn-skype ">
-                    <i class="icon-skype"></i>
-                </button>
-            </div>
         </div>
     </div>
 </div>
 
-@section scripts{
-    <script type="text/javascript">
-        $('#Name').focus();
-    </script>
-}
 
 @Styles.Render("~/Content/social")

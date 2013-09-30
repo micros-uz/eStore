@@ -24,7 +24,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
         #region IGenericRepository<T>
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return _dbSet;//.ToList();
             /*
@@ -61,27 +61,28 @@ namespace eStore.DataAccess.Repositories.Ef
              * */
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return _dbSet.Find(id);
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
         {
             return _dbSet.Where(predicate);//.ToList();
         }
 
-        public IEnumerable<T> GetByPage(int page, int itemsPerPage)
+        public virtual IEnumerable<T> GetByPage(int page, int itemsPerPage)
         {
             return _dbSet.Skip(itemsPerPage * (page - 1)).Take(itemsPerPage).ToList();
         }
 
-        void IGenericRepository<T>.Add(T entity)
+        public virtual void Add(T entity)
         {
+           // var entry = _dbSet.
             _dbSet.Add(entity);
         }
 
-        void IGenericRepository<T>.Update(T entity)
+        public virtual void Update(T entity)
         {
             _dbSet.AddOrUpdate(entity);
             //_dbSet.Attach(entity);
@@ -89,9 +90,19 @@ namespace eStore.DataAccess.Repositories.Ef
 
         }
 
-        void IGenericRepository<T>.Delete(T entity)
+        public virtual void Delete(T entity)
         {
             _dbSet.Remove(entity);
+        }
+
+        public virtual void Delete(int id)
+        {
+            var entity = _dbSet.Find(id);
+
+            if (entity != null)
+            {
+                _dbSet.Remove(entity);
+            }
         }
 
         #endregion

@@ -19,5 +19,6 @@ namespace eStore.Interfaces.Repositories
         //T Save(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void Delete(int id);
     }
 }
