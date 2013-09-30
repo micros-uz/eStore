@@ -1,5 +1,6 @@
 ﻿using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
+using eStore.Web.Infrastructure.Authentication;
 using eStore.Web.Infrastructure.ObjectMapper;
 using WrapIoC;
 

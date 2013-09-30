@@ -87,10 +87,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthenticationProvider.cs" />
+    <Compile Include="Authentication\AuthenticationProvider.cs" />
+    <Compile Include="Authentication\OAuthSecretData.cs" />
     <Compile Include="DatabaseSeedActionManager.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="IFileService.cs" />
+    <Compile Include="Authentication\OAuthSettingsProvider.cs" />
     <Compile Include="ObjectMapper\Auto\ConfigProfile.cs" />
     <Compile Include="ObjectMapper\Auto\MapperConfiguration.cs" />
     <Compile Include="ObjectMapper\IObjectMapperExpression.cs" />

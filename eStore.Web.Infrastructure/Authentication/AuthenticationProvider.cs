@@ -2,7 +2,7 @@
 using System.Web.Security;
 using WebMatrix.WebData;
 
-namespace eStore.Web.Infrastructure
+namespace eStore.Web.Infrastructure.Authentication
 {
     public class AuthenticationProvider : IAuthenticationProvider
     {
