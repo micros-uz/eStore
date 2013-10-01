@@ -1,5 +1,7 @@
 ﻿using System.Data.Entity;
 using eStore.Domain;
+using eStore.DataAccess.Configurations;
+using eStore.DataAccess.Configurations.Security;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -53,7 +55,15 @@ namespace eStore.DataAccess.Repositories.Ef
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add<Author>()
+            modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new MembershipConfiguration());
+            modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());
+
+            modelBuilder.Configurations.Add(new AuthorConfiguration());
+            modelBuilder.Configurations.Add(new BookConfiguration());
+            modelBuilder.Configurations.Add(new GenreConfiguration());
+            modelBuilder.Configurations.Add(new SeriesConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -719,3 +719,37 @@
         background-color: #cd332d;
         border-color: #6e0610;
     }
+
+.btn-yahoo {
+    color: #ffffff;
+    background-color: #88008C;
+    border-color: #74057d;
+}
+
+    .btn-yahoo:hover,
+    .btn-yahoo:focus,
+    .btn-yahoo:active,
+    .btn-yahoo.active {
+        color: #ffffff;
+        background-color: #74057d;
+        border-color: #74057d;
+    }
+
+    .btn-yahoo.disabled,
+    .btn-yahoo[disabled],
+    fieldset[disabled] .btn-yahoo,
+    .btn-yahoo.disabled:hover,
+    .btn-yahoo[disabled]:hover,
+    fieldset[disabled] .btn-yahoo:hover,
+    .btn-yahoo.disabled:focus,
+    .btn-yahoo[disabled]:focus,
+    fieldset[disabled] .btn-yahoo:focus,
+    .btn-yahoo.disabled:active,
+    .btn-yahoo[disabled]:active,
+    fieldset[disabled] .btn-yahoo:active,
+    .btn-yahoo.disabled.active,
+    .btn-yahoo[disabled].active,
+    fieldset[disabled] .btn-yahoo.active {
+        background-color: #88008C;
+        border-color: #74057d;
+    }

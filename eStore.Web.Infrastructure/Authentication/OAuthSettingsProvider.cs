@@ -24,11 +24,16 @@ namespace eStore.Web.Infrastructure.Authentication
                     {
                         Id = "239932299490730",
                         Secret = "d01d385c9449fc5cb1c09c9e4c70a55d"
-                    });        
+                    });
+            _Settings.Add("linkedin", new OAuthSecretData
+                    {
+                        Id = "udsaykvhuab2",
+                        Secret = "guSGD2ay0Qmk81nD"
+                    });
         }
 
-        public static Dictionary<string, OAuthSecretData> Settings 
-        { 
+        public static Dictionary<string, OAuthSecretData> Settings
+        {
             get
             {
                 return _Settings;

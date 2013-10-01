@@ -12,8 +12,8 @@ namespace eStore.DataAccess.Migrations
                 c => new
                     {
                         GenreId = c.Int(nullable: false, identity: true),
-                        Title = c.String(),
-                        Desc = c.String(),
+                        Title = c.String(nullable: false, maxLength: 30),
+                        Desc = c.String(maxLength: 200),
                     })
                 .PrimaryKey(t => t.GenreId);
             
@@ -22,7 +22,7 @@ namespace eStore.DataAccess.Migrations
                 c => new
                     {
                         AuthorId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 200),
                     })
                 .PrimaryKey(t => t.AuthorId);
             
@@ -34,11 +34,11 @@ namespace eStore.DataAccess.Migrations
                         GenreId = c.Int(nullable: false),
                         AuthorId = c.Int(nullable: false),
                         SeriesId = c.Int(),
-                        Title = c.String(),
+                        Title = c.String(maxLength: 200),
                         Price = c.Double(nullable: false),
                         Year = c.Short(nullable: false),
                         Pages = c.Short(nullable: false),
-                        ISBN = c.String(),
+                        ISBN = c.String(maxLength: 20),
                         Desc = c.String(),
                         ImageFile = c.Guid(),
                     })
@@ -54,8 +54,8 @@ namespace eStore.DataAccess.Migrations
                     {
                         SeriesId = c.Int(nullable: false, identity: true),
                         GenreId = c.Int(nullable: false),
-                        Title = c.String(),
-                        Desc = c.String(),
+                        Title = c.String(nullable: false, maxLength: 30),
+                        Desc = c.String(maxLength: 200),
                     })
                 .PrimaryKey(t => t.SeriesId);
             
@@ -64,30 +64,20 @@ namespace eStore.DataAccess.Migrations
                 c => new
                     {
                         UserId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Email = c.String(),
+                        Name = c.String(nullable: false, maxLength: 10),
+                        Email = c.String(maxLength: 20),
                     })
                 .PrimaryKey(t => t.UserId);
-            
-            CreateTable(
-                "dbo.Roles",
-                c => new
-                    {
-                        RoleId = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Desc = c.String(),
-                    })
-                .PrimaryKey(t => t.RoleId);
-            
         }
         
         public override void Down()
         {
+            SecurityDropHelper.DropTables((x) => DropTable(x));
+
             DropIndex("dbo.Books", new[] { "GenreId" });
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropForeignKey("dbo.Books", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
-            DropTable("dbo.Roles");
             DropTable("dbo.Users");
             DropTable("dbo.Series");
             DropTable("dbo.Books");

@@ -84,14 +84,31 @@
   <ItemGroup>
     <Compile Include="Configurations\AuthorConfiguration.cs" />
     <Compile Include="Configurations\BookConfiguration.cs" />
+    <Compile Include="Configurations\Security\MembershipConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\Security\OAuthMembershipConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\Security\RoleConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\SeriesConfiguration.cs" />
+    <Compile Include="Configurations\GenreConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Migrations\201309251349137_Initial.cs" />
-    <Compile Include="Migrations\201309251349137_Initial.Designer.cs">
-      <DependentUpon>201309251349137_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201310010118484_Initial.cs" />
+    <Compile Include="Migrations\201310010118484_Initial.Designer.cs">
+      <DependentUpon>201310010118484_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201310010334044_01_SimpleMembership.cs" />
+    <Compile Include="Migrations\201310010334044_01_SimpleMembership.Designer.cs">
+      <DependentUpon>201310010334044_01_SimpleMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SecurityDropHelper.cs" />
     <Compile Include="Repositories\Ef\EStoreDbContext.cs" />
     <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,8 +139,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201309251349137_Initial.resx">
-      <DependentUpon>201309251349137_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310010118484_Initial.resx">
+      <DependentUpon>201310010118484_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310010334044_01_SimpleMembership.resx">
+      <DependentUpon>201310010334044_01_SimpleMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>

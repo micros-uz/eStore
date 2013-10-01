@@ -7,7 +7,8 @@ namespace eStore.DataAccess.Configurations
     {
         public AuthorConfiguration()
         {
-            HasKey(x => x.AuthorId)
+            HasKey(x => x.AuthorId);
+            Property(x => x.Name).HasMaxLength(200).IsRequired();
         }
     }
 }

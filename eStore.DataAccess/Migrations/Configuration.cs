@@ -23,11 +23,14 @@ namespace eStore.DataAccess.Migrations
         {
             if (_pending)
             {
-                var seedActionsProvider = IoC.Current.Get<ISeedActionProvider>();
-
-                if (seedActionsProvider != null)
+                if (IoC.Current != null)
                 {
-                    seedActionsProvider.Action();
+                    var seedActionsProvider = IoC.Current.Get<ISeedActionProvider>();
+
+                    if (seedActionsProvider != null)
+                    {
+                        seedActionsProvider.Action();
+                    }
                 }
             }
         }

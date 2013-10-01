@@ -20,9 +20,9 @@ else
                 @foreach (AuthenticationClientData p in Model)
                 {
                     @*<button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account">@p.DisplayName</button>*@
-    <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account" class="btn btn-lg btn-@p.AuthenticationClient.ProviderName">
-        <i class="icon-@p.AuthenticationClient.ProviderName"></i>
-    </button>
+                    <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName.ToLower()" title="Log in using your @p.DisplayName account" class="btn btn-lg btn-@p.AuthenticationClient.ProviderName.ToLower()">
+                        <i class="icon-@p.AuthenticationClient.ProviderName.ToLower()"></i>
+                    </button>
                 }
             </p>
         </fieldset>

@@ -28,6 +28,10 @@ namespace eStore.Web.UI
                 //consumerSecret: "gOP6mE7RP3dGLDdFOnHqyueyDhbCFl37wa4R0uNpzE"
             );
 
+            OAuthWebSecurity.RegisterLinkedInClient(
+                OAuthSettingsProvider.Settings["linkedin"].Id,
+                OAuthSettingsProvider.Settings["linkedin"].Secret);
+
             OAuthWebSecurity.RegisterFacebookClient(
                 OAuthSettingsProvider.Settings["facebook"].Id,
                 OAuthSettingsProvider.Settings["facebook"].Secret
@@ -39,6 +43,7 @@ namespace eStore.Web.UI
             OAuthWebSecurity.RegisterYahooClient();
 
             OAuthWebSecurity.RegisterGoogleClient();
+
         }
     }
 }

@@ -7,9 +7,15 @@ namespace eStore.DataAccess.Configurations
     {
         public BookConfiguration()
         {
+            HasKey(x => x.BookId);
             HasRequired(x => x.Author)
                 .WithMany(z => z.Books)
                 .HasForeignKey(w => w.AuthorId);
+
+            HasRequired(x => x.Genre);
+
+            Property(x => x.Title).HasMaxLength(200);
+            Property(x => x.ISBN).HasMaxLength(20);
         }
     }
 }
