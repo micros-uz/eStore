@@ -16,14 +16,9 @@ namespace eStore.DataAccess.Configurations.Security
             Property(x => x.PasswordSalt).HasMaxLength(128).IsRequired();
             Property(x => x.PasswordVerificationToken).HasMaxLength(128);
             
-            HasMany<Role>(r => r.Roles)
-              .WithMany(u => u.Members)
-              .Map(m =>
-              {
-                  m.ToTable("webpages_UsersInRoles");
-                  m.MapLeftKey("UserId");
-                  m.MapRightKey("RoleId");
-              });
+            HasMany(x => x.OAuthMemberships)
+                .WithRequired(x => x.User)
+                .WillCascadeOnDelete(false);                
         }
     }
 }

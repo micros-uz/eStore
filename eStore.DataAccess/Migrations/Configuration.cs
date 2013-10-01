@@ -14,23 +14,18 @@ namespace eStore.DataAccess.Migrations
         {
             AutomaticMigrationsEnabled = false;
             //AutomaticMigrationDataLossAllowed = true;
-
-            var migrator = new DbMigrator(this);
-            _pending = migrator.GetPendingMigrations().Any();
         }
 
         protected override void Seed(EStoreDbContext context)
         {
-            if (_pending)
+            // insufficient - every time!
+            if (IoC.Current != null)
             {
-                if (IoC.Current != null)
-                {
-                    var seedActionsProvider = IoC.Current.Get<ISeedActionProvider>();
+                var seedActionsProvider = IoC.Current.Get<ISeedActionProvider>();
 
-                    if (seedActionsProvider != null)
-                    {
-                        seedActionsProvider.Action();
-                    }
+                if (seedActionsProvider != null)
+                {
+                    seedActionsProvider.Action();
                 }
             }
         }

@@ -5,13 +5,13 @@ namespace eStore.DataAccess.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class _01_SimpleMembership : IMigrationMetadata
+    public sealed partial class _00_Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_01_SimpleMembership));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_00_Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201310010334044_01_SimpleMembership"; }
+            get { return "201310010849145_00_Initial"; }
         }
         
         string IMigrationMetadata.Source

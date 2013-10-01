@@ -8,8 +8,8 @@ namespace eStore.DataAccess.Configurations.Security
         public OAuthMembershipConfiguration()
         {
             ToTable("webpages_OAuthMembership");
-            HasKey(x => x.Provider);
-            HasKey(x => x.ProviderUserId);
+            HasKey(x => new { x.Provider, x.ProviderUserId });
+
             Property(x => x.UserId).IsRequired();
 
             Property(x => x.Provider).HasMaxLength(30).HasColumnOrder(0);

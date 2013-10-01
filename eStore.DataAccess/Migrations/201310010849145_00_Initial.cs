@@ -3,7 +3,7 @@ namespace eStore.DataAccess.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class _00_Initial : DbMigration
     {
         public override void Up()
         {
@@ -43,8 +43,8 @@ namespace eStore.DataAccess.Migrations
                         ImageFile = c.Guid(),
                     })
                 .PrimaryKey(t => t.BookId)
-                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
-                .ForeignKey("dbo.Genres", t => t.GenreId, cascadeDelete: true)
+                .ForeignKey("dbo.Authors", t => t.AuthorId)
+                .ForeignKey("dbo.Genres", t => t.GenreId)
                 .Index(t => t.AuthorId)
                 .Index(t => t.GenreId);
             
@@ -68,12 +68,11 @@ namespace eStore.DataAccess.Migrations
                         Email = c.String(maxLength: 20),
                     })
                 .PrimaryKey(t => t.UserId);
+            
         }
         
         public override void Down()
         {
-            SecurityDropHelper.DropTables((x) => DropTable(x));
-
             DropIndex("dbo.Books", new[] { "GenreId" });
             DropIndex("dbo.Books", new[] { "AuthorId" });
             DropForeignKey("dbo.Books", "GenreId", "dbo.Genres");

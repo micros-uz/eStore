@@ -2,6 +2,7 @@
 using eStore.Domain;
 using eStore.DataAccess.Configurations;
 using eStore.DataAccess.Configurations.Security;
+using System.Diagnostics;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -52,9 +53,10 @@ namespace eStore.DataAccess.Repositories.Ef
             get;
             set;
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Debug.WriteLine("OnModelCReating");
+
             modelBuilder.Configurations.Add(new RoleConfiguration());
             modelBuilder.Configurations.Add(new MembershipConfiguration());
             modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());

@@ -7,8 +7,19 @@ namespace eStore.DataAccess.Migrations
     {
         public override void Up()
         {
-            //RenameTable(name: "dbo.Roles", newName: "webpages_Roles");
-            //RenameColumn(table: "dbo.webpages_Roles", name: "Name", newName: "RoleName");
+            CreateTable(
+                "dbo.webpages_Roles",
+                c => new
+                    {
+                        RoleId = c.Int(nullable: false, identity: true),
+                        RoleName = c.String(nullable: false, maxLength: 256),
+                        Desc = c.String(),
+                        Membership_UserId = c.Int(),
+                    })
+                .PrimaryKey(t => t.RoleId)
+                .ForeignKey("dbo.webpages_Membership", t => t.Membership_UserId)
+                .Index(t => t.Membership_UserId);
+            
             CreateTable(
                 "dbo.webpages_Membership",
                 c => new
@@ -31,12 +42,12 @@ namespace eStore.DataAccess.Migrations
                 "dbo.webpages_OAuthMembership",
                 c => new
                     {
-                        Provider = c.String(maxLength: 30),
+                        Provider = c.String(nullable: false, maxLength: 30),
                         ProviderUserId = c.String(nullable: false, maxLength: 100),
                         UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ProviderUserId)
-                .ForeignKey("dbo.webpages_Membership", t => t.UserId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.Provider, t.ProviderUserId })
+                .ForeignKey("dbo.webpages_Membership", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -47,8 +58,8 @@ namespace eStore.DataAccess.Migrations
                         RoleId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.webpages_Membership", t => t.UserId, cascadeDelete: true)
-                .ForeignKey("dbo.webpages_Roles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.webpages_Roles", t => t.UserId)
+                .ForeignKey("dbo.Users", t => t.RoleId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -59,14 +70,15 @@ namespace eStore.DataAccess.Migrations
             DropIndex("dbo.webpages_UsersInRoles", new[] { "RoleId" });
             DropIndex("dbo.webpages_UsersInRoles", new[] { "UserId" });
             DropIndex("dbo.webpages_OAuthMembership", new[] { "UserId" });
-            DropForeignKey("dbo.webpages_UsersInRoles", "RoleId", "dbo.webpages_Roles");
-            DropForeignKey("dbo.webpages_UsersInRoles", "UserId", "dbo.webpages_Membership");
+            DropIndex("dbo.webpages_Roles", new[] { "Membership_UserId" });
+            DropForeignKey("dbo.webpages_UsersInRoles", "RoleId", "dbo.Users");
+            DropForeignKey("dbo.webpages_UsersInRoles", "UserId", "dbo.webpages_Roles");
             DropForeignKey("dbo.webpages_OAuthMembership", "UserId", "dbo.webpages_Membership");
+            DropForeignKey("dbo.webpages_Roles", "Membership_UserId", "dbo.webpages_Membership");
             DropTable("dbo.webpages_UsersInRoles");
             DropTable("dbo.webpages_OAuthMembership");
             DropTable("dbo.webpages_Membership");
-            RenameColumn(table: "dbo.webpages_Roles", name: "RoleName", newName: "Name");
-            RenameTable(name: "dbo.webpages_Roles", newName: "Roles");
+            DropTable("dbo.webpages_Roles");
         }
     }
 }

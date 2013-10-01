@@ -51,7 +51,7 @@ namespace eStore.Domain
     {
         public Role()
         {
-            Members = new List<Membership>();
+            Members = new List<User>();
         }
 
         //[Key]
@@ -61,7 +61,7 @@ namespace eStore.Domain
 
         public string Desc{ get; set; }
 
-        public ICollection<Membership> Members { get; set; }
+        public ICollection<User> Members { get; set; }
     }
      
 }

@@ -99,13 +99,13 @@
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Migrations\201310010118484_Initial.cs" />
-    <Compile Include="Migrations\201310010118484_Initial.Designer.cs">
-      <DependentUpon>201310010118484_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201310010849145_00_Initial.cs" />
+    <Compile Include="Migrations\201310010849145_00_Initial.Designer.cs">
+      <DependentUpon>201310010849145_00_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201310010334044_01_SimpleMembership.cs" />
-    <Compile Include="Migrations\201310010334044_01_SimpleMembership.Designer.cs">
-      <DependentUpon>201310010334044_01_SimpleMembership.cs</DependentUpon>
+    <Compile Include="Migrations\201310010851132_01_SimpleMembership.cs" />
+    <Compile Include="Migrations\201310010851132_01_SimpleMembership.Designer.cs">
+      <DependentUpon>201310010851132_01_SimpleMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SecurityDropHelper.cs" />
@@ -139,11 +139,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201310010118484_Initial.resx">
-      <DependentUpon>201310010118484_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310010849145_00_Initial.resx">
+      <DependentUpon>201310010849145_00_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310010334044_01_SimpleMembership.resx">
-      <DependentUpon>201310010334044_01_SimpleMembership.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310010851132_01_SimpleMembership.resx">
+      <DependentUpon>201310010851132_01_SimpleMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>

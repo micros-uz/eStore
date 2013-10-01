@@ -10,6 +10,7 @@ namespace eStore.DataAccess.Configurations
             HasKey(x => x.UserId);
             Property(x => x.Name).HasMaxLength(10).IsRequired();
             Property(x => x.Email).HasMaxLength(20);
+
         }
     }
 }
