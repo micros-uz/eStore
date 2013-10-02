@@ -17,6 +17,7 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public ActionResult Index(ExecSqlModel model)
         {
             var connStr = ConfigurationManager.ConnectionStrings["ESTORE_CONN_STR"];
@@ -36,6 +37,7 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Exec(ExecSqlModel model)
         {
             var res = new GridDataModel();
