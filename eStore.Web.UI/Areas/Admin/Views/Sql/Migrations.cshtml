@@ -16,18 +16,23 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist" })
+        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist", data_bind="options: migrationsDb" })
     </div>
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Local, new SelectList(Model.Local), new { @class = "migrlist" })
+        @Html.ListBoxFor(m => m.Local, new SelectList(Model.Local), new { @class = "migrlist", data_bind = "options: migrationsLocal" })
     </div>
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Pending, new SelectList(Model.Pending), new { @class = "migrlist" })
+        @Html.ListBoxFor(m => m.Pending, new SelectList(Model.Pending), new { @class = "migrlist", data_bind = "options: migrationsPending" })
     </div>
 </div>
 <br>
-<div class="row">
-    <div class="col-md-6">
+@*<div class="row">*@
+<div class="col-md-6">
+    <div class="row">
+        <button class="btn btn-primary" data-bind="click: reload">Reload</button>
+    </div>
+    <br>
+    <div class="row">
         <div id="infoAlert" class="alert alert-info in">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>Migration target and direction</strong>
@@ -44,6 +49,8 @@
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong id="errmsg">Migration failed!</strong>
         </div>
+    </div>
+    <div class="row">
         @using (Ajax.BeginForm(
             new AjaxOptions
             {
@@ -51,7 +58,7 @@
                 OnBegin = "onBegin",
                 OnSuccess = "onSuccess",
                 OnFailure = "onFailure",
-                Url = Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "UpdateTo"})
+                Url = Url.HttpRouteUrl("DefaultApi", new { controller = "Migration", action = "UpdateTo" })
             }))
         {
             <div class="form-group">
@@ -72,6 +79,7 @@
         }
     </div>
 </div>
+@*</div>*@
 
 <style>
     .migrlist {
@@ -83,6 +91,7 @@
 @section Scripts {
     @Scripts.Render("~/Scripts/lib/jquery.unobtrusive-ajax.js")
     @Scripts.Render("~/Scripts/lib/bootstrap.js")
+    @Scripts.Render("~/bundles/knockout")
 
     <script type="text/javascript">
         function onBegin(ajaxContext) {
@@ -93,7 +102,7 @@
                 $('#warnAlert').addClass('in').removeClass('hide');
                 return false;
             }
-            
+
             $('.close').click(function () {
                 $(this).parent().removeClass('in');
             });
@@ -105,6 +114,8 @@
             $('#infoAlert').removeClass('in').addClass('hide');
             $('#warnAlert').removeClass('in').addClass('hide');
             $('#successAlert').addClass('in').removeClass('hide');
+
+            vm.reload();
         }
 
         function onFailure(ajaxContext) {
@@ -114,6 +125,34 @@
             $('#errmsg').text(ajaxContext.responseText);
         }
 
+        var vm = (function (model) {
+
+            var migrationsDb = ko.observable(model.Database);
+            var migrationsLocal = ko.observable(model.Local);
+            var migrationsPending = ko.observable(model.Pending);
+
+            var reload = function () {
+                $.getJSON('@Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "List"})', null,
+                    function (data) {
+                        migrationsDb(data.Database);
+                        migrationsLocal(data.Local);
+                        migrationsPending(data.Pending);
+                    });
+            };
+
+            var vm = {
+                reload: reload,
+                migrationsDb: migrationsDb,
+                migrationsLocal: migrationsLocal,
+                migrationsPending: migrationsPending,
+
+            }
+
+            return vm;
+
+        })(@Html.ToJSON(Model));
+
+        ko.applyBindings(vm);
     </script>
 }
 
