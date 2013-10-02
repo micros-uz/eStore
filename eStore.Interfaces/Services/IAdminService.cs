@@ -12,5 +12,7 @@ namespace eStore.Interfaces.Services
         Tuple<IEnumerable<string>, 
             IEnumerable<string>, 
             IEnumerable<string>> GetMigrationsInfo();
+
+        void Migrate(string target, bool isDowngrade);
     }
 }

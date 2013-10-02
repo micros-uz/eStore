@@ -121,5 +121,20 @@ namespace eStore.DataAccess
             return Tuple.Create(migrator.GetDatabaseMigrations(),
                 migrator.GetLocalMigrations(), migrator.GetPendingMigrations());
         }
+
+        public static void Migrate(string target, bool isDowngrade)
+        {
+            var migrator = new DbMigrator(new Migrations.Configuration());
+
+            if (isDowngrade)
+            {
+                migrator.Update("0");
+            }
+            else
+            {
+                migrator.Update();
+            }
+            
+        }
     }
 }

@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Migrations";
 }
-http://stackoverflow.com/questions/13550477/twitter-bootstrap-alert-message-close-and-open-again
 <div class="row">
     <div class="col-md-4">
         @Html.LabelFor(m => m.Database)
@@ -29,13 +28,21 @@ http://stackoverflow.com/questions/13550477/twitter-bootstrap-alert-message-clos
 <br>
 <div class="row">
     <div class="col-md-6">
-        <div id="warnAlert" class="alert alert-warning fade">
+        <div id="infoAlert" class="alert alert-info in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Migration target and direction</strong>
+        </div>
+        <div id="warnAlert" class="alert alert-warning fade hide">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>You should select the migration target or direction</strong>
         </div>
-        <div id="successAlert" class="alert alert-success fade">
+        <div id="successAlert" class="alert alert-success fade hide">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>The database has successfully migrated!</strong>
+        </div>
+        <div id="errAlert" class="alert alert-danger fade hide">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong id="errmsg">Migration failed!</strong>
         </div>
         @using (Ajax.BeginForm(
             new AjaxOptions
@@ -53,10 +60,10 @@ http://stackoverflow.com/questions/13550477/twitter-bootstrap-alert-message-clos
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-default">
-                    <input type="radio" name="isDowngrade" id="option1" value=true>Latest
+                    <input type="radio" name="isDowngrade" id="option1" value=true>Initial
                 </label>
                 <label class="btn btn-default">
-                    <input type="radio" name="isDowngrade" id="option2" value=false>Initial
+                    <input type="radio" name="isDowngrade" id="option2" value=false>Latest
                 </label>
             </div>
             <div class="btn-group">
@@ -82,24 +89,29 @@ http://stackoverflow.com/questions/13550477/twitter-bootstrap-alert-message-clos
 
             if (!$('#option1').is(':checked') && !$('#option2').is(':checked')
                 && $('#target').val().length == 0) {
-                $('#warnAlert').addClass('in');
+                $('#infoAlert').removeClass('in').addClass('hide');
+                $('#warnAlert').addClass('in').removeClass('hide');
                 return false;
             }
             
             $('.close').click(function () {
                 $(this).parent().removeClass('in');
-            }
+            });
 
             return true;
         }
 
         function onSuccess() {
-            $('#successAlert').slideDown(200);
+            $('#infoAlert').removeClass('in').addClass('hide');
+            $('#warnAlert').removeClass('in').addClass('hide');
+            $('#successAlert').addClass('in').removeClass('hide');
         }
 
         function onFailure(ajaxContext) {
-            $('#warnAlert').alert('close');
-            alert('e2');
+            $('#infoAlert').removeClass('in').addClass('hide');
+            $('#warnAlert').removeClass('in').addClass('hide');
+            $('#errAlert').addClass('in').removeClass('hide');
+            $('#errmsg').text(ajaxContext.responseText);
         }
 
     </script>

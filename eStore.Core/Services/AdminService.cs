@@ -44,6 +44,11 @@ namespace eStore.Core.Services
             return DatabaseHelper.GetMigrationsInfo();
         }
         
+        void IAdminService.Migrate(string target, bool isDowngrade)
+        {
+            DatabaseHelper.Migrate(target, isDowngrade);
+        }
+
         #endregion
     }
 }
