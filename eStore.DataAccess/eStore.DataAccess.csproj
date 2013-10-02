@@ -108,7 +108,6 @@
       <DependentUpon>201310010851132_01_SimpleMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\SecurityDropHelper.cs" />
     <Compile Include="Repositories\Ef\EStoreDbContext.cs" />
     <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

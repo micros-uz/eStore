@@ -20,6 +20,8 @@ namespace eStore.Web.UI
 
         protected void Application_Start()
         {
+            RouteTable.Routes.IgnoreRoute("secure/admin/errors");
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

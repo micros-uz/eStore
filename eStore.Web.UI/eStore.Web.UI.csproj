@@ -259,6 +259,7 @@
     <Compile Include="Areas\Store\ViewModels\CartModel.cs" />
     <Compile Include="Areas\Store\ViewModels\GenreBooksModel.cs" />
     <Compile Include="Areas\Store\ViewModels\HomeModel.cs" />
+    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\social-buttons.css" />
     <Compile Include="Controllers\AuthorController.cs" />
@@ -283,7 +284,6 @@
     <Compile Include="Areas\Store\ViewModels\CurrencySelectorModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
