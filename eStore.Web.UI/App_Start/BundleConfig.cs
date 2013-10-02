@@ -21,6 +21,9 @@ namespace eStore.Web.UI
                 "~/Scripts/lib/knockout-{version}.debug.js",
                 "~/Scripts/lib/knockout.mapping-latest.debug.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap")
+                .Include("~/Scripts/lib/bootstrap.min.js"));
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/lib/modernizr")

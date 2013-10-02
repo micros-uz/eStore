@@ -39,6 +39,11 @@ namespace eStore.Core.Services
             }
         }
 
+        Tuple<IEnumerable<string>, IEnumerable<string>, IEnumerable<string>> IAdminService.GetMigrationsInfo()
+        {
+            return DatabaseHelper.GetMigrationsInfo();
+        }
+        
         #endregion
     }
 }

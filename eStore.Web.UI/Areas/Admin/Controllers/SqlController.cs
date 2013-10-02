@@ -6,9 +6,7 @@ using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Admin.ViewModels;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
-{
-    
-    
+{   
     [Authorize]
     public class SqlController : Controller
     {
@@ -75,6 +73,19 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
             }
 
             return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Migrations()
+        {
+            var migrations = _service.GetMigrationsInfo();
+
+            return View(new MigrationsModel
+                {
+                    Database = migrations.Item1,
+                    Local = migrations.Item2,
+                    Pending = migrations.Item3,
+                });
         }
     }
 }

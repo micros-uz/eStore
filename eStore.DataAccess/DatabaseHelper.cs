@@ -8,6 +8,8 @@ using eStore.Interfaces.Repositories;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 using WrapIoC;
+using System.Data.Entity.Migrations;
+using System;
 
 namespace eStore.DataAccess
 {
@@ -110,6 +112,14 @@ namespace eStore.DataAccess
                 Server server = new Server(new ServerConnection(connection));
                 return server.ConnectionContext.ExecuteNonQuery(query);
             }
+        }
+
+        public static Tuple<IEnumerable<string>, IEnumerable<string>, IEnumerable<string>> GetMigrationsInfo()
+        {
+            var migrator = new DbMigrator(new Migrations.Configuration());
+
+            return Tuple.Create(migrator.GetDatabaseMigrations(),
+                migrator.GetLocalMigrations(), migrator.GetPendingMigrations());
         }
     }
 }

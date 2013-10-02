@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace eStore.Interfaces.Services
 {
@@ -7,5 +8,9 @@ namespace eStore.Interfaces.Services
         string DbInit();
 
         IEnumerable<dynamic> Exec(string query);
+
+        Tuple<IEnumerable<string>, 
+            IEnumerable<string>, 
+            IEnumerable<string>> GetMigrationsInfo();
     }
 }
