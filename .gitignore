@@ -71,3 +71,6 @@
 /eStore.Web.UI/App_Data/uploads
 /packages/elmah.1.2.2
 /packages/elmah.corelibrary.1.2.2
+
+/packages/Microsoft.Bcl.Build.1.0.10
+/packages/Newtonsoft.Json.4.5.11

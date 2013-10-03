@@ -6,6 +6,18 @@ namespace eStore.Web.UI
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // Force optimization to be on or off, regardless of web.config setting
+            //BundleTable.EnableOptimizations = false;
+            bundles.UseCdn = false;
+
+            // .debug.js, -vsdoc.js and .intellisense.js files 
+            // are in BundleTable.Bundles.IgnoreList by default.
+            // Clear out the list and add back the ones we want to ignore.
+            // Don't add back .debug.js.
+            bundles.IgnoreList.Clear();
+            bundles.IgnoreList.Ignore("*-vsdoc.js");
+            bundles.IgnoreList.Ignore("*intellisense.js");
+
             bundles.Add(new ScriptBundle("~/bundles/jquery")
                 .Include("~/Scripts/lib/jquery-{version}.js"));
 
@@ -18,8 +30,8 @@ namespace eStore.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/knockout")
                 .Include("~/Scripts/lib/jQuery.tmpl.js",
-                "~/Scripts/lib/knockout-{version}.debug.js",
-                "~/Scripts/lib/knockout.mapping-latest.debug.js"));
+                "~/Scripts/lib/knockout-{version}.js",
+                "~/Scripts/lib/knockout.mapping-latest.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
                 .Include("~/Scripts/lib/bootstrap.min.js"));
@@ -38,7 +50,7 @@ namespace eStore.Web.UI
             bundles.Add(new StyleBundle("~/Content/social")
                 .Include("~/Content/social-buttons.css",
                          "~/Content/font-awesome.min.css"));
-
+            /*
             bundles.Add(new StyleBundle("~/Content/themes/base/css")
                 .Include(
                         "~/Content/themes/base/jquery.ui.core.css",
@@ -53,6 +65,7 @@ namespace eStore.Web.UI
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+             * */
         }
     }
 }
