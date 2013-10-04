@@ -8,19 +8,6 @@ namespace eStore.DataAccess.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.webpages_Roles",
-                c => new
-                    {
-                        RoleId = c.Int(nullable: false, identity: true),
-                        RoleName = c.String(nullable: false, maxLength: 256),
-                        Desc = c.String(),
-                        Membership_UserId = c.Int(),
-                    })
-                .PrimaryKey(t => t.RoleId)
-                .ForeignKey("dbo.webpages_Membership", t => t.Membership_UserId)
-                .Index(t => t.Membership_UserId);
-            
-            CreateTable(
                 "dbo.webpages_Membership",
                 c => new
                     {
@@ -46,39 +33,54 @@ namespace eStore.DataAccess.Migrations
                         ProviderUserId = c.String(nullable: false, maxLength: 100),
                         UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Provider, t.ProviderUserId })
-                .ForeignKey("dbo.webpages_Membership", t => t.UserId)
-                .Index(t => t.UserId);
+                .PrimaryKey(t => new { t.Provider, t.ProviderUserId });
+            
+            CreateTable(
+                "dbo.webpages_Roles",
+                c => new
+                    {
+                        RoleId = c.Int(nullable: false, identity: true),
+                        RoleName = c.String(nullable: false, maxLength: 256),
+                        Desc = c.String(),
+                    })
+                .PrimaryKey(t => t.RoleId);
+            
+            CreateTable(
+                "dbo.Users",
+                c => new
+                    {
+                        UserId = c.Int(nullable: false, identity: true),
+                        Name = c.String(nullable: false, maxLength: 10),
+                        Email = c.String(maxLength: 20),
+                    })
+                .PrimaryKey(t => t.UserId);
             
             CreateTable(
                 "dbo.webpages_UsersInRoles",
                 c => new
                     {
-                        UserId = c.Int(nullable: false),
                         RoleId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.webpages_Roles", t => t.UserId)
-                .ForeignKey("dbo.Users", t => t.RoleId)
-                .Index(t => t.UserId)
-                .Index(t => t.RoleId);
+                .PrimaryKey(t => new { t.RoleId, t.UserId })
+                .ForeignKey("dbo.webpages_Roles", t => t.RoleId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.RoleId)
+                .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
-            DropIndex("dbo.webpages_UsersInRoles", new[] { "RoleId" });
+            DropForeignKey("dbo.webpages_UsersInRoles", "UserId", "dbo.Users");
+            DropForeignKey("dbo.webpages_UsersInRoles", "RoleId", "dbo.webpages_Roles");
             DropIndex("dbo.webpages_UsersInRoles", new[] { "UserId" });
-            DropIndex("dbo.webpages_OAuthMembership", new[] { "UserId" });
-            DropIndex("dbo.webpages_Roles", new[] { "Membership_UserId" });
-            DropForeignKey("dbo.webpages_UsersInRoles", "RoleId", "dbo.Users");
-            DropForeignKey("dbo.webpages_UsersInRoles", "UserId", "dbo.webpages_Roles");
-            DropForeignKey("dbo.webpages_OAuthMembership", "UserId", "dbo.webpages_Membership");
-            DropForeignKey("dbo.webpages_Roles", "Membership_UserId", "dbo.webpages_Membership");
+            DropIndex("dbo.webpages_UsersInRoles", new[] { "RoleId" });
             DropTable("dbo.webpages_UsersInRoles");
+            DropTable("dbo.Users");
+            DropTable("dbo.webpages_Roles");
             DropTable("dbo.webpages_OAuthMembership");
             DropTable("dbo.webpages_Membership");
-            DropTable("dbo.webpages_Roles");
         }
     }
 }

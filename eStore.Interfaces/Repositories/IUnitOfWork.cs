@@ -5,6 +5,9 @@ namespace eStore.Interfaces.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
+        IGenericRepository<T> GetRepository<T>() where T : class;
+
+        /*
         IGenericRepository<Genre> GenreRepository
         {
             get;
@@ -28,7 +31,7 @@ namespace eStore.Interfaces.Repositories
         IGenericRepository<Role> RoleRepository
         {
             get;
-        }
+        }*/
 
         void Save();
     }

@@ -5,6 +5,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Linq.Expressions;
 using eStore.Interfaces.Repositories;
+using eStore.DataAccess.Repositories.Ef.BoundedContexts;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -17,9 +18,9 @@ namespace eStore.DataAccess.Repositories.Ef
     {
         private readonly IDbSet<T> _dbSet;
 
-        public EfGenericRepository(IDbSet<T> dbSet)
+        public EfGenericRepository(IBaseContext context)
         {
-            _dbSet = dbSet;
+            _dbSet = (IDbSet<T>)((BaseContext)context).Set<T>();
         }
 
         #region IGenericRepository<T>

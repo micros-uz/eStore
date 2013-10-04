@@ -16,9 +16,9 @@ namespace eStore.DataAccess.Configurations.Security
             Property(x => x.PasswordSalt).HasMaxLength(128).IsRequired();
             Property(x => x.PasswordVerificationToken).HasMaxLength(128);
             
-            HasMany(x => x.OAuthMemberships)
-                .WithRequired(x => x.User)
-                .WillCascadeOnDelete(false);                
+            //HasMany(x => x.OAuthMemberships)
+            //    .WithRequired(x => x.User)
+            //    .WillCascadeOnDelete(false);                
         }
     }
 }

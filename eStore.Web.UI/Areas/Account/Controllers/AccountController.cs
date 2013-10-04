@@ -8,11 +8,12 @@ using eStore.Web.UI.Areas.Account.ViewModels;
 using eStore.Web.UI.Logic;
 using Microsoft.Web.WebPages.OAuth;
 using DotNetOpenAuth.AspNet;
+using eStore.Web.Infrastructure.Filters.Mvc;
 
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
-    [Authorize]
-    [InitializeSimpleMembership]
+    [AuthorizeEx]
+    [DbVersion("01")]
     public class AccountController : BaseDisposeController
     {
         private readonly IAuthenticationService _authService;

@@ -17,84 +17,84 @@ namespace eStore.Core.Services
 
         IEnumerable<Genre> IStoreService.GetGenres()
         {
-            return UoW.GenreRepository.GetAll();
+            return UoW.GetRepository<Genre>().GetAll();
         }
 
         IEnumerable<Author> IStoreService.GetAuthors()
         {
-            return UoW.AuthorRepository.GetAll();
+            return UoW.GetRepository<Author>().GetAll();
         }
 
         IEnumerable<Book> IStoreService.GetBooksByGenre(int genreId)
         {
-            return UoW.BooksRepository.Find(x => x.GenreId == genreId).OrderBy(x => x.Title);
+            return UoW.GetRepository<Book>().Find(x => x.GenreId == genreId).OrderBy(x => x.Title);
         }
 
         IEnumerable<Book> IStoreService.GetBooksByAuthor(int authorId)
         {
-            return UoW.BooksRepository.Find(x => x.AuthorId == authorId).OrderBy(x => x.Title);
+            return UoW.GetRepository<Book>().Find(x => x.AuthorId == authorId).OrderBy(x => x.Title);
         }
 
         Book IStoreService.GetBookById(int bookId)
         {
-            return UoW.BooksRepository.GetById(bookId);
+            return UoW.GetRepository<Book>().GetById(bookId);
         }
 
         void IStoreService.Update(Book book)
         {
-            UoW.BooksRepository.Update(book);
+            UoW.GetRepository<Book>().Update(book);
             UoW.Save();
         }
 
         void IStoreService.Delete(Book book)
         {
-            UoW.BooksRepository.Delete(book);
+            UoW.GetRepository<Book>().Delete(book);
             UoW.Save();
         }
 
         void IStoreService.Add(Genre genre)
         {
-            UoW.GenreRepository.Add(genre);
+            UoW.GetRepository<Genre>().Add(genre);
             UoW.Save();
         }
 
         void IStoreService.Add(Author author)
         {
-            UoW.AuthorRepository.Add(author);
+            UoW.GetRepository<Author>().Add(author);
             UoW.Save();
         }
 
         void IStoreService.Add(Book book)
         {
-            UoW.BooksRepository.Add(book);
+            UoW.GetRepository<Book>().Add(book);
             UoW.Save();
         }
 
         Genre IStoreService.GetGenreById(int genreId)
         {
-            return UoW.GenreRepository.GetById(genreId);
+            return UoW.GetRepository<Genre>().GetById(genreId);
         }
 
         Author IStoreService.GetAuthorById(int authorId)
         {
-            return UoW.AuthorRepository.GetById(authorId);
+            return UoW.GetRepository<Author>().GetById(authorId);
         }
 
         void IStoreService.Update(Genre genre)
         {
-            UoW.GenreRepository.Update(genre);
+            UoW.GetRepository<Genre>().Update(genre);
             UoW.Save();
         }
 
         void IStoreService.DeleteGenreById(int id)
         {
-            UoW.GenreRepository.Delete(id);
+            UoW.GetRepository<Genre>().Delete(id);
             UoW.Save();
         }
 
         IEnumerable<Book> IStoreService.SearchBooks(string searchqry)
         {
-            return UoW.BooksRepository.Find(x => x.Title.Contains(searchqry));
+            return UoW.GetRepository<Book>().Find(x => x.Title.Contains(searchqry));
         }
 
         #endregion

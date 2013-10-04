@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.Entity.Infrastructure;
+using eStore.DataAccess.Repositories.Ef.BoundedContexts;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -15,14 +16,14 @@ namespace eStore.DataAccess.Repositories.Ef
         private IGenericRepository<Book> _bookRpstr;
         private IGenericRepository<User> _userRpstr;
         private IGenericRepository<Role> _roleRpstr;
-        private EStoreDbContext _context;
-        private IDbContextFactory<EStoreDbContext> _factory;
+        private BaseContext _context;
+        private IDbContextFactory _contextFactory;
         private IRepositoryFactory _repoFactory;
         private bool _disposed = false;
 
-        public EfUnitOfWork(IDbContextFactory<EStoreDbContext> factory, IRepositoryFactory repoFactory)
+        public EfUnitOfWork(IDbContextFactory factory, IRepositoryFactory repoFactory)
         {
-            _factory = factory;
+            _contextFactory = factory;
             _repoFactory = repoFactory;
         }
 
@@ -48,16 +49,12 @@ namespace eStore.DataAccess.Repositories.Ef
             GC.SuppressFinalize(this);
         }
 
-        private EStoreDbContext Context
-        {
-            get
-            {
-                return _context ?? (_context = _factory.Create());
-            }
-        }
-
         #region IUnitOfWork
 
+        IGenericRepository<T> IUnitOfWork.GetRepository<T>()
+        {
+            return _repoFactory.GetRepository<T>(_contextFactory.GetContext<T>());
+        }/*
         IGenericRepository<Genre> IUnitOfWork.GenreRepository
         {
             get { return _genreRpstr ?? (_genreRpstr = _repoFactory.GetRepository<Genre>(Context)); }
@@ -90,7 +87,7 @@ namespace eStore.DataAccess.Repositories.Ef
             {
                 return _roleRpstr ?? (_roleRpstr = _repoFactory.GetRepository<Role>(Context));
             }
-        }
+        }*/
 
         public void Save()
         {

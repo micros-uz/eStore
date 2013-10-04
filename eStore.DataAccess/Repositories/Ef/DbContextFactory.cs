@@ -1,11 +1,13 @@
 ﻿using System.Data.Entity.Infrastructure;
 using eStore.Interfaces.Repositories;
+using eStore.DataAccess.Repositories.Ef.BoundedContexts;
+using eStore.Domain;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class DbContextFactory : IDbContextFactory<EStoreDbContext>
+    internal class DbContextFactory : IDbContextFactory
     {
-        private EStoreDbContext _context;
+        private CatalogContext _context;
         private readonly IConnectionStringProvider _connStrProvider;
 
         internal DbContextFactory(IConnectionStringProvider connStrProvider)
@@ -15,10 +17,13 @@ namespace eStore.DataAccess.Repositories.Ef
 
         #region IDbContextFactory<EStoreDbContext> Members
 
-        EStoreDbContext IDbContextFactory<EStoreDbContext>.Create()
+        IBaseContext IDbContextFactory.GetContext<T>()
         {
-            return _context ?? (_context = new EStoreDbContext(_connStrProvider.ConnectionString));
-            //return new EStoreDbContext(ConnectionStringFactory.ConnectionString);
+            if (typeof(T) == typeof(User) ||
+                typeof(T) == typeof(Role))
+                return new SecurityContext(_connStrProvider.ConnectionString);
+            else 
+                return new CatalogContext(_connStrProvider.ConnectionString);
         }
 
         #endregion

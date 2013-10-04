@@ -54,14 +54,12 @@
 /*.suo
 /packages/CommonServiceLocator.1.0
 /packages/Unity.2.1.505.2
-
 /packages/AutoMapper.2.2.1
 /eStore.Domain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /eStore.Domain/obj/Debug/eStore.Domain.csproj.FileListAbsolute.txt
 /packages/AutoMapper.3.0.0-ci1037
 /packages/Glimpse.1.6.0
 /packages/WebActivatorEx.2.0.3
-
 /packages/Twitter.Bootstrap.3.0.0
 /packages/WebActivatorEx.2.0.3
 /packages/Twitter.Bootstrap.MVC.2.0.0
@@ -71,6 +69,6 @@
 /eStore.Web.UI/App_Data/uploads
 /packages/elmah.1.2.2
 /packages/elmah.corelibrary.1.2.2
-
 /packages/Microsoft.Bcl.Build.1.0.10
 /packages/Newtonsoft.Json.4.5.11
+/packages/EntityFramework.6.0.0-rc1

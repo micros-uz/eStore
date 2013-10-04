@@ -63,5 +63,10 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             return PartialView("_RegionalPane", model);
         }
+
+        public ActionResult DbVersionInvalid()
+        {
+            return View();
+        }
     }
 }

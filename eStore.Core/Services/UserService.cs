@@ -17,14 +17,14 @@ namespace eStore.Core.Services
 
         User IUserService.GetUserById(int id)
         {
-            return UoW.UserRepository.GetById(id);
+            return UoW.GetRepository<User>().GetById(id);
         }
 
         ReadOnlyCollection<User> IUserService.Users
         {
             get
             {
-                return UoW.UserRepository.GetAll().ToList().AsReadOnly();
+                return UoW.GetRepository<User>().GetAll().ToList().AsReadOnly();
             }
         }
 
@@ -32,20 +32,20 @@ namespace eStore.Core.Services
         {
             get
             {
-                return UoW.RoleRepository.GetAll().ToList().AsReadOnly();
+                return UoW.GetRepository<Role>().GetAll().ToList().AsReadOnly();
             }
         }
 
         void IUserService.AddUser(User user)
         {
             // todo - handle unique and other exceptions
-            UoW.UserRepository.Add(user);
+            UoW.GetRepository<User>().Add(user);
             UoW.Save();
         }
 
         void IUserService.DeleteUser(int userId)
         {
-            UoW.UserRepository.Delete(userId);
+            UoW.GetRepository<User>().Delete(userId);
             UoW.Save();
         }
 

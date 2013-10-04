@@ -36,7 +36,7 @@ namespace eStore.Web.Infrastructure
                              IoC.Current.Get<IConnectionStringProvider>().ConnectionStringName,
                              "Users",
                              "UserId",
-                             "Name", true);
+                             "Name", false);
                     }
                 }
             }

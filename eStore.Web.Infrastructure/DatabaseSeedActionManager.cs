@@ -29,7 +29,6 @@ namespace eStore.Web.Infrastructure
 
             if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
                 Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
-
         }
 
         #region ISeedActionProvider

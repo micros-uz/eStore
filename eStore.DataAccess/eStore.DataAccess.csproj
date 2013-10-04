@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="microsoft.sqlserver.batchparser, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -72,7 +76,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -95,20 +98,21 @@
     </Compile>
     <Compile Include="Configurations\SeriesConfiguration.cs" />
     <Compile Include="Configurations\GenreConfiguration.cs" />
-    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Configurations\Security\UserConfiguration.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="Migrations\201310010849145_00_Initial.cs" />
-    <Compile Include="Migrations\201310010849145_00_Initial.Designer.cs">
-      <DependentUpon>201310010849145_00_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201310040113241_00_Initial.cs" />
+    <Compile Include="Migrations\201310040113241_00_Initial.Designer.cs">
+      <DependentUpon>201310040113241_00_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201310010851132_01_SimpleMembership.cs" />
-    <Compile Include="Migrations\201310010851132_01_SimpleMembership.Designer.cs">
-      <DependentUpon>201310010851132_01_SimpleMembership.cs</DependentUpon>
+    <Compile Include="Migrations\201310040149135_01_SimpleMembership.cs" />
+    <Compile Include="Migrations\201310040149135_01_SimpleMembership.Designer.cs">
+      <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Repositories\Ef\EStoreDbContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\BaseContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\CatalogContext.cs" />
     <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -116,12 +120,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\Ef\BoundedContexts\CatalogModelsConfigurator.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\CommonContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\SecurityModelsConfigurator.cs" />
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
+    <Compile Include="Repositories\Ef\EfInitializer.cs" />
     <Compile Include="Repositories\Ef\EfUnitOfWork.cs" />
     <Compile Include="Repositories\Ef\IRepositoryFactory.cs" />
     <Compile Include="Repositories\Ef\RepositoryFactory.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\SecurityContext.cs" />
+    <Compile Include="Scripts\Etalon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -138,11 +148,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201310010849145_00_Initial.resx">
-      <DependentUpon>201310010849145_00_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310040113241_00_Initial.resx">
+      <DependentUpon>201310040113241_00_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310010851132_01_SimpleMembership.resx">
-      <DependentUpon>201310010851132_01_SimpleMembership.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310040149135_01_SimpleMembership.resx">
+      <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>

@@ -24,13 +24,13 @@ namespace eStore.Core.Services
                         new CartItem
                         {
                             CartItemId = 9,
-                            Book = UoW.BooksRepository.GetAll().ToList()[0],
+                            Book = UoW.GetRepository<Book>().GetAll().ToList()[0],
                             Count = 2
                         },
                         new CartItem
                         {
                             CartItemId = 39,
-                            Book = UoW.BooksRepository.GetAll().ToList()[3],
+                            Book = UoW.GetRepository<Book>().GetAll().ToList()[3],
                             Count = 1
                         }
                     }

@@ -1,14 +1,13 @@
-﻿using eStore.Interfaces.Repositories;
-using System.Data.Entity;
+﻿using eStore.DataAccess.Repositories.Ef.BoundedContexts;
+using eStore.Interfaces.Repositories;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
     internal class RepositoryFactory : IRepositoryFactory
     {
-        public IGenericRepository<T> GetRepository<T>(DbContext context) where T:class
+        public IGenericRepository<T> GetRepository<T>(IBaseContext context) where T:class
         {
-
-            return new EfGenericRepository<T>(context.Set<T>());
+            return new EfGenericRepository<T>(context);
         }
 
     }

@@ -134,9 +134,9 @@
             var reload = function () {
                 $.getJSON('@Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "List"})', null,
                     function (data) {
-                        migrationsDb(data.Database);
-                        migrationsLocal(data.Local);
-                        migrationsPending(data.Pending);
+                        migrationsDb(data.database);
+                        migrationsLocal(data.local);
+                        migrationsPending(data.pending);
                     });
             };
 

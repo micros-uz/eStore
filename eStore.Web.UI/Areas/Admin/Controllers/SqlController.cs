@@ -4,10 +4,11 @@ using System.Web.Mvc;
 using eStore.Core;
 using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Admin.ViewModels;
+using eStore.Web.Infrastructure.Filters.Mvc;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {   
-    [Authorize]
+    [AuthorizeEx]
     public class SqlController : Controller
     {
         private readonly IAdminService _service;

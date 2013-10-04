@@ -8,16 +8,6 @@ namespace eStore.DataAccess.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Genres",
-                c => new
-                    {
-                        GenreId = c.Int(nullable: false, identity: true),
-                        Title = c.String(nullable: false, maxLength: 30),
-                        Desc = c.String(maxLength: 200),
-                    })
-                .PrimaryKey(t => t.GenreId);
-            
-            CreateTable(
                 "dbo.Authors",
                 c => new
                     {
@@ -49,6 +39,16 @@ namespace eStore.DataAccess.Migrations
                 .Index(t => t.GenreId);
             
             CreateTable(
+                "dbo.Genres",
+                c => new
+                    {
+                        GenreId = c.Int(nullable: false, identity: true),
+                        Title = c.String(nullable: false, maxLength: 30),
+                        Desc = c.String(maxLength: 200),
+                    })
+                .PrimaryKey(t => t.GenreId);
+            
+            CreateTable(
                 "dbo.Series",
                 c => new
                     {
@@ -59,29 +59,18 @@ namespace eStore.DataAccess.Migrations
                     })
                 .PrimaryKey(t => t.SeriesId);
             
-            CreateTable(
-                "dbo.Users",
-                c => new
-                    {
-                        UserId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 10),
-                        Email = c.String(maxLength: 20),
-                    })
-                .PrimaryKey(t => t.UserId);
-            
         }
         
         public override void Down()
         {
-            DropIndex("dbo.Books", new[] { "GenreId" });
-            DropIndex("dbo.Books", new[] { "AuthorId" });
             DropForeignKey("dbo.Books", "GenreId", "dbo.Genres");
             DropForeignKey("dbo.Books", "AuthorId", "dbo.Authors");
-            DropTable("dbo.Users");
+            DropIndex("dbo.Books", new[] { "GenreId" });
+            DropIndex("dbo.Books", new[] { "AuthorId" });
             DropTable("dbo.Series");
+            DropTable("dbo.Genres");
             DropTable("dbo.Books");
             DropTable("dbo.Authors");
-            DropTable("dbo.Genres");
         }
     }
 }

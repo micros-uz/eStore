@@ -3,12 +3,13 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using eStore.DataAccess.Migrations;
+using eStore.DataAccess.Repositories.Ef.BoundedContexts;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
-    internal class EfDatabaseInitializer : MigrateDatabaseToLatestVersion<EStoreDbContext, Configuration>
+    internal class EfDatabaseInitializer : MigrateDatabaseToLatestVersion<CommonContext, Configuration>
     {
-        protected void Seed(EStoreDbContext context)
+        protected void Seed(CommonContext context)
         {
             StringBuilder script = new StringBuilder();
             var asm = Assembly.GetExecutingAssembly();
