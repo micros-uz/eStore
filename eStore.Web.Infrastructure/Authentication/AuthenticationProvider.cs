@@ -11,26 +11,26 @@ namespace eStore.Web.Infrastructure.Authentication
 
         bool IAuthenticationProvider.SignIn(string userName, string password, bool rememberMe)
         {
-#if DEBUG
+//#if DEBUG
             if (userName == "root" && password == "godmode")
             {
                 FormsAuthentication.SetAuthCookie(userName, rememberMe);
                 return true;
             }
             else
-#endif
+//#endif
             return WebSecurity.Login(userName, password, rememberMe);
         }
 
         void IAuthenticationProvider.SignOut()
         {
-#if DEBUG
+//#if DEBUG
             if (HttpContext.Current.User.Identity.Name == "root")
             {
                 FormsAuthentication.SignOut();
             }
             else
-#endif
+//#endif
                 WebSecurity.Logout();
 
         }
