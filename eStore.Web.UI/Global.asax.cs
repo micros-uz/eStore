@@ -28,6 +28,8 @@ namespace eStore.Web.UI
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
+            FiltersConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
