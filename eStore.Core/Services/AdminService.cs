@@ -47,6 +47,8 @@ namespace eStore.Core.Services
         void IAdminService.Migrate(string target, bool isDowngrade)
         {
             DatabaseHelper.Migrate(target, isDowngrade);
+            
+            CoreBootstraper.NotifyDbMigrated();
         }
 
         #endregion

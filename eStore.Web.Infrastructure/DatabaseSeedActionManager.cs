@@ -18,7 +18,7 @@ namespace eStore.Web.Infrastructure
         private void Init()
         {
             WebSecurityInitializer.Instance.EnsureInitialize();
-
+            /*
             if (!Roles.RoleExists("Administrator"))
                 Roles.CreateRole("Administrator");
 
@@ -29,6 +29,7 @@ namespace eStore.Web.Infrastructure
 
             if (!Roles.GetRolesForUser("admin").Contains("Administrator"))
                 Roles.AddUsersToRoles(new[] { "admin" }, new[] { "Administrator" });
+             * */
         }
 
         #region ISeedActionProvider

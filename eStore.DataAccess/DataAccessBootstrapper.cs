@@ -2,6 +2,7 @@
 using eStore.DataAccess.Repositories.Ef;
 using eStore.Interfaces.Repositories;
 using WrapIoC;
+using eStore.Interfaces;
 
 namespace eStore.DataAccess
 {
@@ -13,6 +14,7 @@ namespace eStore.DataAccess
             ioc.Register<IUnitOfWork, EfUnitOfWork>();
             ioc.Register<IDbContextFactory, DbContextFactory>();
             ioc.Register<IRepositoryFactory, RepositoryFactory>();
+            ioc.Register<IDbVersionProvider, DbVersionProvider>();
 
             OrmInitializer.Init();
         }

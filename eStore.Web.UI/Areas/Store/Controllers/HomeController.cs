@@ -5,10 +5,11 @@ using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 using eStore.Web.UI.Logic;
+using eStore.Web.Infrastructure.Filters.Mvc;
 
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
-    [AllowAnonymous]
+    [DbVersion(1)]
     public class HomeController : BaseDisposeController
     {
         private readonly IStoreService _service;
@@ -62,11 +63,6 @@ namespace eStore.Web.UI.Areas.Store.Controllers
             };
 
             return PartialView("_RegionalPane", model);
-        }
-
-        public ActionResult DbVersionInvalid()
-        {
-            return View();
         }
     }
 }

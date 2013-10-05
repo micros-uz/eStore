@@ -13,7 +13,7 @@ using eStore.Web.Infrastructure.Filters.Mvc;
 namespace eStore.Web.UI.Areas.Account.Controllers
 {
     [AuthorizeEx]
-    [DbVersion("01")]
+    [DbVersion(2)]
     public class AccountController : BaseDisposeController
     {
         private readonly IAuthenticationService _authService;

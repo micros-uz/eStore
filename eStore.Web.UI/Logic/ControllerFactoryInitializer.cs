@@ -30,6 +30,7 @@ namespace eStore.Web.UI.Logic
             IoC.Current.Register<IController, UserController>("user");
             IoC.Current.Register<IController, CartController>("cart");
             IoC.Current.Register<IController, CheckoutController>("сheckout");
+            IoC.Current.Register<IController, eStore.Web.UI.Controllers.ErrorController>("error");
 
             GlobalConfiguration.Configuration.Services.Replace(
                 typeof(IHttpControllerActivator), new HttpControllerActivator(IoC.Current));

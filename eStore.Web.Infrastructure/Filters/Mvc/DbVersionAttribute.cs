@@ -9,25 +9,18 @@ namespace eStore.Web.Infrastructure.Filters.Mvc
     {
         private readonly int _dbVersion;
 
-        public DbVersionAttribute(string dbVersion)
+        public DbVersionAttribute(int dbVersion)
         {
-            if (!int.TryParse(dbVersion, out _dbVersion))
-            {
-                new Exception("Invalid Db Version");
-            }
+            _dbVersion = dbVersion;
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var version = IoC.Current.Get<IDbVersionProvider>().GetVersion();
-            int nVer;
 
-            if (int.TryParse(version, out nVer))
+            if (version < 0 || version < _dbVersion)
             {
-                if (nVer < _dbVersion)
-                {
-                    filterContext.Result = new RedirectResult("~/store/home/dbversioninvalid");
-                }
+                filterContext.Result = new RedirectResult("~/error/dbversioninvalid");
             }
         }
     }

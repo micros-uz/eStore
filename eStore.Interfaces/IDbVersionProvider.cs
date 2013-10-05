@@ -2,6 +2,6 @@
 {
     public interface IDbVersionProvider
     {
-        string GetVersion();
+        int GetVersion();
     }
 }

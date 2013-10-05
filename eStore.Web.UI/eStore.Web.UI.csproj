@@ -265,8 +265,10 @@
     <Compile Include="Areas\Store\ViewModels\HomeModel.cs" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\social-buttons.css" />
     <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -460,6 +462,10 @@
     <Content Include="Areas\Account\Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Areas\Account\Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Areas\Admin\Views\Sql\Migrations.cshtml" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -481,6 +487,7 @@
       <DependentUpon>jquery.unobtrusive-ajax.js</DependentUpon>
     </Content>
     <Content Include="Views\Shared\DbVersionInvalid.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

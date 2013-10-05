@@ -1,4 +1,7 @@
-﻿using System.Web;
+﻿using eStore.Core;
+using eStore.Web.Infrastructure;
+using eStore.Web.Infrastructure.Filters.Mvc;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -31,6 +34,13 @@ namespace eStore.Web.UI
 
             GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
             ViewEngines.Engines.RemoveAt(0);    // WEB Form engine
+
+            CoreBootstraper.Init();
+            WebInfraBootstrapper.Init();
+
+            CoreBootstraper.NotifyDbMigrated();
+            
+            //FilterProviders.Providers.Add(new FilterProvider());
         }
     }
 }

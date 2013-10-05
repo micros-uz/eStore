@@ -25,10 +25,7 @@ namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Configurations.Add(new RoleConfiguration());
-            //modelBuilder.Configurations.Add(new MembershipConfiguration());
-            //modelBuilder.Configurations.Add(new OAuthMembershipConfiguration());
-            //modelBuilder.Configurations.Add(new UserConfiguration());
+            SecurityModelsConfigurator.OnModelCreating(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

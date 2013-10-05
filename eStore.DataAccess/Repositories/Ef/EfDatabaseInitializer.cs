@@ -9,6 +9,7 @@ namespace eStore.DataAccess.Repositories.Ef
 {
     internal class EfDatabaseInitializer : MigrateDatabaseToLatestVersion<CommonContext, Configuration>
     {
+        /*
         protected void Seed(CommonContext context)
         {
             StringBuilder script = new StringBuilder();
@@ -35,5 +36,6 @@ namespace eStore.DataAccess.Repositories.Ef
                 }
             }
         }
+       * */
     }
 }

@@ -8,7 +8,7 @@ namespace eStore.DataAccess
         /// <summary>
         /// Initializes ORM (EF or NHibernate)
         /// </summary>
-        public static void Init()
+        internal static void Init()
         {
             EfInitializer.Init();
         }

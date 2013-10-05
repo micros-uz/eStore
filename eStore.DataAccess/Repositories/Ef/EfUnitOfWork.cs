@@ -16,7 +16,7 @@ namespace eStore.DataAccess.Repositories.Ef
         private IGenericRepository<Book> _bookRpstr;
         private IGenericRepository<User> _userRpstr;
         private IGenericRepository<Role> _roleRpstr;
-        private BaseContext _context;
+        private IBaseContext _context;
         private IDbContextFactory _contextFactory;
         private IRepositoryFactory _repoFactory;
         private bool _disposed = false;
@@ -35,12 +35,17 @@ namespace eStore.DataAccess.Repositories.Ef
                 {
                     if (_context != null)
                     {
-                        _context.Dispose();
+                        ((BaseContext)_context).Dispose();
                     }
                 }
             }
 
             _disposed = true;
+        }
+
+        private IBaseContext GetContext<T>() where T : class
+        {
+            return _context ?? (_context = _contextFactory.GetContext<T>());
         }
 
         public void Dispose()
@@ -53,7 +58,7 @@ namespace eStore.DataAccess.Repositories.Ef
 
         IGenericRepository<T> IUnitOfWork.GetRepository<T>()
         {
-            return _repoFactory.GetRepository<T>(_contextFactory.GetContext<T>());
+            return _repoFactory.GetRepository<T>(GetContext<T>());
         }/*
         IGenericRepository<Genre> IUnitOfWork.GenreRepository
         {
@@ -91,7 +96,10 @@ namespace eStore.DataAccess.Repositories.Ef
 
         public void Save()
         {
-            _context.SaveChanges();
+            if (_context != null)
+            {
+                ((BaseContext)_context).SaveChanges();
+            }
         }
 
         #endregion

@@ -102,6 +102,7 @@
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="DbVersionProvider.cs" />
     <Compile Include="Migrations\201310040113241_00_Initial.cs" />
     <Compile Include="Migrations\201310040113241_00_Initial.Designer.cs">
       <DependentUpon>201310040113241_00_Initial.cs</DependentUpon>
@@ -126,12 +127,12 @@
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
+    <Compile Include="Repositories\Ef\EfHelper.cs" />
     <Compile Include="Repositories\Ef\EfInitializer.cs" />
     <Compile Include="Repositories\Ef\EfUnitOfWork.cs" />
     <Compile Include="Repositories\Ef\IRepositoryFactory.cs" />
     <Compile Include="Repositories\Ef\RepositoryFactory.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\SecurityContext.cs" />
-    <Compile Include="Scripts\Etalon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

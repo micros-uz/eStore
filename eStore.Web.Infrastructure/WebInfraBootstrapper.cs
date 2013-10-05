@@ -4,7 +4,9 @@ using eStore.Web.Infrastructure.Authentication;
 using eStore.Web.Infrastructure.ObjectMapper;
 using WrapIoC;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Web.Infrastructure.WebInfraBootstrapper), "Init")]
+// Order parameter does not work across assemblies so we
+// need to use Pre or place it into global.asax...
+//[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(eStore.Web.Infrastructure.WebInfraBootstrapper), "Init")]
 
 namespace eStore.Web.Infrastructure
 {

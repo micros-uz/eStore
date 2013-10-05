@@ -16,7 +16,7 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist", data_bind="options: migrationsDb" })
+        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist", data_bind = "options: migrationsDb" })
     </div>
     <div class="col-md-4">
         @Html.ListBoxFor(m => m.Local, new SelectList(Model.Local), new { @class = "migrlist", data_bind = "options: migrationsLocal" })
@@ -62,8 +62,14 @@
             }))
         {
             <div class="form-group">
-                <span class="label label-default">Target:</span>
-                <input type="text" id="target" name="target" class="form-control" />
+                <div>
+                    <div class="input-group">
+                        <input type="text" id="target" name="target" class="form-control" placeholder="Target migration" autofocus />
+                        <span class="input-group-btn">
+                            <button type="button" id="clearBtn" class="btn">X</button>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-default">
@@ -153,6 +159,16 @@
         })(@Html.ToJSON(Model));
 
         ko.applyBindings(vm);
+
+        $("select").dblclick(function () {
+            if (this.selectedIndex > -1) {
+                $('#target').val(this.options[this.selectedIndex].value);
+            }
+        });
+
+        $('#clearBtn').click(function () {
+            $('#target').val('');
+        })
     </script>
 }
 

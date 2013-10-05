@@ -10,6 +10,7 @@ using Microsoft.SqlServer.Management.Smo;
 using WrapIoC;
 using System.Data.Entity.Migrations;
 using System;
+using eStore.DataAccess.Repositories.Ef;
 
 namespace eStore.DataAccess
 {
@@ -39,6 +40,7 @@ namespace eStore.DataAccess
             }
             catch (ConnectionException ex)
             {
+                //todo - bad design)
             }
 
             return res;
@@ -90,19 +92,6 @@ namespace eStore.DataAccess
             return res;
         }
 
-        /*
-         * 
-        USE [master]
-        GO
-        ALTER DATABASE [eStore] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
-        GO
-        USE [master]
-        GO
-        DROP DATABASE [eStore]
-        GO
-         * 
-         */
-
         public static int Exec2(string query)
         {
             var connStr = IoC.Current.Get<IConnectionStringProvider>().ConnectionString;
@@ -116,25 +105,12 @@ namespace eStore.DataAccess
 
         public static Tuple<IEnumerable<string>, IEnumerable<string>, IEnumerable<string>> GetMigrationsInfo()
         {
-            var migrator = new DbMigrator(new Migrations.Configuration());
-
-            return Tuple.Create(migrator.GetDatabaseMigrations(),
-                migrator.GetLocalMigrations(), migrator.GetPendingMigrations());
+            return EfHelper.GetMigrationsInfo();
         }
 
         public static void Migrate(string target, bool isDowngrade)
         {
-            var migrator = new DbMigrator(new Migrations.Configuration());
-
-            if (isDowngrade)
-            {
-                migrator.Update("0");
-            }
-            else
-            {
-                migrator.Update();
-            }
-            
+            EfHelper.Migrate(target, isDowngrade);
         }
     }
 }
