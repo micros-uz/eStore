@@ -38,9 +38,9 @@ namespace eStore.DataAccess
                 Server server = new Server(new ServerConnection(connection));
                 res = server.ConnectionContext.ExecuteNonQuery(script);
             }
-            catch (ConnectionException ex)
+            catch (ConnectionException)
             {
-                //todo - bad design)
+                throw;
             }
 
             return res;

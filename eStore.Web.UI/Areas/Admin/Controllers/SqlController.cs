@@ -72,6 +72,7 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
             }
             catch (CoreServiceException ex)
             {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(ex);
                 ViewBag.InitError = ex.Message;
             }
 

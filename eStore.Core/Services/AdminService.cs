@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using eStore.DataAccess;
 using eStore.Interfaces.Services;
+using System.IO;
 
 namespace eStore.Core.Services
 {

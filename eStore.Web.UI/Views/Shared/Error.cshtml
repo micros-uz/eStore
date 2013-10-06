@@ -9,9 +9,36 @@
     <h2>An error has occurred</h2>
 </div>
 
-<h2>Exception details</h2>
 <p>
-    Controller: @Model.ControllerName <br>
-    Action: @Model.ActionName
-    Exception: @Model.Exception
+    @if (Model != null)
+    {
+        @:<strong>Controller:</strong> @Model.ControllerName <br>
+        @:<strong>Action:</strong> @Model.ActionName <br>
+        if (Model.Exception != null)
+        {
+            @:<strong>Message:</strong> @Model.Exception.Message
+        }
+    }
 </p>
+
+@if (Model != null)
+{
+    <text>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            Exception details
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @Model.Exception
+                    </div>
+                </div>
+            </div>
+        </div>
+    </text>
+}
