@@ -13,14 +13,17 @@ namespace eStore.Web.UI
 {
     public class MvcApplication : HttpApplication
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
         protected void Session_Start()
         {
             Session["fefe"] = "newId";
+            logger.Info("Session Start");
         }
 
         protected void Session_OnEnd()
         {
-
+            logger.Info("Session End");
         }
 
         protected void Application_Error(object sender, EventArgs e)
@@ -73,8 +76,11 @@ namespace eStore.Web.UI
             controller.ViewData.Model = new HandleErrorInfo(ex, currentController, currentAction);
             ((IController)controller).Execute(new RequestContext(new HttpContextWrapper(httpContext), routeData));
         }
+
         protected void Application_Start()
         {
+            logger.Info("Application Start");
+
             RouteTable.Routes.IgnoreRoute("secure/admin/errors");
 
             AreaRegistration.RegisterAllAreas();
@@ -95,6 +101,11 @@ namespace eStore.Web.UI
             CoreBootstraper.NotifyDbMigrated();
             
             //FilterProviders.Providers.Add(new FilterProvider());
+        }
+
+        protected void Application_End()
+        {
+            logger.Info("Application End");
         }
     }
 }
