@@ -1,22 +1,22 @@
 ﻿delete from [dbo].[Books]
 go
-DBCC CHECKIDENT ([Books], RESEED, 0)
-go
+--DBCC CHECKIDENT ([Books], RESEED, 0)
+--go
 
 delete from [dbo].[Series]
 go
-DBCC CHECKIDENT ([Series], RESEED, 0)
-go
+--DBCC CHECKIDENT ([Series], RESEED, 0)
+--go
 
 delete from [dbo].[Authors]
 go
-DBCC CHECKIDENT ([Authors], RESEED, 0)
-go
+--DBCC CHECKIDENT ([Authors], RESEED, 0)
+--go
 
 delete from [dbo].[Genres]
 go
-DBCC CHECKIDENT ([Genres], RESEED, 0)
-go
+--DBCC CHECKIDENT ([Genres], RESEED, 0)
+--go
 
 
 
