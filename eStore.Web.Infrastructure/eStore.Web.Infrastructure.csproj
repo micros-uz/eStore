@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationProvider.cs" />
     <Compile Include="Authentication\OAuthSecretData.cs" />
+    <Compile Include="BaseMvcController.cs" />
     <Compile Include="DatabaseSeedActionManager.cs" />
     <Compile Include="Filters\Mvc\AuthorizeExAttribute.cs" />
     <Compile Include="Filters\Mvc\DbVersionAttribute.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Filters\ValidationActionFilter.cs" />
     <Compile Include="IFileService.cs" />
     <Compile Include="Authentication\OAuthSettingsProvider.cs" />
+    <Compile Include="JsonDotNet.cs" />
     <Compile Include="ObjectMapper\Auto\ConfigProfile.cs" />
     <Compile Include="ObjectMapper\Auto\MapperConfiguration.cs" />
     <Compile Include="ObjectMapper\IObjectMapperExpression.cs" />

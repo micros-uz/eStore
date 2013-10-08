@@ -1,4 +1,5 @@
-﻿
+﻿var estore = estore || {};
+
 estore.LogModel = function(model){
     var items = ko.observable(model.entries);
 
@@ -6,5 +7,3 @@ estore.LogModel = function(model){
         items: items
     }
 };
-
-ko.applyBindings(new estore.LogModel(estore.Model));

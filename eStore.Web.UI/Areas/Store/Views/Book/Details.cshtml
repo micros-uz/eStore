@@ -48,15 +48,3 @@
 @section sidebar{
     @Html.Action("Catalog", "Genre")
 }
-
-@section scripts{
-<script>
-    $(document).ready(function(){
-        $('#addToCart').on('click', function () {
-            dataservice.addToCart(function (json) {
-
-            });
-        });
-    });
-</script>
-}

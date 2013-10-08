@@ -6,12 +6,12 @@
 
 <script type="text/html" id="TableRow">
     <tr>
-        <td data-bind="text: UserId"></td>
-        <td data-bind="text: Name"></td>
-        <td data-bind="text: Email"></td>
-        <td data-bind="text: RoleId"></td>
+        <td data-bind="text: userId"></td>
+        <td data-bind="text: name"></td>
+        <td data-bind="text: email"></td>
+        <td data-bind="text: roleId"></td>
         <td>
-            <a data-bind="attr: { 'href': '@Url.Action("Edit")/' + UserId}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a data-bind="attr: { 'href': '@Url.Action("Edit")/' + userId}"><span class="glyphicon glyphicon-pencil"></span></a>
             <a href="#myModal" role="button" data-toggle="modal"><span class="glyphicon glyphicon-remove"></span></a>
         </td>
     </tr>
@@ -20,21 +20,21 @@
 <script type="text/html" id="PagingPanel">
     <div class="pagination">
         <ul class="pagination">
-            <li data-bind="css: { disabled: PageNumber() === 1 }"><a href="#" data-bind="click: back">Prev</a></li>
+            <li data-bind="css: { disabled: pageNumber() === 1 }"><a href="#" data-bind="click: back">Prev</a></li>
             <!-- ko foreach: $root.allPages -->
-            <li data-bind="css: { active: $data.pageIdx === $root.paging.PageNumber()}"><a href="#" data-bind="text: $data.pageIdx, click: function() { $root.paging.page($data.pageIdx); }"></a></li>
+            <li data-bind="css: { active: $data.pageIdx === $root.paging.pageNumber()}"><a href="#" data-bind="text: $data.pageIdx, click: function() { $root.paging.page($data.pageIdx); }"></a></li>
             <!-- /ko -->
-            <li data-bind="css: { disabled: PageNumber() === TotalPagesCount() }"><a href="#" data-bind="click: next">Next</a></li>
+            <li data-bind="css: { disabled: pageNumber() === totalPagesCount() }"><a href="#" data-bind="click: next">Next</a></li>
         </ul>
     </div>
 </script>
 
 <script type="text/html" id="FiltrationPanel">
     <label>
-        <input type="checkbox" data-bind="checked: ShowAdmins" />Show Admins</label>
+        <input type="checkbox" data-bind="checked: showAdmins" />Show Admins</label>
     <br />
     <label>
-        <input type="checkbox" data-bind="checked: ShowManagers" />Show Managers</label>
+        <input type="checkbox" data-bind="checked: showManagers" />Show Managers</label>
 </script>
 
 <div data-bind="template: {
@@ -91,81 +91,10 @@
 
 @section scripts{
     @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/Scripts/app/estore.usersviewmodel.js")
 
     <script type="text/javascript">
-        var AjaxGridViewModel = function(url, filterParams) {
-
-            this.rows= ko.observableArray();
-            this.filterParams = ko.mapping.fromJS(filterParams);
-            this.paging = {
-                PageNumber: ko.observable(1),
-                TotalPagesCount: ko.observable(0),
-                next: function () {
-                    var pn = this.PageNumber();
-                    if (pn < this.TotalPagesCount()) this.PageNumber(pn + 1);
-                },
-                back: function () {
-                    var pn = this.PageNumber();
-                    if (pn > 1) this.PageNumber(pn - 1);
-                },
-                page: function (index){
-                    if (index >0 && index <= this.TotalPagesCount())
-                        this.PageNumber(index)
-                }
-            };
-
-            this.allPages = ko.dependentObservable(function () {
-                var pages = [];
-                for (i = 1; i <= this.paging.TotalPagesCount() ; i++) {
-                    pages.push({ pageIdx: (i) });
-                }
-                return pages;
-            }, this);
-
-            this.reload = function(){
-                var data = ko.toJS(this.filterParams);
-                data.pageNumber = this.paging.PageNumber();
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: data,
-                    context: this,
-                    success: function (data) {
-                        console.log('post', data);
-                        this.rows(data.Data);
-                        this.paging.PageNumber(data.Paging.PageNumber);
-                        this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
-                    }
-                });
-            }.bind(this);
-
-            ko.dependentObservable(function () {
-                //var data = ko.toJS(this.filterParams);
-                //data.pageNumber = this.paging.PageNumber();
-                //$.ajax({
-                //    url: url,
-                //    type: 'POST',
-                //    data: data,
-                //    context: this,
-                //    success: function (data) {
-                //        console.log('post', data);
-                //        this.rows(data.Data);
-                //        this.paging.PageNumber(data.Paging.PageNumber);
-                //        this.paging.TotalPagesCount(data.Paging.TotalPagesCount);
-                //    }
-                //});
-                this.reload();
-            }, this);
-
-            ko.dependentObservable(function () {
-                var data = ko.toJS(this.filterParams);
-                // Reset page number when any filtration parameters change
-                // However this solution will cause double-load problem. Consider using pause-notifications
-                this.paging.PageNumber(1);
-            }, this);
-        };
-
-        var ajaxGrid = new AjaxGridViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
+        var ajaxGrid = new estore.UsersViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
 
         ko.setTemplateEngine(new ko.nativeTemplateEngine());
 

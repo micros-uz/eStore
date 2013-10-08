@@ -42,7 +42,8 @@ namespace eStore.Web.UI
                 .Include("~/Scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/eStore")
-                .Include("~/Scripts/app/eStore.namespaces.js",
+                .Include(
+                        //"~/Scripts/app/eStore.namespaces.js",
                         "~/Scripts/app/eStore.common.js",
                         "~/Scripts/app/eStore.filepick.js",
                         "~/Scripts/app/eStore.dataservice.js",

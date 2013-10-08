@@ -55,9 +55,9 @@
             new AjaxOptions
             {
                 HttpMethod = "POST",
-                OnBegin = "onBegin",
-                OnSuccess = "onSuccess",
-                OnFailure = "onFailure",
+                OnBegin = "estore.migrations.onBegin",
+                OnSuccess = "estore.migrations.onSuccess",
+                OnFailure = "estore.migrations.onFailure",
                 Url = Url.HttpRouteUrl("DefaultApi", new { controller = "Migration", action = "UpdateTo" })
             }))
         {
@@ -98,77 +98,13 @@
     @Scripts.Render("~/Scripts/lib/jquery.unobtrusive-ajax.js")
     @Scripts.Render("~/Scripts/lib/bootstrap.js")
     @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/Scripts/app/estore.migrationsviewmodel.js")
 
     <script type="text/javascript">
-        function onBegin(ajaxContext) {
+        var model = @Html.ToJSON(Model)
+        var url = '@Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "List"})'
 
-            if (!$('#option1').is(':checked') && !$('#option2').is(':checked')
-                && $('#target').val().length == 0) {
-                $('#infoAlert').removeClass('in').addClass('hide');
-                $('#warnAlert').addClass('in').removeClass('hide');
-                return false;
-            }
-
-            $('.close').click(function () {
-                $(this).parent().removeClass('in');
-            });
-
-            return true;
-        }
-
-        function onSuccess() {
-            $('#infoAlert').removeClass('in').addClass('hide');
-            $('#warnAlert').removeClass('in').addClass('hide');
-            $('#successAlert').addClass('in').removeClass('hide');
-
-            vm.reload();
-        }
-
-        function onFailure(ajaxContext) {
-            $('#infoAlert').removeClass('in').addClass('hide');
-            $('#warnAlert').removeClass('in').addClass('hide');
-            $('#errAlert').addClass('in').removeClass('hide');
-            $('#errmsg').text(ajaxContext.responseText);
-        }
-
-        var vm = (function (model) {
-
-            var migrationsDb = ko.observable(model.Database);
-            var migrationsLocal = ko.observable(model.Local);
-            var migrationsPending = ko.observable(model.Pending);
-
-            var reload = function () {
-                $.getJSON('@Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "List"})', null,
-                    function (data) {
-                        migrationsDb(data.database);
-                        migrationsLocal(data.local);
-                        migrationsPending(data.pending);
-                    });
-            };
-
-            var vm = {
-                reload: reload,
-                migrationsDb: migrationsDb,
-                migrationsLocal: migrationsLocal,
-                migrationsPending: migrationsPending,
-
-            }
-
-            return vm;
-
-        })(@Html.ToJSON(Model));
-
-        ko.applyBindings(vm);
-
-        $("select").dblclick(function () {
-            if (this.selectedIndex > -1) {
-                $('#target').val(this.options[this.selectedIndex].value);
-            }
-        });
-
-        $('#clearBtn').click(function () {
-            $('#target').val('');
-        })
+        ko.applyBindings(new estore.MigrationsViewModel(model, url));
     </script>
 }
 

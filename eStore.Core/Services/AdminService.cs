@@ -6,11 +6,13 @@ using eStore.DataAccess;
 using eStore.Interfaces.Services;
 using System.IO;
 using eStore.Domain;
+using NLog;
 
 namespace eStore.Core.Services
 {
     internal class AdminService : IAdminService
     {
+        private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private readonly IEnvironmentProvider _envProvider;
 
         public AdminService(IEnvironmentProvider envProvider)
@@ -28,6 +30,7 @@ namespace eStore.Core.Services
             }
             catch (SqlException ex)
             {
+                _logger.Error(ex.Message);
                 throw new CoreServiceException(ex.Message);
             }
         }
@@ -45,6 +48,7 @@ namespace eStore.Core.Services
             }
             catch (SqlException ex)
             {
+                _logger.Error(ex.Message);
                 throw new CoreServiceException(ex.Message);
             }
         }

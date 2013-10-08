@@ -27,9 +27,9 @@
         <tbody>
             <!-- ko foreach: items -->
             <tr>
-                <td data-bind="text: Title"></td>
-                <td data-bind="text: Price"></td>
-                <td data-bind="text: Count"></td>
+                <td data-bind="text: title"></td>
+                <td data-bind="text: price"></td>
+                <td data-bind="text: count"></td>
                 <td><a href="#" class="delItem" data-bind="click: $parent.delItem"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
@@ -47,54 +47,16 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/Scripts/app/estore.cartviewmodel.js")
 
     <script>
         
-        var CartViewModel = function (model) {
-            
-            this.items = ko.observableArray(model.Items);
-            this.returnUrl = ko.observable(model.ReturnUrl);
+        var model = @Html.ToJSON(Model)
+        var delUrl = '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Delete", id = "-ID"})'
+        var getUrl = '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Get"})'
 
-            this.delItem = function (itemId, event) {
-                var data = ko.toJS(itemId);
-                var item = ko.dataFor(itemId);
-                console.log("ww", data);
-                $.ajax({
-                    url: '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Delete", id = "-ID"})'.replace('-ID', data.CartItemId),
-                    type: 'Delete',
-                    data: data,
-                    context: this,
-                    success: function (data) {
-                        if (data.success) {
-                            this.items.pop();
-                        }
-                    }
-                });
-            }.bind(this);
-
-            this.reload = function () {
-                $.ajax({
-                    url: '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Get"})',
-                    type: 'POST',
-                    context: this,
-                    success: function (data) {
-                        this.items(data);
-                    }
-                });
-            }.bind(this);
-
-            this.total = ko.computed(function () {
-                var total = 0;
-                for (var k = 0; k < this.items().length; ++k) {
-                    total += this.items()[k].Count * this.items()[k].Price;
-                }
-                return total;
-            }, this);
-        };
-
-        var vm = new CartViewModel(@Html.ToJSON(Model));
         ko.setTemplateEngine(new ko.nativeTemplateEngine());
-        ko.applyBindings(vm);
+        ko.applyBindings(new estore.CartViewModel(model, delUrl, getUrl));
     </script>
 }
 

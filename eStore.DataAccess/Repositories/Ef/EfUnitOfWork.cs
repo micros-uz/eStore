@@ -11,11 +11,6 @@ namespace eStore.DataAccess.Repositories.Ef
 {
     internal class EfUnitOfWork : IUnitOfWork
     {
-        private IGenericRepository<Genre> _genreRpstr;
-        private IGenericRepository<Author> _authorRpstr;
-        private IGenericRepository<Book> _bookRpstr;
-        private IGenericRepository<User> _userRpstr;
-        private IGenericRepository<Role> _roleRpstr;
         private IBaseContext _context;
         private IDbContextFactory _contextFactory;
         private IRepositoryFactory _repoFactory;

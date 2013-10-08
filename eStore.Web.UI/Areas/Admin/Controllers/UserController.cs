@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using eStore.Domain;
 using eStore.Interfaces.Services;
+using eStore.Web.Infrastructure;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Admin.ViewModels;
 
@@ -27,7 +28,7 @@ namespace eStore.Web.UI.Areas.Admin.Controllers
         public Paging Paging { get; set; }
     }
 
-    public class UserController : Controller
+    public class UserController : BaseMvcController
     {
         private const int PageSize = 10;
 

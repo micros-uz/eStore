@@ -4,12 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<script type="text/javascript">
-    $(function () {
-        $('#Server').focus();
-    });
-</script>
-
 @using (@Html.BeginForm("Exec", "Sql", FormMethod.Post))
 {
     <div>
@@ -20,7 +14,7 @@
                 @Html.LabelFor(m => m.Server)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(m => m.Server)
+                @Html.TextBoxFor(m => m.Server, new { autofocus = "autofocus" })
                 @Html.ValidationMessageFor(m => m.Server)
             </div>
 
