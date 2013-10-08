@@ -42,7 +42,13 @@ namespace eStore.Web.UI
                 .Include("~/Scripts/lib/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/eStore")
-                .Include("~/Scripts/app/eStore*"));
+                .Include("~/Scripts/app/eStore.namespaces.js",
+                        "~/Scripts/app/eStore.common.js",
+                        "~/Scripts/app/eStore.filepick.js",
+                        "~/Scripts/app/eStore.dataservice.js",
+                        "~/Scripts/app/eStore.startup.js",
+                        "~/Scripts/app/eStore.custom.chooseGenre.js",
+                        "~/Scripts/app/eStore.filepick.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/site.css"));
@@ -50,22 +56,6 @@ namespace eStore.Web.UI
             bundles.Add(new StyleBundle("~/Content/social")
                 .Include("~/Content/social-buttons.css",
                          "~/Content/font-awesome.min.css"));
-            /*
-            bundles.Add(new StyleBundle("~/Content/themes/base/css")
-                .Include(
-                        "~/Content/themes/base/jquery.ui.core.css",
-                        "~/Content/themes/base/jquery.ui.resizable.css",
-                        "~/Content/themes/base/jquery.ui.selectable.css",
-                        "~/Content/themes/base/jquery.ui.accordion.css",
-                        "~/Content/themes/base/jquery.ui.autocomplete.css",
-                        "~/Content/themes/base/jquery.ui.button.css",
-                        "~/Content/themes/base/jquery.ui.dialog.css",
-                        "~/Content/themes/base/jquery.ui.slider.css",
-                        "~/Content/themes/base/jquery.ui.tabs.css",
-                        "~/Content/themes/base/jquery.ui.datepicker.css",
-                        "~/Content/themes/base/jquery.ui.progressbar.css",
-                        "~/Content/themes/base/jquery.ui.theme.css"));
-             * */
         }
     }
 }

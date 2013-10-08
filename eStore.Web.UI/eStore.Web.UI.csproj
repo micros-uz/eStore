@@ -376,11 +376,12 @@
     <Content Include="Images\Marketing\Carousel\08.jpg" />
     <Content Include="Images\Cart.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\app\eStore.logmodel.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap.min.js" />
-    <Content Include="Scripts\app\eStore-custom-chooseGenre.js" />
-    <Content Include="Scripts\app\eStore-common.js" />
-    <Content Include="Scripts\app\eStore-filepick.js" />
+    <Content Include="Scripts\app\eStore.custom.chooseGenre.js" />
+    <Content Include="Scripts\app\eStore.common.js" />
+    <Content Include="Scripts\app\eStore.filepick.js" />
     <Content Include="Scripts\app\eStore.startup.js" />
     <Content Include="Scripts\lib\html5shiv.js" />
     <Content Include="Scripts\lib\jquery-2.0.3-vsdoc.js" />
@@ -478,6 +479,7 @@
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\app\eStore.dataservice.js" />
+    <Content Include="Scripts\app\eStore.namespaces.js" />
     <None Include="Scripts\lib\jquery-2.0.3.min.map" />
     <Content Include="Areas\Store\Views\Store\Browse.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />

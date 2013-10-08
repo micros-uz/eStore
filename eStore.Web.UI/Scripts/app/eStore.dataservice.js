@@ -1,4 +1,4 @@
-﻿var dataservice = function () {
+﻿estore.dataservice = function () {
     var saveNewItem = function (model, url2, ddlId, modalId, valProp, textProp) {
         $.ajax({
             type: "POST",

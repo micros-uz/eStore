@@ -30,17 +30,10 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/knockout")
-
-    <script type="text/javascript">
-
-        var vm = (function (model) {
-            var items = ko.observable(model.entries);
-
-            return {
-                items: items
-            }
-        })(@Html.ToJSON(Model));
-
-        ko.applyBindings(vm);
+    @Scripts.Render("~/Scripts/app/eStore.namespaces.js")
+    <script>
+        estore.Model = @Html.ToJSON(Model)
     </script>
+    @Scripts.Render("~/Scripts/app/eStore.logmodel.js")
+
 }
