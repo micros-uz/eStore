@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using eStore.Domain;
 
 namespace eStore.Interfaces.Services
 {
@@ -14,5 +15,7 @@ namespace eStore.Interfaces.Services
             IEnumerable<string>> GetMigrationsInfo();
 
         void Migrate(string target, bool isDowngrade);
+
+        IEnumerable<LogEntry> GetLog();
     }
 }

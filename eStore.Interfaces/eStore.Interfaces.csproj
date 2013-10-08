@@ -55,6 +55,7 @@
     <Compile Include="Services\IAuthenticationProvider.cs" />
     <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICartService.cs" />
+    <Compile Include="Services\IEnvironmentProvider.cs" />
     <Compile Include="Services\IRepositoryService.cs" />
     <Compile Include="Services\IStoreService.cs" />
     <Compile Include="Services\IUserService.cs" />

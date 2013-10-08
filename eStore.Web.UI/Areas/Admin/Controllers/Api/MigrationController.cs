@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 
-namespace eStore.Web.UI.Areas.Admin.Controllers
+namespace eStore.Web.UI.Areas.Admin.Controllers.Api
 {
     public class MigrationData
     {

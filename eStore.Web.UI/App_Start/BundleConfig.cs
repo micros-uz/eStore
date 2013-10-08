@@ -33,8 +33,8 @@ namespace eStore.Web.UI
                 "~/Scripts/lib/knockout-{version}.js",
                 "~/Scripts/lib/knockout.mapping-latest.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/b")
-                .Include("~/Scripts/lib/bootstrap.min.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/bootstrap")
+            //    .Include("~/Scripts/lib/bootstrap.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

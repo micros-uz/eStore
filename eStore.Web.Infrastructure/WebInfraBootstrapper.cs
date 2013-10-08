@@ -18,6 +18,7 @@ namespace eStore.Web.Infrastructure
             IoC.Current.Register<IObjectMapper, eStore.Web.Infrastructure.ObjectMapper.ObjectMapper>();
             IoC.Current.Register<IFileService, FileService>();
             IoC.Current.Register<ISeedActionProvider, DatabaseSeedActionManager>();
+            IoC.Current.Register<IEnvironmentProvider, WebEnvironmentProvider>();
         }
     }
 }

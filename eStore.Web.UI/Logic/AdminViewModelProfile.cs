@@ -18,6 +18,8 @@ namespace eStore.Web.UI.Logic
         {
             ObjectMapperConfigurator.Current.CreateMap<UserModel, User>();
             ObjectMapperConfigurator.Current.CreateMap<User, UserModel>();
+            ObjectMapperConfigurator.Current.CreateMap<LogEntry, LogEntryModel>();
+
         }
     }
 }

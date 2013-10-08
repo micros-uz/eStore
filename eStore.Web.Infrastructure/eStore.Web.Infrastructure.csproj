@@ -141,6 +141,7 @@
     <Compile Include="ObjectMapper\ObjectMapperConfigurator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileService.cs" />
+    <Compile Include="WebEnvironmentProvider.cs" />
     <Compile Include="WebInfraBootstrapper.cs" />
     <Compile Include="WebSecurityInitializer.cs" />
   </ItemGroup>

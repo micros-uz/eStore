@@ -239,11 +239,14 @@
     <Compile Include="Areas\Account\ViewModels\RegisterExternalLoginModel.cs" />
     <Compile Include="Areas\Account\ViewModels\RegisterModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\MigrationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Api\MigrationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LogController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\FilterParams.cs" />
     <Compile Include="Areas\Admin\ViewModels\GridDataModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\LogEntryModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\LogModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\MigrationsModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
     <Compile Include="Areas\Store\Controllers\Api\CartController.cs" />
@@ -470,6 +473,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\Log\Index.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
