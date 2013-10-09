@@ -20,6 +20,10 @@ namespace eStore.DataAccess
         {
             var connStr = IoC.Current.Get<IConnectionStringProvider>().ConnectionString;
             var res = -1;
+            Action<Exception> exHandler = (Exception ex) =>
+                {
+                    throw new DataAccessException("Database custom initialization failed", ex);
+                };
 
             try
             {
@@ -38,9 +42,17 @@ namespace eStore.DataAccess
                 Server server = new Server(new ServerConnection(connection));
                 res = server.ConnectionContext.ExecuteNonQuery(script);
             }
-            catch (ConnectionException)
+            catch (ConnectionException ex)
             {
-                throw;
+                exHandler(ex);
+            }
+            catch(SmoException ex)
+            {
+                exHandler(ex);
+            }
+            catch(SqlServerManagementException ex)
+            {
+                exHandler(ex);
             }
 
             return res;
@@ -48,45 +60,66 @@ namespace eStore.DataAccess
 
         public static IEnumerable<dynamic> Exec(string query)
         {
-            //new EStoreDbContext().Database.ExecuteSqlCommand(query);
-
             IEnumerable<dynamic> res = null;
             var connStr = IoC.Current.Get<IConnectionStringProvider>().ConnectionString;
-
-            using (var conn = new SqlConnection(connStr))
+            Action<Exception> exHandler = (Exception ex) =>
             {
-                conn.Open();
-                var cmd = new SqlCommand(query, conn);
-                var reader = cmd.ExecuteReader();
+                throw new DataAccessException("Query execution failed", ex);
+            };
 
-                if (reader.HasRows)
+            try
+            {
+                using (var conn = new SqlConnection(connStr))
                 {
-                    DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    conn.Open();
+                    var cmd = new SqlCommand(query, conn);
+                    var reader = cmd.ExecuteReader();
 
-                    if (dt.Rows.Count > 0)
-                    {
-                        var result = new List<dynamic>();
-                        foreach (DataRow row in dt.Rows)
-                        {
-                            var obj = (IDictionary<string, object>)new ExpandoObject();
-                            foreach (DataColumn col in dt.Columns)
-                            {
-                                obj.Add(col.ColumnName, row[col.ColumnName]);
-                            }
-                            result.Add(obj);
-                        }
-
-                        res = result;
-                    }
+                    res = reader.HasRows
+                        ? ReadFromTable(reader)
+                        : SetEmptyResult(reader);
                 }
-                else //if (reader.RecordsAffected > -1)
+            }
+            catch (SqlException ex)
+            {
+                exHandler(ex);
+            }
+            catch(InvalidOperationException ex)
+            {
+                exHandler(ex);
+            }
+
+            return res;
+        }
+
+        private static IEnumerable<dynamic> SetEmptyResult(SqlDataReader reader)
+        {
+            var obj = (IDictionary<string, object>)new ExpandoObject();
+            obj.Add("Row(s) affected", reader.RecordsAffected);
+
+            return new List<dynamic>() { obj };
+        }
+
+        private static IEnumerable<dynamic> ReadFromTable(SqlDataReader reader)
+        {
+            IEnumerable<dynamic> res = null;
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+
+            if (dt.Rows.Count > 0)
+            {
+                var result = new List<dynamic>();
+                foreach (DataRow row in dt.Rows)
                 {
                     var obj = (IDictionary<string, object>)new ExpandoObject();
-                    obj.Add("Row(s) affected", reader.RecordsAffected);
-
-                    res = new List<dynamic>() { obj };
+                    foreach (DataColumn col in dt.Columns)
+                    {
+                        obj.Add(col.ColumnName, row[col.ColumnName]);
+                    }
+                    result.Add(obj);
                 }
+
+                res = result;
             }
 
             return res;

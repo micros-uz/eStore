@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreBootstraper.cs" />
-    <Compile Include="CoreServiceException.cs" />
     <Compile Include="IoC\NinjectIoC.cs" />
     <Compile Include="IoC\CustomNinjectSettings.cs" />
     <Compile Include="IoC\UnityIoC.cs" />

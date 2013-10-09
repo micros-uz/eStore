@@ -104,6 +104,7 @@
     <Compile Include="Configurations\Security\UserConfiguration.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
+    <Compile Include="DataAccessException.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DbVersionProvider.cs" />
     <Compile Include="Migrations\201310040113241_00_Initial.cs" />

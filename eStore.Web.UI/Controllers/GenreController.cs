@@ -8,6 +8,7 @@ using eStore.Web.UI.Areas.Store.ViewModels;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Domain;
 using eStore.Core;
+using eStore.Interfaces.Exceptions;
 
 namespace eStore.Web.UI.Controllers
 {

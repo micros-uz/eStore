@@ -5,6 +5,7 @@ using eStore.Core;
 using eStore.Interfaces.Services;
 using eStore.Web.UI.Areas.Admin.ViewModels;
 using eStore.Web.Infrastructure.Filters.Mvc;
+using eStore.Interfaces.Exceptions;
 
 namespace eStore.Web.UI.Areas.Admin.Controllers
 {   

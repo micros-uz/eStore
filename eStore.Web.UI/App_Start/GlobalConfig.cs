@@ -1,6 +1,8 @@
 ﻿using eStore.Web.Infrastructure.Filters;
 using Newtonsoft.Json.Serialization;
 using System.Web.Http;
+using eStore.Web.Infrastructure.Filters.Http;
+using Newtonsoft.Json.Converters;
 
 namespace eStore.Web.UI
 {
@@ -19,9 +21,11 @@ namespace eStore.Web.UI
             var json = config.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver =
                 new CamelCasePropertyNamesContractResolver();
+            //json.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
 
             // Add model validation, globally
             config.Filters.Add(new ValidationActionFilter());
+            config.Filters.Add(new ExceptionHandlingFilter());
         }
     }
 }

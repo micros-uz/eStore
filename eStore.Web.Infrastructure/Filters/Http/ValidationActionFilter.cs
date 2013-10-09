@@ -5,7 +5,7 @@ using System.Web.Http.Filters;
 using System.Net;
 using System.Net.Http;
 
-namespace eStore.Web.Infrastructure.Filters
+namespace eStore.Web.Infrastructure.Filters.Http
 {
     public class ValidationActionFilter : ActionFilterAttribute
     {

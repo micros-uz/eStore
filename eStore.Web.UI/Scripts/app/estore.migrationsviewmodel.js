@@ -44,9 +44,9 @@ $('#clearBtn').click(function () {
 
 estore.MigrationsViewModel = function (model, url) {
 
-    var migrationsDb = ko.observable(model.Database);
-    var migrationsLocal = ko.observable(model.Local);
-    var migrationsPending = ko.observable(model.Pending);
+    var migrationsDb = ko.observable(model.database);
+    var migrationsLocal = ko.observable(model.local);
+    var migrationsPending = ko.observable(model.pending);
 
     var reload = function () {
         $.getJSON(url, null,

@@ -7,6 +7,7 @@ using eStore.Interfaces.Services;
 using System.IO;
 using eStore.Domain;
 using NLog;
+using eStore.Interfaces.Exceptions;
 
 namespace eStore.Core.Services
 {
@@ -55,13 +56,28 @@ namespace eStore.Core.Services
 
         Tuple<IEnumerable<string>, IEnumerable<string>, IEnumerable<string>> IAdminService.GetMigrationsInfo()
         {
-            return DatabaseHelper.GetMigrationsInfo();
+            try
+            {
+                return DatabaseHelper.GetMigrationsInfo();
+
+            }
+            catch (DataAccessException ex)
+            {
+                throw new CoreServiceException(ex.Message, ex);
+            }
         }
         
         void IAdminService.Migrate(string target, bool isDowngrade)
         {
-            DatabaseHelper.Migrate(target, isDowngrade);
-            
+            try
+            {
+                DatabaseHelper.Migrate(target, isDowngrade);
+            }
+            catch (DataAccessException ex)
+            {
+                throw new CoreServiceException(ex.Message, ex);
+            }            
+
             CoreBootstraper.NotifyDbMigrated();
         }
 
@@ -75,19 +91,16 @@ namespace eStore.Core.Services
                 {
                     var e = line.Split('|');
 
-                    yield return new LogEntry
-                        {
-                            Date = new DateTime(int.Parse(e[0].Substring(0, 4)), 
-                               int.Parse( e[0].Substring(5, 2)), 
-                               int.Parse(e[0].Substring(8, 2)),
-                               int.Parse(e[0].Substring(11, 2)),
-                               int.Parse(e[0].Substring(14, 2)),
-                               int.Parse(e[0].Substring(17, 2)),
-                               int.Parse(e[0].Substring(8, 2))),
-                            Severity = 3,
-                            AppModule = 1,
-                            Data = e[3]
-                        };
+                    if (e.Length == 4)
+                    {
+                        yield return new LogEntry
+                            {
+                                Date = DateTime.Parse(e[0]),
+                                Severity = 3,
+                                AppModule = 1,
+                                Data = e[3]
+                            };
+                    }
 
                     line = logreader.ReadLine();
                 }

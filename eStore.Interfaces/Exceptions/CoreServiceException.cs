@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eStore.Core
+namespace eStore.Interfaces.Exceptions
 {
     public class CoreServiceException : Exception
     {
@@ -12,6 +12,12 @@ namespace eStore.Core
 
         public CoreServiceException(string message)
             : base(message)
+        {
+
+        }
+
+        public CoreServiceException(string message, Exception innerException)
+            : base(message, innerException)
         {
 
         }
