@@ -9,8 +9,8 @@
 </div>
 
 <div class="button-group">
-    <button class="btn btn-primary" data-bind="click: reload">Reload</button>
-    <a class="btn btn-default" data-bind="attr: {href: returnUrl}" title="Continue shopping from the last visited place in our story">Continue</a>
+    <button class="btn btn-primary" data-bind="click: cartVM.reload">Reload</button>
+    <a class="btn btn-default" data-bind="attr: {href: cartVM.returnUrl}" title="Continue shopping from the last visited place in our story">Continue</a>
     @Html.ActionLink("Checkout", "Index", "Checkout", new {area = "store"}, new {@class = "btn btn-default"})
 </div>
 <br>
@@ -25,19 +25,19 @@
             </tr>
         </thead>
         <tbody>
-            <!-- ko foreach: items -->
+            <!-- ko foreach: cartVM.items -->
             <tr>
                 <td data-bind="text: title"></td>
                 <td data-bind="text: price"></td>
                 <td data-bind="text: count"></td>
-                <td><a href="#" class="delItem" data-bind="click: $parent.delItem"><span class="glyphicon glyphicon-remove"></span></a>
+                <td><a href="#" class="delItem" data-bind="click: $root.cartVM.delItem"><span class="glyphicon glyphicon-remove"></span></a>
                 </td>
             </tr>
             <!-- /ko -->
             <tr>
                 <td>Total:</td>
                 <td></td>
-                <td data-bind="text: total"></td>
+                <td data-bind="text: cartVM.total"></td>
             </tr>
         </tbody>
 
@@ -46,7 +46,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/Scripts/app/estore.cartviewmodel.js")
 
     <script>
@@ -56,7 +55,7 @@
         var getUrl = '@Url.HttpRouteUrl("DefaultApi", new {controller = "Cart", action = "Get"})'
 
         ko.setTemplateEngine(new ko.nativeTemplateEngine());
-        ko.applyBindings(new estore.CartViewModel(model, delUrl, getUrl));
+        estore.vm.cartVM = new estore.CartViewModel(model, delUrl, getUrl);
     </script>
 }
 

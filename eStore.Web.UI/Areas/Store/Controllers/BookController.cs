@@ -37,9 +37,12 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             var book = Service.GetBookById(id);
 
-            var bookModel = Mapper.Map<Book, BookFullModel>(book);
+            return CheckResource(book, () =>
+                {
+                    var bookModel = Mapper.Map<Book, BookFullModel>(book);
 
-            return View(bookModel);
+                    return View(bookModel);
+                });
         }
 
         public ActionResult Image(string fileName)
@@ -53,17 +56,20 @@ namespace eStore.Web.UI.Areas.Store.Controllers
         {
             var book = Service.GetBookById(id);
 
-            var model = Mapper.Map<Book, BookFullModel>(book);
+            return CheckResource(book, () =>
+            {
+                var model = Mapper.Map<Book, BookFullModel>(book);
 
-            FillDicts();
+                FillDicts();
 
-            return View("CreateEdit", new AddEditBookModel
-                {
-                    Action = "Edit",
-                    Book = model,
-                    OldImageFile = book.ImageFile.HasValue ?
-                        book.ImageFile.Value.ToString() : string.Empty
-                });
+                return View("CreateEdit", new AddEditBookModel
+                    {
+                        Action = "Edit",
+                        Book = model,
+                        OldImageFile = book.ImageFile.HasValue ?
+                            book.ImageFile.Value.ToString() : string.Empty
+                    });
+            });
         }
 
         [HttpPost]

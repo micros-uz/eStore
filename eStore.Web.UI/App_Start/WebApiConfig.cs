@@ -16,7 +16,7 @@ namespace eStore.Web.UI
                     id = RouteParameter.Optional
                 }
             );
-
+http://www.codeproject.com/Tips/513522/Providing-session-state-in-ASP-NET-WebAPI
         }
     }
 }

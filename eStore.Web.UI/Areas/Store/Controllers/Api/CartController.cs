@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using System.Web.Http;
 using eStore.Domain;
 using eStore.Interfaces.Services;
@@ -29,18 +30,19 @@ namespace eStore.Web.UI.Areas.Store.Controllers.Api
         }
 
         [HttpPost]
-        public object Add(int id)
+        public object Add([FromBody]int id)
         {
-            //if (Session.SessionID != null)
-            //{
-
-            //}
+            if (HttpContext.Current.Session.SessionID != null)
+            {
+                //http://www.strathweb.com/2012/11/adding-session-support-to-asp-net-web-api/
+                //http://jamiekurtz.com/2013/01/14/asp-net-web-api-security-basics/
+            }
 
             return new { count = 3 };
         }
 
         [HttpDelete]
-        public object Delete(int id)
+        public object Delete([FromBody]int id)
         {
             return new { success = true };
         }

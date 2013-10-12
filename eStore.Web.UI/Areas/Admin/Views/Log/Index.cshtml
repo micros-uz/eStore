@@ -33,9 +33,7 @@
     @Scripts.Render("~/Scripts/app/estore.logviewmodel.js")
 
     <script type="text/javascript">
-        var model = @Html.ToJSON(Model)
-
-        ko.applyBindings(new estore.LogModel(model));
+        estore.vm = new estore.LogModel(@Html.ToJSON(Model));
     </script>
 
 }

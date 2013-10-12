@@ -24,7 +24,7 @@
 /packages/EntityFramework.5.0.0
 /packages/html5shiv.0.1.0.8
 /packages/jQuery.2.0.3
-/packages/jQuery.Migrate.1.1.1
+/packages/jQuery.Migrate.1.2.1
 /packages/jQuery.UI.Combined.1.10.3
 /packages/jQuery.Validation.1.11.1
 /packages/knockoutjs.2.3.0
@@ -57,7 +57,7 @@
 /packages/AutoMapper.2.2.1
 /eStore.Domain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /eStore.Domain/obj/Debug/eStore.Domain.csproj.FileListAbsolute.txt
-/packages/AutoMapper.3.0.0-ci1037
+/packages/AutoMapper.3.0.0
 /packages/Glimpse.1.6.0
 /packages/WebActivatorEx.2.0.3
 /packages/Twitter.Bootstrap.3.0.0

@@ -64,3 +64,103 @@
 2013-10-08 19:52:43.904|INFO|MvcApplication|Session End 
 2013-10-08 19:59:56.135|INFO|MvcApplication|Session End 
 2013-10-08 19:59:56.135|INFO|MvcApplication|Application End 
+2013-10-09 19:55:24.481|INFO|MvcApplication|Application Start 
+2013-10-09 19:55:29.301|INFO|MvcApplication|Session Start 
+2013-10-09 19:58:14.900|ERROR|ExceptionHandlingFilter|eStore.Interfaces.Exceptions.CoreServiceException: Migration failed ---> eStore.DataAccess.DataAccessException: Migration failed ---> System.Data.Entity.Migrations.Infrastructure.MigrationsException: The specified target migration '20131004044' does not exist. Ensure that target migration refers to an existing migration id.
+   at System.Data.Entity.Migrations.DbMigrator.GetMigrationId(String migration)
+   at System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   at System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   at System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at eStore.DataAccess.Repositories.Ef.EfHelper.Migrate(String target, Boolean isDowngrade) in f:\Projects\Git\eStore\eStore.DataAccess\Repositories\Ef\EfHelper.cs:line 37
+   --- End of inner exception stack trace ---
+   at eStore.DataAccess.Repositories.Ef.EfHelper.Migrate(String target, Boolean isDowngrade) in f:\Projects\Git\eStore\eStore.DataAccess\Repositories\Ef\EfHelper.cs:line 53
+   at eStore.DataAccess.DatabaseHelper.Migrate(String target, Boolean isDowngrade) in f:\Projects\Git\eStore\eStore.DataAccess\DatabaseHelper.cs:line 146
+   at eStore.Core.Services.AdminService.eStore.Interfaces.Services.IAdminService.Migrate(String target, Boolean isDowngrade) in f:\Projects\Git\eStore\eStore.Core\Services\AdminService.cs:line 74
+   --- End of inner exception stack trace ---
+   at eStore.Core.Services.AdminService.eStore.Interfaces.Services.IAdminService.Migrate(String target, Boolean isDowngrade) in f:\Projects\Git\eStore\eStore.Core\Services\AdminService.cs:line 78
+   at eStore.Web.UI.Areas.Admin.Controllers.Api.MigrationController.UpdateTo(MigrationData data) in f:\Projects\Git\eStore\eStore.Web.UI\Areas\Admin\Controllers\Api\MigrationController.cs:line 29
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken) 
+2013-10-09 20:18:40.480|INFO|MvcApplication|Session End 
+2013-10-09 20:22:53.578|INFO|MvcApplication|Session Start 
+2013-10-10 12:24:02.730|INFO|MvcApplication|Application Start 
+2013-10-10 12:24:07.618|INFO|MvcApplication|Session Start 
+2013-10-10 12:54:40.545|INFO|MvcApplication|Session End 
+2013-10-10 15:05:34.532|INFO|MvcApplication|Session Start 
+2013-10-10 15:12:37.679|INFO|MvcApplication|Session End 
+2013-10-10 15:12:37.683|INFO|MvcApplication|Application End 
+2013-10-10 16:06:44.437|INFO|MvcApplication|Application Start 
+2013-10-10 16:06:49.130|INFO|MvcApplication|Session Start 
+2013-10-10 16:40:49.796|INFO|MvcApplication|Session End 
+2013-10-10 16:40:49.808|INFO|MvcApplication|Application End 
+2013-10-10 16:41:00.206|INFO|MvcApplication|Application Start 
+2013-10-10 16:41:04.703|INFO|MvcApplication|Session Start 
+2013-10-10 16:48:53.027|INFO|MvcApplication|Session End 
+2013-10-10 16:48:53.027|INFO|MvcApplication|Application End 
+2013-10-10 16:49:03.376|INFO|MvcApplication|Application Start 
+2013-10-10 16:49:07.875|INFO|MvcApplication|Session Start 
+2013-10-10 17:07:08.028|INFO|MvcApplication|Application Start 
+2013-10-10 17:07:12.326|INFO|MvcApplication|Session Start 
+2013-10-10 18:06:01.872|INFO|MvcApplication|Session End 
+2013-10-11 12:40:50.768|INFO|MvcApplication|Application Start 
+2013-10-11 12:40:55.516|INFO|MvcApplication|Session Start 
+2013-10-11 13:17:40.900|INFO|MvcApplication|Session End 
+2013-10-11 17:15:10.851|INFO|MvcApplication|Application Start 
+2013-10-11 17:15:15.333|INFO|MvcApplication|Session Start 
+2013-10-11 18:09:01.369|INFO|MvcApplication|Session End 
+2013-10-11 18:13:30.836|INFO|MvcApplication|Session Start 
+2013-10-11 18:42:38.844|INFO|MvcApplication|Session Start 
+2013-10-11 18:43:39.303|INFO|MvcApplication|Session Start 
+2013-10-11 18:45:06.986|INFO|MvcApplication|Session End 
+2013-10-11 18:45:06.986|INFO|MvcApplication|Session End 
+2013-10-11 18:45:06.996|INFO|MvcApplication|Session End 
+2013-10-11 18:45:06.996|INFO|MvcApplication|Application End 
+2013-10-11 18:45:17.682|INFO|MvcApplication|Application Start 
+2013-10-11 18:45:23.777|INFO|MvcApplication|Session Start 
+2013-10-11 18:51:00.886|INFO|MvcApplication|Session Start 
+2013-10-11 18:52:16.955|INFO|MvcApplication|Session Start 
+2013-10-11 18:52:40.266|INFO|MvcApplication|Session Start 
+2013-10-11 18:55:43.887|INFO|MvcApplication|Session Start 
+2013-10-11 18:55:43.976|INFO|MvcApplication|Session Start 
+2013-10-11 18:55:43.982|INFO|MvcApplication|Session Start 
+2013-10-11 18:55:43.999|INFO|MvcApplication|Session Start 
+2013-10-11 18:58:28.075|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.075|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.075|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.096|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.096|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.096|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.144|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.161|INFO|MvcApplication|Session End 
+2013-10-11 18:58:28.203|INFO|MvcApplication|Application End 
+2013-10-11 18:58:37.729|INFO|MvcApplication|Application Start 
+2013-10-11 18:58:42.322|INFO|MvcApplication|Session Start 
+2013-10-11 19:33:50.301|INFO|MvcApplication|Session End 
+2013-10-11 19:33:50.307|INFO|MvcApplication|Application End 
+2013-10-11 19:33:59.577|INFO|MvcApplication|Application Start 
+2013-10-11 19:34:04.076|INFO|MvcApplication|Session Start 
+2013-10-11 19:34:53.732|ERROR|ExceptionHandlingFilter|System.NullReferenceException: Object reference not set to an instance of an object.
+   at eStore.Web.UI.Areas.Store.Controllers.Api.CartController.Add(Int32 id) in f:\Projects\Git\eStore\eStore.Web.UI\Areas\Store\Controllers\Api\CartController.cs:line 35
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken) 
+2013-10-11 19:35:54.369|INFO|MvcApplication|Session Start 
+2013-10-11 19:54:54.823|INFO|MvcApplication|Session End 
+2013-10-11 19:56:14.840|INFO|MvcApplication|Session End 
+2013-10-11 19:57:46.095|INFO|MvcApplication|Application End 
+2013-10-11 20:01:28.321|INFO|MvcApplication|Application Start 
+2013-10-11 20:02:57.473|INFO|MvcApplication|Session Start 
+2013-10-11 20:05:52.506|ERROR|ExceptionHandlingFilter|System.NullReferenceException: Object reference not set to an instance of an object.
+   at eStore.Web.UI.Areas.Store.Controllers.Api.CartController.Add(Int32 id) in f:\Projects\Git\eStore\eStore.Web.UI\Areas\Store\Controllers\Api\CartController.cs:line 35
+   at lambda_method(Closure , Object , Object[] )
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass13.<GetExecutor>b__c(Object instance, Object[] methodParameters)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
+   at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken) 

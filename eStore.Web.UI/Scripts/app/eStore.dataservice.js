@@ -30,16 +30,22 @@ estore.dataservice = function () {
             }
         });
     },
-        addToCart = function () {
-            $.getJSON("/store/cart/add", { id: 4 })
-                    .done(function (data) {
-                        alert(data);
-                    })
-                    .fail(function (jqxhr, textStatus, error) {
-                        var err = textStatus + ', ' + error;
-                        alert(err);
-                    });
-        }
+
+    addToCart = function (id) {
+        $.ajax({
+            type: 'POST',
+            url: "/api/cart/add", 
+            data: id,
+            contentType:  "application/json;charset=utf-8",
+            success: function(data){
+                alert(data)
+            },
+            error: function (jqxhr, textStatus, error) {
+                var err = textStatus + ', ' + error;
+                alert(err);
+            }
+        })
+    }
 
     return {
         saveNewItem: saveNewItem,

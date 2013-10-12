@@ -48,11 +48,11 @@
     </Reference>
     <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AutoMapper.3.0.0-ci1037\lib\net40\AutoMapper.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="AutoMapper.Net4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\AutoMapper.3.0.0-ci1037\lib\net40\AutoMapper.Net4.dll</HintPath>
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
     </Reference>
     <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -376,10 +376,13 @@
     <Content Include="Images\Marketing\Carousel\08.jpg" />
     <Content Include="Images\Cart.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\app\estore.addtocartviewmodel.js" />
     <Content Include="Scripts\app\estore.cartviewmodel.js" />
     <Content Include="Scripts\app\estore.logviewmodel.js" />
     <Content Include="Scripts\app\estore.migrationsviewmodel.js" />
     <Content Include="Scripts\app\estore.usersviewmodel.js" />
+    <Content Include="Scripts\lib\jquery-migrate-1.2.1.js" />
+    <Content Include="Scripts\lib\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\lib\bootstrap.js" />
     <Content Include="Scripts\lib\bootstrap.min.js" />
     <Content Include="Scripts\app\estore.custom.chooseGenre.js" />
@@ -390,8 +393,6 @@
     <Content Include="Scripts\lib\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\lib\jquery-2.0.3.js" />
     <Content Include="Scripts\lib\jquery-2.0.3.min.js" />
-    <Content Include="Scripts\lib\jquery-migrate-1.1.1.js" />
-    <Content Include="Scripts\lib\jquery-migrate-1.1.1.min.js" />
     <Content Include="Scripts\lib\jquery-ui-1.10.3.js" />
     <Content Include="Scripts\lib\jquery-ui-1.10.3.min.js" />
     <Content Include="Scripts\lib\jQuery.tmpl.js" />

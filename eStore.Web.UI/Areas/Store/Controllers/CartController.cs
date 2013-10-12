@@ -24,9 +24,13 @@ namespace eStore.Web.UI.Areas.Store.Controllers
 
             var models = _objMapper.Map<IEnumerable<CartItem>, IEnumerable<CartItemModel>>(cart.Items);
 
+            var returnUrl = HttpContext.Request.UrlReferrer != null
+                ? HttpContext.Request.UrlReferrer.AbsoluteUri
+                : (string)null;
+
             return View(new CartModel
                 {
-                    ReturnUrl = HttpContext.Request.UrlReferrer.AbsoluteUri,
+                    ReturnUrl = returnUrl,
                     Items = models
                 });
         }

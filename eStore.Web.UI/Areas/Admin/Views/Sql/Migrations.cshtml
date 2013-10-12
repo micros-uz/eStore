@@ -16,20 +16,20 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist", data_bind = "options: migrationsDb" })
+        @Html.ListBoxFor(m => m.Database, new SelectList(Model.Database), new { @class = "migrlist", data_bind = "options: migrVM.migrationsDb" })
     </div>
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Local, new SelectList(Model.Local), new { @class = "migrlist", data_bind = "options: migrationsLocal" })
+        @Html.ListBoxFor(m => m.Local, new SelectList(Model.Local), new { @class = "migrlist", data_bind = "options: migrVM.migrationsLocal" })
     </div>
     <div class="col-md-4">
-        @Html.ListBoxFor(m => m.Pending, new SelectList(Model.Pending), new { @class = "migrlist", data_bind = "options: migrationsPending" })
+        @Html.ListBoxFor(m => m.Pending, new SelectList(Model.Pending), new { @class = "migrlist", data_bind = "options: migrVM.migrationsPending" })
     </div>
 </div>
 <br>
 @*<div class="row">*@
 <div class="col-md-6">
     <div class="row">
-        <button class="btn btn-primary" data-bind="click: reload">Reload</button>
+        <button class="btn btn-primary" data-bind="click: migrVM.reload">Reload</button>
     </div>
     <br>
     <div class="row">
@@ -55,9 +55,9 @@
             new AjaxOptions
             {
                 HttpMethod = "POST",
-                OnBegin = "estore.migrations.onBegin",
-                OnSuccess = "estore.migrations.onSuccess",
-                OnFailure = "estore.migrations.onFailure",
+                OnBegin = "estore.vm.migrVM.onBegin",
+                OnSuccess = "estore.vm.migrVM.onSuccess",
+                OnFailure = "estore.vm.migrVM.onFailure",
                 Url = Url.HttpRouteUrl("DefaultApi", new { controller = "Migration", action = "UpdateTo" })
             }))
         {
@@ -96,7 +96,6 @@
 
 @section Scripts {
     @Scripts.Render("~/Scripts/lib/jquery.unobtrusive-ajax.js")
-    @Scripts.Render("~/Scripts/lib/bootstrap.js")
     @Scripts.Render("~/bundles/knockout")
     @Scripts.Render("~/Scripts/app/estore.migrationsviewmodel.js")
 
@@ -104,7 +103,7 @@
         var model = @Html.ToJSON(Model)
         var url = '@Url.HttpRouteUrl("DefaultApi", new {controller = "Migration", action = "List"})'
 
-        ko.applyBindings(new estore.MigrationsViewModel(model, url));
+        estore.vm.migrVM = new estore.MigrationsViewModel(model, url);
     </script>
 }
 

@@ -7,8 +7,7 @@ estore.CartViewModel = function (model, delUrl, getUrl) {
 
     this.delItem = function (itemId, event) {
         var data = ko.toJS(itemId);
-        var item = ko.dataFor(itemId);
-        console.log("ww", data);
+
         $.ajax({
             url: delUrl.replace('-ID', data.cartItemId),
             type: 'Delete',
