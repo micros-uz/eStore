@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using System.Web.Routing;
+using eStore.Web.UI.Http;
 
 namespace eStore.Web.UI
 {
@@ -6,7 +8,7 @@ namespace eStore.Web.UI
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute(
+            RouteTable.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new
@@ -15,8 +17,8 @@ namespace eStore.Web.UI
                     controller = "Genre",
                     id = RouteParameter.Optional
                 }
-            );
-http://www.codeproject.com/Tips/513522/Providing-session-state-in-ASP-NET-WebAPI
+            ).RouteHandler = new SessionRouteHandler();
+//http://www.codeproject.com/Tips/513522/Providing-session-state-in-ASP-NET-WebAPI
         }
     }
 }

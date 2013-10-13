@@ -43,13 +43,13 @@ namespace eStore.Web.UI
 
             bundles.Add(new ScriptBundle("~/bundles/eStore")
                 .Include(
-                        //"~/Scripts/app/eStore.namespaces.js",
                         "~/Scripts/app/eStore.common.js",
                         "~/Scripts/app/eStore.filepick.js",
                         "~/Scripts/app/eStore.dataservice.js",
                         "~/Scripts/app/eStore.startup.js",
                         "~/Scripts/app/eStore.custom.chooseGenre.js",
-                        "~/Scripts/app/eStore.filepick.js"));
+                        "~/Scripts/app/eStore.filepick.js",
+                        "~/Scripts/app/estore.addtocartviewmodel.js"));
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/site.css"));

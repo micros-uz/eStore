@@ -282,6 +282,8 @@
     </Compile>
     <Compile Include="Helpers\AjaxHelperExtensions.cs" />
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Http\SessionControllerHandler.cs" />
+    <Compile Include="Http\SessionRouteHandler.cs" />
     <Compile Include="Logic\AccountViewModelProfile.cs" />
     <Compile Include="Logic\AdminViewModelProfile.cs" />
     <Compile Include="Logic\BaseDisposeController.cs" />
