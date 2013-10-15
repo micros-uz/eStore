@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using eStore.Domain;
@@ -12,10 +14,12 @@ namespace eStore.Web.UI.Areas.Store.Controllers.Api
     {
         private readonly ICartService _cartService;
         private readonly IObjectMapper _objMapper;
+        private readonly IIdentityService _identityService;
 
-        public CartController(ICartService cartservice, IObjectMapper objMapper)
+        public CartController(ICartService cartservice, IIdentityService identityService, IObjectMapper objMapper)
         {
             _cartService = cartservice;
+            _identityService = identityService;
             _objMapper = objMapper;
         }
 
@@ -42,9 +46,11 @@ namespace eStore.Web.UI.Areas.Store.Controllers.Api
         }
 
         [HttpDelete]
-        public object Delete([FromBody]int id)
+        public HttpResponseMessage Delete([FromBody]int id)
         {
-            return new { success = true };
+            //_cartService.DeleteItem(id);
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

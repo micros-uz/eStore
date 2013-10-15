@@ -31,10 +31,10 @@
 
 <script type="text/html" id="FiltrationPanel">
     <label>
-        <input type="checkbox" data-bind="checked: showAdmins" />Show Admins</label>
+        <input type="checkbox" data-bind="checked: usersVM.showAdmins" />Show Admins</label>
     <br />
     <label>
-        <input type="checkbox" data-bind="checked: showManagers" />Show Managers</label>
+        <input type="checkbox" data-bind="checked: usersVM.showManagers" />Show Managers</label>
 </script>
 
 <div data-bind="template: {
@@ -62,13 +62,13 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody data-bind="template: { name: 'TableRow',foreach: rows}">
+            <tbody data-bind="template: { name: 'TableRow',foreach: usersVM.rows}">
             </tbody>
         </table>
     </div>
 </div>
 
-<div data-bind="template: { name: 'PagingPanel', data: paging }">
+<div data-bind="template: { name: 'PagingPanel', data: usersVM.paging }">
 </div>
 
 <div class="modal small fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -94,10 +94,10 @@
     @Scripts.Render("~/Scripts/app/estore.usersviewmodel.js")
 
     <script type="text/javascript">
-        var ajaxGrid = new estore.UsersViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
+        estore.vm.usersVM = new estore.UsersViewModel('@Url.Action("UserList")', @Html.ToJSON(Model));
 
-        ko.setTemplateEngine(new ko.nativeTemplateEngine());
+        //ko.setTemplateEngine(new ko.nativeTemplateEngine());
 
-        ko.applyBindings(ajaxGrid);
+        //ko.applyBindings(ajaxGrid);
     </script>
 }

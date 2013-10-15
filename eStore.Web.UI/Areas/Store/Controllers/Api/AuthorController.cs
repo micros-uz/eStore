@@ -9,7 +9,7 @@ using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 
-namespace eStore.Web.UI.Controllers
+namespace eStore.Web.UI.Areas.Store.Controllers.Api
 {
     public class AuthorController : ApiController
     {

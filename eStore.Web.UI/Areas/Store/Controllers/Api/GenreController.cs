@@ -10,7 +10,7 @@ using eStore.Domain;
 using eStore.Core;
 using eStore.Interfaces.Exceptions;
 
-namespace eStore.Web.UI.Controllers
+namespace eStore.Web.UI.Areas.Store.Controllers.Api
 {
     public class GenreController : ApiController
     {

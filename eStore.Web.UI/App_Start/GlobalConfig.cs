@@ -3,6 +3,7 @@ using Newtonsoft.Json.Serialization;
 using System.Web.Http;
 using eStore.Web.Infrastructure.Filters.Http;
 using Newtonsoft.Json.Converters;
+using WebApiContrib.Formatting.Jsonp;
 
 namespace eStore.Web.UI
 {
@@ -26,6 +27,12 @@ namespace eStore.Web.UI
             // Add model validation, globally
             config.Filters.Add(new ValidationActionFilter());
             config.Filters.Add(new ExceptionHandlingFilter());
+
+            //Add JSONP support
+            var formatter = new JsonpMediaTypeFormatter(json);
+            config.Formatters.Insert(0, formatter);
+
+            //config.EnableCors();
         }
     }
 }

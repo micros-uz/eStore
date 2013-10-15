@@ -128,6 +128,7 @@
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationProvider.cs" />
     <Compile Include="Authentication\OAuthSecretData.cs" />
+    <Compile Include="BaseApiController.cs" />
     <Compile Include="BaseMvcController.cs" />
     <Compile Include="DatabaseSeedActionManager.cs" />
     <Compile Include="Filters\Http\ExceptionHandlingFilter.cs" />

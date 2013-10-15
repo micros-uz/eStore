@@ -28,6 +28,7 @@
 /packages/jQuery.UI.Combined.1.10.3
 /packages/jQuery.Validation.1.11.1
 /packages/knockoutjs.2.3.0
+/packages/Knockout.Mapping.2.4.0
 /packages/Microsoft.AspNet.Mvc.4.0.30506.0
 /packages/Microsoft.AspNet.Razor.2.0.30506.0
 /packages/Microsoft.AspNet.Web.Optimization.1.1.0
@@ -72,3 +73,6 @@
 /packages/Newtonsoft.Json.4.5.11
 /packages/EntityFramework.6.0.0-rc1
 /packages/NLog.2.0.1.2
+/packages/WebApiContrib.Formatting.Jsonp.0.9.7.0
+/packages/TaskHelpers.Sources.0.2
+/packages/Microsoft.Bcl.Build.1.0.10

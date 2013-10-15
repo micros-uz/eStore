@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <!-- ko foreach: items -->
+        <!-- ko foreach: logVM.items -->
         <tr>
             <td data-bind="text: date"></td>
             <td data-bind="text: severity"></td>
@@ -33,7 +33,7 @@
     @Scripts.Render("~/Scripts/app/estore.logviewmodel.js")
 
     <script type="text/javascript">
-        estore.vm = new estore.LogModel(@Html.ToJSON(Model));
+        estore.vm.logVM = new estore.LogModel(@Html.ToJSON(Model));
     </script>
 
 }
