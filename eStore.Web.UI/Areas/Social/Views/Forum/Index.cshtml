@@ -1,0 +1,31 @@
+﻿@model IEnumerable<eStore.Web.UI.Areas.Social.ViewModels.TopicCategoryModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Forum</h2>
+
+<div class="row">
+    <div class="well">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Theme</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach (var item in Model)
+                 {
+                    <text>
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.Desc</td>
+                        </tr>
+                    </text>
+                 }
+            </tbody>
+        </table>
+    </div>   
+</div>

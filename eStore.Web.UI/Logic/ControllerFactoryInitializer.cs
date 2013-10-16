@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
 using WrapIoC;
+using eStore.Web.UI.Areas.Social.Controllers;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(eStore.Web.UI.Logic.ControllerFactoryInitializer), "Init")]
 

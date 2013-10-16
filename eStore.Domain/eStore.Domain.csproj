@@ -46,6 +46,7 @@
     <Compile Include="Blog\Comment.cs" />
     <Compile Include="Forum\Post.cs" />
     <Compile Include="Forum\Topic.cs" />
+    <Compile Include="Forum\TopicCategory.cs" />
     <Compile Include="Security\Membership.cs" />
     <Compile Include="Security\OAuthMembership.cs" />
     <Compile Include="Security\Role.cs" />

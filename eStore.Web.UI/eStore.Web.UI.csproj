@@ -246,8 +246,8 @@
     <Compile Include="Areas\Account\ViewModels\RegisterModel.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\Api\MigrationController.cs" />
-    <Compile Include="Areas\Admin\Controllers\BlogController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ForumController.cs" />
+    <Compile Include="Areas\Social\Controllers\BlogController.cs" />
+    <Compile Include="Areas\Social\Controllers\ForumController.cs" />
     <Compile Include="Areas\Admin\Controllers\LogController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\ViewModels\ExecSqlModel.cs" />
@@ -256,7 +256,11 @@
     <Compile Include="Areas\Admin\ViewModels\LogEntryModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\LogModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\MigrationsModel.cs" />
+    <Compile Include="Areas\Admin\ViewModels\TopicModel.cs" />
     <Compile Include="Areas\Admin\ViewModels\UserModel.cs" />
+    <Compile Include="Areas\Social\SocialAreaRegistration.cs" />
+    <Compile Include="Areas\Social\ViewModels\TopicCategoryModel.cs" />
+    <Compile Include="Areas\Social\ViewModels\TopicModel.cs" />
     <Compile Include="Areas\Store\Controllers\Api\CartController.cs" />
     <Compile Include="Areas\Store\Controllers\AuthorController.cs" />
     <Compile Include="Areas\Store\Controllers\BaseStoreController.cs" />
@@ -489,8 +493,10 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Log\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Forum\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\Social\Views\Forum\Index.cshtml" />
+    <Content Include="Areas\Social\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\Social\Views\Web.config" />
+    <Content Include="Areas\Social\_ViewStart.cshtml" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -514,6 +520,7 @@
     <Content Include="Views\Error\DbVersionInvalid.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Shared\_SocialLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\eStore.Core\eStore.Core.csproj">

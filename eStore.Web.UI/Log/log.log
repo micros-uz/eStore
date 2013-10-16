@@ -164,3 +164,7 @@
    at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
    at System.Web.Http.Controllers.ReflectedHttpActionDescriptor.<>c__DisplayClass5.<ExecuteAsync>b__4()
    at System.Threading.Tasks.TaskHelpers.RunSynchronously[TResult](Func`1 func, CancellationToken cancellationToken) 
+2013-10-16 01:42:32.089|INFO|MvcApplication|Application Start 
+2013-10-16 01:42:38.773|INFO|MvcApplication|Session Start 
+2013-10-16 01:55:54.993|INFO|MvcApplication|Application Start 
+2013-10-16 01:55:58.395|INFO|MvcApplication|Session Start 
