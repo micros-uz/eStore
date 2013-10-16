@@ -1,7 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AutoMapper;
-using eStore.Domain;
+using eStore.Domain.Store;
+using eStore.Domain.Security;
 using eStore.Web.UI.Areas.Account.ViewModels;
 using System.Collections.Generic;
 

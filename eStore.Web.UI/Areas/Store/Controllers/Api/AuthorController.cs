@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Web.Http;
 using eStore.Core;
 using eStore.Domain;
+using eStore.Domain.Store;
 using eStore.Interfaces.Exceptions;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.ObjectMapper;

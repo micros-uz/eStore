@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
-using eStore.Domain;
+using eStore.Domain.Security;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
 

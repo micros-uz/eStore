@@ -1,5 +1,5 @@
-﻿using eStore.Domain;
-using System.Data.Entity.ModelConfiguration;
+﻿using System.Data.Entity.ModelConfiguration;
+using eStore.Domain.Security;
 
 namespace eStore.DataAccess.Configurations.Security
 {

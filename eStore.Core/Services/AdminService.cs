@@ -5,7 +5,8 @@ using System.Data.SqlClient;
 using eStore.DataAccess;
 using eStore.Interfaces.Services;
 using System.IO;
-using eStore.Domain;
+using eStore.Domain.Security;
+using eStore.Domain.Admin;
 using NLog;
 using eStore.Interfaces.Exceptions;
 
@@ -83,7 +84,7 @@ namespace eStore.Core.Services
 
         IEnumerable<LogEntry> IAdminService.GetLog()
         {
-            using(StreamReader logreader = new StreamReader(Path.Combine(_envProvider.BasePath, @"Log/log.log")))
+            using(var logreader = new StreamReader(Path.Combine(_envProvider.BasePath, @"Log/log.log")))
             {
                 string line = logreader.ReadLine();
                 

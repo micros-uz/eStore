@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using eStore.Domain;
+﻿using eStore.Domain.Store;
 
 namespace eStore.Interfaces.Repositories
 {

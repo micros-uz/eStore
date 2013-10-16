@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using eStore.Domain;
+using eStore.Domain.Store;
 using eStore.DataAccess.Configurations;
 using eStore.DataAccess.Configurations.Security;
 using System.Diagnostics;

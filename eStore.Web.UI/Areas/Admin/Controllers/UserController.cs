@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using eStore.Domain;
+using eStore.Domain.Security;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure;
 using eStore.Web.Infrastructure.ObjectMapper;

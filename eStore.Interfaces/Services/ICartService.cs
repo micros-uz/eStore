@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Store;
 
 namespace eStore.Interfaces.Services
 {

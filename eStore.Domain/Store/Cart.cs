@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace eStore.Domain
+namespace eStore.Domain.Store
 {
     public class Cart
     {

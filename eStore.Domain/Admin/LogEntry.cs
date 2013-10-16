@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eStore.Domain
+namespace eStore.Domain.Admin
 {
     public class LogEntry
     {

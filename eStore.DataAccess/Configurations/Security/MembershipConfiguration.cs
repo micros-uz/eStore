@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Security;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 

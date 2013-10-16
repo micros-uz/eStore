@@ -1,6 +1,9 @@
 ﻿using eStore.DataAccess.Configurations;
-using eStore.Domain;
+using eStore.Domain.Security;
+using eStore.Domain.Store;
 using System.Data.Entity;
+using eStore.Domain.Blog;
+using eStore.Domain.Forum;
 
 namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
 {
@@ -26,10 +29,17 @@ namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
         public DbSet<Membership> Memberships { get; set; }
         public DbSet<OAuthMembership> OAuthMemberships { get; set; }
 
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             CatalogModelsConfigurator.OnModelCreating(modelBuilder);
             SecurityModelsConfigurator.OnModelCreating(modelBuilder);
+            BlogModelsConfigurator.OnModelCreating(modelBuilder);
+            ForumModelsConfigurator.OnModelCreating(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
         }

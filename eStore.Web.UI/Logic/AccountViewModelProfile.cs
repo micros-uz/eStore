@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Security;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Account.ViewModels;
 using System;

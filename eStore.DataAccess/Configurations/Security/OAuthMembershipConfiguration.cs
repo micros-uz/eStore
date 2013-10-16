@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Security;
 using System.Data.Entity.ModelConfiguration;
 
 namespace eStore.DataAccess.Configurations.Security

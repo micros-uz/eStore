@@ -9,6 +9,7 @@ using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Domain;
 using eStore.Core;
 using eStore.Interfaces.Exceptions;
+using eStore.Domain.Store;
 
 namespace eStore.Web.UI.Areas.Store.Controllers.Api
 {

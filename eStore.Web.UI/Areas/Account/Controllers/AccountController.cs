@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using eStore.Domain;
+using eStore.Domain.Security;
 using System.Linq;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.Filters;

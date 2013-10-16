@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using eStore.Domain;
+using eStore.Domain.Store;
 using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using eStore.Domain;
+using eStore.Domain.Security;
 
 namespace eStore.Interfaces.Services
 {

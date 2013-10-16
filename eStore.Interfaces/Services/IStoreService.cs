@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using eStore.Domain;
+using eStore.Domain.Store;
 
 namespace eStore.Interfaces.Services
 {

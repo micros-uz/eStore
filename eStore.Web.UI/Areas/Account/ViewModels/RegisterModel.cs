@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Security;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;

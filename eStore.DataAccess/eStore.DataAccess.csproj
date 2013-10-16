@@ -72,8 +72,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Unofficial.Microsoft.SQLServer.SMO.11.0.3000.0\lib\Microsoft.SqlServer.SqlEnum.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=2.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.2.1.0\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -115,8 +116,15 @@
     <Compile Include="Migrations\201310040149135_01_SimpleMembership.Designer.cs">
       <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201310160334521_02_BlogForum.cs" />
+    <Compile Include="Migrations\201310160334521_02_BlogForum.Designer.cs">
+      <DependentUpon>201310160334521_02_BlogForum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\BaseContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\BlogContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\ForumModelsConfigurator.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\BlogModelsConfigurator.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\CatalogContext.cs" />
     <Compile Include="OrmInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -127,6 +135,7 @@
     </Compile>
     <Compile Include="Repositories\Ef\BoundedContexts\CatalogModelsConfigurator.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\CommonContext.cs" />
+    <Compile Include="Repositories\Ef\BoundedContexts\ForumContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\SecurityModelsConfigurator.cs" />
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
@@ -158,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201310040149135_01_SimpleMembership.resx">
       <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201310160334521_02_BlogForum.resx">
+      <DependentUpon>201310160334521_02_BlogForum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>

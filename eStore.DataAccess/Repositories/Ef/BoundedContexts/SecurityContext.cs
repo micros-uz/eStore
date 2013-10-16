@@ -1,4 +1,4 @@
-﻿using eStore.Domain;
+﻿using eStore.Domain.Security;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity.Infrastructure;
 using eStore.Interfaces.Repositories;
 using eStore.DataAccess.Repositories.Ef.BoundedContexts;
-using eStore.Domain;
+using eStore.Domain.Security;
 
 namespace eStore.DataAccess.Repositories.Ef
 {

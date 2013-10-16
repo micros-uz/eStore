@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace eStore.Domain
+namespace eStore.Domain.Store
 {
     public class Book
     {

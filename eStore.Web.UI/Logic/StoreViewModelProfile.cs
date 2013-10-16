@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using eStore.Domain;
+using eStore.Domain.Store;
 using eStore.Web.Infrastructure.ObjectMapper;
 using eStore.Web.UI.Areas.Store.ViewModels;
 

@@ -72,6 +72,7 @@
 /packages/elmah.corelibrary.1.2.2
 /packages/Newtonsoft.Json.4.5.11
 /packages/EntityFramework.6.0.0-rc1
+/packages/NLog.2.1.0
 /packages/NLog.2.0.1.2
 /packages/WebApiContrib.Formatting.Jsonp.0.9.7.0
 /packages/TaskHelpers.Sources.0.2

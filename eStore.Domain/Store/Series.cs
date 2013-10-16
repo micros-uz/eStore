@@ -1,4 +1,4 @@
-﻿namespace eStore.Domain
+﻿namespace eStore.Domain.Store
 {
     public class Series
     {
