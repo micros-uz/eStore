@@ -9,6 +9,11 @@ namespace eStore.Domain.Store
             get;
             set;
         }
+        //  если я стану оборван как дервиш
+        //  я буду знать что ты любишь
+
+        public int Count { get; set; }
+
 
         public int GenreId
         {

@@ -1,7 +1,6 @@
 ﻿using eStore.Domain.Security;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace eStore.Web.UI.Areas.Account.ViewModels
 {
