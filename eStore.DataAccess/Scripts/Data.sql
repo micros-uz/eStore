@@ -1,23 +1,18 @@
 ﻿delete from [dbo].[Books]
 go
---DBCC CHECKIDENT ([Books], RESEED, 0)
---go
-
 delete from [dbo].[Series]
 go
---DBCC CHECKIDENT ([Series], RESEED, 0)
---go
-
 delete from [dbo].[Authors]
 go
---DBCC CHECKIDENT ([Authors], RESEED, 0)
---go
-
 delete from [dbo].[Genres]
 go
---DBCC CHECKIDENT ([Genres], RESEED, 0)
---go
 
+delete from [dbo].[TopicCategories]
+go
+delete from [dbo].[Topics]
+go
+delete from [dbo].[Posts]
+go
 
 
 /* DATA */
@@ -205,4 +200,21 @@ N'В современной истории России нет более изв
 '66D0791F-055D-4D38-B832-DB1A0E673798')
 go
 set IDENTITY_INSERT [dbo].[Books] off
+go
+
+/*
+
+	Social Data
+
+*/
+
+set IDENTITY_INSERT [dbo].[TopicCategories] on
+go
+insert into [dbo].[TopicCategories] ([TopicCategoryId], [Title], [Desc]) values (1, N'General questions', N'The place you may put your question if you did not find any other category')
+go
+insert into [dbo].[TopicCategories] ([TopicCategoryId], [Title], [Desc]) values (2, N'Payment issues', N'All payment, shipping, delivery issues in one place')
+go
+insert into [dbo].[TopicCategories] ([TopicCategoryId], [Title], [Desc]) values (3, N'What are you read?', N'All about books you read and love')
+go
+set IDENTITY_INSERT [dbo].[TopicCategories] off
 go

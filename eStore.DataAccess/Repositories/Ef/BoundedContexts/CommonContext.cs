@@ -29,11 +29,12 @@ namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
         public DbSet<Membership> Memberships { get; set; }
         public DbSet<OAuthMembership> OAuthMemberships { get; set; }
 
-        public DbSet<Article> Articles { get; set; }
-        public DbSet<Comment> Comments { get; set; }
+        public DbSet<TopicCategory> TopicCategories { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Post> Posts { get; set; }
-        
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             CatalogModelsConfigurator.OnModelCreating(modelBuilder);

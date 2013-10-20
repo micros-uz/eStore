@@ -10,7 +10,7 @@ namespace eStore.Web.UI.Areas.Social.ViewModels
         public string Desc { get; set; }
         public int TopicCount { get; set; }
         public int PostCount { get; set; }
-        public DateTime LastPopstDate { get; set; }
+        public DateTime LastPostDate { get; set; }
         public string LastPostAuthor { get; set; }
     }
 }

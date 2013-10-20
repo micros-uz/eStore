@@ -1,5 +1,6 @@
 ﻿using eStore.Interfaces.Repositories;
 using System;
+using System.Security.Cryptography;
 
 namespace eStore.Core.Services
 {

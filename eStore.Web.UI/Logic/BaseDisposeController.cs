@@ -13,6 +13,7 @@ namespace eStore.Web.UI.Logic
         {
             _rsrc = rsrc;
         }
+
         protected override void Dispose(bool disposing)
         {
             if (_rsrc != null && _rsrc.Any())

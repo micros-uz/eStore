@@ -11,8 +11,10 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Theme</th>
-                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Themes</th>
+                    <th>Posts</th>
+                    <th>Last Post</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +23,9 @@
                     <text>
                         <tr>
                             <td>@item.Title</td>
-                            <td>@item.Desc</td>
+                            <td>@item.TopicCount</td>
+                            <td>@item.PostCount</td>
+                            <td>@item.LastPostDate @item.LastPostAuthor</td>
                         </tr>
                     </text>
                  }

@@ -2,6 +2,7 @@
 using eStore.Interfaces.Repositories;
 using eStore.DataAccess.Repositories.Ef.BoundedContexts;
 using eStore.Domain.Security;
+using eStore.Domain.Forum;
 
 namespace eStore.DataAccess.Repositories.Ef
 {
@@ -22,7 +23,11 @@ namespace eStore.DataAccess.Repositories.Ef
             if (typeof(T) == typeof(User) ||
                 typeof(T) == typeof(Role))
                 return new SecurityContext(_connStrProvider.ConnectionString);
-            else 
+            else if (typeof(T) == typeof(TopicCategory)||
+                typeof(T) == typeof(Topic)||
+                typeof(T) == typeof(Post))
+                return new ForumContext(_connStrProvider.ConnectionString);
+            else
                 return new CatalogContext(_connStrProvider.ConnectionString);
         }
 

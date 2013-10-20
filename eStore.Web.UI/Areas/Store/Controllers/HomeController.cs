@@ -11,23 +11,18 @@ using eStore.Web.Infrastructure.Filters.Mvc;
 namespace eStore.Web.UI.Areas.Store.Controllers
 {
     [DbVersion(1)]
-    public class HomeController : BaseDisposeController
+    public class HomeController : BaseStoreController
     {
-        private readonly IStoreService _service;
-        private readonly IObjectMapper _mapper;
-
         public HomeController(IStoreService service, IObjectMapper mapper)
-            : base(service)
+            : base(service, mapper)
         {
-            _service = service;
-            _mapper = mapper;
         }
 
         public ActionResult Index()
         {
-            var books = _service.GetBooksByGenre(9);
+            var books = Service.GetBooksByGenre(9);
 
-            var models = _mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
+            var models = Mapper.Map<IEnumerable<Book>, IEnumerable<BookFullModel>>(books);
 
             return View(new HomeModel
                 {
