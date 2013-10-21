@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TopicModel>
+
+@{
+    ViewBag.Title = "Topics";
+}
+
+<h2>Topics</h2>
+
+<p>
+    @Html.CreateNew(new {area = "social"})
+</p>
+<table class="table table-stripped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Theme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ViewsCount)
+        </th>
+        <th>
+            Last Post
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Theme, "Topic", new { area = "social", id = item.TopicId})
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ViewsCount)
+        </td>
+        <td>
+        <td>@Html.LastPost(item.LastPostDate, item.LastPostAuthor, Html.ActionLink("%%", "AuthorProfile"))</td>
+        
+    </tr>
+}
+
+</table>

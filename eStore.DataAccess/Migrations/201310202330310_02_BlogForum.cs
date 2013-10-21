@@ -36,32 +36,49 @@ namespace eStore.DataAccess.Migrations
                 c => new
                     {
                         PostId = c.Int(nullable: false, identity: true),
+                        TopicId = c.Int(nullable: false),
                         AuthorId = c.Int(nullable: false),
                         Text = c.String(),
                         Date = c.DateTime(nullable: false),
-                        Topic_TopicId = c.Int(),
                     })
                 .PrimaryKey(t => t.PostId)
-                .ForeignKey("dbo.Topics", t => t.Topic_TopicId)
-                .Index(t => t.Topic_TopicId);
+                .ForeignKey("dbo.Topics", t => t.TopicId, cascadeDelete: true)
+                .Index(t => t.TopicId);
             
             CreateTable(
                 "dbo.Topics",
                 c => new
                     {
                         TopicId = c.Int(nullable: false, identity: true),
-                        Title = c.String(),
+                        TopicCategoryId = c.Int(nullable: false),
+                        Theme = c.String(),
+                        ViewsCount = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.TopicId);
+                .PrimaryKey(t => t.TopicId)
+                .ForeignKey("dbo.TopicCategories", t => t.TopicCategoryId, cascadeDelete: true)
+                .Index(t => t.TopicCategoryId);
+            
+            CreateTable(
+                "dbo.TopicCategories",
+                c => new
+                    {
+                        TopicCategoryId = c.Int(nullable: false, identity: true),
+                        Title = c.String(),
+                        Desc = c.String(),
+                    })
+                .PrimaryKey(t => t.TopicCategoryId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Posts", "Topic_TopicId", "dbo.Topics");
+            DropForeignKey("dbo.Topics", "TopicCategoryId", "dbo.TopicCategories");
+            DropForeignKey("dbo.Posts", "TopicId", "dbo.Topics");
             DropForeignKey("dbo.Comments", "ArticleId", "dbo.Articles");
-            DropIndex("dbo.Posts", new[] { "Topic_TopicId" });
+            DropIndex("dbo.Topics", new[] { "TopicCategoryId" });
+            DropIndex("dbo.Posts", new[] { "TopicId" });
             DropIndex("dbo.Comments", new[] { "ArticleId" });
+            DropTable("dbo.TopicCategories");
             DropTable("dbo.Topics");
             DropTable("dbo.Posts");
             DropTable("dbo.Comments");

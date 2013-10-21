@@ -120,13 +120,9 @@
     <Compile Include="Migrations\201310040149135_01_SimpleMembership.Designer.cs">
       <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201310160334521_02_BlogForum.cs" />
-    <Compile Include="Migrations\201310160334521_02_BlogForum.Designer.cs">
-      <DependentUpon>201310160334521_02_BlogForum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201310172228269_04_BookCount.cs" />
-    <Compile Include="Migrations\201310172228269_04_BookCount.Designer.cs">
-      <DependentUpon>201310172228269_04_BookCount.cs</DependentUpon>
+    <Compile Include="Migrations\201310202330310_02_BlogForum.cs" />
+    <Compile Include="Migrations\201310202330310_02_BlogForum.Designer.cs">
+      <DependentUpon>201310202330310_02_BlogForum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\BaseContext.cs" />
@@ -176,11 +172,8 @@
     <EmbeddedResource Include="Migrations\201310040149135_01_SimpleMembership.resx">
       <DependentUpon>201310040149135_01_SimpleMembership.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310160334521_02_BlogForum.resx">
-      <DependentUpon>201310160334521_02_BlogForum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201310172228269_04_BookCount.resx">
-      <DependentUpon>201310172228269_04_BookCount.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201310202330310_02_BlogForum.resx">
+      <DependentUpon>201310202330310_02_BlogForum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Scripts\Data.sql" />
   </ItemGroup>

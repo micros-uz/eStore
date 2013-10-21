@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.Security;
 using WebMatrix.WebData;
+using eStore.Domain.Security;
 
 namespace eStore.Web.Infrastructure.Authentication
 {
@@ -33,6 +34,11 @@ namespace eStore.Web.Infrastructure.Authentication
 //#endif
                 WebSecurity.Logout();
 
+        }
+
+        void IAuthenticationProvider.Register(User user)
+        {
+            //WebSecurity.CreateAccount(user.Name, user.Pa)
         }
 
         #endregion

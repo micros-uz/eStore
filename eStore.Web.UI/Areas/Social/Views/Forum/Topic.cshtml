@@ -1,0 +1,66 @@
+﻿@model TopicModel
+
+@{
+    ViewBag.Title = "Topic";
+}
+
+<h2>Topic</h2>
+
+<div>
+    <h4>TopicModel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Theme)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Theme)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewsCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewsCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastPostDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastPostDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastPostAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastPostAuthor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

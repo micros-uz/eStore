@@ -6,14 +6,14 @@ namespace eStore.DataAccess.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    [GeneratedCode("EntityFramework.Migrations", "6.0.0-rc1-20726")]
-    public sealed partial class _04_BookCount : IMigrationMetadata
+    [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
+    public sealed partial class _02_BlogForum : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_04_BookCount));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_02_BlogForum));
         
         string IMigrationMetadata.Id
         {
-            get { return "201310172228269_04_BookCount"; }
+            get { return "201310202330310_02_BlogForum"; }
         }
         
         string IMigrationMetadata.Source

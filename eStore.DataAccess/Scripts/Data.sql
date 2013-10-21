@@ -218,3 +218,18 @@ insert into [dbo].[TopicCategories] ([TopicCategoryId], [Title], [Desc]) values 
 go
 set IDENTITY_INSERT [dbo].[TopicCategories] off
 go
+
+set IDENTITY_INSERT [dbo].[Topics] on
+go
+insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount]) values (1, 1, 'When did you finish this site', 0)
+go
+insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount]) values (2, 1, 'This site is too slow for my computer', 0)
+go
+insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount]) values (3, 1, 'Stop war!', 0)
+go
+insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount]) values (4, 1, 'Who is mister Putin?', 0)
+go
+insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount]) values (5, 1, 'Why you did not use WordPress or Jumla?', 0)
+go
+set IDENTITY_INSERT [dbo].[Topics] off
+go

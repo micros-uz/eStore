@@ -59,5 +59,17 @@ namespace eStore.Web.UI.Helpers
 
             return new MvcHtmlString(JsonConvert.SerializeObject(data, settings));
         }
+
+        public static MvcHtmlString LastPost(this HtmlHelper helper, DateTime date, string author, MvcHtmlString link)
+        {
+            if (!string.IsNullOrWhiteSpace(author))
+            {
+                return new MvcHtmlString(string.Format("{0} {1}", date.ToShortDateString(), link));
+            }
+            else
+            {
+                return MvcHtmlString.Empty;
+            }
+        }
     }
 }

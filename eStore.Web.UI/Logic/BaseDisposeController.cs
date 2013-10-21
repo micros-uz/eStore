@@ -23,5 +23,12 @@ namespace eStore.Web.UI.Logic
 
             base.Dispose(disposing);
         }
+
+        protected ActionResult CheckResource(object resource, Func<ActionResult> func)
+        {
+            return resource == null
+                ? RedirectToAction("NotFound", "Error")
+                : func();
+        }
     }
 }

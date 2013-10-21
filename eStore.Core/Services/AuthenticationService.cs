@@ -1,4 +1,5 @@
-﻿using eStore.Interfaces.Services;
+﻿using eStore.Domain.Security;
+using eStore.Interfaces.Services;
 
 namespace eStore.Core.Services
 {
@@ -21,6 +22,11 @@ namespace eStore.Core.Services
         void IAuthenticationService.LogOff()
         {
             _authProvider.SignOut();
+        }
+
+        void IAuthenticationService.Register(User user)
+        {
+            _authProvider.Register(user);
         }
 
         #endregion

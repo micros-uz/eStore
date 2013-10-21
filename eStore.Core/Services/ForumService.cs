@@ -19,14 +19,14 @@ namespace eStore.Core.Services
             return UoW.GetRepository<TopicCategory>().GetAll();
         }
 
-        IEnumerable<Topic> IForumService.GetTopics()
+        IEnumerable<Topic> IForumService.GetTopics(int topicCategoryId)
         {
             return UoW.GetRepository<Topic>().GetAll();
         }
 
-        IEnumerable<Post> IForumService.GetPosts()
+        Topic IForumService.GetTopic(int topicId)
         {
-            return UoW.GetRepository<Post>().GetAll();
+            return UoW.GetRepository<Topic>().GetById(topicId);
         }
 
         #endregion
