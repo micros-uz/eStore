@@ -92,8 +92,8 @@ namespace eStore.Web.UI.Areas.Account.Controllers
             {
                 if (model.Password.Equals(model.PasswordConfirm))
                 {
-                    var user = _objMapper.Map<RegisterModel, User>(model);
-                    _authService.Register(user);
+                    _authService.Register(model.Name, model.Password, "Client");
+                    _authService.LogOn(model.Name, model.Password, false);
 
                     return RedirectToAction("LogOn");
                 }

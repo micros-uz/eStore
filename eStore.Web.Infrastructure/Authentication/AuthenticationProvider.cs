@@ -36,9 +36,16 @@ namespace eStore.Web.Infrastructure.Authentication
 
         }
 
-        void IAuthenticationProvider.Register(User user)
+        void IAuthenticationProvider.Register(string userName, string password, string role)
         {
-            //WebSecurity.CreateAccount(user.Name, user.Pa)
+            WebSecurity.CreateUserAndAccount(userName, password);
+
+            if (!Roles.RoleExists(role))
+            {
+                Roles.CreateRole(role);
+            }
+
+            Roles.AddUsersToRoles(new[] { userName }, new[] { role });
         }
 
         #endregion

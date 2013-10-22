@@ -6,7 +6,6 @@ namespace eStore.Interfaces.Services
     {
         bool SignIn(string userName, string password, bool rememberMe);
         void SignOut();
-
-        void Register(User user);
+        void Register(string userName, string password, string role);
     }
 }

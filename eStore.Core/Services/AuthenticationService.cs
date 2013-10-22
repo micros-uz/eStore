@@ -24,9 +24,9 @@ namespace eStore.Core.Services
             _authProvider.SignOut();
         }
 
-        void IAuthenticationService.Register(User user)
+        void IAuthenticationService.Register(string user, string password, string role)
         {
-            _authProvider.Register(user);
+            _authProvider.Register(user, password, role);
         }
 
         #endregion

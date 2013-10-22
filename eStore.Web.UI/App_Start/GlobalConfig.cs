@@ -29,6 +29,7 @@ namespace eStore.Web.UI
             config.Filters.Add(new ExceptionHandlingFilter());
 
             //Add JSONP support
+            // uses WebApiContrib.Formatting.Jsonp that use net40
             var formatter = new JsonpMediaTypeFormatter(json);
             config.Formatters.Insert(0, formatter);
 

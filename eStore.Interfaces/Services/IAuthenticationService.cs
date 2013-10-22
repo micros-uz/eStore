@@ -8,6 +8,6 @@ namespace eStore.Interfaces.Services
         bool LogOn(string user, string password, bool rememberMe);
         void LogOff();
 
-        void Register(User user);
+        void Register(string user, string password, string role);
     }
 }

@@ -93,7 +93,7 @@ namespace eStore.Web.UI
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
+            GlobalConfig.CustomizeConfig(GlobalConfiguration.Configuration);
             ViewEngines.Engines.RemoveAt(0);    // WEB Form engine
 
             CoreBootstraper.Init();

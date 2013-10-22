@@ -67,7 +67,10 @@ namespace eStore.DataAccess.Migrations
                 .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.RoleId)
                 .Index(t => t.UserId);
-            
+
+            Sql("insert into [dbo].[webpages_Roles] ([RoleName], [Desc]) values('Administrator', 'The user with the highest permission level.')");
+            Sql("insert into [dbo].[webpages_Roles] ([RoleName], [Desc]) values('Manager', 'Can manage the store.')");
+            Sql("insert into [dbo].[webpages_Roles] ([RoleName], [Desc]) values('Client', 'Can make purchases and post to forum.')");
         }
         
         public override void Down()
