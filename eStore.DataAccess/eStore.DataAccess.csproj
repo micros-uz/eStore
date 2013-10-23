@@ -141,8 +141,10 @@
     <Compile Include="Repositories\Ef\BoundedContexts\CommonContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\ForumContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\SecurityModelsConfigurator.cs" />
+    <Compile Include="Repositories\Ef\ContextConfiguration\OneLineFormatter.cs" />
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
+    <Compile Include="Repositories\Ef\ContextConfiguration\EfDbConfiguration.cs" />
     <Compile Include="Repositories\Ef\EfGenericRepository.cs" />
     <Compile Include="Repositories\Ef\EfHelper.cs" />
     <Compile Include="Repositories\Ef\EfInitializer.cs" />

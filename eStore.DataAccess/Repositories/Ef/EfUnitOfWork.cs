@@ -54,40 +54,7 @@ namespace eStore.DataAccess.Repositories.Ef
         IGenericRepository<T> IUnitOfWork.GetRepository<T>()
         {
             return _repoFactory.GetRepository<T>(GetContext<T>());
-        }/*
-        IGenericRepository<Genre> IUnitOfWork.GenreRepository
-        {
-            get { return _genreRpstr ?? (_genreRpstr = _repoFactory.GetRepository<Genre>(Context)); }
         }
-
-        IGenericRepository<Author> IUnitOfWork.AuthorRepository
-        {
-            get { return _authorRpstr ?? (_authorRpstr = _repoFactory.GetRepository<Author>(Context)); }
-        }
-
-        IGenericRepository<Book> IUnitOfWork.BooksRepository
-        {
-            get
-            {
-                return _bookRpstr ?? (_bookRpstr = _repoFactory.GetRepository<Book>(Context));
-            }
-        }
-
-        IGenericRepository<User> IUnitOfWork.UserRepository
-        {
-            get
-            {
-                return _userRpstr ?? (_userRpstr = _repoFactory.GetRepository<User>(Context));
-            }
-        }
-
-        IGenericRepository<Role> IUnitOfWork.RoleRepository
-        {
-            get
-            {
-                return _roleRpstr ?? (_roleRpstr = _repoFactory.GetRepository<Role>(Context));
-            }
-        }*/
 
         public void Save()
         {

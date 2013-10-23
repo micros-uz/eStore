@@ -20,6 +20,7 @@ namespace eStore.Core
             WrapIoC.IoC.Current.Register<IAuthenticationService, AuthenticationService>();
             WrapIoC.IoC.Current.Register<IUserService, UserService>();
             WrapIoC.IoC.Current.Register<ICartService, CartService>();
+            WrapIoC.IoC.Current.Register<IIdentityService, IdentityService>();
             WrapIoC.IoC.Current.Register<IForumService, ForumService>();
         }
 
