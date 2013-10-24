@@ -8,7 +8,6 @@ namespace eStore.DataAccess.Repositories.Ef
 {
     internal class DbContextFactory : IDbContextFactory
     {
-        private CatalogContext _context;
         private readonly IConnectionStringProvider _connStrProvider;
 
         internal DbContextFactory(IConnectionStringProvider connStrProvider)

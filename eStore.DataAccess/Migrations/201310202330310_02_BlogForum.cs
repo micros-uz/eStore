@@ -16,7 +16,8 @@ namespace eStore.DataAccess.Migrations
                         Title = c.String(),
                         Text = c.String(),
                     })
-                .PrimaryKey(t => t.ArticleId);
+                .PrimaryKey(t => t.ArticleId)
+                .Index(x => x.Title, true);
             
             CreateTable(
                 "dbo.Comments",
@@ -56,7 +57,8 @@ namespace eStore.DataAccess.Migrations
                     })
                 .PrimaryKey(t => t.TopicId)
                 .ForeignKey("dbo.TopicCategories", t => t.TopicCategoryId, cascadeDelete: true)
-                .Index(t => t.TopicCategoryId);
+                .Index(t => t.TopicCategoryId)
+                .Index(x => x.Theme, true);
             
             CreateTable(
                 "dbo.TopicCategories",
@@ -66,7 +68,8 @@ namespace eStore.DataAccess.Migrations
                         Title = c.String(),
                         Desc = c.String(),
                     })
-                .PrimaryKey(t => t.TopicCategoryId);
+                .PrimaryKey(t => t.TopicCategoryId)
+                .Index(x => x.Title, true);
             
         }
         

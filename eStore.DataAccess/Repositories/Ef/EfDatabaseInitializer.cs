@@ -9,6 +9,7 @@ namespace eStore.DataAccess.Repositories.Ef
 {
     internal class EfDatabaseInitializer : MigrateDatabaseToLatestVersion<CommonContext, Configuration>
     {
+        
         /*
         protected void Seed(CommonContext context)
         {

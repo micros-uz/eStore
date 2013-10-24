@@ -16,5 +16,10 @@ namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
 
         DbSet<Article> Articles { get; set; }
         DbSet<Comment> Comments { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

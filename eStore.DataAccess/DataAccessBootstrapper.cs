@@ -3,6 +3,8 @@ using eStore.DataAccess.Repositories.Ef;
 using eStore.Interfaces.Repositories;
 using WrapIoC;
 using eStore.Interfaces;
+using eStore.Interfaces.Data;
+using eStore.DataAccess.Migrations.Initializers;
 
 namespace eStore.DataAccess
 {
@@ -17,6 +19,8 @@ namespace eStore.DataAccess
             ioc.Register<IDbVersionProvider, DbVersionProvider>();
 
             OrmInitializer.Init();
+
+            ioc.Get<IPredefinedDataManager>().Register("_02_", new ForumInitializer());
         }
     }
 }

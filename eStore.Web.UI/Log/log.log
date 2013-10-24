@@ -254,3 +254,130 @@
 2013-10-21 00:45:00.431|INFO|MvcApplication|Session End 
 2013-10-22 19:53:06.690|INFO|MvcApplication|Application Start 
 2013-10-22 19:53:12.519|INFO|MvcApplication|Session Start 
+2013-10-23 10:48:20.859|INFO|MvcApplication|Application Start 
+2013-10-23 10:48:26.933|INFO|MvcApplication|Session Start 
+2013-10-23 11:18:08.927|INFO|MvcApplication|Session End 
+2013-10-23 11:18:08.930|INFO|MvcApplication|Application End 
+2013-10-23 11:18:17.866|INFO|MvcApplication|Application Start 
+2013-10-23 11:18:23.475|INFO|MvcApplication|Session Start 
+2013-10-23 11:21:41.060|INFO|MvcApplication|Session End 
+2013-10-23 11:21:41.060|INFO|MvcApplication|Application End 
+2013-10-23 11:21:50.559|INFO|MvcApplication|Application Start 
+2013-10-23 11:21:55.989|INFO|MvcApplication|Session Start 
+2013-10-23 11:25:02.317|INFO|MvcApplication|Session End 
+2013-10-23 11:25:02.322|INFO|MvcApplication|Application End 
+2013-10-23 11:25:11.718|INFO|MvcApplication|Application Start 
+2013-10-23 11:25:17.174|INFO|MvcApplication|Session Start 
+2013-10-23 11:32:03.113|INFO|MvcApplication|Session End 
+2013-10-23 11:32:03.122|INFO|MvcApplication|Application End 
+2013-10-23 11:32:15.310|INFO|MvcApplication|Application Start 
+2013-10-23 11:32:23.221|INFO|MvcApplication|Session Start 
+2013-10-23 11:40:35.081|INFO|MvcApplication|Session End 
+2013-10-23 11:40:35.087|INFO|MvcApplication|Application End 
+2013-10-23 11:45:39.566|INFO|MvcApplication|Application Start 
+2013-10-23 11:45:46.885|INFO|MvcApplication|Session Start 
+2013-10-23 11:45:46.974|INFO|MvcApplication|Session Start 
+2013-10-23 11:46:06.148|INFO|MvcApplication|Session End 
+2013-10-23 11:47:24.141|ERROR|ExceptionHandlingFilter|System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Users'.
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.ApiController.<InvokeActionWithExceptionFilters>d__1.MoveNext()
+ClientConnectionId:9ab25954-c0e3-4ba1-b59d-cc595136a3e0 
+2013-10-23 11:48:55.998|ERROR|ExceptionHandlingFilter|System.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Users'.
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.ApiController.<InvokeActionWithExceptionFilters>d__1.MoveNext()
+ClientConnectionId:9ab25954-c0e3-4ba1-b59d-cc595136a3e0 
+2013-10-23 11:49:30.067|INFO|MvcApplication|Session End 
+2013-10-23 11:49:30.071|INFO|MvcApplication|Application End 
+2013-10-23 11:49:40.169|INFO|MvcApplication|Application Start 
+2013-10-23 11:49:45.915|INFO|MvcApplication|Session Start 
+2013-10-23 11:49:46.025|INFO|MvcApplication|Session Start 
+2013-10-23 11:50:24.431|INFO|MvcApplication|Session End 
+2013-10-23 11:50:27.258|INFO|MvcApplication|Session End 
+2013-10-23 11:50:27.339|INFO|MvcApplication|Application End 
+2013-10-23 11:50:42.224|INFO|MvcApplication|Application Start 
+2013-10-23 11:50:47.604|INFO|MvcApplication|Session Start 
+2013-10-23 11:55:25.158|INFO|MvcApplication|Session End 
+2013-10-23 11:55:25.165|INFO|MvcApplication|Application End 
+2013-10-23 11:55:36.056|INFO|MvcApplication|Application Start 
+2013-10-23 11:55:41.964|INFO|MvcApplication|Session Start 
+2013-10-23 12:02:06.028|INFO|MvcApplication|Session End 
+2013-10-23 12:02:06.028|INFO|MvcApplication|Application End 
+2013-10-23 12:02:15.518|INFO|MvcApplication|Application Start 
+2013-10-23 12:02:20.969|INFO|MvcApplication|Session Start 
+2013-10-23 12:24:58.730|INFO|MvcApplication|Session End 
+2013-10-23 12:28:12.123|INFO|MvcApplication|Application End 
+2013-10-23 17:47:01.466|INFO|MvcApplication|Application Start 
+2013-10-23 17:47:07.089|INFO|MvcApplication|Session Start 
+2013-10-23 17:51:48.854|INFO|MvcApplication|Session End 
+2013-10-23 17:51:48.854|INFO|MvcApplication|Application End 
+2013-10-23 20:11:48.147|INFO|MvcApplication|Application Start 
+2013-10-23 20:13:31.019|INFO|MvcApplication|Application End 
+2013-10-23 20:13:55.174|INFO|MvcApplication|Application Start 
+2013-10-23 20:14:20.816|INFO|MvcApplication|Application End 
+2013-10-23 20:23:01.759|INFO|MvcApplication|Application Start 
+2013-10-23 20:23:51.056|INFO|MvcApplication|Application End 
+2013-10-23 20:24:11.033|INFO|MvcApplication|Application Start 
+2013-10-23 20:25:21.864|INFO|MvcApplication|Application End 
+2013-10-23 20:25:43.390|INFO|MvcApplication|Application Start 
+2013-10-23 20:25:48.366|INFO|MvcApplication|Session Start 
+2013-10-23 20:27:18.683|ERROR|ExceptionHandlingFilter|System.NullReferenceException: Object reference not set to an instance of an object.
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.ApiController.<InvokeActionWithExceptionFilters>d__1.MoveNext() 
+2013-10-23 20:27:45.085|INFO|MvcApplication|Session End 
+2013-10-23 20:27:45.091|INFO|MvcApplication|Application End 
+2013-10-23 20:27:56.763|INFO|MvcApplication|Application Start 
+2013-10-23 20:28:52.949|INFO|MvcApplication|Session Start 
+2013-10-23 20:29:34.443|INFO|MvcApplication|Session End 
+2013-10-23 20:29:34.449|INFO|MvcApplication|Application End 
+2013-10-23 20:29:45.014|INFO|MvcApplication|Application Start 
+2013-10-23 20:30:01.558|INFO|MvcApplication|Session Start 
+2013-10-23 20:33:55.037|INFO|MvcApplication|Session End 
+2013-10-23 20:33:55.042|INFO|MvcApplication|Application End 
+2013-10-23 20:34:05.330|INFO|MvcApplication|Application Start 
+2013-10-23 20:34:20.225|INFO|MvcApplication|Session Start 
+2013-10-23 20:34:23.424|INFO|MvcApplication|Session Start 
+2013-10-23 20:34:37.512|INFO|MvcApplication|Session End 
+2013-10-23 20:36:31.637|INFO|MvcApplication|Session End 
+2013-10-23 20:36:31.637|INFO|MvcApplication|Application End 
+2013-10-23 20:36:42.053|INFO|MvcApplication|Application Start 
+2013-10-23 20:36:52.439|INFO|MvcApplication|Session Start 
+2013-10-23 20:38:26.864|ERROR|ExceptionHandlingFilter|System.Data.SqlClient.SqlException (0x80131904): Column 'Title' in table 'dbo.Articles' is of a type that is invalid for use as a key column in an index.
+   at System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__1.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at System.Web.Http.ApiController.<InvokeActionWithExceptionFilters>d__1.MoveNext()
+ClientConnectionId:aeffcbd8-aa92-46e7-ad6f-030f94a2c3bc 

@@ -3,6 +3,8 @@ using System.Web;
 using System.Web.Security;
 using WebMatrix.WebData;
 using eStore.Domain.Security;
+using eStore.Interfaces.Exceptions;
+using System.Data.SqlClient;
 
 namespace eStore.Web.Infrastructure.Authentication
 {
@@ -38,14 +40,25 @@ namespace eStore.Web.Infrastructure.Authentication
 
         void IAuthenticationProvider.Register(string userName, string password, string role)
         {
-            WebSecurity.CreateUserAndAccount(userName, password);
-
-            if (!Roles.RoleExists(role))
+            try
             {
-                Roles.CreateRole(role);
-            }
+                WebSecurity.CreateUserAndAccount(userName, password);
 
-            Roles.AddUsersToRoles(new[] { userName }, new[] { role });
+                if (!Roles.RoleExists(role))
+                {
+                    Roles.CreateRole(role);
+                }
+
+                Roles.AddUsersToRoles(new[] { userName }, new[] { role });
+            }
+            catch(SqlException ex)
+            {
+                throw new CoreServiceException(ex.Message, ex);
+            }
+            catch(MembershipCreateUserException ex)
+            {
+                throw new CoreServiceException(ex.Message, ex);
+            }
         }
 
         #endregion

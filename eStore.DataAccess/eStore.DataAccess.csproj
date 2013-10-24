@@ -88,8 +88,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WrapIoC">
-      <HintPath>..\packages\WrapIoC.0.9.6.0\lib\WrapIoC.dll</HintPath>
+    <Reference Include="WrapIoC, Version=0.9.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WrapIoC.0.9.8.1\lib\WrapIoC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +108,9 @@
     <Compile Include="Configurations\SeriesConfiguration.cs" />
     <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\Security\UserConfiguration.cs" />
+    <Compile Include="Configurations\Social\TopicCategoryConfiguration.cs" />
+    <Compile Include="Configurations\Social\PostConfiguration.cs" />
+    <Compile Include="Configurations\Social\TopicConfiguration.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="DataAccessBootstrapper.cs" />
     <Compile Include="DataAccessException.cs" />
@@ -125,6 +129,7 @@
       <DependentUpon>201310202330310_02_BlogForum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Initializers\ForumInitializer.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\BaseContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\BlogContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\ForumModelsConfigurator.cs" />
@@ -142,6 +147,7 @@
     <Compile Include="Repositories\Ef\BoundedContexts\ForumContext.cs" />
     <Compile Include="Repositories\Ef\BoundedContexts\SecurityModelsConfigurator.cs" />
     <Compile Include="Repositories\Ef\ContextConfiguration\OneLineFormatter.cs" />
+    <Compile Include="Repositories\Ef\CustomInitializer.cs" />
     <Compile Include="Repositories\Ef\DbContextFactory.cs" />
     <Compile Include="Repositories\Ef\EfDatabaseInitializer.cs" />
     <Compile Include="Repositories\Ef\ContextConfiguration\EfDbConfiguration.cs" />

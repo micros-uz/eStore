@@ -1,4 +1,5 @@
 ﻿using System;
+using eStore.Domain.Security;
 
 namespace eStore.Domain.Forum
 {
@@ -11,5 +12,6 @@ namespace eStore.Domain.Forum
         public DateTime Date { get; set; }
 
         public virtual Topic Topic { get; set; }
+        public virtual User Author { get; set; }
     }
 }

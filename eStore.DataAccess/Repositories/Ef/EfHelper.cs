@@ -1,4 +1,4 @@
-﻿using eStore.Interfaces;
+﻿using eStore.Interfaces.Data;
 using eStore.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
@@ -35,6 +35,8 @@ namespace eStore.DataAccess.Repositories.Ef
                 if (!string.IsNullOrEmpty(target))
                 {
                     migrator.Update(target);
+
+                    IoC.Current.Get<IPredefinedDataManager>().Run(target);
                 }
                 else
                 {
@@ -44,7 +46,13 @@ namespace eStore.DataAccess.Repositories.Ef
                     }
                     else
                     {
-                        migrator.Update();
+                        var pendings = migrator.GetPendingMigrations();
+
+                        foreach (var migrName in pendings)
+                        {
+                            migrator.Update(migrName);
+                            IoC.Current.Get<IPredefinedDataManager>().Run(migrName);
+                        }                        
                     }
                 }
             }

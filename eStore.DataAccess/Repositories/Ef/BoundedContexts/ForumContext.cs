@@ -18,5 +18,12 @@ namespace eStore.DataAccess.Repositories.Ef.BoundedContexts
         public DbSet<TopicCategory> TopicCategories { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Post> Posts { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            ForumModelsConfigurator.OnModelCreating(modelBuilder);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

@@ -44,9 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IMigrationInitializer.cs" />
     <Compile Include="Exceptions\CoreServiceException.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="IDbVersionProvider.cs" />
+    <Compile Include="Data\IPredefinedDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IBaseContext.cs" />
     <Compile Include="Repositories\IConnectionStringProvider.cs" />

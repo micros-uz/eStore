@@ -14,12 +14,12 @@ namespace eStore.Core.IoC
 
         #region IIoC
 
-        void IIoC.Register<TIntf, TImpl>()
+        void IIoC.Register<TIntf, TImpl>(IoCWorkMode mode)
         {
             _Container.RegisterType<TIntf, TImpl>();
         }
 
-        void IIoC.Register<TIntf, TImpl>(string name)
+        void IIoC.Register<TIntf, TImpl>(string name, IoCWorkMode mode)
         {
             _Container.RegisterType<TIntf, TImpl>(name);
         }

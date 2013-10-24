@@ -66,7 +66,7 @@
       <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WrapIoC">
-      <HintPath>..\packages\WrapIoC.0.9.6.0\lib\WrapIoC.dll</HintPath>
+      <HintPath>..\packages\WrapIoC.0.9.8.1\lib\WrapIoC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +74,7 @@
     <Compile Include="IoC\NinjectIoC.cs" />
     <Compile Include="IoC\CustomNinjectSettings.cs" />
     <Compile Include="IoC\UnityIoC.cs" />
+    <Compile Include="PredefinedDataManager.cs" />
     <Compile Include="Services\AdminService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseUoWService.cs" />

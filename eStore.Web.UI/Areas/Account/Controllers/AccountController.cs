@@ -95,7 +95,7 @@ namespace eStore.Web.UI.Areas.Account.Controllers
                     _authService.Register(model.Name, model.Password, "Client");
                     _authService.LogOn(model.Name, model.Password, false);
 
-                    return RedirectToAction("LogOn");
+                    return RedirectToAction("Index", "Home", new { area = "store" });
                 }
                 else
                 {

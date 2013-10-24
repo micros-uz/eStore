@@ -77,66 +77,7 @@ insert into [dbo].[Series] ([SeriesId], [GenreId], [Title]) values (3, 9, N'Бе
 go
 set IDENTITY_INSERT [dbo].[Series] off
 go
-/*
-set IDENTITY_INSERT [dbo].[Users] on
-go
---insert into [dbo].[Users] ([UserId], [Name]) values (1, 'admin')
---go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (2, 'manager')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (3, 'andrey')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (4, 'ruslan')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (5, 'ivan')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (6, 'kolya')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (7, 'Nick')
-go									  
-insert into [dbo].[Users] ([UserId], [Name]) values (8, 'Ann')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (9, 'James')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (10, 'Ibragim')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (11, 'Kim En Pak')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (12, 'Radoslav')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (13, 'Ali')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (14, 'Muhammed')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (15, 'Akbar')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (16, 'Alisher')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (17, 'Nikita')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (18, 'Arnold')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (19, 'Stiven')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (20, 'Bill')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (21, 'Bob')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (22, 'Martha')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (23, 'Angela')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (24, 'Selena')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (25, 'Rehsovoy')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (26, 'Alex')
-go
-insert into [dbo].[Users] ([UserId], [Name]) values (27, 'Caleb')
-go
-set IDENTITY_INSERT [dbo].[Users] off
-go
-*/
+
 set IDENTITY_INSERT [dbo].[Books] on
 go
 insert into [dbo].[Books] ([BookId], [AuthorId], [GenreId], [SeriesId],[Title], [Price], [Year], [Pages], [ISBN], [Desc], [ImageFile])
@@ -233,3 +174,8 @@ insert into [dbo].[Topics] ([TopicId], [TopicCategoryId], [Theme], [ViewsCount])
 go
 set IDENTITY_INSERT [dbo].[Topics] off
 go
+
+--set IDENTITY_INSERT [dbo].[Posts] on
+--go
+--set IDENTITY_INSERT [dbo].[Posts] off
+--go

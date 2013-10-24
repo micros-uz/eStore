@@ -16,12 +16,17 @@ namespace eStore.Core.IoC
 
         #region IIoC
 
-        void IIoC.Register<TIntf, TImpl>()
+        void IIoC.Register<TIntf, TImpl>(IoCWorkMode mode)
         {
-            _Kernel.Bind<TIntf>().To<TImpl>();
+            var binding = _Kernel.Bind<TIntf>().To<TImpl>();
+
+            if (mode == IoCWorkMode.Singleton)
+            {
+                binding.InSingletonScope();
+            }
         }
 
-        void IIoC.Register<TIntf, TImpl>(string name)
+        void IIoC.Register<TIntf, TImpl>(string name, IoCWorkMode mode)
         {
             _Kernel.Bind<TIntf>().To<TImpl>().Named(name);
         }

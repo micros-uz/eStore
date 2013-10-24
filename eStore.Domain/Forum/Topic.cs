@@ -15,6 +15,7 @@ namespace eStore.Domain.Forum
         public string Theme { get; set; }
         public int ViewsCount { get; set; }
 
-        public virtual IEnumerable<Post>  Posts { get; set; }
+        public virtual TopicCategory Category { get; set; }
+        public virtual ICollection<Post>  Posts { get; set; }
     }
 }

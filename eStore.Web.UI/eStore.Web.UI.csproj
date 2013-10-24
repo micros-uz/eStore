@@ -211,8 +211,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.0.0\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
-    <Reference Include="WrapIoC">
-      <HintPath>..\packages\WrapIoC.0.9.6.0\lib\WrapIoC.dll</HintPath>
+    <Reference Include="WrapIoC, Version=0.9.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WrapIoC.0.9.8.1\lib\WrapIoC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

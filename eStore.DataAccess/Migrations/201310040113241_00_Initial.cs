@@ -14,8 +14,10 @@ namespace eStore.DataAccess.Migrations
                         AuthorId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 200),
                     })
-                .PrimaryKey(t => t.AuthorId);
-            
+                .PrimaryKey(t => t.AuthorId)
+                // do not allow!
+                .Index(x => x.Name);
+
             CreateTable(
                 "dbo.Books",
                 c => new
@@ -37,7 +39,10 @@ namespace eStore.DataAccess.Migrations
                 .ForeignKey("dbo.Genres", t => t.GenreId)
                 .Index(t => t.AuthorId)
                 .Index(t => t.GenreId);
-            
+
+            // no the same books in the same genre for one author!
+            CreateIndex("dbo.Books", new string[] { "GenreId", "AuthorId", "Title" });
+
             CreateTable(
                 "dbo.Genres",
                 c => new
@@ -46,8 +51,9 @@ namespace eStore.DataAccess.Migrations
                         Title = c.String(nullable: false, maxLength: 30),
                         Desc = c.String(maxLength: 200),
                     })
-                .PrimaryKey(t => t.GenreId);
-            
+                .PrimaryKey(t => t.GenreId)
+                .Index(x => x.Title, true);
+
             CreateTable(
                 "dbo.Series",
                 c => new
@@ -57,7 +63,8 @@ namespace eStore.DataAccess.Migrations
                         Title = c.String(nullable: false, maxLength: 30),
                         Desc = c.String(maxLength: 200),
                     })
-                .PrimaryKey(t => t.SeriesId);
+                .PrimaryKey(t => t.SeriesId)
+                .Index(x => x.Title, true);
             
         }
         

@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -65,6 +66,7 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -104,12 +106,14 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.3.0.0\lib\net45\WebMatrix.WebData.dll</HintPath>
     </Reference>
-    <Reference Include="WrapIoC">
-      <HintPath>..\packages\WrapIoC.0.9.6.0\lib\WrapIoC.dll</HintPath>
+    <Reference Include="WrapIoC, Version=0.9.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WrapIoC.0.9.8.1\lib\WrapIoC.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationProvider.cs" />
+    <Compile Include="Authentication\AuthPredefinedInitializer.cs" />
     <Compile Include="Authentication\OAuthSecretData.cs" />
     <Compile Include="BaseApiController.cs" />
     <Compile Include="BaseMvcController.cs" />

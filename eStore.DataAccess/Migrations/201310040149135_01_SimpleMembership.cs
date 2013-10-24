@@ -2,6 +2,7 @@ namespace eStore.DataAccess.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
+    using eStore.Interfaces;
     
     public partial class _01_SimpleMembership : DbMigration
     {
@@ -59,12 +60,12 @@ namespace eStore.DataAccess.Migrations
                 "dbo.webpages_UsersInRoles",
                 c => new
                     {
-                        RoleId = c.Int(nullable: false),
                         UserId = c.Int(nullable: false),
+                        RoleId = c.Int(nullable: false)
                     })
-                .PrimaryKey(t => new { t.RoleId, t.UserId })
-                .ForeignKey("dbo.webpages_Roles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.UserId, t.RoleId })
+                .ForeignKey("dbo.webpages_Roles", t => t.RoleId, cascadeDelete: false)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.RoleId)
                 .Index(t => t.UserId);
 

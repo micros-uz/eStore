@@ -1,4 +1,5 @@
-﻿using eStore.Interfaces.Repositories;
+﻿using eStore.Interfaces.Data;
+using eStore.Interfaces.Repositories;
 using eStore.Interfaces.Services;
 using eStore.Web.Infrastructure.Authentication;
 using eStore.Web.Infrastructure.ObjectMapper;
@@ -19,6 +20,8 @@ namespace eStore.Web.Infrastructure
             IoC.Current.Register<IFileService, FileService>();
             IoC.Current.Register<ISeedActionProvider, DatabaseSeedActionManager>();
             IoC.Current.Register<IEnvironmentProvider, WebEnvironmentProvider>();
+
+            IoC.Current.Get<IPredefinedDataManager>().Register("_01_", new AuthPredefinedInitializer());
         }
     }
 }
